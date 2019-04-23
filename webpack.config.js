@@ -82,7 +82,8 @@ if (process.env.SERVER) {
 				proxy: process.env.LOCAL_URL || 'http://heisenberg.dev',
 				files: [
 					'**/*.php',
-					'**/*.css'
+					'**/*.css',
+					'**/*.js'
 				],
 				port: process.env.PORT || 3000,
 				notify: false

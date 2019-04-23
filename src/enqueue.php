@@ -8,7 +8,6 @@ namespace Heisenberg;
 add_action( 'wp_enqueue_scripts', function() {
 
 	$min_ext = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-	error_log("Child enqueue");
 
 	// JS
 	wp_enqueue_script(
@@ -18,6 +17,13 @@ add_action( 'wp_enqueue_scripts', function() {
 		HEISENBERG_VERSION,
 		true
 	);
+
+	wp_enqueue_script( 
+		'heisenberg-child_js',
+        get_stylesheet_directory_uri() . "/dist/build{$min_ext}.js",
+        array( 'heisenberg_js' ),
+        HEISENBERG_VERSION
+    );
 
 	// CSS
 	wp_enqueue_style(
