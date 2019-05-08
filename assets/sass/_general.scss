@@ -1,0 +1,25 @@
+.grid-container{
+	max-width: none;
+}
+
+.content-container {
+	max-width: 1000px;
+	margin: auto;
+}
+
+main {
+	background-color: $third-color;
+
+	.content-container {
+		padding-top: 1em;
+		padding-bottom: 1em;
+
+		> div {
+			background-color: $secondary-color;
+		}
+
+		.border-bottom {
+			border-bottom: 2px solid $third-color;
+		}
+	}
+}

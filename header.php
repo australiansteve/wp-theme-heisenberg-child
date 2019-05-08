@@ -22,6 +22,7 @@
 <body <?php body_class(); ?>>
 
 <header class="grid-container">
+	<div class="content-container">
 	<?php
 	printf( '<h1><a href="%s" rel="home">%s</a></h1>',
 		esc_url( home_url( '/' ) ),
@@ -34,6 +35,7 @@
 		'theme_location' => 'primary',
 		'container'      => '',
 	] ); ?>
+	</div>
 </header>
 
 <main class="grid-container">
