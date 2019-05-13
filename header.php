@@ -23,6 +23,24 @@
 
 <header class="grid-container">
 	<div class="content-container">
+		<div class="grid-x show-for-medium" id="header-language-switch">
+			<div class="cell text-right">
+				<span class="language-fr"><a href="/?lang=fr">FR</a></span>
+				<span class="language-en"><a href="/?lang=en">EN</a></span>
+			</div>
+		</div>
+		<div class="grid-x show-for-medium" id="header-contact-information">
+			<div class="cell text-right">
+				<span class="telephone-number"><?php the_field('telephone_number_text', 'option')?>: <a href="<?php the_field('telephone_number_link', 'option')?>"><?php the_field('telephone_number', 'option')?></a></span>
+				<span class="email-address"><?php the_field('email_address_text', 'option')?>: <a href="mailto:<?php the_field('email_address', 'option')?>"><?php the_field('email_address', 'option')?></a></span>
+			</div>
+		</div>
+		<div class="grid-x show-for-medium" id="header-links">
+			<div class="cell text-right">
+				<span class="mailing-list"><a href="<?php the_field('mailing_list_link', 'option')?>"><?php the_field('mailing_list_text', 'option')?></a></span>
+				<span class="account-login"><a href="<?php the_field('account_login_link', 'option')?>"><?php the_field('account_login_text', 'option')?></a></span>
+			</div>
+		</div>
 	<?php
 	printf( '<h1><a href="%s" rel="home">%s</a></h1>',
 		esc_url( home_url( '/' ) ),
