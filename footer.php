@@ -17,7 +17,7 @@
 
 			<div class="content-container">
 
-				<div class="grid-x">
+				<div class="grid-x align-stretch">
 
 					<div class="medium-4 cell" id="left-column">
 						<?php wp_nav_menu( [
@@ -25,17 +25,6 @@
 							'container' => '',
 							'menu_class' => 'menu vertical',
 							]); 
-						?>
-
-						<?php 
-
-						$image = get_field('footer_logo', 'option');
-						$size = 'footer_logo'; // (thumbnail, medium, large, full or custom size)
-
-						if( $image ) {
-							echo wp_get_attachment_image( $image, $size );
-						}
-
 						?>
 					</div>
 					
@@ -52,6 +41,22 @@
 						<?php the_field('footer_right_text', 'option'	); ?>
 					</div>
 
+				</div>
+				<div class="grid-x">
+					<div class="cell" id="logo">
+						<a href="/">
+<?php 
+
+$image = get_field('footer_logo', 'option');
+$size = 'footer_logo'; // (thumbnail, medium, large, full or custom size)
+
+if( $image ) {
+	echo wp_get_attachment_image( $image, $size );
+}
+
+?>
+						</a>
+					</div>
 				</div>
 				<div class="grid-x">
 					<div class="cell text-center" id="copyright">

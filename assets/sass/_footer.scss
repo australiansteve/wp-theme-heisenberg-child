@@ -1,17 +1,61 @@
+footer {
+	background: $black-color;
+	
+	div, a, p, h1, h2, h3, h4, h5, h6 {
+		color: $secondary-color;
+	}
+
+	.content-container {
+		text-align: center;
+		padding-top: 2em;
+
+		.menu li a {
+			font-size: 1.1rem;
+			font-family: 'Cooper-Hewitt-BOld';
+			text-transform: uppercase;
+			padding: 0;
+			line-height: 1.4;
+			margin-bottom: 0.5em;
+		}
+	}
+
+	#copyright {
+		padding: 2rem 0 1rem 0;
+
+		a {
+			font-size: 0.5rem;
+		}
+	}
+
+}
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	
+	footer {
+		.content-container {
+
+			#right-column {
+				padding-top: 2rem;
+			}
+		}
+	}
 }
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	#center-column {
-		text-align: center;
+		text-align: left;
 	}
 
 	#right-column {
-		text-align: right;
+		text-align: left;
+	}
+
+	footer {
+		.content-container {
+			text-align: left;
+			padding-top: 4em;
+		}
 	}
 }
 
