@@ -8,7 +8,22 @@ namespace Heisenberg;
 require_once __DIR__ . '/src/enqueue.php';
 
 add_action( 'after_setup_theme', function() {
-  register_nav_menu( 'about-menu', __( 'About Page submenu', 'heisenberg' ) );
+
+	add_image_size( 'footer_logo', 240, 180, true);
+
+	register_nav_menu( 'about-menu', __( 'About Page submenu', 'heisenberg' ) );
+	register_nav_menu( 'footer-left-menu', __( 'Left Footer menu', 'heisenberg' ) );
+	register_nav_menu( 'footer-center-menu', __( 'Center Footer menu', 'heisenberg' ) );
+
+	$logoDefaults = array(
+		'height'      => 180,
+		'width'       => 240,
+		'flex-height' => true,
+		'flex-width'  => true,
+		'header-text' => array( 'site-title', 'site-description' ),
+	);
+	add_theme_support( 'custom-logo', $logoDefaults );
+
 } );
 
 if( function_exists('acf_add_options_page') ) {

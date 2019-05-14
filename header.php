@@ -41,18 +41,38 @@
 				<span class="account-login"><a href="<?php the_field('account_login_link', 'option')?>"><?php the_field('account_login_text', 'option')?></a></span>
 			</div>
 		</div>
-	<?php
+		<div class="grid-x" id="header-menu">
+			<div class="cell text-right">
+<?php
+wp_nav_menu( [
+	'theme_location' => 'primary',
+	'container'      => '',
+] ); 
+?>
+			</div>
+		</div>
+		<div class="grid-x" id="header-logo">
+			<div class="cell">
+<?php
+if ( function_exists( 'the_custom_logo' ) ) {
+	the_custom_logo();
+}
+else
+{
 	printf( '<h1><a href="%s" rel="home">%s</a></h1>',
 		esc_url( home_url( '/' ) ),
 		esc_html( get_bloginfo( 'name' ) )
 	);
-
-	printf( '<p class="h4">%s</p>', esc_html( get_bloginfo( 'description' ) ) );
-
-	wp_nav_menu( [
-		'theme_location' => 'primary',
-		'container'      => '',
-	] ); ?>
+}
+?>
+			</div>
+		</div>
+		<div class="grid-x" id="header-tagline">
+			<div class="cell">
+				<h2><?php the_field('header_tagline_title', 'option'); ?></h2>
+				<p><?php the_field('header_tagline_text', 'option'); ?></p>
+			</div>
+		</div>
 	</div>
 </header>
 
