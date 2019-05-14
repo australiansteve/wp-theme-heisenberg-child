@@ -1,3 +1,15 @@
 header {
 	background: $secondary-color;
+
+	#header-language-switch {
+		margin-bottom: 1em;
+	}
+
+	#header-contact-information, #header-links {
+		text-transform: uppercase;
+
+		.telephone-number {
+			margin-right: 1em;
+		}
+	} 
 }
