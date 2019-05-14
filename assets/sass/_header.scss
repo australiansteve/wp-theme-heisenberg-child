@@ -1,5 +1,6 @@
 header.grid-container {
 	margin-top: 0.5em;
+	padding: 0;
 	background: $secondary-color;
 
 	#header-language-switch {
@@ -29,6 +30,17 @@ header.grid-container {
 
 	#header-tagline {
 		font-size: 1.4rem;
+	}
+
+	.is-at-top.is-stuck .hide-for-sticky, .is-at-top.is-stuck .hide-for-sticky * {
+		color: white;
+		margin: 0;
+		font-size: 0;
+		transition: font-size 0.5s ease;
+	}
+
+	.is-at-top.is-stuck img.custom-logo {    
+		margin-bottom: 1em;
 	}
 }
 

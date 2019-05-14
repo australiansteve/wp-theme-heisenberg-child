@@ -37,40 +37,42 @@
 		</div>
 
 		<header class="grid-container">
-			<div class="content-container">
-				<div class="grid-x" id="header-language-switch">
-					<div class="cell small-11 medium-12 small-text-left medium-text-right">
-						<span class="language-fr"><a href="/?lang=fr">FR</a></span> | 
-						<span class="language-en"><a href="/?lang=en">EN</a></span>
-					</div>
-					<div class="cell small-1 off-canvas-content hide-for-medium small-text-right" id="hamburger-menu" data-off-canvas-content>
-						<a href="#" data-toggle="offCanvasLeft"><i class="fas fa-bars"></i></a>
-					</div>			
-				</div>
-				<div class="grid-x show-for-medium" id="header-contact-information">
-					<div class="cell text-right">
-						<span class="telephone-number"><?php the_field('telephone_number_text', 'option')?>: <a href="<?php the_field('telephone_number_link', 'option')?>"><?php the_field('telephone_number', 'option')?></a></span>
-						<span class="email-address"><?php the_field('email_address_text', 'option')?>: <a href="mailto:<?php the_field('email_address', 'option')?>"><?php the_field('email_address', 'option')?></a></span>
-					</div>
-				</div>
-				<div class="grid-x show-for-medium" id="header-links">
-					<div class="cell text-right">
-						<span class="mailing-list"><a href="<?php the_field('mailing_list_link', 'option')?>"><?php the_field('mailing_list_text', 'option')?></a></span> | 
-						<span class="account-login"><a href="<?php the_field('account_login_link', 'option')?>"><?php the_field('account_login_text', 'option')?></a></span>
-					</div>
-				</div>
-				<div class="grid-x show-for-medium" id="header-menu">
-					<div class="cell text-right">
+			<div data-sticky-container>
+				<div data-sticky style="background:white;max-width:100%" data-margin-top="0">
+					<div class="content-container">
+						<div class="grid-x hide-for-sticky" id="header-language-switch">
+							<div class="cell small-11 medium-12 small-text-left medium-text-right">
+								<span class="language-fr"><a href="/?lang=fr">FR</a></span> | 
+								<span class="language-en"><a href="/?lang=en">EN</a></span>
+							</div>
+							<div class="cell small-1 off-canvas-content hide-for-medium small-text-right" id="hamburger-menu" data-off-canvas-content>
+								<a href="#" data-toggle="offCanvasLeft"><i class="fas fa-bars"></i></a>
+							</div>			
+						</div>
+						<div class="grid-x show-for-medium hide-for-sticky" id="header-contact-information">
+							<div class="cell text-right">
+								<span class="telephone-number"><?php the_field('telephone_number_text', 'option')?>: <a href="<?php the_field('telephone_number_link', 'option')?>"><?php the_field('telephone_number', 'option')?></a></span>
+								<span class="email-address"><?php the_field('email_address_text', 'option')?>: <a href="mailto:<?php the_field('email_address', 'option')?>"><?php the_field('email_address', 'option')?></a></span>
+							</div>
+						</div>
+						<div class="grid-x show-for-medium hide-for-sticky" id="header-links">
+							<div class="cell text-right">
+								<span class="mailing-list"><a href="<?php the_field('mailing_list_link', 'option')?>"><?php the_field('mailing_list_text', 'option')?></a></span> | 
+								<span class="account-login"><a href="<?php the_field('account_login_link', 'option')?>"><?php the_field('account_login_text', 'option')?></a></span>
+							</div>
+						</div>
+						<div class="grid-x show-for-medium" id="header-menu">
+							<div class="cell text-right">
 <?php
 wp_nav_menu( [
 	'theme_location' => 'primary',
 	'container'      => '',
 ] ); 
-?>
-					</div>
-				</div>
-				<div class="grid-x" id="header-logo">
-					<div class="cell text-center medium-text-left">
+	?>
+							</div>
+						</div>
+						<div class="grid-x" id="header-logo">
+							<div class="cell text-center medium-text-left">
 <?php
 if ( function_exists( 'the_custom_logo' ) ) {
 	the_custom_logo();
@@ -83,12 +85,14 @@ else
 	);
 }
 ?>
-					</div>
-				</div>
-				<div class="grid-x" id="header-tagline">
-					<div class="cell">
-						<h2><?php the_field('header_tagline_title', 'option'); ?></h2>
-						<p><?php the_field('header_tagline_text', 'option'); ?></p>
+							</div>
+						</div>
+						<div class="grid-x hide-for-sticky" id="header-tagline">
+							<div class="cell">
+								<h2><?php the_field('header_tagline_title', 'option'); ?></h2>
+								<p><?php the_field('header_tagline_text', 'option'); ?></p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
