@@ -1,13 +1,4 @@
 
-body, div, span, h1, h2, h3, h4, h5, h6, p, a, td {
-	font-family: 'Cooper-Hewitt', helvetica, sans-serif;
-	color: black;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Cooper-Hewitt-Bold', 'Cooper-Hewitt', helvetica, sans-serif;
-}
-
 a:hover, a:active, a:focus {
 	color: $third-color;
 	outline-color: inherit;
