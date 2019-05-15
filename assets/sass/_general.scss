@@ -15,6 +15,7 @@ a:hover, a:active, a:focus {
 
 main {
 	background-color: $third-color;
+	min-height: 80vh;
 
 	.content-container {
 		padding-top: 1em;
