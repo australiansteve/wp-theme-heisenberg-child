@@ -13,6 +13,11 @@ a:hover, a:active, a:focus {
 	margin: auto;
 }
 
+.container {
+    background: $white-color;
+    padding: 1rem;
+}
+
 main {
 	background-color: $third-color;
 	min-height: 80vh;
@@ -29,4 +34,18 @@ main {
 			border-bottom: 2px solid $third-color;
 		}
 	}
+}
+
+a.button, button {
+	background: $black-color;
+	color: $white-color;
+	text-transform: uppercase;
+	display: block;
+	font-size: 1.1rem;
+	font-family: 'Cooper-Hewitt-Bold';
+}
+
+a.button:hover, button:hover {
+	background: $black-color;
+	color: $yellow-color;
 }

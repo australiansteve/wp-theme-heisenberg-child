@@ -10,6 +10,7 @@ require_once __DIR__ . '/src/enqueue.php';
 add_action( 'after_setup_theme', function() {
 
 	add_image_size( 'footer_logo', 240, 180, true);
+	add_image_size( 'homepage_cta', 660, 375, true);
 
 	register_nav_menu( 'about-menu', __( 'About Page submenu', 'heisenberg' ) );
 	register_nav_menu( 'footer-left-menu', __( 'Left Footer menu', 'heisenberg' ) );
