@@ -50,3 +50,25 @@ if( function_exists('acf_add_options_page') ) {
 	));
 	
 }
+
+if (!function_exists('endsWith'))
+{
+	function endsWith($haystack, $needle)
+	{
+	    $length = strlen($needle);
+	    if ($length == 0) {
+	        return true;
+	    }
+
+	    return (substr($haystack, -$length) === $needle);
+	}
+}
+
+add_filter( 'get_the_excerpt', function( $excerpt ) {
+ 	if (endsWith($excerpt, ' [&hellip;]'))
+ 	{
+ 		error_log("Trim the excerpt!");
+ 		return substr($excerpt, 0, -11);
+ 	}
+ 	return $excerpt;
+} );

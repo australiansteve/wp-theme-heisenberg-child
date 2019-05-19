@@ -57,6 +57,64 @@ get_header(); ?>
 
 		</div>
 
+		<div class="grid-x grid-margin-x" id="feeds">
+
+			<div class="small-12 medium-4 cell" id="news">
+				
+				<div class="container">
+					<h3><?php the_field('front_page_column_title_1', 'option');?></h3>
+<?php
+// WP_Query arguments
+$args = array(
+	'post_type'              => array( 'post' ),
+	'post_status'            => array( 'publish' ),
+	'posts_per_page'         => '2',
+);
+
+// The Query
+$postsquery = new WP_Query( $args );
+
+// The Loop
+if ( $postsquery->have_posts() ) {
+	while ( $postsquery->have_posts() ) {
+		$postsquery->the_post();
+		
+		echo get_template_part('template-parts/post', 'front-page');
+	}
+} else {
+	// no posts found
+}
+
+// Restore original Post Data
+wp_reset_postdata();
+
+?>					
+				</div>
+
+			</div>
+
+			<div class="small-12 medium-4 cell" id="feature">
+				
+				<div class="container">
+					<h3><?php the_field('front_page_column_title_2', 'option');?></h3>
+<?php
+?>	
+				</div>
+
+			</div>
+
+			<div class="small-12 medium-4 cell" id="deadlines">
+				
+				<div class="container">
+					<h3><?php the_field('front_page_column_title_3', 'option');?></h3>
+<?php
+?>	
+				</div>
+
+			</div>
+
+		</div>
+
 	</div>
 
 <?php
