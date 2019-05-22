@@ -57,11 +57,11 @@ get_header(); ?>
 
 		</div>
 
-		<div class="grid-x grid-margin-x" id="feeds">
+		<div class="grid-x grid-margin-x" id="feeds" data-equalizer="feeds">
 
 			<div class="small-12 medium-4 cell" id="news">
 				
-				<div class="container">
+				<div class="container height-dominant-container" data-equalizer-watch="feeds">
 					<h3><?php the_field('front_page_column_title_1', 'option');?></h3>
 <?php
 // WP_Query arguments
@@ -95,9 +95,39 @@ wp_reset_postdata();
 
 			<div class="small-12 medium-4 cell" id="feature">
 				
-				<div class="container">
+				<div class="container" data-equalizer-watch="feeds">
 					<h3><?php the_field('front_page_column_title_2', 'option');?></h3>
 <?php
+// WP_Query arguments
+$args = array(
+	'post_type'              => array( 'post' ),
+	'post_status'            => array( 'publish' ),
+	'posts_per_page'         => '1',
+	'tax_query'              => array(
+		array(
+			'taxonomy'         => 'category',
+			'terms'            => 'featured',
+			'field'            => 'slug',
+			'operator'         => 'IN',
+		),
+	),
+);
+
+// The Query
+$postsquery = new WP_Query( $args );
+
+// The Loop
+if ( $postsquery->have_posts() ) {
+	while ( $postsquery->have_posts() ) {
+		$postsquery->the_post();
+		echo get_template_part('template-parts/post', 'front-page-featured');
+	}
+} else {
+	// no posts found
+}
+
+// Restore original Post Data
+wp_reset_postdata();
 ?>	
 				</div>
 
@@ -105,7 +135,7 @@ wp_reset_postdata();
 
 			<div class="small-12 medium-4 cell" id="deadlines">
 				
-				<div class="container">
+				<div class="container" data-equalizer-watch="feeds">
 					<h3><?php the_field('front_page_column_title_3', 'option');?></h3>
 <?php
 ?>	

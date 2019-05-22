@@ -20,7 +20,7 @@
 
 		#feeds {
 
-			#news {
+			#news, #feature {
 
 				 .post-front-page {
 
@@ -40,16 +40,21 @@
 		}
 	}
 
+	.height-restricted-container {
+		max-height: 200px;
+		overflow: hidden;
+		margin-bottom: 1rem;
+	}
+
 }
 
 	/* Small only */
 @media screen and (max-width: 39.9375em) {
-	
 }
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
-
+	
 }
 
 /* Medium only */
