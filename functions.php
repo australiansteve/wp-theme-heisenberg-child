@@ -11,8 +11,10 @@ add_action( 'after_setup_theme', function() {
 
 	add_image_size( 'footer_logo', 240, 180, true);
 	add_image_size( 'homepage_cta', 660, 375, true);
+	add_image_size( 'program_featured_image', 400, 267, true);
 
 	register_nav_menu( 'about-menu', __( 'About Page submenu', 'heisenberg' ) );
+	register_nav_menu( 'grants-menu', __( 'Grants Page submenu', 'heisenberg' ) );
 	register_nav_menu( 'footer-left-menu', __( 'Left Footer menu', 'heisenberg' ) );
 	register_nav_menu( 'footer-center-menu', __( 'Center Footer menu', 'heisenberg' ) );
 
@@ -44,11 +46,22 @@ if( function_exists('acf_add_options_page') ) {
 	));
 	
 	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Home Page Settings',
+		'menu_title'	=> 'Home Page',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Grants Page Settings',
+		'menu_title'	=> 'Grants Page',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Theme Footer Settings',
 		'menu_title'	=> 'Footer',
 		'parent_slug'	=> 'theme-general-settings',
 	));
-	
 }
 
 if (!function_exists('endsWith'))
