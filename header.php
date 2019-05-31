@@ -22,19 +22,63 @@
 
 <body <?php body_class(); ?>>
 
-<header class="grid-container">
-	<?php
-	printf( '<h1><a href="%s" rel="home">%s</a></h1>',
-		esc_url( home_url( '/' ) ),
-		esc_html( get_bloginfo( 'name' ) )
-	);
+<header>
+	<?php 
+	$image = get_field('header_background_image', 'option');
+	if ($image):
+	?>
+	<div class="background-div" style="background-image:url(<?php echo $image['url'];?>)">
+	</div>
+	<?php endif; ?>
 
-	printf( '<p class="h4">%s</p>', esc_html( get_bloginfo( 'description' ) ) );
+	<div class="grid-container">
+		<div class="grid-x">
+			<div class="medium-5 cell">
+				<?php
+				if ( function_exists( 'the_custom_logo' ) ) {
+					the_custom_logo();
+				}
+				?>
+			</div>
+			<div class="medium-7 cell text-right show-for-medium">
+				<?php
+				wp_nav_menu( [
+					'theme_location' => 'primary',
+					'container_class' => 'inline-block',
+					'menu_id' => 'primary-menu' 
+				] ); 
+				wp_nav_menu( [
+					'theme_location' => 'social-menu',
+					'container_class' => 'inline-block',
+					'menu_id' => 'social-menu' 
+				] ); 
+				?>
+			</div>
+		</div>
+		<div class="grid-x show-for-small-only">
+			<div class="small-12 cell">
+				<ul class="vertical menu accordion-menu" data-accordion-menu>
+					<?php
+					$args = [
+						'theme_location' 	=> 'primary',
+						'container'			=> false,
+						'items_wrap' 		=> '%3$s',
+						
+					];
+					wp_nav_menu( $args ); ?>
+				</ul>
 
-	wp_nav_menu( [
-		'theme_location' => 'primary',
-		'container'      => '',
-	] ); ?>
+				<?php
+				wp_nav_menu( [
+					'theme_location' => 'social-menu',
+					'menu_class' => 'menu horizontal',
+					'menu_id' => 'header-social-menu' 
+				] ); 
+				?>
+			</div>
+		</div>
+	</div>
+	
 </header>
 
 <main class="grid-container">

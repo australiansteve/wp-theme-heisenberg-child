@@ -13,6 +13,15 @@ add_action('after_setup_theme', function(){
 	register_nav_menu( 'social-menu', __( 'Social Media Menu', 'heisenberg' ) );
 	register_nav_menu( 'footer-menu', __( 'Secondary Footer Menu', 'heisenberg' ) );
 
+	$defaults = array(
+		'height'      => 185,
+		'width'       => 400,
+		'flex-height' => true,
+		'flex-width'  => true,
+		'header-text' => array( 'site-title', 'site-description' ),
+	);
+	add_theme_support( 'custom-logo', $defaults );
+
 });
 
 if( function_exists('acf_add_options_page') ) {

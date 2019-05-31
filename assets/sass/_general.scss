@@ -1,0 +1,12 @@
+.inline-block {
+	display: inline-block;
+}
+
+.background-div {
+	position: absolute;
+	background-repeat: repeat-y;
+	background-size: contain;
+	height: 100%;
+	width: 100%;
+	z-index: -5;
+}
