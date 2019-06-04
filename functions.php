@@ -85,3 +85,13 @@ add_filter( 'get_the_excerpt', function( $excerpt ) {
  	}
  	return $excerpt;
 } );
+
+// filter
+
+
+add_filter('posts_where', function ( $where ) {
+	
+	$where = str_replace("meta_key = 'deadlines_$", "meta_key LIKE 'deadlines_%", $where);
+
+	return $where;
+});
