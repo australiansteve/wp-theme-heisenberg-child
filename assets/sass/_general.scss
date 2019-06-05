@@ -49,3 +49,18 @@ a.button:hover, button:hover {
 	background: $black-color;
 	color: $yellow-color;
 }
+
+#sub-menu {
+	#menu-about-1 {
+		max-width: 90%;
+	}
+	a {
+		font-family: 'Cooper-Hewitt-Bold';
+		text-transform: uppercase;
+	}
+}
+
+#sub-menu a.active {
+	text-decoration: underline;
+	
+}

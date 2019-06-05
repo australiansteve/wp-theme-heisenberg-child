@@ -34,8 +34,6 @@ get_header(); ?>
 			endwhile;
 
 		endif;
-
-	endif;
 	?>
 </div>
 

@@ -1,0 +1,44 @@
+#board-members {
+	.board-member {
+		margin: 1rem 0 2rem 0;
+
+		.left-column {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	#board-members {
+		.board-member {
+			.left-column {
+				margin-bottom: 0;
+			}
+			.right-column {
+				padding-left: 3rem;
+			}
+		}
+	}
+
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}
