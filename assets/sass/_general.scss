@@ -4,9 +4,76 @@
 
 .background-div {
 	position: absolute;
-	background-repeat: repeat-y;
-	background-size: contain;
+	background-position-x: 50%;
+    background-position-y: 0;
 	height: 100%;
 	width: 100%;
 	z-index: -5;
+}
+
+.gold-border-div {
+	box-shadow: inset 0px 0px 0px 5px $gold-color;
+	width: calc(100% - 2rem);
+	height: calc(100% - 2rem);
+	position: absolute;
+	margin: 1rem;
+}
+
+.container {
+	background: $secondary-color;
+	padding: 1rem;
+}
+
+.button {
+	background-color: $primary-color;
+	color: $gold-color;
+	border: 3px solid $primary-color;
+	box-shadow: inset 0px 0px 0px 1px $gold-color;
+	margin-top: 2rem;
+	padding: 1rem 4rem;
+}
+
+.button:hover, .button:active {
+	background-color: $primary-color-highlight;
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.button {		
+		font-size: 1.25rem;
+	}
+
+	.gold-border-div {
+		width: calc(100% - 4rem);
+		height: calc(100% - 4rem);
+		margin: 2rem;
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	.background-div {	
+		background-size: cover;
+	}
+	
+	.gold-border-div {
+		width: calc(100% - 6rem);
+		height: calc(100% - 6rem);
+		margin: 3rem;
+	}
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
 }

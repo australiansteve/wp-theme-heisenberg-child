@@ -81,4 +81,4 @@
 	
 </header>
 
-<main class="grid-container">
+<main>
