@@ -9,6 +9,7 @@
 	height: 100%;
 	width: 100%;
 	z-index: -5;
+	background-repeat: no-repeat;
 }
 
 .border-container {
@@ -37,7 +38,12 @@
 	padding: 1rem;
 }
 
-.button {
+.button-container {
+	margin-top: 2rem;
+	margin-bottom: 3rem;
+}
+
+.button, .button-container>a {
 	background-color: $primary-color;
 	color: $gold-color;
 	border: 3px solid $primary-color;
@@ -46,8 +52,23 @@
 	padding: 1rem 4rem;
 }
 
-.button:hover, .button:active {
+.button:hover, .button:active, .button-container>a:hover, .button-container>a.active {
 	background-color: $primary-color-highlight;
+}
+
+.page-title-container {
+	background-color: $gold-color;
+	color: $black-color;
+	height: 10rem;
+	padding: 1.5rem;
+	max-width: 90%;
+	margin-top: 2rem;
+	margin-bottom: -3rem;
+}
+
+.page-content {
+    max-width: 75rem;
+    margin: auto;
 }
 
 /* Small only */
@@ -71,7 +92,6 @@
 /* Large and up */
 @media screen and (min-width: 64em) {
 	.background-div {	
-		background-size: cover;
 	}
 }
 
