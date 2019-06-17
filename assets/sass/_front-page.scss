@@ -1,6 +1,11 @@
 .front-page-section
 {	
 	position: relative;
+
+	> .gold-border-div {
+		width: calc(100% - 2rem);
+		height: calc(100% - 2rem);
+	}
 }
 
 #section-services {
@@ -17,7 +22,14 @@
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
-	
+	.front-page-section {
+		> .gold-border-div {
+			width: calc(100% - 4rem);
+			height: calc(100% - 4rem);
+			margin: 2rem;
+		}
+	}
+
 	#section-services {
 		.front-page-services {
 			max-width: 75%;
@@ -26,6 +38,15 @@
 			.container {
 				padding: 3rem;
 			}
+		}
+	}
+
+	#section-team {
+		.gold-border-div {
+			z-index: -1;
+		}
+		#team-member-images {
+			margin-right: -100%;
 		}
 	}
 
@@ -38,6 +59,14 @@
 
 /* Large and up */
 @media screen and (min-width: 64em) {
+	.front-page-section {
+		> .gold-border-div {
+			width: calc(100% - 6rem);
+			height: calc(100% - 6rem);
+			margin: 3rem;
+		}
+	}
+
 	#section-services {
 		.front-page-services {
 			margin: 7rem auto;
