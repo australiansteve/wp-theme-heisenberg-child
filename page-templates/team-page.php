@@ -29,6 +29,7 @@ if ( have_posts() ) :
 				<div class="page-title-container">
 					<?php the_title( '<h1>', '</h1>' ); ?>
 				</div>
+
 			</div>
 		</div>
 
@@ -39,6 +40,14 @@ $args = array(
 	'post_type'              => array( 'austeve-team' ),
 	'post_status'            => array( 'publish' ),
 	'posts_per_page'         => '-1',
+	'tax_query'				=> array(
+		array(
+			'taxonomy'         => 'team-category',
+			'terms'            => 'consultant',
+			'field'            => 'slug',
+			'operator'         => 'NOT IN',
+		),
+	),
 	
 );
 
@@ -60,6 +69,49 @@ if ( $query->have_posts() ) {
 wp_reset_postdata();
 ?>
 		</div>
+
+		<div class="grid-x grid-padding-x page-title">
+			<div class="small-12 cell">
+				<h1><?php the_field('team_page_consultants_heading', 'option');?></h1>
+			</div>
+		</div>
+
+		<div class="grid-x grid-padding-x page-content" id="team-members">
+<?php
+// WP_Query arguments
+$args = array(
+	'post_type'              => array( 'austeve-team' ),
+	'post_status'            => array( 'publish' ),
+	'posts_per_page'         => '-1',
+	'tax_query'				=> array(
+		array(
+			'taxonomy'         => 'team-category',
+			'terms'            => 'consultant',
+			'field'            => 'slug',
+			'operator'         => 'IN',
+		),
+	),
+);
+
+// The Query
+$query = new WP_Query( $args );
+
+// The Loop
+if ( $query->have_posts() ) {
+	while ( $query->have_posts() ) {
+		$query->the_post();
+
+		echo get_template_part('template-parts/austeve-team', 'archive');
+	}
+} else {
+	// no posts found
+}
+
+// Restore original Post Data
+wp_reset_postdata();
+?>
+		</div>
+
 	</div>
 <?php
 
