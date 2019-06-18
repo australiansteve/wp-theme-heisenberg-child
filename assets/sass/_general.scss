@@ -15,12 +15,10 @@
 .border-container {
 	display: inline-block;
     position: relative;
-    margin: 2rem;
-    padding: 2rem;
 }
 
 .gold-border-div {
-	box-shadow: inset 0px 0px 0px 5px $gold-color;
+	box-shadow: inset 0px 0px 0px 3px $gold-color;
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -28,8 +26,18 @@
 }
 
 .gold-border-div.offset-top-left {
-	top: -2rem;
-	left: -2rem;
+	top: -0.5rem;
+	left: -0.5rem;
+	width: calc(100% - 1rem);
+	height: calc(100% - 1rem);
+	margin: 0;
+}
+
+.gold-border-div.inset {
+	top: 0.5rem;
+	left: 0.5rem;
+	width: calc(100% - 1rem);
+	height: calc(100% - 1rem);
 	margin: 0;
 }
 
@@ -71,6 +79,9 @@
     margin: auto;
 }
 
+.wp-post-image {
+	margin-bottom: 1rem;
+}
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
@@ -80,6 +91,23 @@
 @media screen and (min-width: 40em) {
 	.button {		
 		font-size: 1.25rem;
+	}
+
+	.gold-border-div {
+		box-shadow: inset 0px 0px 0px 5px $gold-color;
+	}
+
+	.gold-border-div.offset-top-left {
+		top: -1rem;
+		left: -1rem;
+	}
+
+	.gold-border-div.inset {
+		top: 1.5rem;
+		left: 1.5rem;
+		width: calc(100% - 3rem);
+		height: calc(100% - 3rem);
+		margin: 0;
 	}
 
 }
@@ -92,6 +120,19 @@
 /* Large and up */
 @media screen and (min-width: 64em) {
 	.background-div {	
+	}
+
+	.gold-border-div.offset-top-left {
+		top: -2rem;
+		left: -2rem;
+	}
+
+	.gold-border-div.inset {
+		top: 2rem;
+		left: 2rem;
+		width: calc(100% - 4rem);
+		height: calc(100% - 4rem);
+		margin: 0;
 	}
 }
 

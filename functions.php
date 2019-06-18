@@ -10,6 +10,8 @@ require_once __DIR__ . '/src/enqueue.php';
 add_action('after_setup_theme', function(){
 	add_image_size( 'footer_logo_size', 300, 180, true );
 	add_image_size( 'post_homepage_size', 300, 300, true );
+	add_image_size( 'team_homepage_size', 180, 300, true );
+	add_image_size( 'team_archive_size', 300, 400, true );
 
 	register_nav_menu( 'social-menu', __( 'Social Media Menu', 'heisenberg' ) );
 	register_nav_menu( 'footer-menu', __( 'Secondary Footer Menu', 'heisenberg' ) );

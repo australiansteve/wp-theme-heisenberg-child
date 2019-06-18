@@ -1,0 +1,81 @@
+.page-template-team-page .page-content {
+	
+	.team-member {
+		margin-bottom: 2rem;
+
+		.team-member-container {
+			position: relative;
+		}
+
+		.team-member-content-container {
+			min-height: 400px;
+			padding: 1rem;
+		}
+
+	}
+
+	#team-members > .team-member:nth-child(3n-2) .team-member-content-container {
+		background-color: $primary-color;
+
+		p, h2, div, a {
+			color: $secondary-color;
+		}
+
+	}
+
+	#team-members > div:nth-child(3n-1) .team-member-container .background-div {
+		background-color: $gold-color;
+		margin-top: -1rem;
+	    margin-left: 3rem;
+	    width: calc(100% - 3rem);
+	}
+
+	#team-members > div:nth-child(3n) .team-member-container .background-div  {
+		border: 2px solid $gold-color;
+		margin-top: -1rem;
+	    margin-left: 3rem;
+	    width: calc(100% - 3rem);
+	}
+
+	
+}
+
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.page-template-team-page .page-content {
+	
+		margin-left: 3rem;
+
+		.team-member {
+
+			.team-member-content-container {
+				padding: 2rem;
+			}
+		}
+
+		#team-members > div:nth-child(3n) .team-member-container .background-div   {
+			border: 5px solid $gold-color;
+		}
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}

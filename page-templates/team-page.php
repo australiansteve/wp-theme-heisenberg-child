@@ -1,4 +1,8 @@
 <?php
+/** 
+ * Template Name: Team page
+ */
+
 get_header(); 
 
 if ( have_posts() ) :
@@ -28,30 +32,40 @@ if ( have_posts() ) :
 			</div>
 		</div>
 
-		<div class="grid-x grid-padding-x page-content">
-
-			<div class="small-12 medium-9 medium-offset-3 cell">
-				<div class="border-container">
-					<div class="gold-border-div inset">
-					</div>
-<?php 
-					if ( has_post_thumbnail() ) {
-						the_post_thumbnail();
-					}
-?>
-				</div>
+		<div class="grid-x grid-padding-x page-content" id="team-members">
 <?php
-			the_content();
-?>
-			</div>
+// WP_Query arguments
+$args = array(
+	'post_type'              => array( 'austeve-team' ),
+	'post_status'            => array( 'publish' ),
+	'posts_per_page'         => '-1',
+	
+);
 
+// The Query
+$query = new WP_Query( $args );
+
+// The Loop
+if ( $query->have_posts() ) {
+	while ( $query->have_posts() ) {
+		$query->the_post();
+
+		echo get_template_part('template-parts/austeve-team', 'archive');
+	}
+} else {
+	// no posts found
+}
+
+// Restore original Post Data
+wp_reset_postdata();
+?>
 		</div>
 	</div>
 <?php
 
 
 	endwhile;
-	
+
 else :
 
 	echo esc_html( 'Sorry, no posts' );

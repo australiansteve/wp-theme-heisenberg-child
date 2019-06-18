@@ -1,6 +1,7 @@
 .front-page-section
 {	
 	position: relative;
+	margin-bottom: 3rem;
 
 	> .gold-border-div {
 		width: calc(100% - 2rem);
@@ -8,7 +9,23 @@
 	}
 }
 
+#section-welcome {
+	h1 {
+		margin-bottom: 3rem;
+	}
+
+	.border-container {
+		margin-left: 1rem;
+		margin-right: 0.5rem;
+	}
+
+}
+
 #section-services {
+
+	.background-div {
+		background-size: cover;
+	}
 
 	.front-page-services {
 		margin: 2rem 1rem;
@@ -30,6 +47,15 @@
 		}
 	}
 
+	#section-welcome {
+
+		.border-container {
+			margin-left: 2rem;
+			margin-right: 1rem;
+		}
+
+	}
+
 	#section-services {
 		.front-page-services {
 			max-width: 75%;
@@ -46,7 +72,7 @@
 			z-index: -1;
 		}
 		#team-member-images {
-			margin-right: -100%;
+			margin-right: -10rem;
 		}
 	}
 
@@ -64,6 +90,13 @@
 			width: calc(100% - 6rem);
 			height: calc(100% - 6rem);
 			margin: 3rem;
+		}
+	}
+
+	#section-welcome {
+		.border-container {
+			margin-left: 4rem;
+			margin-right: 2rem;
 		}
 	}
 
