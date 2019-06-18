@@ -86,20 +86,30 @@ if ($image):
 <?php
 // WP_Query arguments
 $args = array(
-	'post_type'              => array( 'austeve-team' ),
-	'post_status'            => array( 'publish' ),
-	'posts_per_page'         => '6',
+	'post_type'				=> array( 'austeve-team' ),
+	'post_status'			=> array( 'publish' ),
+	'posts_per_page'		=> '6',
+	'orderby'				=> 'menu_order',
+	'order'					=> 'ASC',
+	'tax_query'				=> array(
+		array(
+			'taxonomy'         => 'team-category',
+			'terms'            => 'consultant',
+			'field'            => 'slug',
+			'operator'         => 'NOT IN',
+		),
+	),
 	
 );
 
 // The Query
 $query = new WP_Query( $args );
-
+$count = 0;
 // The Loop
 if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post();
-
+		$count++;
 		echo get_template_part('template-parts/austeve-team', 'front-page');
 	}
 } else {

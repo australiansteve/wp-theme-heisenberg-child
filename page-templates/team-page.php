@@ -37,9 +37,11 @@ if ( have_posts() ) :
 <?php
 // WP_Query arguments
 $args = array(
-	'post_type'              => array( 'austeve-team' ),
-	'post_status'            => array( 'publish' ),
-	'posts_per_page'         => '-1',
+	'post_type' 			=> array( 'austeve-team' ),
+	'post_status'			=> array( 'publish' ),
+	'posts_per_page'		=> '-1',
+	'orderby'				=> 'menu_order',
+	'order'					=> 'ASC',
 	'tax_query'				=> array(
 		array(
 			'taxonomy'         => 'team-category',
@@ -80,9 +82,11 @@ wp_reset_postdata();
 <?php
 // WP_Query arguments
 $args = array(
-	'post_type'              => array( 'austeve-team' ),
-	'post_status'            => array( 'publish' ),
-	'posts_per_page'         => '-1',
+	'post_type'				=> array( 'austeve-team' ),
+	'post_status'			=> array( 'publish' ),
+	'posts_per_page'		=> '-1',
+	'orderby'				=> 'menu_order',
+	'order'					=> 'ASC',
 	'tax_query'				=> array(
 		array(
 			'taxonomy'         => 'team-category',
