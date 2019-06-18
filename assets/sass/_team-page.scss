@@ -26,15 +26,15 @@
 	#team-members > div:nth-child(3n-1) .team-member-container .background-div {
 		background-color: $gold-color;
 		margin-top: -1rem;
-	    margin-left: 3rem;
-	    width: calc(100% - 3rem);
+		margin-left: 0.5rem;
+		width: calc(100% - 0.5rem);
 	}
 
 	#team-members > div:nth-child(3n) .team-member-container .background-div  {
 		border: 2px solid $gold-color;
 		margin-top: -1rem;
-	    margin-left: 3rem;
-	    width: calc(100% - 3rem);
+		margin-left: 0.5rem;
+		width: calc(100% - 0.5rem);
 	}
 
 	
@@ -59,8 +59,15 @@
 			}
 		}
 
-		#team-members > div:nth-child(3n) .team-member-container .background-div   {
+		#team-members > div:nth-child(3n-1) .team-member-container .background-div {
+		    margin-left: 3rem;
+		    width: calc(100% - 3rem);
+		}
+
+		#team-members > div:nth-child(3n) .team-member-container .background-div  {
 			border: 5px solid $gold-color;
+		    margin-left: 3rem;
+		    width: calc(100% - 3rem);
 		}
 	}
 }
