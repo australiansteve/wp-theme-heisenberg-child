@@ -1,0 +1,43 @@
+.page-template-services-sub-page {
+	.content-container {
+		margin-top: 1rem;
+		margin-left: 0.5rem;
+		background: $grey-light-color;
+		padding: 1rem 1rem;
+		max-width: 85%;
+
+	}
+
+	#picture-row {
+
+		margin-bottom: -8rem;
+		z-index: 15;
+
+		.image-horizontal {
+			text-align: right;
+			padding-right: 2rem;
+			margin-top: 4rem;
+		}
+
+		.image-vertical {
+			text-align: right;
+			margin-top: -10rem;
+		}
+
+		img {
+			position: relative;
+		}
+
+	}
+
+	.client-profile-container {
+ 		position: relative;
+		max-width: 85%;
+		z-index: 15;
+
+		.client-profile {
+    		position: relative;
+			margin: 2rem;
+		}
+	}
+}

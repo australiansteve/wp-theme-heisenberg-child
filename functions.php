@@ -12,9 +12,12 @@ add_action('after_setup_theme', function(){
 	add_image_size( 'post_homepage_size', 300, 300, true );
 	add_image_size( 'team_homepage_size', 180, 300, true );
 	add_image_size( 'team_archive_size', 300, 400, true );
+	add_image_size( 'client_horizontal', 400, 300, true );
+	add_image_size( 'client_vertical', 300, 400, true );
 
 	register_nav_menu( 'social-menu', __( 'Social Media Menu', 'heisenberg' ) );
 	register_nav_menu( 'footer-menu', __( 'Secondary Footer Menu', 'heisenberg' ) );
+	register_nav_menu( 'services-menu', __( 'Services Page Menu', 'heisenberg' ) );
 
 	$defaults = array(
 		'height'      => 185,

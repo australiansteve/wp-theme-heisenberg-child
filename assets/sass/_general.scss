@@ -17,6 +17,11 @@
     position: relative;
 }
 
+.content-container {
+    position: relative;
+    z-index: 5;
+}
+
 .gold-border-div {
 	box-shadow: inset 0px 0px 0px 3px $gold-color;
 	width: 100%;
@@ -82,6 +87,11 @@
 .wp-post-image {
 	margin-bottom: 1rem;
 }
+
+.no-thumbnail-spacer {
+	min-height: 4rem;
+}
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
