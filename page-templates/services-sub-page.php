@@ -46,11 +46,12 @@ if ( have_posts() ) :
 				<div class="small-12 medium-offset-1 cell">
 
 					<div class="content-container">
-
-						<h2><?php the_title(); ?></h2>
-						<?php
-						the_content();
-						?>
+						<div class="text-shaper">
+						</div>
+							<h2><?php the_title(); ?></h2>
+							<?php
+							the_content();
+							?>
 					</div>
 
 					<div class="client-profile-container">
