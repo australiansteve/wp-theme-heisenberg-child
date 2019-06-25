@@ -1,18 +1,19 @@
 header {
 	position: relative;
-	
-	.grid-container {
-		padding-top: 3rem;
-	}
 
 	.menu a {
 		color: $black-color;
-		border-bottom: #c39e69 solid 2px;
+		border-bottom: $gold-color solid 2px;
 		display: inline-block;
 		padding-left: 0;
 		padding-right: 0;
 		padding-bottom: 0.25em;
 		margin-bottom: 0.5rem;
+	}
+
+	#hamburger-menu a.menu-toggle {
+		color: $gold-color;
+		border-bottom: none;
 	}
 
 	a:hover {
@@ -29,14 +30,43 @@ header {
 	}
 }
 
+#offCanvasLeft {
+	a, .menu.horizontal {
+		color: $black-color;
+		border-bottom: $gold-color solid 2px;
+		display: block;
+	}
+	
+	#social-menu {
+		a {
+			border-bottom: none;
+			font-size: 1rem;
+		}
+	}
+
+	a:hover {
+		color: $gold-color;
+		text-decoration: none;
+	}
+}
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	
+	header {
+		background: $primary-color;
+		padding-top: 0.5rem;
+		padding-bottom: 1rem;
+	}
 }
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	header {
+
+		.grid-container {
+			padding-top: 3rem;
+		}
+
 		#primary-menu, #social-menu {
 			text-transform: uppercase;
 			li {

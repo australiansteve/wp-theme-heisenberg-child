@@ -22,63 +22,77 @@
 
 <body <?php body_class(); ?>>
 
-<header>
-	<?php 
-	$image = get_field('header_background_image', 'option');
-	if ($image):
-	?>
-	<div class="background-div" style="background-image:url(<?php echo $image['url'];?>)">
-	</div>
-	<?php endif; ?>
 
-	<div class="grid-container">
-		<div class="grid-x">
-			<div class="medium-5 cell">
-				<?php
-				if ( function_exists( 'the_custom_logo' ) ) {
-					the_custom_logo();
-				}
-				?>
-			</div>
-			<div class="medium-7 cell text-right show-for-medium">
-				<?php
-				wp_nav_menu( [
-					'theme_location' => 'primary',
-					'container_class' => 'inline-block',
-					'menu_id' => 'primary-menu' 
-				] ); 
-				wp_nav_menu( [
-					'theme_location' => 'social-menu',
-					'container_class' => 'inline-block',
-					'menu_id' => 'social-menu' 
-				] ); 
-				?>
-			</div>
-		</div>
-		<div class="grid-x show-for-small-only">
-			<div class="small-12 cell">
-				<ul class="vertical menu accordion-menu" data-accordion-menu>
+	<div class="off-canvas-wrapper">
+
+		<div class="off-canvas-absolute position-left" id="offCanvasLeft" data-off-canvas>
+			
+			<div class="grid-x show-for-small-only">
+				<div class="small-12 cell">
+					<ul class="vertical menu" data-accordion-menu>
+						<?php
+						$args = [
+							'theme_location' 	=> 'primary',
+							'container'			=> false,
+							'items_wrap' 		=> '%3$s',
+
+						];
+						wp_nav_menu( $args ); ?>
+					</ul>
+
 					<?php
-					$args = [
-						'theme_location' 	=> 'primary',
-						'container'			=> false,
-						'items_wrap' 		=> '%3$s',
-						
-					];
-					wp_nav_menu( $args ); ?>
-				</ul>
-
-				<?php
-				wp_nav_menu( [
-					'theme_location' => 'social-menu',
-					'menu_class' => 'menu horizontal',
-					'menu_id' => 'header-social-menu' 
-				] ); 
-				?>
+					wp_nav_menu( [
+						'theme_location' => 'social-menu',
+						'menu_class' => 'menu horizontal inline-block',
+						'menu_id' => 'social-menu' 
+					] ); 
+					?>
+				</div>
 			</div>
-		</div>
-	</div>
-	
-</header>
 
-<main>
+		</div>
+
+		<header>
+			<?php 
+			$image = get_field('header_background_image', 'option');
+			if ($image):
+				?>
+				<div class="background-div" style="background-image:url(<?php echo $image['url'];?>)">
+				</div>
+			<?php endif; ?>
+
+			<div class="grid-container">
+				<div class="grid-x align-right">					
+					<div class="cell off-canvas-content hide-for-medium text-right" id="hamburger-menu" data-off-canvas-content>
+						<a href="#" class="menu-toggle" data-toggle="offCanvasLeft"><i class="fas fa-bars"></i></a>
+					</div>			
+				</div>
+
+				<div class="grid-x">
+					<div class="medium-5 cell">
+						<?php
+						if ( function_exists( 'the_custom_logo' ) ) {
+							the_custom_logo();
+						}
+						?>
+					</div>
+					<div class="medium-7 cell text-right show-for-medium">
+						<?php
+						wp_nav_menu( [
+							'theme_location' => 'primary',
+							'container_class' => 'inline-block',
+							'menu_id' => 'primary-menu' 
+						] ); 
+						wp_nav_menu( [
+							'theme_location' => 'social-menu',
+							'container_class' => 'inline-block',
+							'menu_id' => 'social-menu' 
+						] ); 
+						?>
+					</div>
+				</div>
+			</div>
+
+		</header>
+
+		<main>
