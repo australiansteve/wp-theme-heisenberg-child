@@ -10,7 +10,8 @@ require_once __DIR__ . '/src/enqueue.php';
 add_action('after_setup_theme', function(){
 	add_image_size( 'footer_logo_size', 300, 180, true );
 	add_image_size( 'post_homepage_size', 300, 300, true );
-	add_image_size( 'team_homepage_size', 180, 300, true );
+	add_image_size( 'team_homepage_size', 250, 350, true );
+	add_image_size( 'team_homepage_size_bigger', 270, 450, true );
 	add_image_size( 'team_archive_size', 300, 400, true );
 	add_image_size( 'client_horizontal', 400, 300, true );
 	add_image_size( 'client_vertical', 300, 400, true );

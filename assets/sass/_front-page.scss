@@ -14,11 +14,25 @@
 		margin-bottom: 3rem;
 	}
 
+	.background-div {
+		background-repeat-y: repeat;
+	}
+
 	.border-container {
 		margin-left: 1rem;
 		margin-right: 0.5rem;
 	}
 
+}
+
+#section-team {
+	.gold-border-div {
+		margin: -2rem;
+	}
+
+	.cell:nth-of-type(even) .featured-image {
+		text-align: right;
+	}
 }
 
 #section-services {
@@ -71,8 +85,22 @@
 		.gold-border-div {
 			z-index: -1;
 		}
+
 		#team-member-images {
-			margin-right: -10rem;
+			width: 160%;
+    		margin-left: -60%;
+
+			.cell:nth-of-type(1) .featured-image img {
+				margin-top: -100px;
+    		}
+
+			.cell:nth-of-type(even) .featured-image {
+				text-align: left;
+			}
+
+			.cell:nth-of-type(4) .featured-image , .cell:nth-of-type(5) .featured-image , .cell:nth-of-type(6) .featured-image {
+				text-align: right;
+			}
 		}
 	}
 
