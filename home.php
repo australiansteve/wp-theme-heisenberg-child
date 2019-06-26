@@ -23,7 +23,7 @@ if ( have_posts() ) :
 			<div class="small-12 cell">
 
 				<div class="page-title-container">
-					<?php the_title( '<h1>', '</h1>' ); ?>
+					<h1><?php the_field('stories_page_heading', 'option')?></h1>
 				</div>
 
 			</div>
@@ -51,9 +51,12 @@ if ( have_posts() ) :
 		</div>
 	</div>
 
+	<?php if (paginate_links()) : ?>
 	<div class="navigation button-container text-center">
+		<h2><?php the_field('stories_page_navigation_text', 'option')?></h2>
 		<?php posts_nav_link( '<span class="button-separator"></span>', 'Previous page', 'Next page' ); ?>
 	</div>
+	<?php endif; ?>
 	<?php
 
 else :

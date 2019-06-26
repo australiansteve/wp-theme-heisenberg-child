@@ -50,6 +50,7 @@ if ( have_posts() ) :
 
 	<?php if (is_single()): ?>
 	<div class="navigation button-container text-center">
+		<h2><?php the_field('stories_page_navigation_text', 'option')?></h2>
 		<?php previous_post_link('%link'); ?><span class="button-separator"></span><?php next_post_link('%link'); ?>
 	</div>
 	<?php endif; ?>
