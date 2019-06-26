@@ -1,13 +1,12 @@
 <?php
+/** 
+ * Template Name: Team page
+ */
+
 get_header(); 
 
 if ( have_posts() ) :
 
-	while ( have_posts() ) :
-
-		the_post();
-?>
-<?php 
 		$image = get_field('page_title_background_image', 'option');
 		if ($image):
 ?>
@@ -16,42 +15,47 @@ if ( have_posts() ) :
 
 <?php 
 		endif; 
-?>
+		?>
 
 	<div class="page-content">
+
 		<div class="grid-x grid-padding-x page-title">
 			<div class="small-12 cell">
 
 				<div class="page-title-container">
 					<?php the_title( '<h1>', '</h1>' ); ?>
 				</div>
+
 			</div>
 		</div>
 
-		<div class="grid-x grid-padding-x page-content">
+		<div class="grid-x grid-padding-x page-content" id="posts">
+		<?php
 
-			<div class="small-12 medium-9 medium-offset-3 cell">
-				<div class="border-container">
-					<div class="gold-border-div inset">
-					</div>
-<?php 
-					if ( has_post_thumbnail() ) {
-						the_post_thumbnail();
-					}
+	while ( have_posts() ) :
+
+		the_post();
 ?>
-				</div>
+
+
 <?php
-			the_content();
-?>
-			</div>
 
-		</div>
-	</div>
+		echo get_template_part('template-parts/post', 'archive');
+
+?>
 <?php
 
 
 	endwhile;
-	
+	?>
+		</div>
+	</div>
+
+	<div class="navigation button-container text-center">
+		<?php posts_nav_link( '<span class="button-separator"></span>', 'Previous page', 'Next page' ); ?>
+	</div>
+	<?php
+
 else :
 
 	echo esc_html( 'Sorry, no posts' );

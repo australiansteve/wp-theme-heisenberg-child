@@ -56,6 +56,11 @@
 	margin-bottom: 3rem;
 }
 
+.button-separator {
+	display: block;
+	height: 3rem;
+}
+
 .button, .button-container>a {
 	background-color: $primary-color;
 	color: $gold-color;
@@ -65,7 +70,7 @@
 	padding: 1rem 4rem;
 }
 
-.button:hover, .button:active, .button-container>a:hover, .button-container>a.active {
+.button:hover, .button:active, .button:focus, .button-container>a:hover, .button-container>a.active, .button-container>a:focus {
 	background-color: $primary-color-highlight;
 }
 
@@ -102,6 +107,12 @@
 	.button {		
 		font-size: 1.25rem;
 	}
+
+	.button-separator {
+		display: inline-block;
+		width: 3rem;
+	}
+
 
 	.gold-border-div {
 		box-shadow: inset 0px 0px 0px 5px $gold-color;
