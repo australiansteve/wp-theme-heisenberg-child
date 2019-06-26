@@ -83,9 +83,4 @@ add_filter('wp_nav_menu_objects', function( $items, $args ) {
 	
 }, 10, 2);
 
-add_action('pre_get_posts', function($query) {
-	if ( $query->is_home() && $query->is_main_query() ) {
-        $query->set( 'posts_per_page', '1' );
-    }
-});
 
