@@ -21,6 +21,11 @@ footer {
 	}
 
 	.social-menu {
+		
+		#social-menu {
+			display: inline-flex;
+		}
+
 		.menu a {
 			border-bottom: none;
 			font-size: 1.5rem;
@@ -39,7 +44,13 @@ footer {
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	
+	footer {
+		text-align: center;
+
+		#secondary-footer-menu {
+			text-align: center;
+		}
+	}
 }
 
 /* Medium and up */

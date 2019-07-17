@@ -29,7 +29,7 @@ if ( have_posts() ) :
 			</div>
 		</div>
 
-		<div class="grid-x grid-padding-x page-content" id="posts">
+		<div class="grid-x grid-padding-x" id="posts">
 		<?php
 
 	while ( have_posts() ) :

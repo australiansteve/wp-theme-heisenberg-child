@@ -70,14 +70,24 @@
 	padding: 1rem 4rem;
 }
 
+a:not(.button):hover, a:not(.button).active, a:not(.button):focus  {
+	font-weight: 700;
+	color: inherit;
+}
+
+a.button:hover, a.button.active, a.button:focus  {
+	color: white;
+}
+
 .button:hover, .button:active, .button:focus, .button-container>a:hover, .button-container>a.active, .button-container>a:focus {
 	background-color: $primary-color-highlight;
+	color: white;
 }
 
 .page-title-container {
 	background-color: $gold-color;
 	color: $black-color;
-	min-height: 10rem;
+	min-height: 11rem;
 	padding: 1.5rem;
 	max-width: 90%;
 	margin-top: 2rem;
@@ -95,6 +105,10 @@
 
 .no-thumbnail-spacer {
 	min-height: 4rem;
+}
+
+.accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle)>a::after {
+    border-color: $black-color transparent transparent;
 }
 
 /* Small only */

@@ -9,15 +9,23 @@
 
 get_header(); ?>
 
-	<div class="grid-x grid-padding-x">
-
+	<div class="grid-x grid-padding-x page-title">
 		<div class="small-12 cell">
 
-			<h1>Oops! That page can't be found.</h1>
+			<div class="page-title-container">
+				<h1>Page not found</h1>
+			</div>
+		</div>
+	</div>
+			
+
+	<div class="grid-x grid-padding-x page-content">
+
+		<div class="small-12 medium-9 medium-offset-3 cell">
 
 			<p>It looks like nothing was found at this location.</p>
 
-			<p><a href="<?php echo esc_url( home_url( '/' ));?>">Return to homepage</a></p>
+			<p><a class="button" href="<?php echo esc_url( home_url( '/' ));?>">Return to homepage</a></p>
 			
 		</div>
 

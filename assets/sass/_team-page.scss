@@ -48,8 +48,10 @@
 @media screen and (min-width: 40em) {
 	.page-template-team-page .page-content {
 	
-		margin-left: 3rem;
-
+		#team-members {
+			margin-left: 3rem;
+		}
+		
 		.team-member {
 
 			.team-member-content-container {

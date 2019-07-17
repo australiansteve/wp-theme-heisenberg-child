@@ -1,4 +1,4 @@
-.blog .page-content {
+.blog .page-content, .search {
 	
 	.post-archive {
 		margin-bottom: 2rem;
@@ -46,15 +46,17 @@
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
-	.blog .page-content {
+	.blog .page-content, .search {
 	
-		margin-left: 3rem;
-
 		.post-archive {
 
 			.post-archive-content-container {
 				padding: 2rem;
 			}
+		}
+
+		#posts {
+			margin-left: 3rem;
 		}
 
 		#posts > div:nth-child(3n-1) .post-archive-container .background-div {

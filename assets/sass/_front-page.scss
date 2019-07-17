@@ -49,6 +49,23 @@
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
+	header .background-div {
+		background-position-x: 100% 
+	}
+
+	#section-welcome {
+		margin-top: 2rem;
+
+		.background-div {
+			background-position-x: 100% 
+		}
+	}
+
+	#section-stories {
+		.background-div {
+			background-repeat-y: repeat;
+		}
+	}
 }
 
 /* Medium and up */
@@ -77,6 +94,7 @@
 
 			.container {
 				padding: 3rem;
+				opacity: 0.9;
 			}
 		}
 	}

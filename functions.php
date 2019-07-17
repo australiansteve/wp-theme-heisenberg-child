@@ -89,3 +89,30 @@ add_filter('wp_nav_menu_objects', function( $items, $args ) {
 // 	}
 // });
 
+
+function austeve_move_yoast_below_acf() {
+    return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'austeve_move_yoast_below_acf');
+
+add_action( 'login_enqueue_scripts', function() { 
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+	error_log("login logo: " . $image[0]);
+?>
+    <style type="text/css">
+    	body {
+		    background: #2a2b2b !important;
+		}
+
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo $image[0]; ?>);
+			height: 190px;
+			width: 320px;
+			background-size: 320px 190px;
+			background-repeat: no-repeat;
+        }
+    </style>
+<?php 
+});
+
