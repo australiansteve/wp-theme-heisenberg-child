@@ -9,12 +9,17 @@ require_once __DIR__ . '/src/enqueue.php';
 
 add_action( 'after_setup_theme', function() {
 
-	add_image_size( 'footer_logo', 240, 180, true);
+	add_image_size( 'site_logo', 240, 180, true);
 	add_image_size( 'homepage_cta', 660, 375, true);
 	add_image_size( 'program_featured_image', 400, 267, true);
+	add_image_size( 'report_thumbnail', 237, 135, true);
+	add_image_size( 'award_recipient', 700, 300, true);
 
 	register_nav_menu( 'about-menu', __( 'About Page submenu', 'heisenberg' ) );
+	register_nav_menu( 'awards-menu', __( 'Awards Page submenu', 'heisenberg' ) );
 	register_nav_menu( 'grants-menu', __( 'Grants Page submenu', 'heisenberg' ) );
+	register_nav_menu( 'initiatives-menu', __( 'Initiatives Page submenu', 'heisenberg' ) );
+	register_nav_menu( 'resources-menu', __( 'Resources Page submenu', 'heisenberg' ) );
 	register_nav_menu( 'footer-left-menu', __( 'Left Footer menu', 'heisenberg' ) );
 	register_nav_menu( 'footer-center-menu', __( 'Center Footer menu', 'heisenberg' ) );
 

@@ -3,8 +3,11 @@ body, div, span, h1, h2, h3, h4, h5, h6, p, a, td {
 	color: black;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, b, strong {
 	font-family: 'Cooper-Hewitt-Bold', 'Cooper-Hewitt', helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 }
 

@@ -42,8 +42,8 @@
 					<div class="content-container">
 						<div class="grid-x hide-for-sticky" id="header-language-switch">
 							<div class="cell small-11 medium-12 small-text-left medium-text-right">
-								<span class="language-fr"><a href="/?lang=fr">FR</a></span> | 
-								<span class="language-en"><a href="/?lang=en">EN</a></span>
+								<span class="language-fr"><a href="?lang=fr">FR</a></span> | 
+								<span class="language-en"><a href="?lang=en">EN</a></span>
 							</div>
 							<div class="cell small-1 off-canvas-content hide-for-medium small-text-right" id="hamburger-menu" data-off-canvas-content>
 								<a href="#" data-toggle="offCanvasLeft"><i class="fas fa-bars"></i></a>
@@ -75,7 +75,11 @@ wp_nav_menu( [
 							<div class="cell text-center medium-text-left">
 <?php
 if ( function_exists( 'the_custom_logo' ) ) {
-	the_custom_logo();
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	$image = wp_get_attachment_image_src( $custom_logo_id , 'site_logo' );
+?>
+<img src="<?php echo $image[0];?>" height="180" width="240" title="<?php bloginfo( 'name' ); ?>"/>
+<?php
 }
 else
 {

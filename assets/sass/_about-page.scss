@@ -1,5 +1,5 @@
-#board-members {
-	.board-member {
+#profiles {
+	.profile {
 		margin: 1rem 0 2rem 0;
 
 		.left-column {
@@ -15,8 +15,8 @@
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
-	#board-members {
-		.board-member {
+	#profiles {
+		.profile {
 			.left-column {
 				margin-bottom: 0;
 			}

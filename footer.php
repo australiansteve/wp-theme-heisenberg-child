@@ -48,7 +48,7 @@
 <?php 
 
 $image = get_field('footer_logo', 'option');
-$size = 'footer_logo'; // (thumbnail, medium, large, full or custom size)
+$size = 'site_logo'; // (thumbnail, medium, large, full or custom size)
 
 if( $image ) {
 	echo wp_get_attachment_image( $image, $size );
