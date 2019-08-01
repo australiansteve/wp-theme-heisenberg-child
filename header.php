@@ -38,7 +38,7 @@
 
 		<header class="grid-container">
 			<div data-sticky-container>
-				<div data-sticky style="background:white;max-width:100%" data-margin-top="0">
+				<div data-sticky style="background:white;max-width:100%" data-margin-top="0" data-options="dynamicHeight:false;">
 					<div class="content-container">
 						<div class="grid-x hide-for-sticky" id="header-language-switch">
 							<div class="cell small-11 medium-12 small-text-left medium-text-right">
@@ -63,32 +63,32 @@
 						</div>
 						<div class="grid-x show-for-medium" id="header-menu">
 							<div class="cell text-right">
-<?php
-wp_nav_menu( [
-	'theme_location' => 'primary',
-	'container'      => '',
-] ); 
-	?>
+								<?php
+								wp_nav_menu( [
+									'theme_location' => 'primary',
+									'container'      => '',
+								] ); 
+								?>
 							</div>
 						</div>
 						<div class="grid-x" id="header-logo">
 							<div class="cell text-center medium-text-left">
-<?php
-if ( function_exists( 'the_custom_logo' ) ) {
-	$custom_logo_id = get_theme_mod( 'custom_logo' );
-	$image = wp_get_attachment_image_src( $custom_logo_id , 'site_logo' );
-?>
-<img src="<?php echo $image[0];?>" height="180" width="240" title="<?php bloginfo( 'name' ); ?>"/>
-<?php
-}
-else
-{
-	printf( '<h1><a href="%s" rel="home">%s</a></h1>',
-		esc_url( home_url( '/' ) ),
-		esc_html( get_bloginfo( 'name' ) )
-	);
-}
-?>
+								<?php
+								if ( function_exists( 'the_custom_logo' ) ) {
+									$custom_logo_id = get_theme_mod( 'custom_logo' );
+									$image = wp_get_attachment_image_src( $custom_logo_id , 'site_logo' );
+									?>
+									<img class="custom-logo" src="<?php echo $image[0];?>" height="180" width="240" alt="<?php bloginfo( 'name' ); ?>"/>
+									<?php
+								}
+								else
+								{
+									printf( '<h1><a href="%s" rel="home">%s</a></h1>',
+										esc_url( home_url( '/' ) ),
+										esc_html( get_bloginfo( 'name' ) )
+									);
+								}
+								?>
 							</div>
 						</div>
 						<div class="grid-x hide-for-sticky" id="header-tagline">

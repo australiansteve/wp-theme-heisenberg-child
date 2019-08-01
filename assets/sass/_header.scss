@@ -40,13 +40,12 @@ header.grid-container {
 		color: white;
 		margin: 0;
 		font-size: 0;
-		transition: font-size 1.5s ease;
+		height: 0;
 	}
 
 	.is-at-top.is-stuck img.custom-logo {    
 		margin-bottom: 1em;
 		width: 150px;
-		transition: width 1.5s ease;
 	}
 }
 
