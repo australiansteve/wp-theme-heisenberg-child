@@ -1,6 +1,6 @@
 <?php
 /***
-  * Template Name: About Page
+  * Template Name: Initiatives Page
   */
 
 get_header(); ?>
@@ -11,12 +11,12 @@ get_header(); ?>
 
 		<div class="small-12 cell">
 
-			<h1 class="page-title"><?php the_field('about_page_title', 'option');?></h1>
+			<h1 class="page-title"><?php the_field('initiatives_page_title', 'option');?></h1>
 			
 		</div>
 
 		<?php
-		$theSubMenu = 'about-menu';
+		$theSubMenu = 'initiatives-menu';
 		get_template_part( 'template-parts/sub-menu' ); 
 
 		if ( have_posts() ) :

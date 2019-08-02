@@ -1,6 +1,6 @@
 <?php
 /***
-  * Template Name: About Page
+  * Template Name: About Page - With Reports
   */
 
 get_header(); ?>
@@ -24,7 +24,28 @@ get_header(); ?>
 			while ( have_posts() ) :
 
 				the_post();
+
 				?>
+				<div class="small-12 cell" id="reports">
+					<?php
+					// check if the repeater field has rows of data
+					if( have_rows('reports') ):
+						?>
+						<div class="grid-x grid-padding-x small-up-2 medium-up-4">
+							<?php
+		 					// loop through the rows of data
+							while ( have_rows('reports') ) : the_row();
+
+								get_template_part( 'template-parts/report' ); 
+
+							endwhile;
+							?>
+						</div>
+						<?php
+					endif;
+					?>
+				</div>
+
 				<div class="small-12 cell" id="the-content">
 
 					<?php the_content(); ?>
@@ -34,8 +55,9 @@ get_header(); ?>
 			endwhile;
 
 		endif;
-	?>
-</div>
+
+		?>
+	</div>
 
 </div>
 

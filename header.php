@@ -77,9 +77,11 @@
 								if ( function_exists( 'the_custom_logo' ) ) {
 									$custom_logo_id = get_theme_mod( 'custom_logo' );
 									$image = wp_get_attachment_image_src( $custom_logo_id , 'site_logo' );
+									printf( '<a href="%s" rel="home">',	esc_url( home_url( '/' ) ));
 									?>
-									<img class="custom-logo" src="<?php echo $image[0];?>" height="180" width="240" alt="<?php bloginfo( 'name' ); ?>"/>
+									<img class="custom-logo" src="<?php echo $image[0];?>" height="173" width="240" alt="<?php bloginfo( 'name' ); ?>"/>
 									<?php
+									printf( '</a>');
 								}
 								else
 								{

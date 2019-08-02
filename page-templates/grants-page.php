@@ -11,7 +11,7 @@ get_header(); ?>
 		
 		<div class="small-12 medium-8 cell">
 
-			<h1><?php the_field('grants_page_title', 'option');?></h1>
+			<h1 class="page-title"><?php the_field('grants_page_title', 'option');?></h1>
 			
 		</div>
 

@@ -9,7 +9,7 @@ require_once __DIR__ . '/src/enqueue.php';
 
 add_action( 'after_setup_theme', function() {
 
-	add_image_size( 'site_logo', 240, 180, true);
+	add_image_size( 'site_logo', 240, 173, true);
 	add_image_size( 'homepage_cta', 660, 375, true);
 	add_image_size( 'program_featured_image', 400, 267, true);
 	add_image_size( 'report_thumbnail', 237, 135, true);
@@ -24,7 +24,7 @@ add_action( 'after_setup_theme', function() {
 	register_nav_menu( 'footer-center-menu', __( 'Center Footer menu', 'heisenberg' ) );
 
 	$logoDefaults = array(
-		'height'      => 180,
+		'height'      => 173,
 		'width'       => 240,
 		'flex-height' => true,
 		'flex-width'  => true,
