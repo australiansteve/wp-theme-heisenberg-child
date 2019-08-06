@@ -33,42 +33,61 @@ main {
 		.border-bottom {
 			border-bottom: 2px solid $third-color;
 		}
-	}
-}
 
-a.button, button {
-	background: $black-color;
-	color: $white-color;
-	text-transform: uppercase;
-	display: block;
-	font-size: 1.1rem;
-	font-family: 'Cooper-Hewitt-Bold';
-}
+		h1.page-title {
+			margin-top: 1rem;
+		}
 
-a.button:hover, button:hover {
-	background: $black-color;
-	color: $yellow-color;
-}
+		a {
+			color: $black-color;
+			text-decoration: underline;
+		}
 
-#sub-menu {
+		a:hover, a:active {
+			color: $yellow-color;
+		}
+
+
+		a.button, button {
+			background: $black-color;
+			color: $white-color;
+			text-decoration: none;
+			text-transform: uppercase;
+			display: block;
+			font-size: 1.1rem;
+			font-family: 'Cooper-Hewitt-Bold';
+		}
+
+		a.button:hover, button:hover {
+			background: $black-color;
+			color: $yellow-color;
+		}
+
+		#sub-menu {
 	
-	margin-bottom: 1rem;
+			margin-bottom: 1.5rem;
 
-	#menu-about-1 {
-		max-width: 90%;
+			#menu-about-1 {
+				max-width: 90%;
+			}
+
+			a {
+				font-family: 'Cooper-Hewitt-Bold';
+				text-transform: uppercase;
+				text-decoration: none;
+				color: $primary-color;
+				line-height: 1.25;
+			}
+
+			a:hover, a:active {
+				color: $yellow-color;
+			}
+		}
+
+		#sub-menu a.active, #sub-menu a[aria-current] {
+			text-decoration: underline;
+			color: $yellow-color;
+
+		}
 	}
-
-	a {
-		font-family: 'Cooper-Hewitt-Bold';
-		text-transform: uppercase;
-	}
-}
-
-#sub-menu a.active, #sub-menu a[aria-current] {
-	text-decoration: underline;
-	
-}
-
-h1.page-title {
-	margin-top: 1rem;
 }
