@@ -3,19 +3,22 @@
 		$image = get_sub_field('image');
 		$size = 'report_thumbnail'; // (thumbnail, medium, large, full or custom size)
 		
-		if( $image ) {
-			echo wp_get_attachment_image( $image, $size );
-		}
 		?>
 		<h4 class="name">
-			<?php the_sub_field('name'); 
-			if (get_sub_field('position')): 
-				echo ", ".get_sub_field('position'); 
-			endif; 
-			?>
+			<?php the_sub_field('title'); ?>
 		</h4>
-		<div class="bio">
-			<?php the_sub_field('bio'); ?>
-		</div>
-	</div>
+		<?php if( get_sub_field('file') ): ?>
+
+			<a href="<?php echo wp_get_attachment_url(get_sub_field('file')); ?>" target="_blank" >
+
+				<?php 
+				if( $image ) {
+					echo wp_get_attachment_image( $image, $size );
+				}
+				the_field('file_download_text', 'option');
+				echo " (".round(filesize(get_attached_file(get_sub_field('file'))) / 1024, 0)."kb)"; ?>
+					
+			</a>
+
+		<?php endif; ?>
 </div>

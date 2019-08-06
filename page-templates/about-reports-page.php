@@ -31,7 +31,7 @@ get_header(); ?>
 					// check if the repeater field has rows of data
 					if( have_rows('reports') ):
 						?>
-						<div class="grid-x grid-padding-x small-up-2 medium-up-4">
+						<div class="grid-x grid-padding-x small-up-2 medium-up-3">
 							<?php
 		 					// loop through the rows of data
 							while ( have_rows('reports') ) : the_row();

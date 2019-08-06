@@ -12,7 +12,7 @@ add_action( 'after_setup_theme', function() {
 	add_image_size( 'site_logo', 240, 173, true);
 	add_image_size( 'homepage_cta', 660, 375, true);
 	add_image_size( 'program_featured_image', 400, 267, true);
-	add_image_size( 'report_thumbnail', 237, 135, true);
+	add_image_size( 'report_thumbnail', 400, 267, true);
 	add_image_size( 'award_recipient', 700, 300, true);
 
 	register_nav_menu( 'about-menu', __( 'About Page submenu', 'heisenberg' ) );
