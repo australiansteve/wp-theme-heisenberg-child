@@ -14,6 +14,19 @@
 	}
 }
 
+#awards {
+	.recipient {
+
+		.top {
+			margin-bottom: 1rem;
+
+			h4.name {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
 
 
 /* Small only */
@@ -30,6 +43,14 @@
 			}
 			.right-column {
 				padding-left: 3rem;
+			}
+		}
+	}
+
+	#awards {
+		.recipient {
+			.right-column {
+			    padding-left: 2rem;
 			}
 		}
 	}
