@@ -51,16 +51,24 @@ a.button:hover, button:hover {
 }
 
 #sub-menu {
+	
+	margin-bottom: 1rem;
+
 	#menu-about-1 {
 		max-width: 90%;
 	}
+
 	a {
 		font-family: 'Cooper-Hewitt-Bold';
 		text-transform: uppercase;
 	}
 }
 
-#sub-menu a.active {
+#sub-menu a.active, #sub-menu a[aria-current] {
 	text-decoration: underline;
 	
+}
+
+h1.page-title {
+	margin-top: 1rem;
 }
