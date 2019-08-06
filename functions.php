@@ -14,6 +14,7 @@ add_action( 'after_setup_theme', function() {
 	add_image_size( 'program_featured_image', 400, 267, true);
 	add_image_size( 'report_thumbnail', 400, 267, true);
 	add_image_size( 'award_recipient', 700, 300, true);
+	add_image_size( 'profile_image', 300, 300, true);
 
 	register_nav_menu( 'about-menu', __( 'About Page submenu', 'heisenberg' ) );
 	register_nav_menu( 'awards-menu', __( 'Awards Page submenu', 'heisenberg' ) );

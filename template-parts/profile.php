@@ -2,7 +2,7 @@
 	<div class="cell medium-3 left-column">
 		<?php 
 		$image = get_sub_field('photo');
-		$size = 'medium'; // (thumbnail, medium, large, full or custom size)
+		$size = 'profile_image'; // (thumbnail, medium, large, full or custom size)
 		
 		if( $image ) {
 			echo wp_get_attachment_image( $image, $size );
