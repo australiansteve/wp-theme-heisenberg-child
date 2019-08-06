@@ -8,7 +8,7 @@ get_header(); ?>
 <div class="content-container">
 
 	<div class="container">
-		
+
 		<div class="grid-x grid-padding-x">
 
 			<div class="small-12 medium-8 cell">
@@ -83,9 +83,6 @@ get_header(); ?>
 
 								}
 								?></a>
-								<?php
-								
-								?>
 							</div>
 							<div class="cell small-12">
 								<h3><a href="<?php the_field('oa_system_link', 'option');?>"><?php the_field('grants_page_apply_button_text', 'option');?></a></h3>
