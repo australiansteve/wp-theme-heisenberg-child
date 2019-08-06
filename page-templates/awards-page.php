@@ -7,53 +7,55 @@ get_header(); ?>
 
 <div class="content-container">
 	
-	<div class="grid-x grid-padding-x">
+	<div class="container">
 
-		<div class="small-12 cell">
+		<div class="grid-x grid-padding-x">
 
-			<h1 class="page-title"><?php the_field('awards_page_title', 'option');?></h1>
-			
-		</div>
+			<div class="small-12 cell">
 
-		<?php
-		$theSubMenu = 'awards-menu';
-		get_template_part( 'template-parts/sub-menu' ); 
+				<h1 class="page-title"><?php the_field('awards_page_title', 'option');?></h1>
 
-		if ( have_posts() ) :
+			</div>
 
-			while ( have_posts() ) :
+			<?php
+			$theSubMenu = 'awards-menu';
+			get_template_part( 'template-parts/sub-menu' ); 
 
-				the_post();
-				?>
-				<div class="small-12 cell" id="the-content">
+			if ( have_posts() ) :
 
-					<?php the_content(); ?>
+				while ( have_posts() ) :
 
-				</div>
+					the_post();
+					?>
+					<div class="small-12 cell" id="the-content">
 
-				<div class="small-12 cell" id="awards">
-					<?php
+						<?php the_content(); ?>
+
+					</div>
+
+					<div class="small-12 cell" id="awards">
+						<?php
 					// check if the repeater field has rows of data
-					if( have_rows('recipient') ):
+						if( have_rows('recipient') ):
 
 		 				// loop through the rows of data
-						while ( have_rows('recipient') ) : the_row();
+							while ( have_rows('recipient') ) : the_row();
 
-							get_template_part( 'template-parts/award-recipient' ); 
+								get_template_part( 'template-parts/award-recipient' ); 
 
-						endwhile;
+							endwhile;
 
-					endif;
-					?>
-				</div>
+						endif;
+						?>
+					</div>
 
-				<?php
-			endwhile;
+					<?php
+				endwhile;
 
-		endif;
-		?>
+			endif;
+			?>
+		</div>
 	</div>
-
 </div>
 
 <?php

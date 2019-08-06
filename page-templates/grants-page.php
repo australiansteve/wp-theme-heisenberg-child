@@ -7,51 +7,56 @@ get_header(); ?>
 
 <div class="content-container">
 	
-	<div class="grid-x grid-padding-x">
-		
-		<div class="small-12 medium-8 cell">
+	<div class="container">
 
-			<h1 class="page-title"><?php the_field('grants_page_title', 'option');?></h1>
-			
-		</div>
+		<div class="grid-x grid-padding-x">
 
-		<div class="small-12 medium-4 cell">
+			<div class="small-12 medium-8 cell">
 
-			<a href="<?php the_field('grants_page_apply_button_link', 'option');?>" class="button"><?php the_field('grants_page_apply_button_text', 'option');?></a>
-			
-		</div>
+				<h1 class="page-title"><?php the_field('grants_page_title', 'option');?></h1>
 
-		<?php
-		$theSubMenu = 'grants-menu';
-		get_template_part( 'template-parts/sub-menu' ); 
-		
-		if ( have_posts() ) :
+			</div>
 
-			while ( have_posts() ) :
+			<div class="small-12 medium-4 cell">
 
-				the_post();
-				?>
-				<div class="small-12 cell" id="the-content">
-					
-					<?php the_content(); ?>
-					
-				</div>
-				<?php
-			endwhile;
+				<a href="<?php the_field('grants_page_apply_button_link', 'option');?>" class="button"><?php the_field('grants_page_apply_button_text', 'option');?></a>
 
-			the_posts_navigation();
+			</div>
 
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
+			<?php
+			$theSubMenu = 'grants-menu';
+			get_template_part( 'template-parts/sub-menu' ); 
+
+			if ( have_posts() ) :
+
+				while ( have_posts() ) :
+
+					the_post();
+					?>
+					<div class="small-12 cell" id="the-content">
+
+						<?php the_content(); ?>
+
+					</div>
+					<?php
+				endwhile;
+
+				the_posts_navigation();
+
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+			endif;
+
+		else :
+
+			echo esc_html( 'Sorry, no posts' );
+
 		endif;
+		?>
 
-	else :
-
-		echo esc_html( 'Sorry, no posts' );
-
-	endif;
-	?>
-</div>
+		</div>
+	
+	</div>
 
 </div>
 

@@ -8,6 +8,7 @@ get_header(); ?>
 <div class="content-container">
 
 	<div class="container">
+		
 		<div class="grid-x grid-padding-x">
 
 			<div class="small-12 medium-8 cell">
@@ -22,18 +23,14 @@ get_header(); ?>
 				
 			</div>
 		</div>
-	</div>
-
-	<div class="container">
+	
 		<div class="grid-x grid-padding-x">
 			<?php
 			$theSubMenu = 'grants-menu';
 			get_template_part( 'template-parts/sub-menu' ); 
 			?>
 		</div>
-	</div>
-
-	<div class="container">
+	
 		<div class="grid-x grid-padding-x">
 			<?php
 			if ( have_posts() ) :

@@ -7,58 +7,60 @@ get_header(); ?>
 
 <div class="content-container">
 	
-	<div class="grid-x grid-padding-x">
+	<div class="container">
 
-		<div class="small-12 cell">
+		<div class="grid-x grid-padding-x">
 
-			<h1 class="page-title"><?php the_field('about_page_title', 'option');?></h1>
-			
-		</div>
+			<div class="small-12 cell">
 
-		<?php
-		$theSubMenu = 'about-menu';
-		get_template_part( 'template-parts/sub-menu' ); 
+				<h1 class="page-title"><?php the_field('about_page_title', 'option');?></h1>
 
-		if ( have_posts() ) :
+			</div>
 
-			while ( have_posts() ) :
+			<?php
+			$theSubMenu = 'about-menu';
+			get_template_part( 'template-parts/sub-menu' ); 
 
-				the_post();
+			if ( have_posts() ) :
 
-				?>
-				<div class="small-12 cell" id="reports">
-					<?php
-					// check if the repeater field has rows of data
-					if( have_rows('reports') ):
-						?>
-						<div class="grid-x grid-padding-x small-up-2 medium-up-3">
-							<?php
-		 					// loop through the rows of data
-							while ( have_rows('reports') ) : the_row();
+				while ( have_posts() ) :
 
-								get_template_part( 'template-parts/report' ); 
+					the_post();
 
-							endwhile;
-							?>
-						</div>
-						<?php
-					endif;
 					?>
-				</div>
+					<div class="small-12 cell" id="reports">
+						<?php
+					// check if the repeater field has rows of data
+						if( have_rows('reports') ):
+							?>
+							<div class="grid-x grid-padding-x small-up-2 medium-up-3">
+								<?php
+		 					// loop through the rows of data
+								while ( have_rows('reports') ) : the_row();
 
-				<div class="small-12 cell" id="the-content">
+									get_template_part( 'template-parts/report' ); 
 
-					<?php the_content(); ?>
+								endwhile;
+								?>
+							</div>
+							<?php
+						endif;
+						?>
+					</div>
 
-				</div>
-				<?php
-			endwhile;
+					<div class="small-12 cell" id="the-content">
 
-		endif;
+						<?php the_content(); ?>
 
-		?>
+					</div>
+					<?php
+				endwhile;
+
+			endif;
+
+			?>
+		</div>
 	</div>
-
 </div>
 
 <?php

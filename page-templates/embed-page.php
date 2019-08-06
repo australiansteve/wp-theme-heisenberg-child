@@ -7,24 +7,28 @@ get_header(); ?>
 
 <div class="content-container">
 	
-	<div class="grid-x grid-padding-x">
+	<div class="container">
 
-		<div class="small-12 cell">
+		<div class="grid-x grid-padding-x">
 
-			<?php
+			<div class="small-12 cell">
 
-			if ( have_posts() ) :
+				<?php
 
-				while ( have_posts() ) :
+				if ( have_posts() ) :
 
-					the_post();
-					?>
-					<iframe src="<?php the_field('embedded_content_url');?>" style="background: #FFFFFF;"></iframe>
-					<?php
-				endwhile;
+					while ( have_posts() ) :
 
-			endif;
-			?>
+						the_post();
+						?>
+						<iframe src="<?php the_field('embedded_content_url');?>" style="background: #FFFFFF;"></iframe>
+						<?php
+					endwhile;
+
+				endif;
+				?>
+			</div>
+
 		</div>
 
 	</div>
