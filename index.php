@@ -1,7 +1,9 @@
 <?php
 get_header(); ?>
 
-	<div class="content-container">
+<div class="content-container">
+
+	<div class="container">
 
 		<div class="grid-x grid-padding-x">
 
@@ -21,14 +23,6 @@ get_header(); ?>
 
 					the_posts_navigation();
 
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
-
-				else :
-
-					echo esc_html( 'Sorry, no posts' );
-
 				endif;
 				?>
 			</div>
@@ -36,6 +30,8 @@ get_header(); ?>
 		</div>
 
 	</div>
+
+</div>
 
 <?php
 get_footer();

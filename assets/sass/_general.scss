@@ -14,8 +14,8 @@ a:hover, a:active, a:focus {
 }
 
 .container {
-    background: $white-color;
-    padding: 1rem;
+	background: $white-color;
+	padding: 1rem;
 }
 
 main {
@@ -60,22 +60,23 @@ main {
 		}
 
 		#sub-menu {
-	
+
 			margin-bottom: 1.5rem;
 
 			#menu-about-1 {
 				max-width: 90%;
 			}
 
-			a {
+			.menu a {
 				font-family: 'Cooper-Hewitt-Bold';
 				text-transform: uppercase;
 				text-decoration: none;
 				color: $primary-color;
 				line-height: 1.25;
+				
 			}
 
-			a:hover, a:active {
+			.menu a:hover, .menu a:active {
 				color: $yellow-color;
 			}
 		}
@@ -86,4 +87,44 @@ main {
 
 		}
 	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	
+	main {
+
+		.content-container {
+
+			#sub-menu {
+
+				.menu a {
+					padding-left: 0;
+					padding-right: 1.4rem;
+				}
+			}
+
+		}
+	}
+
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
 }
