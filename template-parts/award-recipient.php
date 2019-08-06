@@ -2,9 +2,9 @@
 	<div class="cell">
 		<div class="grid-x top">
 			<div class="cell">
-				<h4 class="name">
+				<h3 class="name">
 					<?php the_sub_field('name'); ?>
-				</h4>
+				</h3>
 			</div>
 			<div class="cell">
 				<span class="award">

@@ -17,17 +17,22 @@
 #awards {
 	.recipient {
 
+		margin-bottom: 2rem;
+		
 		.top {
 			margin-bottom: 1rem;
 
-			h4.name {
+			.name {
 				margin-bottom: 0;
 			}
+
+			.award {
+				font-size: 1.25rem;
+			}
 		}
+
 	}
 }
-
-
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
