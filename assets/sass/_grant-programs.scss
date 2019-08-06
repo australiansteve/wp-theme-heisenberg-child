@@ -13,6 +13,18 @@
 	}
 }
 
+.single-austeve-programs {
+	.austeve-program {
+		.featured-image {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+main .content-container .deadline-front-page a {
+	text-decoration: none;
+}
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
@@ -20,7 +32,13 @@
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
-	
+	.single-austeve-programs {
+		.austeve-program {
+			.left-column {
+				padding-right: 1.5rem;
+			}
+		}
+	}
 }
 
 /* Medium only */

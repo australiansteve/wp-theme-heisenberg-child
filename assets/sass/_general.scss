@@ -15,7 +15,7 @@ a:hover, a:active, a:focus {
 
 .container {
 	background: $white-color;
-	padding: 1rem;
+	padding: 1rem 0.5rem;
 }
 
 main {
@@ -97,6 +97,10 @@ main {
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	
+	.container {
+		padding: 1rem;
+	}
+
 	main {
 
 		.content-container {
