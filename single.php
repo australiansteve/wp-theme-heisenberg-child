@@ -36,6 +36,12 @@ get_header(); ?>
 							?>
 						</div>
 
+						<div class="post-meta">
+							<p><?php the_field('published_text', 'option');?> <?php $post_date = get_the_date( 'l F j, Y' ); echo $post_date; ?><br/>
+							<?php the_field('by_text', 'option');?> <?php the_author_posts_link(); ?>
+							<p><?php the_field('categories_text', 'option'); the_category( ', ', '' ); ?> 
+							<br/><?php the_tags( get_field('tags_text', 'option').': ', ', ', '' ); ?> 
+						</div>
 					</div>
 				</div>
 

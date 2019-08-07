@@ -18,6 +18,12 @@ a:hover, a:active, a:focus {
 	padding: 1rem 0.5rem;
 }
 
+.single {
+	.featured-image {
+		margin-bottom: 1rem;
+	}
+}
+
 main {
 	background-color: $third-color;
 	min-height: 80vh;
