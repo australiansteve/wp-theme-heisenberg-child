@@ -107,3 +107,5 @@
 		<main class="grid-container">
 
 			<div id="content" class="site-content" role="main">
+
+				<div class="content-container">

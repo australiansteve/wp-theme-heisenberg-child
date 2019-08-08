@@ -9,7 +9,7 @@
  * @package Heisenberg
  */
 ?>
-	
+				</div> <!-- .content-container -->
 			</div><!-- #content -->
 		</main><!-- .grid-container -->
 

@@ -14,7 +14,7 @@ add_action( 'after_setup_theme', function() {
 	add_image_size( 'program_featured_image', 400, 267, true);
 	add_image_size( 'report_thumbnail', 400, 267, true);
 	add_image_size( 'award_recipient', 700, 300, true);
-	add_image_size( 'profile_image', 300, 300, true);
+	add_image_size( 'medium_cropped', 300, 300, true);
 
 	register_nav_menu( 'about-menu', __( 'About Page submenu', 'heisenberg' ) );
 	register_nav_menu( 'awards-menu', __( 'Awards Page submenu', 'heisenberg' ) );
@@ -101,3 +101,24 @@ add_filter('posts_where', function ( $where ) {
 
 	return $where;
 });
+
+add_filter( 'get_the_archive_title', function ( $title ) {
+
+	if( is_home() || is_single() ) {
+		$title = the_field('post_archive_page_title', 'option');
+	}
+    return $title;
+
+});
+
+//Move Yoast metaboxes to bottom
+add_filter( 'wpseo_metabox_prio', function() {
+    return 'low';
+});
+
+
+// add_action( 'pre_get_posts', function ($query) {
+// 	if ( $query->is_home() ) {
+//         $query->set( 'posts_per_page', '1' );
+//     }
+// }); 

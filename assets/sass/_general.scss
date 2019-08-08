@@ -18,12 +18,6 @@ a:hover, a:active, a:focus {
 	padding: 1rem 0.5rem;
 }
 
-.single {
-	.featured-image {
-		margin-bottom: 1rem;
-	}
-}
-
 main {
 	background-color: $third-color;
 	min-height: 80vh;
@@ -50,7 +44,7 @@ main {
 		}
 
 
-		a.button, button {
+		a.button, button, .button-container a {
 			background: $black-color;
 			color: $white-color;
 			text-decoration: none;
@@ -60,7 +54,7 @@ main {
 			font-family: 'Cooper-Hewitt-Bold';
 		}
 
-		a.button:hover, button:hover {
+		a.button:hover, button:hover, .button-container a:hover {
 			background: $black-color;
 			color: $yellow-color;
 		}
@@ -95,6 +89,45 @@ main {
 	}
 }
 
+
+.archive, .blog, .search {
+
+	.post {
+
+		margin-bottom: 2rem;
+		
+		h2 {
+			display: inline;
+
+			a {
+				text-decoration: none;
+			}
+		}
+
+		.meta {
+			font-size: 0.8rem;
+		}
+	}
+
+}
+
+.single {
+	.featured-image {
+		margin-bottom: 1rem;
+	}
+}
+
+.navigation.button-container {
+
+		a {
+			margin: 0 0 1rem 0;
+    		padding: 0.85em 1em;
+    		display: inline-block !important;
+    		min-width: 200px;
+		}
+	}
+
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
@@ -105,6 +138,23 @@ main {
 	
 	.container {
 		padding: 1rem;
+	}
+
+	.archive, .blog, .search {
+
+		.post {
+
+			.right-column {
+
+				padding-left: 2rem;
+
+				.read-more {
+					max-width: 200px;
+				}
+			}
+			
+		}
+
 	}
 
 	main {
@@ -120,6 +170,11 @@ main {
 			}
 
 		}
+	}
+
+
+	.button-separator {
+		margin: 1rem;
 	}
 
 }

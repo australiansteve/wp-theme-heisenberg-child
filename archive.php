@@ -1,14 +1,5 @@
 <?php
-/**
- * The template for displaying search results pages.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package Heisenberg
- */
-
-get_header();
-?>
+get_header(); ?>
 
 <div class="container">
 
@@ -16,29 +7,21 @@ get_header();
 		yoast_breadcrumb('<p id="breadcrumbs">','</p>');
 	endif; ?>
 
-	<?php printf( '<h1>Search Results for: %s</h1>',
-		esc_html( get_search_query() )
-	);?>
+	<h1 class="page-title"><?php the_archive_title();?></h1>
 
-		<?php
-		if ( have_posts() ) :
+	<?php
+	if ( have_posts() ) :
 
-			while ( have_posts() ) :
+		while ( have_posts() ) :
 
-				the_post();
+			the_post();
 
-				get_template_part( 'template-parts/post', 'archive' ); 
+			get_template_part( 'template-parts/post', 'archive' ); 
 
-			endwhile;
+		endwhile;
 
-		else :
-
-			printf( 'Sorry, no results for %s',
-				esc_html( get_search_query() )
-			);
-
-		endif;
-		?>
+	endif;
+	?>
 
 	<?php if (paginate_links()) : ?>
 		<div class="navigation button-container text-center">
@@ -51,3 +34,4 @@ get_header();
 
 <?php
 get_footer();
+

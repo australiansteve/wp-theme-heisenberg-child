@@ -9,6 +9,8 @@
 
 get_header(); ?>
 
+<div class="container">
+
 	<div class="grid-x grid-padding-x">
 
 		<div class="small-12 cell">
@@ -22,6 +24,8 @@ get_header(); ?>
 		</div>
 
 	</div>
+
+</div>
 
 <?php
 get_footer();
