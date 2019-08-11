@@ -18,8 +18,23 @@ get_header(); ?>
 				while ( have_posts() ) :
 
 					the_post();
+
+					$queries = array();
+					parse_str($_SERVER['QUERY_STRING'], $queries);
+
+					if (array_key_exists('url', $queries))
+					{
+						//if 'url' querystring parameter is giving then embed that
+						$urlToEmbed = urldecode($queries['url']); 
+						//error_log("Embedding: ".$urlToEmbed);
+					}
+					else
+					{
+						//otherwise default to the theme setting
+						$urlToEmbed = get_field('embedded_content_url');; 
+					}
 					?>
-					<iframe src="<?php the_field('embedded_content_url');?>" style="background: #FFFFFF;"></iframe>
+					<iframe src="<?php echo $urlToEmbed;?>" style="background: #FFFFFF;"></iframe>
 					<?php
 				endwhile;
 
