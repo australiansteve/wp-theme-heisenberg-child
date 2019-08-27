@@ -3,7 +3,19 @@
   * Template Name: Embedded Content
   */
 
-get_header(); ?>
+get_header(); 
+
+
+if (!function_exists('startsWith'))
+{
+	function startsWith ($string, $startString) 
+	{ 
+		$len = strlen($startString); 
+		return (substr($string, 0, $len) === $startString); 
+	}
+}
+
+?>
 
 <div class="container">
 
@@ -27,6 +39,24 @@ get_header(); ?>
 						//if 'url' querystring parameter is giving then embed that
 						$urlToEmbed = urldecode($queries['url']); 
 						//error_log("Embedding: ".$urlToEmbed);
+
+						//Ensure url to embed is of an allowed domain
+						$isOk = false;
+						$allowedDomains = array("https://artsnb.ca", "https://staging-artsnb.weavercrawford.com");
+						foreach($allowedDomains as $domain)
+						{
+							if (startsWith($urlToEmbed, $domain))
+							{
+								$isOk = true;
+								break;
+							}
+						}
+						if (!$isOk)
+						{
+							//If url is not on the list of approved domains then it gets canned
+							$urlToEmbed = get_field('embedded_content_url');; 
+						}
+
 					}
 					else
 					{
