@@ -119,13 +119,17 @@ main {
 
 .navigation.button-container {
 
-		a {
-			margin: 0 0 1rem 0;
-    		padding: 0.85em 1em;
-    		display: inline-block !important;
-    		min-width: 200px;
-		}
+	a {
+		margin: 0 0 1rem 0;
+		padding: 0.85em 1em;
+		display: inline-block !important;
+		min-width: 200px;
 	}
+}
+
+.show-for-home-only {
+	display: none;
+}
 
 
 /* Small only */

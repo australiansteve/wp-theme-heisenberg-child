@@ -93,7 +93,7 @@
 								?>
 							</div>
 						</div>
-						<div class="grid-x hide-for-sticky" id="header-tagline">
+						<div class="grid-x hide-for-sticky show-for-home-only" id="header-tagline">
 							<div class="cell">
 								<h2><?php the_field('header_tagline_title', 'option'); ?></h2>
 								<p><?php the_field('header_tagline_text', 'option'); ?></p>
