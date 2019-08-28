@@ -17,7 +17,7 @@ get_header(); ?>
 
 		<div class="small-12 medium-4 cell">
 
-			<a href="<?php the_field('grants_page_apply_button_link', 'option');?>" class="button"><?php the_field('grants_page_apply_button_text', 'option');?></a>
+			<a href="<?php the_field('oa_system_link', 'option');?>" class="button"><?php the_field('grants_page_apply_button_text', 'option');?></a>
 
 		</div>
 
