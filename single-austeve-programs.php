@@ -63,6 +63,7 @@ get_header(); ?>
 										//add meta query to only get deadlines AFTER the 'timeout' period'
 									$days = get_field('remove_deadlines_after', 'option');
 									$startDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('-'.$days.' days');
+									$endDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('+2 years');
 
 										// WP_Query arguments
 									$args = array(
@@ -78,6 +79,12 @@ get_header(); ?>
 												'key' => 'date',
 												'value' 	=> $startDate->format('Ymd'),
 												'compare' 	=> '>=',
+												'type' 	=> 'DATE'
+											),
+											array(
+												'key' => 'date',
+												'value' 	=> $endDate->format('Ymd'),
+												'compare' 	=> '<',
 												'type' 	=> 'DATE'
 											),
 											array(

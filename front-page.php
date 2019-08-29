@@ -133,15 +133,16 @@ get_header(); ?>
 
 	<div class="small-12 medium-4 cell" id="deadlines">
 		
-		<div class="container" data-equalizer-watch="feeds">
+		<div class="container">
 			
-			<div class="height-restricted-container">
+			<div class="">
 
 				<h3><?php the_field('front_page_column_title_3', 'option');?></h3>
 				<?php
 //add meta query to only get deadlines AFTER the 'timeout' period'
 				$days = get_field('remove_deadlines_after', 'option');
 				$startDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('-'.$days.' days');
+				$endDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('+1 years');
 
 // WP_Query arguments
 				$args = array(
@@ -151,11 +152,20 @@ get_header(); ?>
 					'meta_key'				=> 'date',
 					'orderby'	=> 	'meta_value_num',
 					'order'		=> 	'ASC',
-					'meta_query'			=> array(
-						'key' => 'date',
-						'value' 	=> $startDate->format('Ymd'),
-						'compare' 	=> '>=',
-						'type' 	=> 'DATE'
+					'meta_query'			=> array (
+						'AND', 
+							array(
+							'key' => 'date',
+							'value' 	=> $startDate->format('Ymd'),
+							'compare' 	=> '>=',
+							'type' 	=> 'DATE'
+						), 
+						array(
+							'key' => 'date',
+							'value' 	=> $endDate->format('Ymd'),
+							'compare' 	=> '<',
+							'type' 	=> 'DATE'
+						)
 					)
 				);
 
