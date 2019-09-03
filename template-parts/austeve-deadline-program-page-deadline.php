@@ -7,10 +7,20 @@
 	$format = "Ymd";
 	$dateobj = DateTime::createFromFormat($format, $raw);
 
+
+	if(ICL_LANGUAGE_CODE=='fr'):
+		setlocale(LC_TIME, 'fr_FR');
+		$ordinal = new NumberFormatter('fr_FR', NumberFormatter::ORDINAL);
+		$ordinal = $ordinal->format(date_format($dateobj, "j"));
+		$dateDisplay = strftime("{$ordinal} %B %Y", $dateobj->getTimestamp());
+	else :
+		$dateDisplay = $dateobj->format('F d, Y');
+	endif;
+
 	?>
 
 	<div class="cell">
-		<span class="date"><?php echo $dateobj->format('F d, Y'); ?></span>
+		<span class="date"><?php echo $dateDisplay; ?></span>
 	</div>
 
 </div>

@@ -65,6 +65,9 @@ get_header(); ?>
 									$startDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('-'.$days.' days');
 									$endDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('+2 years');
 
+									//Deadlines are not translatable so always get the en deadlines
+									$orig_post = icl_object_id(get_the_ID(), get_post_type(), false, 'en');
+
 										// WP_Query arguments
 									$args = array(
 										'post_type'              => array( 'austeve-deadline' ),
@@ -89,7 +92,7 @@ get_header(); ?>
 											),
 											array(
 												'key' => 'grant-program',
-												'value' 	=> get_the_ID(),
+												'value' 	=> $orig_post,
 												'compare' 	=> '=',
 											)
 										)
