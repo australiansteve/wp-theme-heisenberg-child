@@ -131,6 +131,10 @@ main {
 	display: none;
 }
 
+/* https://github.com/zurb/foundation-sites/issues/11098 */
+.sticky.is-anchored.is-at-bottom {
+    top: 0 !important;
+}
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
