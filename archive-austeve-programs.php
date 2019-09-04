@@ -27,6 +27,9 @@ get_header(); ?>
 		$theSubMenu = 'grants-menu';
 		get_template_part( 'template-parts/sub-menu' ); 
 		?>
+		<div class="small-12 cell" id="sub-title">
+			<h2><?php the_field('grants_page_subtitle', 'option');?></h2>
+		</div>
 	</div>
 	
 	<div class="grid-x grid-padding-x">

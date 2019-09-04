@@ -6,6 +6,7 @@
 namespace Heisenberg;
 
 require_once __DIR__ . '/src/enqueue.php';
+require_once __DIR__ . '/src/menu-walker.php';
 
 add_action( 'after_setup_theme', function() {
 

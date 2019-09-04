@@ -47,6 +47,57 @@ header.grid-container {
 		margin-bottom: 1em;
 		width: 150px;
 	}
+
+	.dropdown.menu {
+
+		>li.is-active>a {
+			color: $yellow-color;
+		}
+
+		>li.is-dropdown-submenu-parent>a::after {
+			display: none;
+		}
+
+		.submenu {
+			li {
+				text-align: left;
+			}
+		}
+
+		.is-dropdown-submenu {
+			border: 2px solid $black-color;
+			min-width: max-content;
+		}
+	}
+
+}
+
+#offCanvasLeft {
+
+	.language-selector a {
+		display: inline-block;
+		padding-top: 1.5rem;
+	}
+
+	.language-selector a:nth-of-type(odd) {
+		padding-right: 0;
+	}
+	.language-selector a:nth-of-type(even) {
+		padding-left: 0;
+	}
+
+	.menu a.menu-depth-0 {
+
+	}
+
+	.menu a.menu-depth-1 {
+		padding-left: 2rem;
+	}
+
+	.menu a.menu-depth-2 {
+		padding-left: 3rem;
+	}
+
 }
 
 /* Small only */

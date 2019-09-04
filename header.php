@@ -23,20 +23,33 @@
 
 	<div class="off-canvas-wrapper">
 
-		<div class="off-canvas-absolute position-left" id="offCanvasLeft" data-off-canvas>
+		<div class="off-canvas-absolute position-left" id="offCanvasLeft" data-off-canvas data-auto-focus="false">
 			<ul class="vertical menu">
+				<li class="language-selector">
+					<a href="?lang=fr">FR</a> | <a href="?lang=en">EN</a>
+				</li>
+				<li class="home">
+					<a href="<?php echo site_url();?>"><?php the_field('home_link_text', 'option')?></a>
+				</li>
 				<?php
 				$args = [
 					'theme_location' 	=> 'primary',
 					'container'			=> false,
 					'items_wrap' 		=> '%3$s',
+					'walker' 			=> new OffCanvas_Foundation_Menu() ,
 					
 				];
 				wp_nav_menu( $args ); ?>
+				<li>
+					<span class="mailing-list"><a href="<?php the_field('mailing_list_link', 'option')?>"><?php the_field('mailing_list_text', 'option')?></a></span>
+				</li>
+				<li>
+					<span class="account-login"><a href="<?php the_field('account_login_link', 'option')?>"><?php the_field('account_login_text', 'option')?></a></span>
+				</li>
 			</ul>
 		</div>
 
-		<header class="grid-container">
+		<header id="header" class="grid-container">
 			<div data-sticky-container>
 				<div data-sticky style="background:white;max-width:100%" data-margin-top="0" data-options="dynamicHeight:false;">
 					<div class="content-container">
@@ -66,7 +79,10 @@
 								<?php
 								wp_nav_menu( [
 									'theme_location' => 'primary',
-									'container'      => '',
+									'container'      => false,
+									'menu_class'	=> 'dropdown menu',
+									'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
+									'walker'		=> new Dropdown_Foundation_Menu(),
 								] ); 
 								?>
 							</div>
