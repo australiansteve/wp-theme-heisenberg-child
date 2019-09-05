@@ -50,71 +50,67 @@
 		</div>
 
 		<header id="header" class="grid-container">
-			<div data-sticky-container>
-				<div data-sticky style="background:white;max-width:100%" data-margin-top="0" data-options="dynamicHeight:false;">
-					<div class="content-container">
-						<div class="grid-x hide-for-sticky" id="header-language-switch">
-							<div class="cell small-11 medium-12 small-text-left medium-text-right">
-								<span class="language-fr"><a href="?lang=fr">FR</a></span> | 
-								<span class="language-en"><a href="?lang=en">EN</a></span>
-							</div>
-							<div class="cell small-1 off-canvas-content hide-for-medium small-text-right" id="hamburger-menu" data-off-canvas-content>
-								<a href="#" data-toggle="offCanvasLeft"><i class="fas fa-bars"></i></a>
-							</div>			
-						</div>
-						<div class="grid-x show-for-medium hide-for-sticky" id="header-contact-information">
-							<div class="cell text-right">
-								<span class="telephone-number"><?php the_field('telephone_number_text', 'option')?>: <a href="<?php the_field('telephone_number_link', 'option')?>"><?php the_field('telephone_number', 'option')?></a></span>
-								<span class="email-address"><?php the_field('email_address_text', 'option')?>: <a href="mailto:<?php the_field('email_address', 'option')?>"><?php the_field('email_address', 'option')?></a></span>
-							</div>
-						</div>
-						<div class="grid-x show-for-medium hide-for-sticky" id="header-links">
-							<div class="cell text-right">
-								<span class="mailing-list"><a href="<?php the_field('mailing_list_link', 'option')?>"><?php the_field('mailing_list_text', 'option')?></a></span> | 
-								<span class="account-login"><a href="<?php the_field('account_login_link', 'option')?>"><?php the_field('account_login_text', 'option')?></a></span>
-							</div>
-						</div>
-						<div class="grid-x show-for-medium" id="header-menu">
-							<div class="cell text-right">
-								<?php
-								wp_nav_menu( [
-									'theme_location' => 'primary',
-									'container'      => false,
-									'menu_class'	=> 'dropdown menu',
-									'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
-									'walker'		=> new Dropdown_Foundation_Menu(),
-								] ); 
-								?>
-							</div>
-						</div>
-						<div class="grid-x" id="header-logo">
-							<div class="cell text-center medium-text-left">
-								<?php
-								if ( function_exists( 'the_custom_logo' ) ) {
-									$custom_logo_id = get_theme_mod( 'custom_logo' );
-									$image = wp_get_attachment_image_src( $custom_logo_id , 'site_logo' );
-									printf( '<a href="%s" rel="home">',	esc_url( home_url( '/' ) ));
-									?>
-									<img class="custom-logo" src="<?php echo $image[0];?>" height="173" width="240" alt="<?php bloginfo( 'name' ); ?>"/>
-									<?php
-									printf( '</a>');
-								}
-								else
-								{
-									printf( '<h1><a href="%s" rel="home">%s</a></h1>',
-										esc_url( home_url( '/' ) ),
-										esc_html( get_bloginfo( 'name' ) )
-									);
-								}
-								?>
-							</div>
-						</div>
-						<div class="grid-x hide-for-sticky show-for-home-only" id="header-tagline">
-							<div class="cell">
-								<h2><?php the_field('header_tagline_title', 'option'); ?></h2>
-								<p><?php the_field('header_tagline_text', 'option'); ?></p>
-							</div>
-						</div>
+			<div class="content-container">
+				<div class="grid-x" id="header-language-switch">
+					<div class="cell small-11 medium-12 small-text-left medium-text-right">
+						<span class="language-fr"><a href="?lang=fr">FR</a></span> | 
+						<span class="language-en"><a href="?lang=en">EN</a></span>
+					</div>
+					<div class="cell small-1 off-canvas-content hide-for-medium small-text-right" id="hamburger-menu" data-off-canvas-content>
+						<a href="#" data-toggle="offCanvasLeft"><i class="fas fa-bars"></i></a>
+					</div>			
+				</div>
+				<div class="grid-x show-for-medium" id="header-contact-information">
+					<div class="cell text-right">
+						<span class="telephone-number"><?php the_field('telephone_number_text', 'option')?>: <a href="<?php the_field('telephone_number_link', 'option')?>"><?php the_field('telephone_number', 'option')?></a></span>
+						<span class="email-address"><?php the_field('email_address_text', 'option')?>: <a href="mailto:<?php the_field('email_address', 'option')?>"><?php the_field('email_address', 'option')?></a></span>
+					</div>
+				</div>
+				<div class="grid-x show-for-medium" id="header-links">
+					<div class="cell text-right">
+						<span class="mailing-list"><a href="<?php the_field('mailing_list_link', 'option')?>"><?php the_field('mailing_list_text', 'option')?></a></span> | 
+						<span class="account-login"><a href="<?php the_field('account_login_link', 'option')?>"><?php the_field('account_login_text', 'option')?></a></span>
+					</div>
+				</div>
+				<div class="grid-x show-for-medium" id="header-menu">
+					<div class="cell text-right">
+						<?php
+						wp_nav_menu( [
+							'theme_location' => 'primary',
+							'container'      => false,
+							'menu_class'	=> 'dropdown menu',
+							'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
+							'walker'		=> new Dropdown_Foundation_Menu(),
+						] ); 
+						?>
+					</div>
+				</div>
+				<div class="grid-x" id="header-logo">
+					<div class="cell text-center medium-text-left">
+						<?php
+						if ( function_exists( 'the_custom_logo' ) ) {
+							$custom_logo_id = get_theme_mod( 'custom_logo' );
+							$image = wp_get_attachment_image_src( $custom_logo_id , 'site_logo' );
+							printf( '<a href="%s" rel="home">',	esc_url( home_url( '/' ) ));
+							?>
+							<img class="custom-logo" src="<?php echo $image[0];?>" height="173" width="240" alt="<?php bloginfo( 'name' ); ?>"/>
+							<?php
+							printf( '</a>');
+						}
+						else
+						{
+							printf( '<h1><a href="%s" rel="home">%s</a></h1>',
+								esc_url( home_url( '/' ) ),
+								esc_html( get_bloginfo( 'name' ) )
+							);
+						}
+						?>
+					</div>
+				</div>
+				<div class="grid-x show-for-home-only" id="header-tagline">
+					<div class="cell">
+						<h2><?php the_field('header_tagline_title', 'option'); ?></h2>
+						<p><?php the_field('header_tagline_text', 'option'); ?></p>
 					</div>
 				</div>
 			</div>

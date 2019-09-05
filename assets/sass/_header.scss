@@ -36,13 +36,6 @@ header.grid-container {
 		font-size: 1.4rem;
 	}
 
-	.is-at-top.is-stuck .hide-for-sticky, .is-at-top.is-stuck .hide-for-sticky * {
-		color: white;
-		margin: 0;
-		font-size: 0;
-		height: 0;
-	}
-
 	.is-at-top.is-stuck img.custom-logo {    
 		margin-bottom: 1em;
 		width: 150px;
@@ -121,8 +114,11 @@ header.grid-container {
 					font-family: 'Cooper-Hewitt-Bold';
 					text-transform: uppercase;
 				}
+			}
 
-				li:nth-last-of-type(1) {
+			.menu:not(.submenu) {
+
+				>li:nth-last-of-type(1) {
 					a {
 						padding-right: 0;
 					}

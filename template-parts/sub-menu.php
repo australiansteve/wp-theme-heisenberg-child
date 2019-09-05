@@ -2,8 +2,6 @@
 
 <div class="small-12 cell" id="sub-menu" data-sticky-container>
 
-	<!--div class="sticky" data-sticky data-options="marginTop:11;" data-top-anchor="header:bottom"-->
-
 		<ul class="vertical menu accordion-menu show-for-small-only" data-accordion-menu>
 		  <li>
 		    <a href="#">Submenu</a>
@@ -26,5 +24,5 @@
 			'after'      		=> '</div>',
 			] ), "<div><a>"); 
 		?>
-	<!--/div-->
+
 </div>
