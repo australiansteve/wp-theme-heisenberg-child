@@ -2,7 +2,7 @@
 				
 <ul class="vertical menu accordion-menu show-for-small-only" id="sub-menu" data-accordion-menu>
   <li>
-    <a href="#"><?php echo the_title();?></a>
+    <a href="#">Submenu</a>
 	    <?php wp_nav_menu( [
 		'theme_location' => $theSubMenu,
 		'container' => '',

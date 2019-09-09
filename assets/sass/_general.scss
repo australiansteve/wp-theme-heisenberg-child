@@ -70,6 +70,10 @@
 	padding: 1rem 4rem;
 }
 
+p.button-container>a {
+	margin-top: 0rem;
+}
+
 a:not(.button):hover, a:not(.button).active, a:not(.button):focus  {
 	font-weight: 700;
 	color: inherit;
@@ -109,6 +113,10 @@ a.button:hover, a.button.active, a.button:focus  {
 
 .accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle)>a::after {
     border-color: $black-color transparent transparent;
+}
+
+.hidden {
+	display: none;
 }
 
 /* Small only */

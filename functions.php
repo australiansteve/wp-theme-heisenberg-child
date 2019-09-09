@@ -19,6 +19,7 @@ add_action('after_setup_theme', function(){
 	register_nav_menu( 'social-menu', __( 'Social Media Menu', 'heisenberg' ) );
 	register_nav_menu( 'footer-menu', __( 'Secondary Footer Menu', 'heisenberg' ) );
 	register_nav_menu( 'services-menu', __( 'Services Page Menu', 'heisenberg' ) );
+	register_nav_menu( 'courses-menu', __( 'Courses Page Menu', 'heisenberg' ) );
 
 	$defaults = array(
 		'height'      => 185,
@@ -83,11 +84,14 @@ add_filter('wp_nav_menu_objects', function( $items, $args ) {
 	
 }, 10, 2);
 
-// add_action('pre_get_posts', function($query) {
-// 	if ( $query->is_home() && $query->is_main_query() ) {
-// 		$query->set( 'posts_per_page', '1' );
-// 	}
-// });
+add_action('pre_get_posts', function($query) {
+	if ( $query->is_archive('austeve-course') ) {
+		$query->set( 'posts_per_page', '-1' );
+		$query->set( 'orderby', 'menu_order');
+		$query->set( 'order', 'ASC');
+
+	}
+});
 
 
 function austeve_move_yoast_below_acf() {
@@ -115,4 +119,48 @@ add_action( 'login_enqueue_scripts', function() {
     </style>
 <?php 
 });
+
+add_filter( 'ninja_forms_render_default_value', function($default_value, $field_type, $field_settings ) {
+	
+	if('course_id' == $field_settings['key']) :
+		$default_value = get_the_ID();
+	endif;
+
+	return $default_value;
+
+}, 10, 3 );
+
+add_filter( 'ninja_forms_render_options_listselect', function ( $options, $settings ){
+	
+	$courseId = -1;
+
+	if (is_admin()) :
+		error_log("ADMIN! ".get_post_type()." ".get_the_ID());
+		$sub = Ninja_Forms()->form()->get_sub( get_the_ID() );
+		$courseId = $sub->get_field_value( 'course_id' );
+	elseif (get_field('course_offerings', get_the_ID())) :
+		$courseId = get_the_ID();
+	endif;
+
+	if ($courseId >= 0)
+	{
+		error_log("Update course offerings!");
+		while ( have_rows('course_offerings', $courseId) ) : the_row();
+
+			$offering = array(
+				"label"=>get_sub_field('dates', $courseId)." - ".get_sub_field('location', $courseId), 
+				"value"=>get_sub_field('dates', $courseId)." - ".get_sub_field('location', $courseId),
+				
+			);
+
+	    	array_push($options, $offering);
+	    endwhile;
+	}
+	
+    error_log(print_r($options, true));
+  
+  return $options;
+}, 10, 2 );
+
+
 

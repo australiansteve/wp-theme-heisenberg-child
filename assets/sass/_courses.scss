@@ -1,0 +1,123 @@
+#menu-courses-page-menu-1 {
+	margin-bottom: 2rem;
+
+	a {
+		font-weight: 700;
+
+	}
+
+	a[aria-current] {
+		border-bottom: 1px solid $black-color;
+	}
+	a[aria-current]:hover {
+		border-bottom: 1px solid white;
+	}
+}
+
+.single-austeve-course {
+	
+	.content-container {
+		margin-top: 1rem;
+		margin-left: 0.5rem;
+		background: $grey-light-color;
+		padding: 1rem 1rem;
+		max-width: 85%;
+
+	}
+
+	.course-taxonomies {
+		margin-bottom: 1rem;
+	}
+
+	.course-offering {
+		margin-top: 1rem;
+	}
+
+	.course-registration {
+		margin-top: 4rem;
+	}
+
+	.featured-image img {
+		margin-top: 3rem;
+	}
+}
+
+.post-type-archive-austeve-course, .tax-course-category, .tax-course-tag  {
+
+	.post-archive {
+		margin-bottom: 2rem;
+
+		.post-archive-container {
+			position: relative;
+		}
+
+		.post-archive-content-container {
+			min-height: 250px;
+			padding: 1rem;
+
+
+			.course-taxonomies {
+				margin-bottom: 1rem;
+			}
+
+		}
+
+	}
+
+	#posts > .post-archive .post-archive-content-container {
+		background-color: $primary-color;
+
+		p, h2, div, a {
+			color: $secondary-color;
+		}
+
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.single-austeve-course {
+
+		.course-registration {
+
+			.course-registration-content {
+				max-width: 90%;
+    			margin-bottom: 2rem;
+			}
+		}
+	}
+
+	.post-type-archive-austeve-course, .tax-course-category, .tax-course-tag {
+	
+		.post-archive {
+
+			.post-archive-content-container {
+				padding: 2rem;
+			}
+		}
+
+		#posts {
+			margin-left: 3rem;
+		}
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}
