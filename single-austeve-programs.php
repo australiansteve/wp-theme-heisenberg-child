@@ -48,74 +48,76 @@ get_header(); ?>
 								<a href="<?php the_field('oa_system_link', 'option');?>" class="button"><?php the_field('grants_page_apply_button_text', 'option');?></a>
 							</div>
 							<div class="cell small-12 medium-4 right-column">
-								<div class="featured-image">
-									<?php
-									if (has_post_thumbnail())
-									{
-										the_post_thumbnail('program_featured_image');
-									}
-									?>
-								</div>
-								<div class="deadlines">
-									<h3><?php the_field('front_page_column_title_3', 'option');?></h3>
+								<div class="grid-x">
+									<div class="cell small-12 small-order-1 medium-order-2 deadlines">
+										<h3><?php the_field('front_page_column_title_3', 'option');?></h3>
 
-									<?php
+										<?php
 										//add meta query to only get deadlines AFTER the 'timeout' period'
-									$days = get_field('remove_deadlines_after', 'option');
-									$startDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('-'.$days.' days');
-									$endDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('+2 years');
+										$days = get_field('remove_deadlines_after', 'option');
+										$startDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('-'.$days.' days');
+										$endDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('+2 years');
 
 									//Deadlines are not translatable so always get the en deadlines
-									$orig_post = icl_object_id(get_the_ID(), get_post_type(), false, 'en');
+										$orig_post = icl_object_id(get_the_ID(), get_post_type(), false, 'en');
 
 										// WP_Query arguments
-									$args = array(
-										'post_type'              => array( 'austeve-deadline' ),
-										'post_status'            => array( 'publish' ),
-										'posts_per_page'         => '-1',
-										'meta_key'				=> 'date',
-										'orderby'	=> 	'meta_value_num',
-										'order'		=> 	'ASC',
-										'meta_query'			=> array(
-											'relation'		=> 'AND',
-											array(
-												'key' => 'date',
-												'value' 	=> $startDate->format('Ymd'),
-												'compare' 	=> '>=',
-												'type' 	=> 'DATE'
-											),
-											array(
-												'key' => 'date',
-												'value' 	=> $endDate->format('Ymd'),
-												'compare' 	=> '<',
-												'type' 	=> 'DATE'
-											),
-											array(
-												'key' => 'grant-program',
-												'value' 	=> $orig_post,
-												'compare' 	=> '=',
+										$args = array(
+											'post_type'              => array( 'austeve-deadline' ),
+											'post_status'            => array( 'publish' ),
+											'posts_per_page'         => '-1',
+											'meta_key'				=> 'date',
+											'orderby'	=> 	'meta_value_num',
+											'order'		=> 	'ASC',
+											'meta_query'			=> array(
+												'relation'		=> 'AND',
+												array(
+													'key' => 'date',
+													'value' 	=> $startDate->format('Ymd'),
+													'compare' 	=> '>=',
+													'type' 	=> 'DATE'
+												),
+												array(
+													'key' => 'date',
+													'value' 	=> $endDate->format('Ymd'),
+													'compare' 	=> '<',
+													'type' 	=> 'DATE'
+												),
+												array(
+													'key' => 'grant-program',
+													'value' 	=> $orig_post,
+													'compare' 	=> '=',
+												)
 											)
-										)
-									);
+										);
 
 										// The Query
-									$postsquery = new WP_Query( $args );
+										$postsquery = new WP_Query( $args );
 
 										// The Loop
-									if ( $postsquery->have_posts() ) {
-										while ( $postsquery->have_posts() ) {
-											$postsquery->the_post();
-											echo get_template_part('template-parts/austeve-deadline', 'program-page-deadline');
-										}
-									} else {
+										if ( $postsquery->have_posts() ) {
+											while ( $postsquery->have_posts() ) {
+												$postsquery->the_post();
+												echo get_template_part('template-parts/austeve-deadline', 'program-page-deadline');
+											}
+										} else {
 											// no posts found
-										the_field('no_deadlines_text', 'option');
-									}
+											the_field('no_deadlines_text', 'option');
+										}
 
 										// Restore original Post Data
-									wp_reset_postdata();
-									?>	
+										wp_reset_postdata();
+										?>	
 
+									</div>
+									<div class="cell small-12 small-order-2 medium-order-1 featured-image">
+										<?php
+										if (has_post_thumbnail())
+										{
+											the_post_thumbnail('program_featured_image');
+										}
+										?>
+									</div>
 								</div>
 							</div>
 

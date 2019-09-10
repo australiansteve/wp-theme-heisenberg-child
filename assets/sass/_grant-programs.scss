@@ -17,9 +17,20 @@ main .content-container .deadline-front-page a {
 	text-decoration: none;
 }
 
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	
+	.single-austeve-programs {
+		.austeve-program {
+			.right-column {
+				margin-top: 1rem;
+
+				.deadlines {
+					margin-bottom: 1rem;
+				}
+			}
+		}
+	}
 }
 
 /* Medium and up */
