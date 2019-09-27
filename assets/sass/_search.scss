@@ -1,0 +1,20 @@
+#searchForm {
+	.button {
+		background: $black-color;
+		color: $white-color;
+	}
+
+	.button:focus {
+		outline-color: $yellow-color;
+	}
+}
+
+footer {
+	#searchForm {
+		.button { 
+			border-top: 2px solid $white-color;
+			border-right: 2px solid $white-color;
+			border-bottom: 2px solid $white-color;
+		}
+	}
+}

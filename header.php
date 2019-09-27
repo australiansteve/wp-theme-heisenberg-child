@@ -15,7 +15,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/30900d1525.js"></script>
+
+	<!-- Mailchimp embed styles -->
+	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	</style>
+	<!-- END: Mailchimp embed styles -->
+
 	<?php wp_head(); ?>
 </head>
 
@@ -24,7 +32,7 @@
 	<div class="off-canvas-wrapper">
 
 		<div class="off-canvas-absolute position-left" id="offCanvasLeft" data-off-canvas data-auto-focus="false">
-			<ul class="vertical menu">
+			<ul class="vertical menu accordion-menu" data-accordion-menu>
 				<li class="language-selector">
 					<a href="?lang=fr">FR</a> | <a href="?lang=en">EN</a>
 				</li>
@@ -41,7 +49,7 @@
 				];
 				wp_nav_menu( $args ); ?>
 				<li>
-					<span class="mailing-list"><a href="<?php the_field('mailing_list_link', 'option')?>"><?php the_field('mailing_list_text', 'option')?></a></span>
+					<span class="mailing-list"><a href="#" data-open="mailchimpSignupModal"><?php the_field('mailing_list_text', 'option')?></a></span>
 				</li>
 				<li>
 					<span class="account-login"><a href="<?php the_field('account_login_link', 'option')?>"><?php the_field('account_login_text', 'option')?></a></span>
@@ -50,9 +58,12 @@
 		</div>
 
 		<header id="header" class="grid-container">
-			<div class="content-container">
+			<div class="content-container" >
 				<div class="grid-x" id="header-language-switch">
-					<div class="cell small-11 medium-12 small-text-left medium-text-right">
+					<div class="cell small-12 medium-5 medium-offset-6 medium-text-right">
+						<?php echo get_template_part('template-parts/search-bar'); ?>
+					</div>
+					<div class="cell small-11 medium-1 small-text-left medium-text-right">
 						<span class="language-fr"><a href="?lang=fr">FR</a></span> | 
 						<span class="language-en"><a href="?lang=en">EN</a></span>
 					</div>
@@ -62,13 +73,24 @@
 				</div>
 				<div class="grid-x show-for-medium" id="header-contact-information">
 					<div class="cell text-right">
-						<span class="telephone-number"><?php the_field('telephone_number_text', 'option')?>: <a href="<?php the_field('telephone_number_link', 'option')?>"><?php the_field('telephone_number', 'option')?></a></span>
+						<span class="telephone-number"><?php the_field('telephone_number_text', 'option')?>: <?php if (get_field('telephone_number_link', 'option')) :?> <a href="<?php the_field('telephone_number_link', 'option')?>"><?php endif; ?><?php the_field('telephone_number', 'option')?><?php if (get_field('telephone_number_link', 'option')) :?></a><?php endif; ?></span>
 						<span class="email-address"><?php the_field('email_address_text', 'option')?>: <a href="mailto:<?php the_field('email_address', 'option')?>"><?php the_field('email_address', 'option')?></a></span>
+					</div>
+					<div class="cell text-right">
+						<?php
+						wp_nav_menu( [
+							'theme_location' => 'social-media-menu',
+							'menu_class' => 'menu horizontal align-right',
+							'menu_id' => 'social-media-menu' ,
+							'items_wrap' => '' ,
+							'items_wrap' => '<div id="%1$s" class="%2$s">%3$s</div>'
+						] ); 
+						?>
 					</div>
 				</div>
 				<div class="grid-x show-for-medium" id="header-links">
 					<div class="cell text-right">
-						<span class="mailing-list"><a href="<?php the_field('mailing_list_link', 'option')?>"><?php the_field('mailing_list_text', 'option')?></a></span> | 
+						<span class="mailing-list"><a href="#" data-open="mailchimpSignupModal"><?php the_field('mailing_list_text', 'option')?></a></span> | 
 						<span class="account-login"><a href="<?php the_field('account_login_link', 'option')?>"><?php the_field('account_login_text', 'option')?></a></span>
 					</div>
 				</div>
@@ -114,6 +136,7 @@
 					</div>
 				</div>
 			</div>
+			<?php echo get_template_part('template-parts/mailchimp-signup'); ?>
 		</header>
 
 		<main class="grid-container">

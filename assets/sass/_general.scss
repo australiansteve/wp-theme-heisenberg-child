@@ -34,6 +34,10 @@ main {
 			border-bottom: 2px solid $third-color;
 		}
 
+		li {    
+			margin-bottom: 0.25rem;
+		}
+		
 		a {
 			color: $black-color;
 			text-decoration: underline;
@@ -81,14 +85,13 @@ main {
 			}
 		}
 
-		#sub-menu a.active, #sub-menu a[aria-current] {
+		#sub-menu a.active, #sub-menu a[aria-current], #sub-menu li.current-menu-item a {
 			text-decoration: underline;
 			color: $yellow-color;
 
 		}
 	}
 }
-
 
 .archive, .blog, .search {
 
@@ -131,14 +134,54 @@ main {
 	display: none;
 }
 
-/* https://github.com/zurb/foundation-sites/issues/11098 */
-.sticky.is-anchored.is-at-bottom {
-    top: 0 !important;
+p.no-margin-bottom {
+	margin-bottom: 0 !important;
+}
+
+.wp-block-file {
+	margin-bottom: 0.5rem;
+    display: list-item;          /* This has to be "list-item"                                               */
+    list-style-type: disc;       /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type     */
+    list-style-position: inside; /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position */
+
+    a {
+    	display: inline-flex;
+    }
+}
+
+.wp-block-file:nth-last-of-type(1) {
+	margin-bottom: 1.5rem;
+}
+
+.thumbnail-caption {
+	font-size: 0.9rem;
+	font-style: italic;
+	margin: 0.25rem 0 1rem 0;
+}
+
+html.is-reveal-open body {
+    display: contents;
+}
+
+.responsive-embed {
+	height: auto;
+	padding-bottom: 0;
+}
+
+.gmw-map iframe {
+	height: 300px;
 }
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
+	.accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle)>a::after {
+		border-color: $black-color transparent transparent;
+	}
+
+	.accordion-menu .is-accordion-submenu-parent[aria-expanded=true]:not(.has-submenu-toggle)>a::after {
+		border-color: $yellow-color transparent transparent;
+	}
 }
 
 /* Medium and up */
@@ -173,7 +216,9 @@ main {
 
 				.menu a {
 					padding-left: 0;
-					padding-right: 1.4rem;
+					padding-right: 1rem;
+					margin-right: 0.4rem;
+					overflow: hidden;
 				}
 			}
 

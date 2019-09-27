@@ -43,16 +43,44 @@
 						</div>
 
 						<div class="medium-4 cell" id="center-column">
-							<?php wp_nav_menu( [
-								'theme_location' => 'footer-center-menu',
-								'container' => '',
-								'menu_class' => 'menu vertical',
-							]); 
-							?>
+							<ul class="menu vertical">
+								<?php wp_nav_menu( [
+									'theme_location' => 'footer-center-menu',
+									'container' => '',
+									'items_wrap' 		=> '%3$s',
+								]); 
+								?>
+								<li>
+									<span class="mailing-list"><a href="#" data-open="mailchimpSignupModal"><?php the_field('mailing_list_text', 'option')?></a></span>
+								</li>
+								<li>
+									<span class="account-login"><a href="<?php the_field('account_login_link', 'option')?>"><?php the_field('account_login_text', 'option')?></a></span>
+								</li>
+							</ul>
 						</div>
 
 						<div class="medium-4 cell" id="right-column">
 							<?php the_field('footer_right_text', 'option'	); ?>
+
+							<?php
+							wp_nav_menu( [
+								'theme_location' => 'social-media-menu',
+								'menu_class' => 'menu horizontal align-center show-for-small-only',
+								'menu_id' => 'social-media-menu' ,
+								'items_wrap' => '<div id="%1$s" class="%2$s">%3$s</div>'
+							] ); 
+							?>
+							<?php
+							wp_nav_menu( [
+								'theme_location' => 'social-media-menu',
+								'menu_class' => 'menu horizontal show-for-medium',
+								'menu_id' => 'social-media-menu' ,
+								'items_wrap' => '<div id="%1$s" class="%2$s">%3$s</div>'
+							] ); 
+							?>
+
+							<?php echo get_template_part('template-parts/search-bar'); ?>
+
 						</div>
 
 					</div>

@@ -61,8 +61,13 @@
 
 }
 
-	/* Small only */
+/* Small only */
 @media screen and (max-width: 39.9375em) {
+	.home.page { 
+		#feature, #deadlines {
+			margin-top: 1rem;
+		}
+	}
 }
 
 /* Medium and up */

@@ -47,6 +47,12 @@ get_header(); ?>
 					?>
 				</div>
 
+				<div class="small-12 cell" id="after-awards">
+
+					<?php the_field('additional_text_displayed_after_recipients'); ?>
+
+				</div>
+
 				<?php
 			endwhile;
 

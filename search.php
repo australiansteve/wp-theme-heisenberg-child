@@ -16,7 +16,7 @@ get_header();
 		yoast_breadcrumb('<p id="breadcrumbs">','</p>');
 	endif; ?>
 
-	<?php printf( '<h1>Search Results for: %s</h1>',
+	<?php printf( '<h1>'.get_field('search_results_page_title', 'option').': \'%s\'</h1>',
 		esc_html( get_search_query() )
 	);?>
 
@@ -33,7 +33,7 @@ get_header();
 
 		else :
 
-			printf( 'Sorry, no results for %s',
+			printf( trim(get_field('no_search_results_text', 'option')).' \'%s\'',
 				esc_html( get_search_query() )
 			);
 

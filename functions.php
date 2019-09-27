@@ -24,6 +24,8 @@ add_action( 'after_setup_theme', function() {
 	register_nav_menu( 'resources-menu', __( 'Resources Page submenu', 'heisenberg' ) );
 	register_nav_menu( 'footer-left-menu', __( 'Left Footer menu', 'heisenberg' ) );
 	register_nav_menu( 'footer-center-menu', __( 'Center Footer menu', 'heisenberg' ) );
+	register_nav_menu( 'social-media-menu', __( 'Social Media menu', 'heisenberg' ) );
+	register_nav_menu( 'news-category-menu', __( 'News Category menu', 'heisenberg' ) );
 
 	$logoDefaults = array(
 		'height'      => 173,
@@ -67,6 +69,12 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Theme Footer Settings',
 		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Mailchimp Settings',
+		'menu_title'	=> 'Mailchimp',
 		'parent_slug'	=> 'theme-general-settings',
 	));
 }
@@ -123,3 +131,26 @@ add_filter( 'wpseo_metabox_prio', function() {
 //         $query->set( 'posts_per_page', '1' );
 //     }
 // }); 
+
+add_filter('wp_nav_menu_objects', function( $items, $args ) {
+	
+	// loop
+	foreach( $items as &$item ) {
+		
+		// vars
+		$icon = get_field('icon', $item);
+		
+		// replace title with icon
+		if( $icon ) {
+			$title = $item->title;
+			$item->title = '<i class="fab fa-'.$icon.'" title="'.$title.'"></i>';
+			
+		}
+		
+	}
+	
+	// return
+	return $items;
+	
+}, 10, 2);
+

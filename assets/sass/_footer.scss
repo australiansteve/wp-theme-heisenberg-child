@@ -27,6 +27,14 @@ footer {
 		}
 	}
 
+	#social-media-menu li {
+		margin-right: 1rem;
+	}
+
+	#social-media-menu li:nth-last-of-type(1) {
+		margin-right: 0rem;
+	}
+
 }
 
 /* Small only */

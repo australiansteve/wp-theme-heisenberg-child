@@ -16,8 +16,21 @@ if (!function_exists('startsWith'))
 }
 
 ?>
+<script type="text/javascript">
+  window.addEventListener('message', event => {
+    if (event.origin.startsWith('https://artsnb.ca') || event.origin.startsWith('http://local.artsnb:8888')) { 
+        // Message sent from a trusted site. Data is stored in event.data:
+        //console.log(event.data); 
+        iframe = document.getElementById("embeddedFrame");
+        iframe.height = event.data.setHeight + "px";
+    } else {
+        // Ignore - untrusted origin
+        return; 
+    } 
+}); 
+</script>  
 
-<div class="container">
+<div class="container" id="embedded-content">
 
 	<div class="grid-x grid-padding-x">
 
@@ -42,7 +55,7 @@ if (!function_exists('startsWith'))
 
 						//Ensure url to embed is of an allowed domain
 						$isOk = false;
-						$allowedDomains = array("https://artsnb.ca", "https://staging-artsnb.weavercrawford.com");
+						$allowedDomains = array("https://artsnb.ca", "https://staging-artsnb.weavercrawford.com", "http://local.artsnb:8888");
 						foreach($allowedDomains as $domain)
 						{
 							if (startsWith($urlToEmbed, $domain))
@@ -64,7 +77,7 @@ if (!function_exists('startsWith'))
 						$urlToEmbed = get_field('embedded_content_url');; 
 					}
 					?>
-					<iframe src="<?php echo $urlToEmbed;?>" style="background: #FFFFFF;"></iframe>
+					<iframe id="embeddedFrame" src="<?php echo $urlToEmbed;?>" style="background: #FFFFFF;"></iframe>
 					<?php
 				endwhile;
 

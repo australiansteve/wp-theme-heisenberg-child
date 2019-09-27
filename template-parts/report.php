@@ -16,7 +16,7 @@
 					echo wp_get_attachment_image( $image, $size );
 				}
 				the_field('file_download_text', 'option');
-				echo " (".round(filesize(get_attached_file(get_sub_field('file'))) / 1024, 0)."kb)"; ?>
+				//echo " (".round(filesize(get_attached_file(get_sub_field('file'))) / 1024, 0)."kb)"; ?>
 					
 			</a>
 

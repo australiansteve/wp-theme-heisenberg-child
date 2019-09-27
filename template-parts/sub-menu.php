@@ -1,10 +1,10 @@
 <?php global $theSubMenu;?>
 
-<div class="small-12 cell" id="sub-menu" data-sticky-container>
+<div class="small-12 cell" id="sub-menu">
 
 		<ul class="vertical menu accordion-menu show-for-small-only" data-accordion-menu>
 		  <li>
-		    <a href="#">Submenu</a>
+		    <a href="#"><?php the_field('submenu_title', 'option');?></a>
 			    <?php wp_nav_menu( [
 				'theme_location' => $theSubMenu,
 				'container' => '',
@@ -13,16 +13,12 @@
 			?>
 		  </li>
 		</ul>
-
-		<?php echo strip_tags(wp_nav_menu( [
+		<?php wp_nav_menu( [
 			'theme_location' 	=> $theSubMenu,
-			'echo'            	=> false,
+			'walker' 			=> new EqualSpaceSubMenu() ,
 			'container_class'	=> 'border-bottom show-for-medium',
 			'menu_class'		=> 'menu grid-x',
-			'items_wrap'      	=> '<div id="%1$s" class="%2$s">%3$s</div>',
-			'before'     		=> '<div class="cell auto">',
-			'after'      		=> '</div>',
-			] ), "<div><a>"); 
+			'items_wrap'      	=> '<ul id="%1$s" class="%2$s">%3$s</ul>',
+			] ); 
 		?>
-
 </div>

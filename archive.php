@@ -10,6 +10,11 @@ get_header(); ?>
 	<h1 class="page-title"><?php the_archive_title();?></h1>
 
 	<?php
+	$theSubMenu = 'news-category-menu';
+	get_template_part( 'template-parts/sub-menu' ); 
+	?>
+
+	<?php
 	if ( have_posts() ) :
 
 		while ( have_posts() ) :

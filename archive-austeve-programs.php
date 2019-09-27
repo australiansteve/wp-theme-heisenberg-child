@@ -49,7 +49,7 @@ get_header(); ?>
 
 									if (has_post_thumbnail())
 									{
-										the_post_thumbnail('program_featured_image');
+										the_post_thumbnail('program_featured_image', ['title' => get_the_post_thumbnail_caption()]);
 									}
 									?>
 								</a>

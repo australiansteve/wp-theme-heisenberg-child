@@ -15,11 +15,7 @@ get_header(); ?>
 
 		<div class="small-12 cell">
 
-			<h1>Oops! That page can't be found.</h1>
-
-			<p>It looks like nothing was found at this location.</p>
-
-			<p><a href="<?php echo esc_url( home_url( '/' ));?>">Return to homepage</a></p>
+			<?php the_field('404_page_not_found', 'option');?>
 			
 		</div>
 
