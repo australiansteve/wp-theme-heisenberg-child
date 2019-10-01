@@ -1,7 +1,7 @@
 {
 	"name": "heisenberg-child",
 	"description": "Heisenberg Child - AUSteve child theme for Zeek Interactive's Heisenberg",
-	"version": "3.0.1",
+	"version": "3.0.3",
 	"main": "main.js",
 	"scripts": {
 		"start": "cross-env NODE_ENV=development SERVER=true webpack --watch",
@@ -20,20 +20,18 @@
 		"url": "https://github.com/australiansteve/heisenberg-child/issues"
 	},
 	"homepage": "https://github.com/australiansteve/heisenberg-child",
-	"dependencies": {
-		"foundation-sites": "^6.4.3"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@babel/core": "^7.3.4",
 		"@babel/polyfill": "^7.0.0",
 		"@babel/preset-env": "^7.3.4",
 		"autoprefixer": "^8.4.1",
 		"babel-loader": "^8.0.4",
-		"browser-sync": "^2.26.3",
+		"browser-sync": "^2.26.7",
 		"browser-sync-webpack-plugin": "^2.2.2",
 		"concurrently": "^3.5.1",
 		"cross-env": "^5.1.4",
-		"css-loader": "^0.28.11",
+		"css-loader": "^3.2.0",
 		"dotenv": "^5.0.1",
 		"hoek": "^5.0.3",
 		"mini-css-extract-plugin": "^0.4.0",
