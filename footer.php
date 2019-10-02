@@ -10,31 +10,51 @@
  */
 ?>
 
-	</div> <!-- .off-canvas-content -->
+</div> <!-- .off-canvas-content -->
 
 </main><!-- #content -->
 
-<footer class="grid-container">
+<div class="full-width-container footer">
+	<footer class="grid-container">
 
-	<div class="grid-x">
-
-		<div class="medium-4 cell" id="left-column">
-			Left
+		<div class="grid-x">
+			<div class="medium-2 cell text-center medium-text-left" id="left-column">
+				<?php
+				if ( has_custom_logo() ) :
+					the_custom_logo();
+				endif;
+				?>
+			</div>
+			
+			<div class="medium-10 cell text-center" id="center-column">
+				<ul id="footer-menu" class="vertical medium-horizontal menu">
+					<?php
+					wp_nav_menu( [
+						'theme_location' => 'footer-main',
+						'container'      => '',
+						'items_wrap'	=> '%3$s'
+					] ); 
+					?>
+				</ul>
+			</div>
 		</div>
-		
-		<div class="medium-4 cell" id="center-column">
-			<a href="https://weavercrawford.com" target="blank">
-				<i class="far fa-copyright"></i> <?php echo date("Y");?> Weaver Crawford Creative
-			</a>
-		</div>
-		
-		<div class="medium-4 cell" id="right-column">
-			Right
+
+		<div class="grid-x text-center">
+			<div class="cell" id="footer-social">
+				<ul id="social-menu" class="horizontal menu">
+					<?php
+					wp_nav_menu( [
+						'theme_location' => 'social-media',
+						'container'      => '',
+						'items_wrap'	=> '%3$s'
+					] ); 
+					?>
+				</ul>
+			</div>
 		</div>
 
-	</div>
-
-</footer>
+	</footer>
+</div>
 
 <?php wp_footer(); ?>
 </body>

@@ -1,4 +1,29 @@
 
+.full-width-container.footer {
+	background-color: $grey-color;
+
+	footer {
+		padding-top: 2rem;
+		padding-bottom: 1rem;
+		text-transform: uppercase;
+		font-size: 1.5rem;
+
+		a {
+			color: $white-color;
+		}
+
+		#footer-social {
+			margin-top: 2rem;
+			padding-top: 1rem;
+			border-top: 1px solid white;
+
+			ul {
+				list-style: none;
+			}
+		}
+	}
+}
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
@@ -22,7 +47,11 @@
 
 /* Large and up */
 @media screen and (min-width: 64em) {
-	
+	.full-width-container.footer {
+		footer {		
+			font-size: 2rem;
+		}
+	}
 }
 
 /* Large only */
