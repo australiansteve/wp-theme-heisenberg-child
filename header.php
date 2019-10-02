@@ -23,7 +23,7 @@
 
 	<div class="off-canvas position-right" id="offCanvas" data-off-canvas data-transition="overlap">
 		<!-- Your menu or Off-canvas content goes here -->
-		<ul id="primary-menu">
+		<ul id="primary-menu" class="vertical menu drilldown" data-drilldown>
 			<li class="close">
 				<button aria-label="Close menu" type="button" data-close>
 					<i class="fas fa-times"></i>
@@ -33,6 +33,7 @@
 			<?php
 			wp_nav_menu( [
 				'theme_location' => 'primary',
+				'walker' => new OffCanvas_Foundation_Menu(),
 				'container'      => '',
 				'items_wrap'	=> '%3$s'
 			] ); 
@@ -54,21 +55,45 @@
 
 		<button type="button" class="button off-canvas-opener" data-open="offCanvas"><i class="fas fa-bars fa-3x"></i><br/><?php the_field('menu_button_text', 'option');?></button>
 
-		<header class="grid-container">
+		<?php
+		/* grab the url for the full size featured image */
+		if (is_front_page() || !has_post_thumbnail()) :
+			$featured_img_url = get_field('front_page_background_image', 'option');
+		elseif(has_post_thumbnail()) :
+			$featured_img_url = get_the_post_thumbnail_url($post->ID, 'full'); 
+		else :
+			$featured_img_url = "";
+		endif;
 
+		?>
+		<div class="header-background-image" style="background-image: url(<?php echo $featured_img_url; ?>)">
+			<header class="grid-container">
 
+				<?php
+				if ( has_custom_logo() ) :
+					the_custom_logo();
+				else:
 
-			<?php
-			printf( '<h1><a href="%s" rel="home">%s</a></h1>',
-				esc_url( home_url( '/' ) ),
-				esc_html( get_bloginfo( 'name' ) )
-			);
+					printf( '<h1><a href="%s" rel="home">%s</a></h1>',
+						esc_url( home_url( '/' ) ),
+						esc_html( get_bloginfo( 'name' ) )
+					);
 
-			printf( '<p class="h4">%s</p>', esc_html( get_bloginfo( 'description' ) ) );
+					printf( '<p class="h4">%s</p>', esc_html( get_bloginfo( 'description' ) ) );
+				endif;
+				
+				the_title( '<div id="page-title"><h1>', '</h1></div>' );
 
-			?>
-			
+				if (is_front_page()) :
+					?>
+					<h2 class='primary-tagline'><?php the_field('front_page_primary_tagline', 'option');?></h2>
+					<h3 class='secondary-tagline'><?php the_field('front_page_secondary_tagline', 'option');?></h3>
+					<?php
+				endif;
 
-		</header>
+				?>
+
+			</header>
+		</div>
 
 		<main class="grid-container">
