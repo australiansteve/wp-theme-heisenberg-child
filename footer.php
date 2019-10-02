@@ -10,6 +10,8 @@
  */
 ?>
 
+	</div> <!-- .off-canvas-content -->
+
 </main><!-- #content -->
 
 <footer class="grid-container">

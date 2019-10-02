@@ -21,19 +21,54 @@
 
 <body <?php body_class(); ?>>
 
-<header class="grid-container">
-	<?php
-	printf( '<h1><a href="%s" rel="home">%s</a></h1>',
-		esc_url( home_url( '/' ) ),
-		esc_html( get_bloginfo( 'name' ) )
-	);
+	<div class="off-canvas position-right" id="offCanvas" data-off-canvas data-transition="overlap">
+		<!-- Your menu or Off-canvas content goes here -->
+		<ul id="primary-menu">
+			<li class="close">
+				<button aria-label="Close menu" type="button" data-close>
+					<i class="fas fa-times"></i>
+				</button>&nbsp;
+			</li>
 
-	printf( '<p class="h4">%s</p>', esc_html( get_bloginfo( 'description' ) ) );
+			<?php
+			wp_nav_menu( [
+				'theme_location' => 'primary',
+				'container'      => '',
+				'items_wrap'	=> '%3$s'
+			] ); 
+			?>
+		</ul>
+		<ul id="social-menu">
+			<?php
+			wp_nav_menu( [
+				'theme_location' => 'social-media',
+				'container'      => '',
+				'items_wrap'	=> '%3$s'
+			] ); 
+			?>
+		</ul>
+	</div>
 
-	wp_nav_menu( [
-		'theme_location' => 'primary',
-		'container'      => '',
-	] ); ?>
-</header>
+	<div class="off-canvas-content" data-off-canvas-content>
+		<!-- Your page content lives here -->
 
-<main class="grid-container">
+		<button type="button" class="button off-canvas-opener" data-open="offCanvas"><i class="fas fa-bars fa-3x"></i><br/><?php the_field('menu_button_text', 'option');?></button>
+
+		<header class="grid-container">
+
+
+
+			<?php
+			printf( '<h1><a href="%s" rel="home">%s</a></h1>',
+				esc_url( home_url( '/' ) ),
+				esc_html( get_bloginfo( 'name' ) )
+			);
+
+			printf( '<p class="h4">%s</p>', esc_html( get_bloginfo( 'description' ) ) );
+
+			?>
+			
+
+		</header>
+
+		<main class="grid-container">

@@ -1,0 +1,68 @@
+button.off-canvas-opener {
+	font-family: sans-serif;
+    font-weight: bold;
+    line-height: 1.3;
+    position: absolute;
+    right: 0;
+    top: 50px;
+}
+
+.off-canvas {
+
+	background: $red-color;
+    font-size: 2rem;
+    text-transform: uppercase;
+
+	button {
+		background-color: inherit;
+		color: inherit;
+		outline: unset;
+	}
+
+	ul {
+		list-style: none;
+
+		li.close {
+    		color: $white-color;
+			font-size: 2rem;
+			text-align: right;
+			display: inherit;
+		}
+
+		a {
+    		color: $white-color;
+		}
+	}
+
+	ul#social-menu {
+		position: absolute;
+		bottom: 0;
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.off-canvas {
+		width: 40%;
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}

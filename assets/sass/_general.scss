@@ -1,0 +1,28 @@
+a {
+	color: $black-color;
+}
+
+a:hover, a.focus {
+	color: $black-color;
+	opacity: 0.75;
+	text-decoration: underline;
+}
+
+button, .button, a.button, input[type="submit"], input[type="button"] {
+	color: $white-color;
+	background-color: $red-color;
+}
+
+button:hover, .button:hover, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+	color: $white-color;
+	background-color: $red-color;
+	opacity: 0.9;
+	cursor: pointer;
+}
+
+button:focus, .button:focus, a.button:focus, input[type="submit"]:focus, input[type="button"]:focus {
+	color: $white-color;
+	background-color: $red-color;
+	outline-color: $red-color;
+}
+
