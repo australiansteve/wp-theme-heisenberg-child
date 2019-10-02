@@ -1,9 +1,26 @@
 
 
 .header-background-image {
-	height: 100vh;
+	min-height: 100vh;
 	background-position: 50% 50%;
 	background-size: cover;
+}
+
+.header-and-cta-background-image {
+	min-height: 150vh;
+
+	.call-to-action {
+		min-height: 50vh;
+		position: absolute;
+    	top: 100vh;
+    	margin-top: 3rem;
+    	width: 100%;
+    	text-align: center;
+
+    	.cta-title {
+    		text-transform: uppercase;
+    	}
+	}
 }
 
 header {

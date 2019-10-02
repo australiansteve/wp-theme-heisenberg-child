@@ -11,6 +11,9 @@ a:hover, a.focus {
 button, .button, a.button, input[type="submit"], input[type="button"] {
 	color: $white-color;
 	background-color: $red-color;
+	padding: 1rem;
+	text-transform: uppercase;
+	font-weight: 700;
 }
 
 button:hover, .button:hover, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover {
@@ -30,3 +33,42 @@ button:focus, .button:focus, a.button:focus, input[type="submit"]:focus, input[t
 	width: 100%
 }
 
+.content-container {
+	background-color: $white-color;
+	color: $black-color;
+	width: 90%;
+	margin: auto;
+	padding: 2rem 1rem;
+
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	
+	.content-container {
+		
+		width: 80%;
+		padding: 3rem 2rem;
+
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}

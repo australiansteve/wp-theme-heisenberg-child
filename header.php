@@ -59,41 +59,28 @@
 		/* grab the url for the full size featured image */
 		if (is_front_page() || !has_post_thumbnail()) :
 			$featured_img_url = get_field('front_page_background_image', 'option');
-		elseif(has_post_thumbnail()) :
+		elseif (has_post_thumbnail()) :
 			$featured_img_url = get_the_post_thumbnail_url($post->ID, 'full'); 
 		else :
 			$featured_img_url = "";
 		endif;
 
-		?>
-		<div class="header-background-image" style="background-image: url(<?php echo $featured_img_url; ?>)">
-			<header class="grid-container">
 
-				<?php
-				if ( has_custom_logo() ) :
-					the_custom_logo();
-				else:
-
-					printf( '<h1><a href="%s" rel="home">%s</a></h1>',
-						esc_url( home_url( '/' ) ),
-						esc_html( get_bloginfo( 'name' ) )
-					);
-
-					printf( '<p class="h4">%s</p>', esc_html( get_bloginfo( 'description' ) ) );
-				endif;
+		if (is_front_page()):
+			?>
+			<div class="header-and-cta-background-image" style="background-image: url(<?php echo $featured_img_url; ?>)">
+				<?php echo get_template_part('page-templates/template-parts/header'); ?>
 				
-				the_title( '<div id="page-title"><h1>', '</h1></div>' );
-
-				if (is_front_page()) :
-					?>
-					<h2 class='primary-tagline'><?php the_field('front_page_primary_tagline', 'option');?></h2>
-					<h3 class='secondary-tagline'><?php the_field('front_page_secondary_tagline', 'option');?></h3>
-					<?php
-				endif;
-
-				?>
-
-			</header>
-		</div>
+				<?php echo get_template_part('page-templates/template-parts/home-page', 'cta');?>
+			</div>
+			<?php
+		else:
+			?>
+			<div class="header-background-image" style="background-image: url(<?php echo $featured_img_url; ?>)">
+				<?php echo get_template_part('page-templates/template-parts/header'); ?>
+			</div>
+			<?php
+		endif;
+		?>
 
 		<main class="grid-container">

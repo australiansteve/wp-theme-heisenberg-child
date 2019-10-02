@@ -10,51 +10,51 @@
  */
 ?>
 
-</div> <!-- .off-canvas-content -->
+		</div> <!-- .off-canvas-content -->
 
-</main><!-- #content -->
+	</main><!-- #content -->
 
-<div class="full-width-container footer">
-	<footer class="grid-container">
+	<div class="full-width-container footer">
+		<footer class="grid-container">
 
-		<div class="grid-x">
-			<div class="medium-2 cell text-center medium-text-left" id="left-column">
-				<?php
-				if ( has_custom_logo() ) :
-					the_custom_logo();
-				endif;
-				?>
-			</div>
-			
-			<div class="medium-10 cell text-center" id="center-column">
-				<ul id="footer-menu" class="vertical medium-horizontal menu">
+			<div class="grid-x">
+				<div class="medium-2 cell text-center medium-text-left" id="left-column">
 					<?php
-					wp_nav_menu( [
-						'theme_location' => 'footer-main',
-						'container'      => '',
-						'items_wrap'	=> '%3$s'
-					] ); 
+					if ( has_custom_logo() ) :
+						the_custom_logo();
+					endif;
 					?>
-				</ul>
+				</div>
+				
+				<div class="medium-10 cell text-center" id="center-column">
+					<ul id="footer-menu" class="vertical medium-horizontal menu">
+						<?php
+						wp_nav_menu( [
+							'theme_location' => 'footer-main',
+							'container'      => '',
+							'items_wrap'	=> '%3$s'
+						] ); 
+						?>
+					</ul>
+				</div>
 			</div>
-		</div>
 
-		<div class="grid-x text-center">
-			<div class="cell" id="footer-social">
-				<ul id="social-menu" class="horizontal menu">
-					<?php
-					wp_nav_menu( [
-						'theme_location' => 'social-media',
-						'container'      => '',
-						'items_wrap'	=> '%3$s'
-					] ); 
-					?>
-				</ul>
+			<div class="grid-x text-center">
+				<div class="cell" id="footer-social">
+					<ul id="social-menu" class="horizontal menu">
+						<?php
+						wp_nav_menu( [
+							'theme_location' => 'social-media',
+							'container'      => '',
+							'items_wrap'	=> '%3$s'
+						] ); 
+						?>
+					</ul>
+				</div>
 			</div>
-		</div>
 
-	</footer>
-</div>
+		</footer>
+	</div>
 
 <?php wp_footer(); ?>
 </body>
