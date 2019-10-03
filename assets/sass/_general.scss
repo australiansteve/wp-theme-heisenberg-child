@@ -42,6 +42,11 @@ button:focus, .button:focus, a.button:focus, input[type="submit"]:focus, input[t
 
 }
 
+.scrolling-panel {
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	

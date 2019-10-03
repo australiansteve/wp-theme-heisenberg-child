@@ -10,9 +10,54 @@
 
 	#services-section {
 		padding-top: 2rem;
-		min-height: 100vh;
+		min-height: 110vh;
 		background-position: 100% 50%;
-		background-size:cover;
+		background-size: cover;
+	}
+
+	#projects-section {
+		background-color: $red-color;
+		text-align: center;
+		position: relative;
+		min-height: 100vh;
+
+		.content-container {
+			position: absolute;
+			top: -10vh;
+			margin-left: 5%;
+			margin-right: auto;
+		}
+	}
+
+	#contact-section {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+
+	#clients-section {
+
+		background-color: $red-color;
+		padding-bottom: 2rem;
+
+		.background-container {
+			width: 90%;
+			margin: auto;
+			padding: 2rem 1rem;
+			background-position: 50% 50%;
+			background-size: cover;
+		}
+
+		.client {
+			display:inline-block;
+			margin-right: 1.5rem;
+		}
+	}
+
+	#contact-section {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		background-position: 50% 50%;
+		background-size: cover;
 	}
 }
 
@@ -27,6 +72,26 @@
 		#services-section {
 			.services-text {
 				padding-right: 2rem;
+			}
+		}
+
+		#projects-section {
+
+			.content-container {
+				margin-left: 10%;
+			}
+		}
+
+		#clients-section {
+
+			.background-container {
+				width: 80%;
+				margin: auto;
+				padding: 2rem 0;
+
+				.content-container {
+					width: 90%;
+				}
 			}
 		}
 	}
