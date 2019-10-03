@@ -1,18 +1,14 @@
-.home {
-	header {
-		color: black;
-		text-transform: uppercase;
+.service {
+	background-color: $red-color;
+	color: $white-color;
+	padding: 1rem 2rem;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+	font-size: 1.4rem;
 
-		#page-title {
-			padding-top: 30vh;
-		}
-	}
-
-	#services-section {
-		padding-top: 2rem;
-		min-height: 100vh;
-		background-position: 100% 50%;
-		background-size:cover;
+	a {
+		color: $white-color;
+		cursor: pointer;
 	}
 }
 
@@ -23,13 +19,7 @@
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
-	.home {
-		#services-section {
-			.services-text {
-				padding-right: 2rem;
-			}
-		}
-	}
+	
 }
 
 /* Medium only */

@@ -48,6 +48,8 @@ add_action( 'after_setup_theme', function() {
 	register_nav_menu( 'social-media', __( 'Social Media Menu', 'heisenberg' ) );
 	register_nav_menu( 'footer-main', __( 'Footer Menu', 'heisenberg' ) );
 
+	add_image_size( 'service-icon', 110, 110, false );
+
 	$customLogoDefaults = array(
 		'height'      => 210,
 		'width'       => 210,

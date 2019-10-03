@@ -70,8 +70,7 @@
 			?>
 			<div class="header-and-cta-background-image" style="background-image: url(<?php echo $featured_img_url; ?>)">
 				<?php echo get_template_part('page-templates/template-parts/header'); ?>
-				
-				<?php echo get_template_part('page-templates/template-parts/home-page', 'cta');?>
+					<?php echo get_template_part('page-templates/template-parts/home-page', 'cta');?>
 			</div>
 			<?php
 		else:
@@ -82,5 +81,3 @@
 			<?php
 		endif;
 		?>
-
-		<main class="grid-container">

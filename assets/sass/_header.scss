@@ -7,7 +7,7 @@
 }
 
 .header-and-cta-background-image {
-	min-height: 150vh;
+	min-height: calc(150vh + 6rem); /* Allow for the margin-top of .call-to-action */
 
 	.call-to-action {
 		min-height: 50vh;

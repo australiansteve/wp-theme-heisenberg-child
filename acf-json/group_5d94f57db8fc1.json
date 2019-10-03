@@ -1,11 +1,11 @@
 {
-    "key": "group_5d94ea0316e36",
-    "title": "Call To Action",
+    "key": "group_5d94f57db8fc1",
+    "title": "Services Section",
     "fields": [
         {
-            "key": "field_5d94ea0dae8f9",
-            "label": "Call To Action Title",
-            "name": "front_page_call_to_action_title",
+            "key": "field_5d94f57dc2a3f",
+            "label": "Services Section Title",
+            "name": "front_page_services_section_title",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -22,9 +22,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_5d94ea2dae8fa",
-            "label": "Call To Action Text",
-            "name": "front_page_call_to_action_text",
+            "key": "field_5d94f57dc2a49",
+            "label": "Services Section Text",
+            "name": "front_page_services_section_text",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -41,9 +41,9 @@
             "new_lines": "wpautop"
         },
         {
-            "key": "field_5d94ea48ae8fc",
-            "label": "Call To Action Button Text",
-            "name": "front_page_call_to_action_button_text",
+            "key": "field_5d94f57dc2a69",
+            "label": "Services Section Button Text",
+            "name": "front_page_services_section_button_text",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -53,16 +53,16 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Learn More",
             "placeholder": "",
             "prepend": "",
             "append": "",
             "maxlength": ""
         },
         {
-            "key": "field_5d94ea58ae8fd",
-            "label": "Call To Action Button Link",
-            "name": "front_page_call_to_action_button_link",
+            "key": "field_5d94f57dc2a7b",
+            "label": "Services Section Button Link",
+            "name": "front_page_services_section_button_link",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -72,11 +72,35 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "\/contact",
             "placeholder": "",
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_5d953dbf4a4b9",
+            "label": "Background Image",
+            "name": "front_page_services_section_background_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "full",
+            "library": "all",
+            "min_width": 1600,
+            "min_height": 900,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -88,7 +112,7 @@
             }
         ]
     ],
-    "menu_order": 5,
+    "menu_order": 10,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -96,5 +120,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570043200
+    "modified": 1570061933
 }
