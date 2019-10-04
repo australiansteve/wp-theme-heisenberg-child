@@ -50,6 +50,8 @@ add_action( 'after_setup_theme', function() {
 
 	add_image_size( 'service-icon', 110, 110, false );
 	add_image_size( 'client-logo', 250, 250, false );
+	add_image_size( 'service-slider', 1200, 800, array( 'center', 'center'));
+	add_image_size( 'project-archive-slider', 1200, 800, array( 'center', 'center'));
 
 	$customLogoDefaults = array(
 		'height'      => 210,
@@ -60,3 +62,13 @@ add_action( 'after_setup_theme', function() {
 	);
 	add_theme_support( 'custom-logo', $customLogoDefaults );
 });
+
+/* Filter page title for taxonomy/archive pages */
+add_filter( 'the_title', function ( $title, $id = null ) {
+	error_log($title);
+    if ( is_tax('project-category', $id ) ) {
+        return get_field('projects_page_title', 'option');
+    }
+
+    return $title;
+}, 10, 2 );

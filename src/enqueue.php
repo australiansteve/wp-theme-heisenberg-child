@@ -46,6 +46,17 @@ add_action( 'wp_enqueue_scripts', function() {
 		'https://fonts.googleapis.com/css?family=Noto+Serif:400,700|Roboto:400,700'
 	);
 
+	//Motion UI
+	wp_enqueue_style(
+		'motion_ui',
+		'https://cdnjs.cloudflare.com/ajax/libs/motion-ui/2.0.3/motion-ui.min.css'
+	);
+
+	wp_enqueue_script( 
+		'motion_ui_js',
+        "https://cdnjs.cloudflare.com/ajax/libs/motion-ui/2.0.3/motion-ui.min.js"
+    );
+	
 	// Add comment script on single posts with comments
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

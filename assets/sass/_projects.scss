@@ -1,0 +1,148 @@
+.archive {
+
+	.project:nth-of-type(odd) {
+		padding: 1rem;
+
+		.project-container {
+			background-color: $white-color;
+			position: relative;
+
+			.project-detail-container {
+				background: $grey-color;
+				color: $white-color;
+				margin: 1rem 1rem 1rem 0;
+
+				.meta {
+					padding: 1rem 0;
+
+					div {
+						font-size: 1.15rem;
+					}
+				}
+			}
+		}
+	}
+
+	.project:nth-of-type(even) {
+		padding: 1rem;
+
+		.project-container {
+			background: linear-gradient(90deg, $white-color 40%, $red-color 40%);
+			position: relative;
+
+			.project-detail-container {
+				background: $white-color;
+				margin: 1rem 1rem 1rem 0;
+
+				.meta {
+					padding: 1rem 0;
+
+					div {
+						font-size: 1.15rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.archive {
+		.project:nth-of-type(odd) {
+			padding: 2rem;
+
+			.project-container {
+				position: relative;
+				padding: 2rem;
+
+				.project-gallery-container {
+					position: absolute;
+					top: 0px;
+					right: 50px;
+					width: 75%;
+					z-index: 10;
+				}
+
+				.project-detail-container {
+					padding: 1rem;
+					position: absolute;
+					top: 100px;
+					left: 50px;
+					width: 45%;
+					z-index: 20;
+				}
+
+				.project-action-container {
+					padding: 1rem;
+					position: absolute;
+					bottom: 4rem;
+					left: calc(50px + 45% + 50px);
+					background-color: $white-color;
+
+					a { 
+						margin-bottom: 0; 
+					}
+				}
+			}
+		}
+
+		.project:nth-of-type(even) {
+			padding: 2rem;
+
+			.project-container {
+				position: relative;
+				padding: 2rem;
+
+				.project-gallery-container {
+					position: absolute;
+					top: 50px;
+					left: 50px;
+					width: 75%;
+					z-index: 10;
+				}
+
+				.project-detail-container {
+					padding: 1rem;
+					position: absolute;
+					top: 100px;
+					right: 50px;
+					width: 45%;
+					z-index: 20;
+				}
+
+				.project-action-container {
+					padding: 1rem;
+					position: absolute;
+					bottom: 4rem;
+					right: calc(50px + 50%);
+					background-color: $white-color;
+
+					a { 
+						margin-bottom: 0; 
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}

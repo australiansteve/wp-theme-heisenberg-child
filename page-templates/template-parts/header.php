@@ -13,7 +13,15 @@
 		printf( '<p class="h4">%s</p>', esc_html( get_bloginfo( 'description' ) ) );
 	endif;
 
-	the_title( '<div id="page-title"><h1>', '</h1></div>' );
+	if (is_tax('project-category')):
+		echo "<div id='page-title'><h1>".get_field('projects_page_title', 'option')."</h1></div>";
+	elseif (is_singular('austeve-projects')):
+		echo "<div id='page-title'><h1>".get_field('projects_page_title', 'option')."</h1></div>";
+	elseif (is_singular('austeve-services')):
+		echo "<div id='page-title'><h1>".get_field('services_page_title', 'option')."</h1></div>";
+	else:
+		the_title( '<div id="page-title"><h1>', '</h1></div>' );
+	endif;
 
 	if (is_front_page()) :
 		?>

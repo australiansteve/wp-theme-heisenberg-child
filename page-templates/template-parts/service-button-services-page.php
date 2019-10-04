@@ -1,7 +1,7 @@
 <?php
 ?>
 <div class="service-button">
-	<a href="javascript:updateServiceText('<?php echo get_post_field( 'post_name');?>')">
+	<a href="javascript:scrollPageTo('<?php echo get_post_field( 'post_name');?>')">
 		<div class="grid-x align-middle">
 			<div class="cell small-2 service-icon">
 				
