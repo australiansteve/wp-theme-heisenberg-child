@@ -11,7 +11,7 @@ require_once __DIR__ . '/src/menu-walker.php';
 add_action( 'after_setup_theme', function() {
 
 	add_image_size( 'site_logo', 240, 173, true);
-	add_image_size( 'homepage_cta', 660, 375, true);
+	add_image_size( 'homepage_cta', 1024, 580, true);
 	add_image_size( 'program_featured_image', 400, 267, true);
 	add_image_size( 'report_thumbnail', 237, 135, true);
 	add_image_size( 'award_recipient', 700, 300, true);
@@ -125,12 +125,13 @@ add_filter( 'wpseo_metabox_prio', function() {
     return 'low';
 });
 
-
-// add_action( 'pre_get_posts', function ($query) {
-// 	if ( $query->is_home() ) {
-//         $query->set( 'posts_per_page', '1' );
-//     }
-// }); 
+/* Alter search query so CPTs are displayed before posts (thanks to menu_order being set), and posts are otherwise returned in date order (newest first) */
+ add_action( 'pre_get_posts', function ($query) {
+ 	if ( $query->is_search	) {
+ 		error_log("Searching: ".print_r($query->get('s'), true));
+        $query->set('orderby', array('menu_order' => 'DESC', 'date' => 'DESC'));
+     }
+ }); 
 
 add_filter('wp_nav_menu_objects', function( $items, $args ) {
 	
@@ -153,4 +154,6 @@ add_filter('wp_nav_menu_objects', function( $items, $args ) {
 	return $items;
 	
 }, 10, 2);
+
+
 

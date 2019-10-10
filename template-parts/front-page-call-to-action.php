@@ -1,6 +1,6 @@
-<div class="grid-x grid-margin-x" id="call-to-action">
+<div class="grid-x grid-margin-x" id="call-to-action" data-equalizer="cta-eq" data-equalize-on="large">
 
-	<div class="small-12 medium-8 cell" id="cta-left">
+	<div class="small-12 large-8 cell" id="cta-left" data-equalizer-watch="cta-eq">
 		<?php 
 
 		$image = get_field('homepage_cta_image');
@@ -63,20 +63,18 @@
 		?>
 	</div>
 
-	<div class="small-12 medium-4 cell" id="cta-right">
+	<div class="small-12 large-4 cell" id="cta-right" >
 		
-		<div class="container">
-			<div class="grid-y" style="height: calc(375px - 2rem)">
-				<div class="cell small-2">
+		<div class="container"  data-equalizer-watch="cta-eq">
+				<div class="heading">
 					<h3><?php the_field('homepage_cta_heading'); ?></h3>
 				</div>
-				<div class="cell small-8">
+				<div class="cta-text">
 					<?php the_field('homepage_cta_text'); ?>
 				</div>
-				<div class="cell small-2">
+				<div class="action">
 					<a class="button" href="<?php the_field('homepage_cta_link'); ?>"><?php the_field('homepage_cta_link_text'); ?></a>
 				</div>
-			</div>
 		</div>
 	</div>
 
