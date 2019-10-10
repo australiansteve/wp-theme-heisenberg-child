@@ -9,7 +9,7 @@
 
 
 	if(ICL_LANGUAGE_CODE=='fr'):
-		setlocale(LC_TIME, 'fr_FR');
+		setlocale(LC_TIME, 'fr_FR.UTF-8');
 		$ordinal = new NumberFormatter('fr_FR', NumberFormatter::ORDINAL);
 		$ordinal = $ordinal->format(date_format($dateobj, "j"));
 		$dateDisplay = strftime("{$ordinal} %B %Y", $dateobj->getTimestamp());
