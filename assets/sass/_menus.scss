@@ -1,14 +1,35 @@
-button.off-canvas-opener {
-	font-family: sans-serif;
-	font-weight: bold;
-	line-height: 1.3;
-	position: absolute;
+.off-canvas-content:not(.has-position-right) .off-canvas-opener {
+	position: fixed;
+	z-index: 1000;
 	right: 0;
-	top: 50px;
+	top: 0px;
+	background-color: $red-color;
+
+	.button {
+		font-weight: bold;
+		line-height: 1.3;
+		margin-bottom: 0;
+		padding: 0.5rem;
+		font-size: 1rem;
+
+	}
+}
+.off-canvas {
+		width: 80vw;
+			transform: translateX(80vw);
+			.is-open {
+				transform: translate(0, 0);
+			}
+	}
+
+.off-canvas-content.has-position-right .off-canvas-opener {
+	display: none;
+}
+.menu a:hover {
+	text-decoration: none;
 }
 
 .drilldown  {
-
 
 	a {
 		background: $red-color;
@@ -20,8 +41,8 @@ button.off-canvas-opener {
 			content: "\f104";
 			font-weight: 900; /* Fix version 5.0.9 */
 			display: block;	    	
-	    	border: none;
-	    	position: absolute;
+			border: none;
+			position: absolute;
 			left: 1px;
 			margin-top: unset;		
 		}
@@ -35,9 +56,9 @@ button.off-canvas-opener {
 			content: "\f105";
 			font-weight: 900; /* Fix version 5.0.9 */
 			display: block;
-	    	width: 50px; 
-	    	height: 0;
-	    	border: none;
+			width: 50px; 
+			height: 0;
+			border: none;
 			position: absolute;
 			top: 25%;
 			right: 1px;
@@ -67,14 +88,25 @@ button.off-canvas-opener {
 		outline: unset;
 	}
 
+
+	.close {
+		color: $white-color;
+		font-size: 2rem;
+		text-align: right;
+		display: inherit;
+    background: linear-gradient(to left, $grey-color 50%, $red-color 50%);
+    background-size: 200% 100%;
+    background-position: left bottom;
+    transition: all 0.5s linear;
+    
+
+	}
+
 	ul {
 		list-style: none;
 
-		li.close {
-			color: $white-color;
-			font-size: 2rem;
-			text-align: right;
-			display: inherit;
+		li {
+			padding: 2rem 2rem 0 2rem;
 		}
 
 		a {
@@ -96,7 +128,15 @@ button.off-canvas-opener {
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	.off-canvas {
-		width: 40%;
+		width: 50vw;
+			transform: translateX(50vw);
+			.is-open {
+				transform: translate(0, 0);
+			}
+	}
+
+	.off-canvas-content:not(.has-position-right) .off-canvas-opener {
+		padding-left: 0.75rem;
 	}
 }
 

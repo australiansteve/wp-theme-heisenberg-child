@@ -10,18 +10,88 @@
 		color: $white-color;
 		cursor: pointer;
 	}
+
+	.service-icon {
+		display: block;
+	}
+	.service-icon.inverse {
+		display: none;
+	}
+}
+
+.service-button:hover {
+	background-color: $white-color;
+	
+
+	.service-icon {
+		display: none;
+	}
+	.service-icon.inverse {
+		display: block;
+	}
+
+	a {
+		color: $red-color;
+		text-decoration: none;
+	}
+}
+
+#services {
+
 }
 
 .service {
-	margin-bottom: 3rem;
+	position: relative;
+	padding: 2rem 1rem 0rem 1rem;
 	
 	.service-gallery {
 		.background-container {
 			padding: 1rem;
-			background-size: contain;
+			background-size: cover;
 			background-repeat-x: no-repeat;
 			background-repeat-y: no-repeat;
 		}
+	}
+
+
+	.bling {
+		position: absolute;
+		border: 3px solid $red-color;
+		width: 1px;
+		top: -50px;
+		left: 0.25rem;
+		height: 225px;
+	}
+
+	.service-title {
+		text-transform: uppercase;
+	}
+}
+
+.service:nth-of-type(even) {
+	background-color: $light-grey-color;
+	text-align: right;
+	padding-left: 1rem;
+	padding-right: 1rem;
+
+	.bling {
+		position: absolute;
+		border: 3px solid $red-color;
+		width: 1px;
+		top: -50px;
+		right: 0.25rem;
+		height: 225px;
+		left: auto;
+	}
+
+	.service-gallery {
+		.background-container {
+			background-position: right;
+		}
+	}
+
+	.service-title {
+		margin-top: 2rem;
 	}
 }
 
@@ -34,14 +104,34 @@
 @media screen and (min-width: 40em) {
 	
 	.service {
+
+		padding-left: 6rem;
+
+		.bling {
+			left: 4rem;
+		}
+
 		.service-gallery {
 			.background-container {
 				padding: 2rem;
 
 				.orbit {
-					max-width: 60%;
+					//max-width: 60%;
 				}
 
+			}
+		}
+	}
+
+	.service:nth-of-type(even) {
+		padding-right: 8rem;
+
+		.bling {
+			right: 2.5rem;
+		}
+		.service-gallery {
+			.background-container {
+				padding-right: 6rem;
 			}
 		}
 	}

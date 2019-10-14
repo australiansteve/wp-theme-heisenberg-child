@@ -1,7 +1,5 @@
 <?php
 
-namespace Heisenberg;
-
 /**
  * Enqueue scripts and styles
  */

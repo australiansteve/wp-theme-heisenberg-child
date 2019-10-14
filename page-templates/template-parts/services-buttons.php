@@ -1,4 +1,4 @@
-<div class="cell small-12 medium-6">
+<div class="cell small-12 medium-6 medium-order-2">
 
 	<?php
 	if (is_front_page())
@@ -14,6 +14,8 @@
 		'post_type'              => array( 'austeve-services' ),
 		'post_status'            => array( 'publish' ),
 		'posts_per_page'         => '-1',
+		'orderby'         => 'menu_order',
+		'order'         => 'ASC',
 	);
 
 	// The Query

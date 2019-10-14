@@ -1,37 +1,39 @@
 <?php
 get_header(); ?>
 
+<?php echo get_template_part('page-templates/template-parts/projects', 'javascript'); ?>
+
+<main class="grid-container">
+
 	<div class="grid-x grid-padding-x">
 
 		<div class="small-12 cell">
 			<?php
-			if ( have_posts() ) :
+			if( have_posts() ){
 
-				while ( have_posts() ) :
+				while( have_posts() ):
 
 					the_post();
 
-					the_title( '<h1>ARCHIVE ', '</h1>' );
-
-					the_content();
+					echo get_template_part('page-templates/template-parts/project', 'archive');
 
 				endwhile;
 
 				the_posts_navigation();
 
-				if ( comments_open() || get_comments_number() ) :
+				if( comments_open() || get_comments_number() ) {
 					comments_template();
-				endif;
+				}
+			}
+			else {
 
-			else :
+				echo esc_html( 'Sorry, no projects found.' );
 
-				echo esc_html( 'Sorry, no posts' );
-
-			endif;
+			}
 			?>
 		</div>
 
 	</div>
-
+</main>
 <?php
 get_footer();

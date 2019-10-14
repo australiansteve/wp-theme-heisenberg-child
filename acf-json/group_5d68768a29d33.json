@@ -100,10 +100,34 @@
                 "id": ""
             },
             "return_format": "id",
-            "preview_size": "medium",
+            "preview_size": "service-icon",
             "library": "all",
-            "min_width": "",
-            "min_height": "",
+            "min_width": 110,
+            "min_height": 110,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5d9d1cb5046bb",
+            "label": "Icon (Inverse)",
+            "name": "icon_inverse",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "service-icon",
+            "library": "all",
+            "min_width": 110,
+            "min_height": 110,
             "min_size": "",
             "max_width": "",
             "max_height": "",
@@ -152,5 +176,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570132035
+    "modified": 1570577627
 }

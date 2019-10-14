@@ -1,5 +1,18 @@
+body, div, p, a, span {
+	font-family: Gotham-Medium;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Gotham-Black, Gotham-Medium;
+}
+
 a {
 	color: $black-color;
+}
+
+/* Font Sizes */
+h1 {
+	font-size: 2rem;
 }
 
 a:hover, a.focus {
@@ -14,6 +27,7 @@ button, .button, a.button, input[type="submit"], input[type="button"] {
 	padding: 1rem;
 	text-transform: uppercase;
 	font-weight: 700;
+	font-size: 1.2rem;
 }
 
 button:hover, .button:hover, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover {
@@ -33,6 +47,16 @@ button:focus, .button:focus, a.button:focus, input[type="submit"]:focus, input[t
 	width: 100%
 }
 
+main.grid-container {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.page-section-background-container {
+	background-size: cover;
+	min-height: 100vh;
+}
+
 .content-container {
 	background-color: $white-color;
 	color: $black-color;
@@ -43,8 +67,19 @@ button:focus, .button:focus, a.button:focus, input[type="submit"]:focus, input[t
 }
 
 .scrolling-panel {
-    white-space: nowrap;
-    overflow-x: scroll;
+	white-space: nowrap;
+	overflow-x: scroll;
+}
+
+.orbit-bullets {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+button.orbit-previous , button.orbit-next {
+	background-color: transparent;
 }
 
 /* Small only */
@@ -55,12 +90,26 @@ button:focus, .button:focus, a.button:focus, input[type="submit"]:focus, input[t
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	
+	/* Font Sizes */
+	h1 {
+		font-size: 5rem;
+	}
+
+	h2 {
+		font-size: 3rem;
+	}
+
+	h3 {
+		font-size: 2.5rem;
+	}
+
 	.content-container {
 		
 		width: 80%;
 		padding: 3rem 2rem;
 
 	}
+
 }
 
 /* Medium only */
@@ -71,6 +120,9 @@ button:focus, .button:focus, a.button:focus, input[type="submit"]:focus, input[t
 /* Large and up */
 @media screen and (min-width: 64em) {
 	
+button, .button, a.button, input[type="submit"], input[type="button"] {
+	font-size: 1.4rem;
+}
 }
 
 /* Large only */

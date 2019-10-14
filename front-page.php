@@ -5,11 +5,11 @@ echo get_template_part('page-templates/template-parts/service', 'javascript');
 
 $servicesBgImageUrl = get_field('front_page_services_section_background_image', 'option');
 ?>
-<div id="services-section" style="background-image:linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.1)), url('<?php echo $servicesBgImageUrl; ?>')">
+<div id="services-section" style="background-image: <?php echo get_template_part('page-templates/template-parts/background-color', 'white-top-down');?>, url('<?php echo $servicesBgImageUrl; ?>')">
 
 	<main class="grid-container">
 
-		<div class="grid-x grid-padding-x">
+		<div class="grid-x grid-margin-x">
 
 			<div class="cell">
 
@@ -23,29 +23,30 @@ $servicesBgImageUrl = get_field('front_page_services_section_background_image', 
 
 				</div>
 
-				<div class="grid-x">
+				<div class="grid-x grid-margin-x">
 
-					<div class="cell small-12 medium-6">
+					<div class="cell small-12 medium-6 medium-order-1">
 
-						<div class="grid-x">
+						<div class="services-text">
 
-							<div class="cell services-text">
-
-								<?php the_field('front_page_services_section_text', 'option'); ?>
-
-							</div>
-
-							<div class="cell learn-more">
-
-								<a class="button" href="<?php the_field('front_page_services_section_button_link', 'option'); ?>"><?php the_field('front_page_services_section_button_text', 'option'); ?></a>
-
-							</div>
+							<?php the_field('front_page_services_section_text', 'option'); ?>
 
 						</div>
 
 					</div>
 
+					<div class="cell learn-more medium-6 medium-order-3">
+
+						<a class="button" href="<?php the_field('front_page_services_section_button_link', 'option'); ?>"><?php the_field('front_page_services_section_button_text', 'option'); ?></a>
+
+					</div>
+
 					<?php echo get_template_part('page-templates/template-parts/services-buttons');?>
+
+				</div>
+
+				<div class="grid-x">
+
 
 				</div>
 
@@ -76,39 +77,58 @@ $servicesBgImageUrl = get_field('front_page_services_section_background_image', 
 			</div>
 
 			<div class="small-12 cell projects">
+					<script type="text/javascript">
+						jQuery( document ).ready(function() {
+						var maxHeight = 0;
 
-				<?php
+jQuery(".featured-project").each(function(){
+   if (jQuery(this).height() > maxHeight) { maxHeight = jQuery(this).height(); }
+});
+
+jQuery(".featured-project").height(maxHeight);
+						
+						});
+					</script>
+					<div class="scrolling-panel">
+						<table>
+							<tbody style="border:none">
+							<tr>
+						<?php
 				// WP_Query arguments
-				$args = array(
-					'post_type'              => array( 'austeve-projects' ),
-					'post_status'            => array( 'publish' ),
-					'posts_per_page'         => '-1',
-					'tax_query'              => array(
-						array(
-							'taxonomy'         => 'project-category',
-							'terms'            => 'current',
-							'field'            => 'slug',
-							'operator'         => 'IN',
-						),
-					),
-				);
+							$args = array(
+								'post_type'              => array( 'austeve-projects' ),
+								'post_status'            => array( 'publish' ),
+								'posts_per_page'         => '-1',
+								'tax_query'              => array(
+									array(
+										'taxonomy'         => 'project-category',
+										'terms'            => 'current',
+										'field'            => 'slug',
+										'operator'         => 'IN',
+									),
+								),
+							);
 
 				// The Query
-				$projectsquery = new WP_Query( $args );
+							$projectsquery = new WP_Query( $args );
 
 				// The Loop
-				if ( $projectsquery->have_posts() ) {
-					while ( $projectsquery->have_posts() ) {
-						$projectsquery->the_post();
-						echo get_template_part('page-templates/template-parts/project', 'front-page');
-					}
-				} else {
+							if ( $projectsquery->have_posts() ) {
+								while ( $projectsquery->have_posts() ) {
+									$projectsquery->the_post();
+									echo get_template_part('page-templates/template-parts/project', 'front-page');
+								}
+							} else {
 					// no posts found
-				}
+							}
 
 				// Restore original Post Data
-				wp_reset_postdata();
-				?>	
+							wp_reset_postdata();
+							?>	
+						</tr>
+					</tbody>
+					</table>
+				</div>
 			</div>
 
 		</div>
@@ -116,50 +136,7 @@ $servicesBgImageUrl = get_field('front_page_services_section_background_image', 
 	</div>
 </div>
 
-
-<?php
-$clientsBgImageUrl = get_field('front_page_clients_section_background_image', 'option');
-?>
-<div id="clients-section">
-
-	<div class="background-container" style="background-image: url('<?php echo $clientsBgImageUrl; ?>')">
-
-		<div class="content-container">
-			<div class="grid-x">
-				<div class="cell">
-					<h3><?php the_field('front_page_clients_section_title', 'option'); ?></h3>
-				</div>
-
-				<div class="cell">
-					<?php the_field('front_page_clients_section_text', 'option'); ?>
-				</div>
-
-				<div class="cell scrolling-panel">
-					<?php
-
-					// check if the repeater field has rows of data
-					if( have_rows('front_page_clients_section_logos', 'option') ):
-
- 						// loop through the rows of data
-						while ( have_rows('front_page_clients_section_logos', 'option') ) : the_row();
-
-							echo get_template_part('page-templates/template-parts/client', 'front-page');
-
-						endwhile;
-
-					endif;
-
-					?>
-				</div>
-			</div>
-
-
-		</div>
-
-	</div>
-
-</div>
-
+<?php echo get_template_part('page-templates/template-parts/our-clients'); ?>
 
 <?php
 $contactBgImageUrl = get_field('front_page_contact_section_background_image', 'option');

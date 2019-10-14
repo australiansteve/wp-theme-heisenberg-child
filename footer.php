@@ -17,16 +17,21 @@
 	<div class="full-width-container footer">
 		<footer class="grid-container">
 
-			<div class="grid-x">
-				<div class="medium-2 cell text-center medium-text-left" id="left-column">
+			<div class="grid-x align-middle">
+				<div class="medium-1 cell text-center medium-text-left" id="left-column">
 					<?php
 					if ( has_custom_logo() ) :
-						the_custom_logo();
+						$custom_logo_id = get_theme_mod( 'custom_logo' );
+			$logo = wp_get_attachment_image_src( $custom_logo_id , 'medium-logo' );
+
+			?>
+			<img class="show-for-medium <?php echo $custom_logo_id;?>" src="<?php echo $logo[0];?>" height="<?php echo $logo[1];?>" width="<?php echo $logo[2];?>"/>
+			<?php
 					endif;
 					?>
 				</div>
 				
-				<div class="medium-10 cell text-center" id="center-column">
+				<div class="medium-11 cell text-center" id="center-column">
 					<ul id="footer-menu" class="vertical medium-horizontal menu">
 						<?php
 						wp_nav_menu( [

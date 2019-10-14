@@ -5,14 +5,22 @@
 
 		#page-title {
 			padding-top: 30vh;
-		}
-	}
 
-	#services-section {
-		padding-top: 2rem;
-		min-height: 110vh;
-		background-position: 100% 50%;
-		background-size: cover;
+			h1 {
+				margin-bottom: 0;
+				line-height: 1;	
+			}
+
+		}
+
+		h2 {
+			margin-bottom: 0;
+			line-height: 1;
+		}
+
+		.secondary-tagline {
+			font-family: Gotham-Black;
+		}
 	}
 
 	#projects-section {
@@ -21,6 +29,10 @@
 		position: relative;
 		min-height: 100vh;
 
+		.title {
+			text-transform: uppercase;
+		}
+		
 		.content-container {
 			position: absolute;
 			top: -10vh;
@@ -34,30 +46,48 @@
 		padding-bottom: 2rem;
 	}
 
-	#clients-section {
-
-		background-color: $red-color;
-		padding-bottom: 2rem;
-
-		.background-container {
-			width: 90%;
-			margin: auto;
-			padding: 2rem 1rem;
-			background-position: 50% 50%;
-			background-size: cover;
-		}
-
-		.client {
-			display:inline-block;
-			margin-right: 1.5rem;
-		}
-	}
-
 	#contact-section {
 		padding-top: 2rem;
 		padding-bottom: 2rem;
 		background-position: 50% 50%;
 		background-size: cover;
+	}
+}
+
+#services-section {
+	padding-top: 2rem;
+	min-height: 110vh;
+	background-position: 100% 50%;
+	background-size: cover;
+	padding-bottom: 6rem;
+
+	.title {
+		text-transform: uppercase;
+	}
+
+	.services-text {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		font-size: 1.2rem;
+	}
+}
+
+#clients-section {
+
+	background-color: $red-color;
+	padding-bottom: 2rem;
+
+	.background-container {
+		width: 90%;
+		margin: auto;
+		padding: 2rem 1rem;
+		background-position: 50% 50%;
+		background-size: cover;
+	}
+
+	.client {
+		display:inline-block;
+		margin-right: 1.5rem;
 	}
 }
 
@@ -69,6 +99,13 @@
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	.home {
+
+		.secondary-tagline {
+			font-size: 1.8rem;
+		}
+
+
+
 		#services-section {
 			.services-text {
 				padding-right: 2rem;
@@ -81,17 +118,17 @@
 				margin-left: 10%;
 			}
 		}
+	}
 
-		#clients-section {
+	#clients-section {
 
-			.background-container {
-				width: 80%;
-				margin: auto;
-				padding: 2rem 0;
+		.background-container {
+			width: 80%;
+			margin: auto;
+			padding: 2rem 0;
 
-				.content-container {
-					width: 90%;
-				}
+			.content-container {
+				width: 90%;
 			}
 		}
 	}

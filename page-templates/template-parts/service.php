@@ -1,6 +1,9 @@
 <?php
 ?>
-<div class="cell service" id="service-<?php echo get_post_field( 'post_name');?>">
+<div class="service" id="service-<?php echo get_post_field( 'post_name');?>">
+	
+	<div class="bling">
+	</div>
 	
 	<div class="grid-x grid-margin-x">
 		<div class="cell service-title">
@@ -43,20 +46,22 @@
 										</figure>
 									</li>
 								<?php endforeach; ?>
+
+								<nav class="orbit-bullets">
+									<?php 
+									$imageCounter = 0;
+									foreach( $images as $image ): ?>
+										<button class="<?php echo ($imageCounter == 0) ? 'is-active' : '';?>" data-slide="<?php echo $imageCounter++;?>">
+											<span class="show-for-sr">Slide <?php echo $imageCounter;?></span>
+											<?php if ($imageCounter == 1): ?>
+												<span class="show-for-sr" data-slide-active-label>Current Slide</span>
+											<?php endif; ?>
+										</button>
+									<?php endforeach; ?>
+								</nav>
 							</ul>
 						</div>
-						<nav class="orbit-bullets">
-							<?php 
-							$imageCounter = 0;
-							foreach( $images as $image ): ?>
-								<button class="<?php echo ($imageCounter == 0) ? 'is-active' : '';?>" data-slide="<?php echo $imageCounter++;?>">
-									<span class="show-for-sr">Slide <?php echo $imageCounter;?></span>
-									<?php if ($imageCounter == 1): ?>
-										<span class="show-for-sr" data-slide-active-label>Current Slide</span>
-									<?php endif; ?>
-								</button>
-							<?php endforeach; ?>
-						</nav>
+						
 					</div>
 
 				<?php endif; ?>
