@@ -1,0 +1,100 @@
+{
+    "key": "group_5dc31075c4aa3",
+    "title": "Mailchimp Signup Fields",
+    "fields": [
+        {
+            "key": "field_5dc31075c4acb",
+            "label": "Dialog Title",
+            "name": "mc_dialog_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5dc31075c4adf",
+            "label": "Text before signup form",
+            "name": "mc_dialog_introduction",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": ""
+        },
+        {
+            "key": "field_5dc31075c4b00",
+            "label": "Text after signup form",
+            "name": "mc_dialog_conclusion",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": ""
+        },
+        {
+            "key": "field_5dc31075c4b09",
+            "label": "Embed Code",
+            "name": "mc_embed_code",
+            "type": "wysiwyg",
+            "instructions": "This code snippet comes from Mailchimp & needs to be manually updated with translations. Please do not edit.\r\n\r\nSee: https:\/\/mailchimp.com\/help\/translate-the-mailchimp-embed-code",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "text",
+            "media_upload": 0,
+            "toolbar": "full",
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-mailchimp"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1573064821
+}

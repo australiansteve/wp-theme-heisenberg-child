@@ -1,0 +1,107 @@
+{
+    "key": "group_5dc3104d230d2",
+    "title": "Grants - Custom Settings",
+    "fields": [
+        {
+            "key": "field_5dc3104d230ee",
+            "label": "Apply Button Text",
+            "name": "grants_page_apply_button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Apply Online",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5dc3104d230ff",
+            "label": "Apply Now Link Image",
+            "name": "grants_page_apply_now_link_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "program_featured_image",
+            "library": "all",
+            "min_width": 400,
+            "min_height": 267,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5dc3104d2310b",
+            "label": "Remove Deadlines After (days)",
+            "name": "remove_deadlines_after",
+            "type": "number",
+            "instructions": "Deadlines will be removed from the site after this many days",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 2,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5dc3104d23116",
+            "label": "No Deadlines Found Text",
+            "name": "no_deadlines_text",
+            "type": "text",
+            "instructions": "Message seen when there are no deadlines for a grant program in the system",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "No upcoming deadlines found.",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-grants-page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1573064781
+}

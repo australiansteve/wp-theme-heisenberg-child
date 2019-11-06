@@ -1,0 +1,62 @@
+{
+    "key": "group_5cd9f833c08fb",
+    "title": "Header - Tagline",
+    "fields": [
+        {
+            "key": "field_5cd9f85dd0b40",
+            "label": "Tagline Title",
+            "name": "header_tagline_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "EXCELLENCE. PROFESSIONALISM. INNOVATION.",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5cd9f899b97f3",
+            "label": "Tagline Text",
+            "name": "header_tagline_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "The New Brunswick Arts Board promotes the creation of art and administers funding programs for professional artists in NB.",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-header"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1573064417
+}
