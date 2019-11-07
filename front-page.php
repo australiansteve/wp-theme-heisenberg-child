@@ -27,93 +27,114 @@ get_header(); ?>
 
 	<div class="small-12 medium-4 cell" id="news">
 		
-		<div class="container height-dominant-container" data-equalizer-watch="feeds">
-			<h3><?php the_field('front_page_column_title_1', 'option');?></h3>
-			<?php
-			// WP_Query arguments
-			$args = array(
-				'post_type'              => array( 'post' ),
-				'post_status'            => array( 'publish' ),
-				'posts_per_page'         => '2',
-				'tax_query'              => array(
-					array(
-						'taxonomy'         => 'category',
-						'terms'            => 'featured',
-						'field'            => 'slug',
-						'operator'         => 'NOT IN',
-					),
-				),
-			);
+		<div class="container">
 
-			// The Query
-			$postsquery = new WP_Query( $args );
+			<div class="grid-y">
+				<div class="cell small-11">
+					<h3><?php the_field('front_page_column_title_1', 'option');?></h3>
+					<div class="height-dominant-container">
+						<?php
+						// WP_Query arguments
+						$args = array(
+							'post_type'              => array( 'post' ),
+							'post_status'            => array( 'publish' ),
+							'posts_per_page'         => get_field('front_page_number_of_news_posts', 'option'),
+							'tax_query'              => array(
+								array(
+									'taxonomy'         => 'category',
+									'terms'            => 'featured',
+									'field'            => 'slug',
+									'operator'         => 'NOT IN',
+								),
+							),
+						);
 
-			// The Loop
-			if ( $postsquery->have_posts() ) {
-				while ( $postsquery->have_posts() ) {
-					$postsquery->the_post();
-					
-					echo get_template_part('template-parts/post', 'front-page');
-				}
-			} else {
-				// no posts found
-			}
+						// The Query
+						$postsquery = new WP_Query( $args );
 
-			// Restore original Post Data
-			wp_reset_postdata();
+						// The Loop
+						if ( $postsquery->have_posts() ) {
+							while ( $postsquery->have_posts() ) {
+								$postsquery->the_post();
 
-			?>
+								echo get_template_part('template-parts/post', 'front-page');
+							}
+						} else {
+							// no posts found
+						}
 
-			<div class="grid-x post-front-page read-all">
-				<div class="cell read-more">
-					<a class="button" href="<?php the_field('front_page_read_all_news_link', 'option');?>"><?php the_field('front_page_read_all_news_text', 'option');?></a>
+						// Restore original Post Data
+						wp_reset_postdata();
+
+						?>
+					</div>
+				</div>
+				<div class="cell small-1">
+					<div class="grid-x post-front-page read-all">
+						<div class="cell read-more">
+							<a class="button" href="<?php the_field('front_page_read_all_news_link', 'option');?>"><?php the_field('front_page_read_all_news_text', 'option');?></a>
+						</div>
+					</div>
 				</div>
 			</div>
+
 		</div>
 
 	</div>
 
 	<div class="small-12 medium-4 cell" id="feature">
 		
-		<div class="container" data-equalizer-watch="feeds">
-			<h3><?php the_field('front_page_column_title_2', 'option');?></h3>
-			<?php
+		<div class="container">
+
+			<div class="grid-y">
+				<div class="cell">
+					<h3><?php the_field('front_page_column_title_2', 'option');?></h3>
+					<?php
 			// WP_Query arguments
-			$args = array(
-				'post_type'              => array( 'post' ),
-				'post_status'            => array( 'publish' ),
-				'posts_per_page'         => '1',
-				'tax_query'              => array(
-					array(
-						'taxonomy'         => 'category',
-						'terms'            => 'featured',
-						'field'            => 'slug',
-						'operator'         => 'IN',
-					),
-				),
-			);
+					$args = array(
+						'post_type'              => array( 'post' ),
+						'post_status'            => array( 'publish' ),
+						'posts_per_page'         => '1',
+						'tax_query'              => array(
+							array(
+								'taxonomy'         => 'category',
+								'terms'            => 'featured',
+								'field'            => 'slug',
+								'operator'         => 'IN',
+							),
+						),
+					);
 
 			// The Query
-			$postsquery = new WP_Query( $args );
+					$postsquery = new WP_Query( $args );
 
 			// The Loop
-			if ( $postsquery->have_posts() ) {
-				while ( $postsquery->have_posts() ) {
-					$postsquery->the_post();
-					echo get_template_part('template-parts/post', 'front-page-featured');
-				}
-			} else {
+					if ( $postsquery->have_posts() ) {
+						while ( $postsquery->have_posts() ) {
+							$postsquery->the_post();
+							echo get_template_part('template-parts/post', 'front-page-featured');
+						}
+					} else {
 				// no posts found
-			}
+					}
 
 			// Restore original Post Data
-			wp_reset_postdata();
-			?>	
-			<div class="grid-x post-front-page read-featured">
-				<div class="cell read-more">
-					<a class="button" href="<?php the_field('front_page_read_featured_news_link', 'option');?>"><?php the_field('front_page_read_featured_news_text', 'option');?></a>
+					wp_reset_postdata();
+					?>	
 				</div>
-			</div>		
+				<div class="cell shrink">
+					<div class="grid-x post-front-page read-all">
+
+						<div class="cell read-more">
+							<a class="button" href="<?php the_permalink();?>"><?php the_field('front_page_post_button_text', 'option');?></a>
+						</div>
+
+						<div class="cell read-more">
+							<a class="button" href="<?php the_field('front_page_read_featured_news_link', 'option');?>"><?php the_field('front_page_read_featured_news_text', 'option');?></a>
+						</div>
+					</div>		
+				</div>
+			</div>
 		</div>
 	</div>
 

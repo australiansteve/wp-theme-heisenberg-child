@@ -35,14 +35,29 @@
 					.featured-image img {
 						margin-bottom: 0.5rem;
 					}
+				}
+
+			}
+
+			#news {
+
+				.post-front-page {
 
 					border-bottom: 2px solid $black-color;
 					margin-bottom: 1rem;
 				}
 
-				.post-front-page:nth-last-of-type(1) {
+				.post-front-page.read-all {
 					border-bottom: none;
 					margin-bottom: 0;
+				}
+			}
+
+			#feature {
+				
+				.post-front-page.read-all .read-more:nth-of-type(1) {
+					border-bottom: 2px solid $black-color;
+					margin-bottom: 1rem;
 				}
 			}
 

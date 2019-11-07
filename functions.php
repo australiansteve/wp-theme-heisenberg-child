@@ -95,7 +95,7 @@ if (!function_exists('endsWith'))
 add_filter( 'get_the_excerpt', function( $excerpt ) {
  	if (endsWith($excerpt, ' [&hellip;]'))
  	{
- 		error_log("Trim the excerpt!");
+ 		//error_log("Trim the excerpt!");
  		return substr($excerpt, 0, -11);
  	}
  	return $excerpt;
