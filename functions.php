@@ -51,8 +51,8 @@ add_action( 'after_setup_theme', function() {
 	add_image_size( 'medium-logo', 110, 110, false );
 	add_image_size( 'service-icon', 110, 110, false );
 	add_image_size( 'client-logo', 250, 250, false );
-	add_image_size( 'about-profile-featured', 700, 700, array( 'center', 'center') );
-	add_image_size( 'about-profile', 500, 500, array( 'center', 'center') );
+	add_image_size( 'about-profile-featured', 700, 700, array( 'center', 'top') );
+	add_image_size( 'about-profile', 500, 500, array( 'center', 'top') );
 	add_image_size( 'service-slider', 1200, 800, array( 'center', 'center'));
 	add_image_size( 'project-archive-slider', 1200, 800, array( 'center', 'center'));
 	add_image_size( 'project-featured', 700, 500, array( 'center', 'center') );
@@ -72,6 +72,9 @@ add_action( 'after_setup_theme', function() {
 /* Filter page title for taxonomy/archive pages */
 if ( ! function_exists ( 'austeve_filter_page_title' ) ) {
 	function austeve_filter_page_title($title, $id ) {
+		if (is_admin())
+			return $title;
+
 		if ( !in_the_loop() && is_post_type_archive('austeve-projects') || is_tax('project-category', $id ) ) {
 			return get_field('projects_page_title', 'option');
 		}
@@ -99,5 +102,6 @@ add_action( 'pre_get_posts', function ($query) {
 
 	if ( $query->is_post_type_archive(array('austeve-projects', 'austeve-services', 'austeve-testimonials')) || $query->is_tax('project-category')) {
 		$query->set('orderby', array('menu_order' => 'ASC', 'date' => 'DESC'));
+		$query->set('posts_per_page', -1);
 	}
 }); 

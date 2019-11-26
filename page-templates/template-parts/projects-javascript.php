@@ -6,7 +6,7 @@
 
 			if (jQuery(window).width() > 1024) {
 				var galleryHeight = jQuery(this).find('.project-gallery-container').outerHeight();
-				jQuery(this).find('.project-detail-container').css("min-height", galleryHeight);
+				jQuery(this).find('.project-detail-container').css("min-height", "calc(" + galleryHeight + " - 100px)");
 				
 				var contentHeight = jQuery(this).find('.project-detail-container').outerHeight();
 				
@@ -31,6 +31,7 @@
 
 			if (jQuery(window).width() > 1024) {
 				var galleryHeight = jQuery(this).find('.project-gallery-container').outerHeight();
+				jQuery(this).find('.project-detail-container').css("min-height", "calc(" + galleryHeight + " - 100px)");
 				var contentHeight = jQuery(this).find('.project-detail-container').outerHeight();
 				
 				var contentSideHeight = contentHeight;

@@ -139,7 +139,7 @@ jQuery( document ).ready(function() {
 
 		<main class="grid-container">
 
-			<div class="profiles-container">
+			<div class="profiles-container" data-equalizer="position" data-equalize-by-row="true">
 
 				<div class="grid-x medium-up-2" id="featured-profiles" data-equalizer="featured" data-equalize-by-row="true">
 					<?php
@@ -152,7 +152,7 @@ jQuery( document ).ready(function() {
 							if (get_sub_field('featured')) :
 								?>
 								<div class="cell">
-									<div class="featured-profile"  data-equalizer-watch="featured">
+									<div class="featured-profile" data-equalizer-watch="featured">
 										<?php echo get_template_part('page-templates/template-parts/profile', 'featured'); ?>
 									</div>
 								</div>
@@ -167,7 +167,7 @@ jQuery( document ).ready(function() {
 
 				</div>
 
-				<div class="grid-x small-up-2 medium-up-3" id="regular-profiles" data-equalizer data-equalize-by-row="true">
+				<div class="grid-x medium-up-3" id="regular-profiles" data-equalizer data-equalize-by-row="true" data-equalizer="position">
 					<?php
 						// check if the repeater field has rows of data
 					if( have_rows('profiles') ):

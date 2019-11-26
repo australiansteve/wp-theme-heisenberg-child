@@ -77,58 +77,75 @@ $servicesBgImageUrl = get_field('front_page_services_section_background_image', 
 			</div>
 
 			<div class="small-12 cell projects">
-					<script type="text/javascript">
-						jQuery( document ).ready(function() {
+				<script type="text/javascript">
+					jQuery( document ).ready(function() {
 						var maxHeight = 0;
+						var maxDescriptionHeight = 0;
 
-jQuery(".featured-project").each(function(){
-   if (jQuery(this).height() > maxHeight) { maxHeight = jQuery(this).height(); }
-});
-
-jQuery(".featured-project").height(maxHeight);
-						
+						jQuery(".featured-project").each(function(){
+							if (jQuery(this).height() > maxHeight) { maxHeight = jQuery(this).height(); }
+							if (jQuery(this).find(".short-description").height() > maxDescriptionHeight) { maxDescriptionHeight = jQuery(this).find(".short-description").height(); }
 						});
-					</script>
-					<div class="scrolling-panel">
-						<table>
-							<tbody style="border:none">
+
+						jQuery(".featured-project").height(maxHeight);
+						jQuery(".featured-project .short-description").css({'min-height': maxDescriptionHeight});
+						
+						if (jQuery(".scrolling-panel td.featured-project").length > 2)
+						{
+							(function scrollProjects() {
+								jQuery(".scrolling-panel td.featured-project:first").each(function(){
+									jQuery(this).animate({marginLeft:-jQuery(this).outerWidth(true)},3000,function(){
+										jQuery(this).insertAfter(".scrolling-panel td.featured-project:last");
+										jQuery(this).css({marginLeft:0});
+										setTimeout(function(){
+											scrollProjects();
+										},5000);
+									});
+								});
+							})();
+						}
+					});
+				</script>
+				<div class="scrolling-panel" data-scroll="featured-project">
+					<table>
+						<tbody style="border:none">
 							<tr>
-						<?php
-				// WP_Query arguments
-							$args = array(
-								'post_type'              => array( 'austeve-projects' ),
-								'post_status'            => array( 'publish' ),
-								'posts_per_page'         => '-1',
-								'tax_query'              => array(
-									array(
-										'taxonomy'         => 'project-category',
-										'terms'            => 'current',
-										'field'            => 'slug',
-										'operator'         => 'IN',
+								<?php
+								// WP_Query arguments
+								$args = array(
+									'post_type'              => array( 'austeve-projects' ),
+									'post_status'            => array( 'publish' ),
+									'posts_per_page'         => '-1',
+									'tax_query'              => array(
+										array(
+											'taxonomy'         => 'project-category',
+											'terms'            => 'current',
+											'field'            => 'slug',
+											'operator'         => 'IN',
+										),
 									),
-								),
-							);
+								);
 
-				// The Query
-							$projectsquery = new WP_Query( $args );
+								// The Query
+								$projectsquery = new WP_Query( $args );
 
-				// The Loop
-							if ( $projectsquery->have_posts() ) {
-								while ( $projectsquery->have_posts() ) {
-									$projectsquery->the_post();
-									echo get_template_part('page-templates/template-parts/project', 'front-page');
+								// The Loop
+								if ( $projectsquery->have_posts() ) {
+									while ( $projectsquery->have_posts() ) {
+										$projectsquery->the_post();
+										echo get_template_part('page-templates/template-parts/project', 'front-page');
+									}
+								} else {
+									// no posts found
 								}
-							} else {
-					// no posts found
-							}
 
-				// Restore original Post Data
-							wp_reset_postdata();
-							?>	
-						</tr>
-					</tbody>
+								// Restore original Post Data
+								wp_reset_postdata();
+								?>	
+							</tr>
+						</tbody>
 					</table>
-				</div>
+				</div> 
 			</div>
 
 		</div>

@@ -17,7 +17,7 @@ get_header(); ?>
 					<div class="container">
 						<?php
 						
-						$images = get_field('image_gallery');
+						$images = get_field('image_gallery_slider');
 						$size = 'project-archive-slider';
 
 						if( $images ): ?>

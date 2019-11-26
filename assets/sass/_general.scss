@@ -40,7 +40,7 @@ button:hover, .button:hover, a.button:hover, input[type="submit"]:hover, input[t
 button:focus, .button:focus, a.button:focus, input[type="submit"]:focus, input[type="button"]:focus {
 	color: $white-color;
 	background-color: $red-color;
-	outline-color: $red-color;
+	outline: none;
 }
 
 .full-width-container {
@@ -71,15 +71,37 @@ main.grid-container {
 	overflow-x: scroll;
 }
 
+.scrolling-panel::-webkit-scrollbar {
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.orbit-slide {
+	text-align: center;
+}
+
 .orbit-bullets {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translate(-50%,0);
+
+    button {
+    	padding: 0.25rem;
+	    width: 0.6rem;
+	    height: 0.6rem;
+    }
 }
 
 button.orbit-previous , button.orbit-next {
 	background-color: transparent;
+}
+
+.orbit-previous:hover, .orbit-next:hover, .orbit-previous:active, .orbit-next:active, .orbit-previous:focus, .orbit-next:focus  {
+	background: none;
+}
+
+:focus {
+    outline: none;
 }
 
 /* Small only */

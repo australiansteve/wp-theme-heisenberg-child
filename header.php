@@ -66,7 +66,10 @@
 
 		<?php
 		/* grab the url for the full size featured image */
-		if (is_tax('project-category') || is_archive('austeve-projects')):
+		if (is_tax('project-category')):
+			//echo get_queried_object()->taxonomy."_".get_queried_object()->term_id;
+			$featured_img_url = get_field('projects_page_background_image', get_queried_object()->taxonomy."_".get_queried_object()->term_id);
+	elseif (is_archive('austeve-projects')):
 			$featured_img_url = get_field('projects_page_background_image', 'option');	
 	elseif (has_post_thumbnail()) :
 		$featured_img_url = get_the_post_thumbnail_url($post->ID, 'full'); 
@@ -86,7 +89,7 @@ if (is_front_page()):
 	<?php
 else:
 	?>
-	<div class="header-background-image" style="background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.4)),url(<?php echo $featured_img_url; ?>)">
+	<div class="header-background-image" style="background-image: url(<?php echo $featured_img_url; ?>)">
 		<?php echo get_template_part('page-templates/template-parts/header'); ?>
 	</div>
 	<?php

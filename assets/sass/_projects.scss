@@ -2,10 +2,15 @@
 
 	.project {
 		position: unset;
+		margin-top: 2rem;
+
+		.description {
+			margin-bottom: 1rem;
+		}
 	}
 
 	.project:nth-of-type(odd) {
-		padding: 1rem;
+		padding: 1rem 0;
 
 		.project-container {
 			background-color: $white-color;
@@ -19,8 +24,11 @@
 				.meta {
 					padding: 1rem 0;
 
+					h2 {
+						font-size: 1.45rem;
+					}
 					div {
-						font-size: 1.15rem;
+						font-size: 1.25rem;
 					}
 				}
 			}
@@ -28,7 +36,7 @@
 	}
 
 	.project:nth-of-type(even) {
-		padding: 1rem;
+		padding: 1rem 0;
 
 		.project-container {
 			background: linear-gradient(90deg, $white-color 20%, $red-color 20%);
@@ -37,19 +45,23 @@
 			.project-detail-container {
 				padding: 0.5rem;
 				background: $white-color;
-				margin: 1rem 1rem 1rem 0;
+				margin: 0 1rem 1rem 0;
 
 				.meta {
 					padding: 1rem 0;
 
+					h2 {
+						font-size: 1.45rem;
+					}
 					div {
-						font-size: 1.15rem;
+						font-size: 1.25rem;
 					}
 				}
 			}
 
 			.project-action-container {
 				a {
+
 				}
 			}
 		}
@@ -74,10 +86,23 @@
 	}
 }
 
+.taxonomy-details {
+	position: relative;
+
+	.bling {
+		position: absolute;
+		border: 3px solid $red-color;
+		width: 1px;
+		height: calc(100% + 2rem);
+		top: -2rem;
+		left: -.5rem;
+	}
+
+}
 
 .featured-project {
 	display:inline-block;
-	width: calc(50% - 2rem);
+	width: calc(40vw - 2rem);
 	margin: 0 1rem;
 	padding: 0;
 	text-align: left;
@@ -110,6 +135,10 @@
 			top: -50px;
 			left: 0.75rem;
 			height: 150px;
+		}
+
+		.action a {
+			margin-top: 1rem;
 		}
 	}
 
@@ -148,6 +177,29 @@
 			}
 		}
 	}
+
+	.archive { 
+
+		.project {
+
+			h2 {
+				font-size: 2rem;
+				margin-bottom: 0;
+			}
+		}
+
+
+		.project:nth-of-type(even) {
+
+			.project-container {
+
+				.project-detail-container {
+					margin: 1rem 1rem 1rem 0;
+				}
+			}
+		}
+	}
+
 }
 
 /* Medium only */
@@ -158,6 +210,13 @@
 /* Large and up */
 @media screen and (min-width: 64em) {
 	.archive {
+
+		.project {
+			.project-detail-container {
+				min-height: 450px;
+			}
+		}
+		
 		.project:nth-of-type(odd) {
 			padding: 2rem;
 

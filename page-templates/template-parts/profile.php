@@ -19,7 +19,7 @@
 	</div>
 	<div>
 		<h3 class="name"><?php the_sub_field('name');?></h3>
-		<div class="position"><?php the_sub_field('position');?></div>
+		<div class="position" data-equalizer-watch="position"><?php the_sub_field('position');?></div>
 	</div>
 	<div>
 		<?php the_sub_field('bio');?>

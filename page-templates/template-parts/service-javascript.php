@@ -8,7 +8,7 @@ if (is_front_page()) :
 				jQuery(".services-text")[0].innerHTML = jQuery('.service-' + serviceSlug)[0].innerHTML;
 				jQuery('html, body').animate({
 					scrollTop: jQuery("#services-section").offset().top
-				}, 2000);
+				}, 500);
 			});
 		}
 	</script>

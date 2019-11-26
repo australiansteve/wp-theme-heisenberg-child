@@ -14,8 +14,9 @@
 	.call-to-action {
 		min-height: 50vh;
 		position: absolute;
-    	top: 100vh;
-    	margin-top: 3rem;
+    	top: 0;
+    	padding-top: calc(100vh + 3rem);
+    	padding-bottom: 3rem;
     	width: 100%;
     	text-align: center;
 
@@ -40,6 +41,10 @@ header {
 
 	#page-title {
 		padding-top: 30vh;
+	}
+
+	a.custom-logo-link:hover, a.custom-logo-link.focus {
+		opacity: 1;
 	}
 }
 

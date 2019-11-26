@@ -60,11 +60,11 @@
             "new_lines": ""
         },
         {
-            "key": "field_5d6874ba34199",
+            "key": "field_5dd6da96d444d",
             "label": "Image Gallery",
-            "name": "image_gallery",
+            "name": "image_gallery_slider",
             "type": "gallery",
-            "instructions": "",
+            "instructions": "These images must be at least 1200x800px, and will be cropped to that ratio when displayed",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -73,13 +73,13 @@
                 "id": ""
             },
             "return_format": "id",
-            "preview_size": "medium",
+            "preview_size": "project-archive-slider",
             "insert": "append",
             "library": "all",
             "min": "",
             "max": "",
-            "min_width": "",
-            "min_height": "",
+            "min_width": 1200,
+            "min_height": 800,
             "min_size": "",
             "max_width": "",
             "max_height": "",
@@ -104,5 +104,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570635250
+    "modified": 1574451782
 }

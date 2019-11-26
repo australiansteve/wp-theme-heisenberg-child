@@ -15,12 +15,12 @@
 	}
 }
 .off-canvas {
-		width: 80vw;
-			transform: translateX(80vw);
-			.is-open {
-				transform: translate(0, 0);
-			}
+	width: 80vw;
+	transform: translateX(80vw);
+	.is-open {
+		transform: translate(0, 0);
 	}
+}
 
 .off-canvas-content.has-position-right .off-canvas-opener {
 	display: none;
@@ -79,7 +79,7 @@
 .off-canvas {
 
 	background: $red-color;
-	font-size: 2rem;
+	font-size: 1.2rem;
 	text-transform: uppercase;
 
 	button {
@@ -94,11 +94,11 @@
 		font-size: 2rem;
 		text-align: right;
 		display: inherit;
-    background: linear-gradient(to left, $grey-color 50%, $red-color 50%);
-    background-size: 200% 100%;
-    background-position: left bottom;
-    transition: all 0.5s linear;
-    
+		background: linear-gradient(to left, $grey-color 50%, $red-color 50%);
+		background-size: 200% 100%;
+		background-position: left bottom;
+		transition: all 0.5s linear;
+		
 
 	}
 
@@ -106,7 +106,7 @@
 		list-style: none;
 
 		li {
-			padding: 2rem 2rem 0 2rem;
+			padding: 1rem 1rem 0 1rem;
 		}
 
 		a {
@@ -127,12 +127,21 @@
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
+
 	.off-canvas {
 		width: 50vw;
-			transform: translateX(50vw);
-			.is-open {
-				transform: translate(0, 0);
+		transform: translateX(50vw);
+		font-size: 1.6rem;
+
+		.is-open {
+			transform: translate(0, 0);
+		}
+
+		ul {
+			li {
+				padding: 2rem 2rem 0 2rem;
 			}
+		}
 	}
 
 	.off-canvas-content:not(.has-position-right) .off-canvas-opener {
@@ -149,6 +158,10 @@
 @media screen and (min-width: 64em) {
 	button.off-canvas-opener {
 		top: 0px;
+	}
+
+	.off-canvas {
+		font-size: 2rem;
 	}
 }
 

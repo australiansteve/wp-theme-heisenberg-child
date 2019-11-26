@@ -11,3 +11,36 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+
+jQuery( document ).ready(function() {
+
+	var headerHeight;
+	jQuery("header").first().each(function() {
+		headerHeight = jQuery(this).height();
+		var ctaTopPadding;
+
+		if (headerHeight < jQuery(window).height()) {
+			jQuery(".header-and-cta-background-image .call-to-action").first().each(function() {
+				ctaTopPadding = "calc(100vh + 6rem)";
+				jQuery(this).css("padding-top", ctaTopPadding);
+			});
+		}
+		else {
+			jQuery(".header-and-cta-background-image .call-to-action").first().each(function() {
+				ctaTopPadding = "calc("+(headerHeight)+"px + 6rem)";
+				jQuery(this).css("padding-top", ctaTopPadding);
+			});
+		}
+
+		var ctaOuterHeight = jQuery(".header-and-cta-background-image .call-to-action").first().outerHeight();
+		jQuery(".header-and-cta-background-image").first().each(function() {
+			jQuery(this).css("min-height", ctaOuterHeight);
+		});
+	});
+
+	//resize background image depending on screen size
+	
+
+});
+</script>

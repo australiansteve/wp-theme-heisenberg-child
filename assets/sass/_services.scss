@@ -43,6 +43,7 @@
 .service {
 	position: relative;
 	padding: 2rem 1rem 0rem 1rem;
+	margin-top: 2rem;
 	
 	.service-gallery {
 		.background-container {
@@ -58,7 +59,7 @@
 		position: absolute;
 		border: 3px solid $red-color;
 		width: 1px;
-		top: -50px;
+		top: -25px;
 		left: 0.25rem;
 		height: 225px;
 	}
@@ -66,6 +67,10 @@
 	.service-title {
 		text-transform: uppercase;
 	}
+}
+
+.service:nth-of-type(1) {
+	margin-top: 0;
 }
 
 .service:nth-of-type(even) {
@@ -78,7 +83,7 @@
 		position: absolute;
 		border: 3px solid $red-color;
 		width: 1px;
-		top: -50px;
+		top: -25px;
 		right: 0.25rem;
 		height: 225px;
 		left: auto;
@@ -106,6 +111,7 @@
 	.service {
 
 		padding-left: 6rem;
+		margin-top: 4rem;
 
 		.bling {
 			left: 4rem;
