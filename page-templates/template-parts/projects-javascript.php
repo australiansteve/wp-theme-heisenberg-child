@@ -53,7 +53,14 @@
 		});
 	});
 
+	jQuery( window ).on('resize', function() {
+		jQuery(document).trigger('beforeslidechange.zf.orbit');
+	});
+
 	jQuery( document ).ready(function(){
 		jQuery(document).trigger('beforeslidechange.zf.orbit');
+		setTimeout(function() {
+			jQuery(document).trigger('beforeslidechange.zf.orbit')
+		}, 2000);
 	});
 </script>

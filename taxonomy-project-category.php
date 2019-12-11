@@ -7,9 +7,11 @@ get_header(); ?>
 
 	<div class="grid-x grid-padding-x">
 
+		<div class="cell">
+			<?php echo get_template_part('page-templates/template-parts/project', 'category-term-links'); ?>
+		</div>
+
 		<div class="small-12 cell taxonomy-details">
-			<div class="bling">
-			</div>
 			<div class="term-information">
 				<?php 
 				$term = get_term_by( 'slug', get_query_var('term'), get_query_var('taxonomy') );

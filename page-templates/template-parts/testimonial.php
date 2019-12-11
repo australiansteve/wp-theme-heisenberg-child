@@ -13,7 +13,11 @@
 
 			}
 			else {
-				echo "<img src='https://via.placeholder.com/700'>";
+				?>
+				<div class="text-center image-replacement">
+					<?php the_field('project');?>
+				</div>
+				<?php
 			}
 			?>
 		</div>

@@ -1,9 +1,13 @@
-.off-canvas-content:not(.has-position-right) .off-canvas-opener {
+.off-canvas-opener.show-for-medium {
 	position: fixed;
 	z-index: 1000;
 	right: 0;
-	top: 0px;
 	background-color: $red-color;
+	padding-left: 8px;
+}
+
+.off-canvas-content:not(.has-position-right) .off-canvas-opener {
+	z-index: 1000;
 
 	.button {
 		font-weight: bold;
@@ -117,6 +121,15 @@
 	ul#social-menu {
 		position: absolute;
 		bottom: 0;
+
+		li {
+			padding: 0;
+			padding-bottom: 1rem;
+		}
+
+		li:nth-of-type(1) {
+			padding-left: 1rem;
+		}
 	}
 }
 
@@ -142,11 +155,15 @@
 				padding: 2rem 2rem 0 2rem;
 			}
 		}
+
+		ul#social-menu {
+			li:nth-of-type(1) {
+				padding-left: 2rem;
+				padding-bottom: 2rem;
+			}
+		}
 	}
 
-	.off-canvas-content:not(.has-position-right) .off-canvas-opener {
-		padding-left: 0.75rem;
-	}
 }
 
 /* Medium only */

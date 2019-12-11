@@ -79,7 +79,7 @@ error_log("servicesBgImageUrl: ".$servicesBgImageUrl);
 
 </div>
 
-<main class="grid-container">
+<main class="grid-container no-padding-x">
 
 	<div class="grid-x grid-padding-x" id="services">
 

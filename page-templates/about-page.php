@@ -42,7 +42,8 @@ get_header(); ?>
 								$images = get_field('image_gallery');
 								$size = 'service-slider'; // (thumbnail, medium, large, full or custom size)
 
-								if( $images ): ?>
+								if( $images ): 
+									if (count($images) > 1 ): ?>
 
 									<div class="orbit" role="region" aria-label="" data-orbit>
 										<div class="orbit-wrapper">
@@ -79,6 +80,10 @@ get_header(); ?>
 										</nav>
 									</div>
 
+								<?php else: ?>
+									<!-- Only 1 image to display -->
+									<?php echo wp_get_attachment_image( $images[0], $size ); ?>
+								<?php endif; ?>
 								<?php endif; ?>
 
 							</div>
@@ -123,12 +128,30 @@ get_header(); ?>
 </main>
 
 <script type="text/javascript">
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
 
-jQuery( document ).ready(function() {
-
+var resizeBackground = debounce(function() {
 	var bgHeight = jQuery("#profiles .background-container").height();
 	jQuery("#profiles .profiles-background").height(bgHeight);
+}, 250);
 
+window.addEventListener('resize', resizeBackground);
+
+jQuery( document ).ready(function() {
+	resizeBackground();
 });
 
 </script>

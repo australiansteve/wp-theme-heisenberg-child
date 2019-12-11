@@ -1,1 +1,1 @@
-linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.75))
+linear-gradient(to bottom, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0.85) 80%, rgba(255, 255, 255, 0.5))

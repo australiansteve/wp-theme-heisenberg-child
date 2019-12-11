@@ -66,6 +66,46 @@
 			}
 		}
 	}
+
+	.term-links {
+		margin-bottom: 2rem;
+		position: relative;
+
+		a {
+			font-family: Gotham-Black;
+			font-size: 1.05rem;
+			text-transform: uppercase;
+		}
+
+		.bling {
+			position: absolute;
+			border: 3px solid $red-color;
+			width: 1px;
+			top: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		.active {
+			color: $red-color;
+		}	
+
+		div {		
+			a:hover {
+				text-decoration: none;
+			}
+			
+		}
+	}
+
+	.term-information {
+		text-align: center;
+
+		h2 {
+			text-transform: uppercase;
+		}
+
+	}
 }
 
 .single-austeve-projects {
@@ -87,23 +127,14 @@
 }
 
 .taxonomy-details {
-	position: relative;
-
-	.bling {
-		position: absolute;
-		border: 3px solid $red-color;
-		width: 1px;
-		height: calc(100% + 2rem);
-		top: -2rem;
-		left: -.5rem;
-	}
+	
 
 }
 
 .featured-project {
 	display:inline-block;
-	width: calc(40vw - 2rem);
-	margin: 0 1rem;
+	width: calc(100vw - 3rem);
+	margin: 0 1rem 0 0;
 	padding: 0;
 	text-align: left;
 	white-space: initial;
@@ -160,6 +191,24 @@
 				text-align: right;
 			}
 		}
+
+		.term-links {
+			text-align: center;
+
+			div {
+				display: inline-block;
+
+				a::after {
+					content: ' - ';
+					color: $black-color;
+				}
+			}
+
+			div:nth-last-of-type(1) a::after {
+				content: '';
+			}
+		}
+
 	}
 
 }
@@ -197,8 +246,29 @@
 					margin: 1rem 1rem 1rem 0;
 				}
 			}
+
 		}
+
+
+		.term-links {
+			margin-left: 8rem;
+
+
+			.bling {
+				left: -2rem;
+			}
+
+			a {
+				font-size: 1.7rem;
+			}
+		}
+
 	}
+
+	.featured-project {
+		width: calc(50vw - 2rem);
+	}
+
 
 }
 
@@ -284,6 +354,28 @@
 					}
 				}
 			}
+
+			button.orbit-next {
+				left: 3.5rem
+			}
+
+			button.orbit-previous {
+				left: 0;
+				right: auto;
+			}
+
+		}
+
+		.term-links {
+
+			.bling {
+				left: -3rem;
+			}
+
+			a {
+				font-size: 2rem;
+			}
+
 		}
 	}
 }
@@ -291,4 +383,13 @@
 /* Large only */
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {
 	
+}
+
+
+/* Larger and up */
+@media screen and (min-width: 75em) {
+
+	.featured-project {
+		width: calc(37.5rem - 2rem);
+	}
 }

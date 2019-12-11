@@ -4,5 +4,15 @@
 }
 
 .nf-form-content button, .nf-form-content input[type=button], .nf-form-content input[type=submit] {
-	background: $red-color !important
+	background: $red-color !important;
+	padding: 8px 24px;
+    height: initial !important;
+}
+
+.ninja-forms-req-symbol {
+    display: none;
+}
+
+.nf-form-content {
+    padding-left: 0px !important;
 }

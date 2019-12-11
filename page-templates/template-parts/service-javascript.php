@@ -10,6 +10,11 @@ if (is_front_page()) :
 					scrollTop: jQuery("#services-section").offset().top
 				}, 500);
 			});
+
+			jQuery('.service-button').each(function() {
+				jQuery(this).removeClass('active');
+			});
+			jQuery('#button-' + serviceSlug).addClass('active');
 		}
 	</script>
 	<?php

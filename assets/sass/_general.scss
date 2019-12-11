@@ -28,6 +28,7 @@ button, .button, a.button, input[type="submit"], input[type="button"] {
 	text-transform: uppercase;
 	font-weight: 700;
 	font-size: 1.2rem;
+	border: none;
 }
 
 button:hover, .button:hover, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover {
@@ -60,10 +61,8 @@ main.grid-container {
 .content-container {
 	background-color: $white-color;
 	color: $black-color;
-	width: 90%;
 	margin: auto;
 	padding: 2rem 1rem;
-
 }
 
 .scrolling-panel {
@@ -80,16 +79,16 @@ main.grid-container {
 }
 
 .orbit-bullets {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%,0);
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%,0);
 
-    button {
-    	padding: 0.25rem;
-	    width: 0.6rem;
-	    height: 0.6rem;
-    }
+	button {
+		padding: 0.25rem;
+		width: 0.6rem;
+		height: 0.6rem;
+	}
 }
 
 button.orbit-previous , button.orbit-next {
@@ -101,7 +100,26 @@ button.orbit-previous , button.orbit-next {
 }
 
 :focus {
-    outline: none;
+	outline: none;
+}
+
+p.has-medium-font-size {
+	position: relative;
+}
+
+p.has-medium-font-size::before {
+	content: '';
+	position: absolute;
+	border: 3px solid $red-color;
+	width: 1px;
+	top: 0;
+	bottom: 0;
+	left: -1rem;
+}
+
+.no-padding-x {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 /* Small only */
@@ -114,7 +132,7 @@ button.orbit-previous , button.orbit-next {
 	
 	/* Font Sizes */
 	h1 {
-		font-size: 5rem;
+		font-size: 4.25rem;
 	}
 
 	h2 {
@@ -126,10 +144,30 @@ button.orbit-previous , button.orbit-next {
 	}
 
 	.content-container {
-		
-		width: 80%;
-		padding: 3rem 2rem;
+		max-width: 75rem;
+		padding: 3rem 3rem;
+	}
 
+	.scrolling-panel {
+		margin-bottom: -1rem;    
+		margin-right: 0rem;
+	}
+
+
+	p.has-medium-font-size::before {
+		left: -2rem;
+	}
+
+	button.orbit-next {
+		bottom: -2rem;
+		top: auto;
+	}
+
+	button.orbit-previous {
+		top: auto;
+		bottom: -2rem;
+		right: 3.5rem;
+		left: auto;
 	}
 
 }
@@ -142,9 +180,26 @@ button.orbit-previous , button.orbit-next {
 /* Large and up */
 @media screen and (min-width: 64em) {
 	
-button, .button, a.button, input[type="submit"], input[type="button"] {
-	font-size: 1.4rem;
-}
+	h1 {
+		font-size: 5rem;
+	}
+
+	button, .button, a.button, input[type="submit"], input[type="button"] {
+		font-size: 1.4rem;
+	}
+
+	p.has-medium-font-size::before {
+		left: -3rem;
+	}
+
+	button.orbit-next {
+		bottom: -2.5rem;
+	}
+
+	button.orbit-previous {
+		bottom: -2.5rem;
+	}
+
 }
 
 /* Large only */

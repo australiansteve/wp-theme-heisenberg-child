@@ -1,4 +1,10 @@
+.top-bar {
+	background: $red-color;
 
+	.top-bar-left, .top-bar-right {
+		width: unset;
+	}
+}
 
 .header-background-image {
 	min-height: 100vh;
@@ -6,28 +12,8 @@
 	background-size: cover;
 }
 
-.header-and-cta-background-image {
-	min-height: calc(150vh + 6rem); /* Allow for the margin-top of .call-to-action */
-	background-position: 80% 100%;
-	background-size: cover;
-
-	.call-to-action {
-		min-height: 50vh;
-		position: absolute;
-    	top: 0;
-    	padding-top: calc(100vh + 3rem);
-    	padding-bottom: 3rem;
-    	width: 100%;
-    	text-align: center;
-
-    	h3 {
-    		font-size: 1.6rem;
-    	}
-    	
-    	.cta-title {
-    		text-transform: uppercase;
-    	}
-	}
+.header-bg {
+	background-size: cover; 
 }
 
 header {
@@ -35,9 +21,6 @@ header {
 	color: $white-color;
 	text-transform: uppercase;
 
-	.custom-logo {
-		margin-top: 80px;
-	}
 
 	#page-title {
 		padding-top: 30vh;
@@ -51,28 +34,45 @@ header {
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	
+	header {
+		.custom-logo {
+			display: none;
+		}
+	}
 }
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	
+	header {
+		#page-title {
+			padding-top: 30vh;
+		}
+		.custom-logo {
+			max-width: 110px;
+		}
+	}
 }
 
 /* Medium only */
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-	
+	.header-bg {
+		background-position-x: 10%;
+	}
 }
 
 /* Large and up */
 @media screen and (min-width: 64em) {
 
 	header {
-		.custom-logo {
+		min-height: 100vh;
+		
+		#page-title {
+			padding-top: 50vh;
 		}
 
-		#page-title {
-			padding-top: 40vh;
+		.custom-logo {
+			max-width: 160px;
 		}
 	}
 }
@@ -80,4 +80,16 @@ header {
 /* Large only */
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {
 	
+}
+
+
+/* Larger and up */
+@media screen and (min-width: 72em) {
+
+	header {
+		
+		.custom-logo {
+			max-width: 180px;
+		}
+	}
 }

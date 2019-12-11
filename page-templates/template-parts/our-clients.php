@@ -5,6 +5,8 @@ $clientsBgImageUrl = get_field('front_page_clients_section_background_image', 'o
 
 	<div class="background-container" style="background-image: url('<?php echo $clientsBgImageUrl; ?>')">
 
+	</div>
+	
 		<div class="content-container">
 			<div class="grid-x">
 				<div class="cell">
@@ -36,7 +38,7 @@ $clientsBgImageUrl = get_field('front_page_clients_section_background_image', 'o
 				<script>
 					(function scrollClients() {
 					    jQuery(".scrolling-panel>div.client:first").each(function(){
-					        jQuery(this).animate({marginLeft:-jQuery(this).outerWidth(true)},2000,function(){
+					        jQuery(this).animate({marginLeft:-jQuery(this).outerWidth(true)},4000,function(){
 					            jQuery(this).insertAfter(".scrolling-panel>div.client:last");
 					            jQuery(this).css({marginLeft:0});
 					            scrollClients();
@@ -49,6 +51,5 @@ $clientsBgImageUrl = get_field('front_page_clients_section_background_image', 'o
 
 		</div>
 
-	</div>
 
 </div>

@@ -5,11 +5,11 @@
 			$images = get_field('image_gallery_slider');
 			$size = 'project-archive-slider'; 
 
-			if( $images ): 
-				if (count($images) > 1) :
+			if( $images ) {
+				if (count($images) > 1) {
 					?>
 
-					<div class="orbit" role="region" aria-label="" data-orbit>
+					<div class="orbit" role="region" aria-label="" data-orbit data-options="autoPlay:false;">
 						<div class="orbit-wrapper">
 							<div class="orbit-controls">
 								<button class="orbit-previous"><span class="show-for-sr">Previous Slide</span><i class="fas fa-2x fa-chevron-left"></i></button>
@@ -48,25 +48,30 @@
 
 					</div>
 
-					<?php else: ?>
-						<?php echo wp_get_attachment_image( $images[0], $size ); ?>
+					<?php 
+				}
+				else { 
+					echo wp_get_attachment_image( $images[0], $size );
+				} 
+			}
+			else {
+			?>
+			<img src="https://via.placeholder.com/1200x800"/>
+			<?php 
+		} 
+		?>
+	</div>
 
-					<?php endif; ?>
-					<?php else: ?>
-						<img src="https://via.placeholder.com/1200x800"/>
-					<?php endif; ?>
-				</div>
-
-				<div class="project-detail-container grid-y">
-					<div class="cell meta">
-						<h2><?php echo the_title(); ?></h2>
-						<div class="type"><?php the_field('project_type'); ?></div>
-						<div class="location"><?php the_field('location'); ?></div>
-					</div>
-					<div class="cell large-auto description">
-						<div class="description"><?php the_field('short_description'); ?></div>
-					</div>
-				</div>
-
-			</div>
+	<div class="project-detail-container grid-y">
+		<div class="cell meta">
+			<h2><?php echo the_title(); ?></h2>
+			<div class="type"><?php the_field('project_type'); ?></div>
+			<div class="location"><?php the_field('location'); ?></div>
 		</div>
+		<div class="cell large-auto description">
+			<div class="description"><?php the_field('short_description'); ?></div>
+		</div>
+	</div>
+
+</div>
+</div>

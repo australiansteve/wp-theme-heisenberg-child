@@ -78,7 +78,22 @@ $servicesBgImageUrl = get_field('front_page_services_section_background_image', 
 
 			<div class="small-12 cell projects">
 				<script type="text/javascript">
-					jQuery( document ).ready(function() {
+					function debounce(func, wait, immediate) {
+						var timeout;
+						return function() {
+							var context = this, args = arguments;
+							var later = function() {
+								timeout = null;
+								if (!immediate) func.apply(context, args);
+							};
+							var callNow = immediate && !timeout;
+							clearTimeout(timeout);
+							timeout = setTimeout(later, wait);
+							if (callNow) func.apply(context, args);
+						};
+					};
+
+					var resizeFeaturedProjects = debounce(function() {
 						var maxHeight = 0;
 						var maxDescriptionHeight = 0;
 
@@ -89,6 +104,16 @@ $servicesBgImageUrl = get_field('front_page_services_section_background_image', 
 
 						jQuery(".featured-project").height(maxHeight);
 						jQuery(".featured-project .short-description").css({'min-height': maxDescriptionHeight});
+
+						var pscHeight = jQuery("#projects-section .content-container").height();
+						jQuery("#projects-section").css({'min-height': 'calc('+pscHeight+'px + 3rem)'})
+						
+					}, 250);
+
+					window.addEventListener('resize', resizeFeaturedProjects);
+
+					jQuery( document ).ready(function() {
+						resizeFeaturedProjects();
 						
 						if (jQuery(".scrolling-panel td.featured-project").length > 2)
 						{
@@ -106,29 +131,30 @@ $servicesBgImageUrl = get_field('front_page_services_section_background_image', 
 						}
 					});
 				</script>
+				<?php
+					// WP_Query arguments
+				$args = array(
+					'post_type'              => array( 'austeve-projects' ),
+					'post_status'            => array( 'publish' ),
+					'posts_per_page'         => '-1',
+					'tax_query'              => array(
+						array(
+							'taxonomy'         => 'project-category',
+							'terms'            => 'current',
+							'field'            => 'slug',
+							'operator'         => 'IN',
+						),
+					),
+				);
+
+					// The Query
+				$projectsquery = new WP_Query( $args );
+				?>
 				<div class="scrolling-panel" data-scroll="featured-project">
 					<table>
 						<tbody style="border:none">
 							<tr>
 								<?php
-								// WP_Query arguments
-								$args = array(
-									'post_type'              => array( 'austeve-projects' ),
-									'post_status'            => array( 'publish' ),
-									'posts_per_page'         => '-1',
-									'tax_query'              => array(
-										array(
-											'taxonomy'         => 'project-category',
-											'terms'            => 'current',
-											'field'            => 'slug',
-											'operator'         => 'IN',
-										),
-									),
-								);
-
-								// The Query
-								$projectsquery = new WP_Query( $args );
-
 								// The Loop
 								if ( $projectsquery->have_posts() ) {
 									while ( $projectsquery->have_posts() ) {

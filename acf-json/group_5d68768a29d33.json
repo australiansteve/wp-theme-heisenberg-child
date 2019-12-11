@@ -7,7 +7,7 @@
             "label": "Description",
             "name": "description",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "The first paragraph should have the class 'has-medium-font-size'",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -176,5 +176,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570577627
+    "modified": 1576076179
 }

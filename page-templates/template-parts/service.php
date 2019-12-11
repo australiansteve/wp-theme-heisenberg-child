@@ -2,9 +2,6 @@
 ?>
 <div class="service" id="service-<?php echo get_post_field( 'post_name');?>">
 	
-	<div class="bling">
-	</div>
-	
 	<div class="grid-x grid-margin-x">
 		<div class="cell service-title">
 			<h2><?php the_title(); ?></h2>
@@ -21,11 +18,16 @@
 			$serviceBgImageUrl = get_field('gallery_background_image');
 			?>
 			<div class="background-container" style="background-image: url(<?php echo $serviceBgImageUrl;?>)">
+			</div>
+
+			<div class="image-container">
 				<?php 
 				$images = get_field('image_gallery');
 				$size = 'service-slider'; // (thumbnail, medium, large, full or custom size)
 
-				if( $images ): ?>
+				if( $images ): 
+					if (count($images) > 1) :
+					?>
 
 					<div class="orbit" role="region" aria-label="" data-orbit>
 						<div class="orbit-wrapper">
@@ -64,9 +66,15 @@
 						
 					</div>
 
-				<?php endif; ?>
-			</div>
+				<?php 
+					else :
+						//just 1 image
+						echo wp_get_attachment_image( $images[0], $size );
+					endif;
 
+				endif; ?>
+
+			</div>
 		</div>
 	</div>
 </div>

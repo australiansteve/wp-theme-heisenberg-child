@@ -6,7 +6,7 @@
             "key": "field_5d94ea0dae8f9",
             "label": "Call To Action Title",
             "name": "front_page_call_to_action_title",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,9 +17,9 @@
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": "br"
         },
         {
             "key": "field_5d94ea2dae8fa",
@@ -96,5 +96,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570043200
+    "modified": 1575939860
 }

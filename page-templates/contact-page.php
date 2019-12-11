@@ -30,7 +30,9 @@ if ( have_posts() ) :
 				<div class="grid-x grid-padding-x">
 
 					<div class="cell small-12 medium-5 medium-order-2">
-						<?php the_content(); ?>
+						<div class="contact-container">
+							<?php the_content(); ?>
+						</div>
 					</div>
 
 					<div class="cell small-12 medium-7 medium-order-1">

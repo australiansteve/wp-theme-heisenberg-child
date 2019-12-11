@@ -48,7 +48,7 @@ add_action( 'after_setup_theme', function() {
 
 	/* Images sizes & custom logo support */
 	add_image_size( 'tiny-logo', 60, 60, false );
-	add_image_size( 'medium-logo', 110, 110, false );
+	add_image_size( 'medium-logo', 86, 86, false );
 	add_image_size( 'service-icon', 110, 110, false );
 	add_image_size( 'client-logo', 250, 250, false );
 	add_image_size( 'about-profile-featured', 700, 700, array( 'center', 'top') );

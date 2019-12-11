@@ -19,7 +19,7 @@
 	}
 }
 
-.service-button:hover {
+.service-button:hover, .service-button.active {
 	background-color: $white-color;
 	
 
@@ -42,26 +42,23 @@
 
 .service {
 	position: relative;
-	padding: 2rem 1rem 0rem 1rem;
+	padding: 1rem;
 	margin-top: 2rem;
 	
 	.service-gallery {
+		position: relative;
+
 		.background-container {
-			padding: 1rem;
+			position: absolute;
 			background-size: cover;
-			background-repeat-x: no-repeat;
-			background-repeat-y: no-repeat;
+			z-index: 3;
 		}
-	}
 
-
-	.bling {
-		position: absolute;
-		border: 3px solid $red-color;
-		width: 1px;
-		top: -25px;
-		left: 0.25rem;
-		height: 225px;
+		.image-container {
+			position: relative;
+			z-index: 6;
+			max-width: 600px;
+		}
 	}
 
 	.service-title {
@@ -71,6 +68,7 @@
 
 .service:nth-of-type(1) {
 	margin-top: 0;
+	padding-top: 0;
 }
 
 .service:nth-of-type(even) {
@@ -79,25 +77,25 @@
 	padding-left: 1rem;
 	padding-right: 1rem;
 
-	.bling {
-		position: absolute;
-		border: 3px solid $red-color;
-		width: 1px;
-		top: -25px;
-		right: 0.25rem;
-		height: 225px;
-		left: auto;
-	}
-
 	.service-gallery {
+
 		.background-container {
-			background-position: right;
+			right: -4rem;
+			left: 50%;
+		}
+
+		.image-container {
+			margin-left: auto;
+			margin-right: 0;
 		}
 	}
 
-	.service-title {
-		margin-top: 2rem;
+
+	p.has-medium-font-size::before {
+		left: auto;
+		right: -1rem;
 	}
+
 }
 
 /* Small only */
@@ -111,15 +109,20 @@
 	.service {
 
 		padding-left: 6rem;
-		margin-top: 4rem;
 
-		.bling {
-			left: 4rem;
+		h2 {
+			font-size: 2rem;
 		}
 
 		.service-gallery {
+			margin-top: 3rem;
+
 			.background-container {
-				padding: 2rem;
+				top: -2rem;
+				left: -50vw;
+				bottom: -2rem;
+				right: calc(50vw - 2rem);
+				background-position: center right;
 
 				.orbit {
 					//max-width: 60%;
@@ -131,14 +134,23 @@
 
 	.service:nth-of-type(even) {
 		padding-right: 8rem;
+		padding-bottom: 3rem;
+		padding-top: 4rem;
+		margin-top: 1rem;
 
-		.bling {
-			right: 2.5rem;
-		}
 		.service-gallery {
 			.background-container {
-				padding-right: 6rem;
+				right: 0;
+				left: calc(50% - 10rem);
 			}
+
+			.image-container {
+				margin-right: 2rem;
+			}
+		}
+
+		p.has-medium-font-size::before {
+			right: -2rem;
 		}
 	}
 }
@@ -150,10 +162,44 @@
 
 /* Large and up */
 @media screen and (min-width: 64em) {
-	
+	.service:nth-of-type(even) {
+		p.has-medium-font-size::before {
+			right: -3rem;
+		}
+	}
 }
 
 /* Large only */
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {
 	
+}
+
+/* Larger and up */
+@media screen and (min-width: 75em) {
+	
+	.service {
+
+		.service-gallery {
+
+			.background-container {
+				right: calc(50vw - 37.5rem + 300px)
+			}
+		}
+	}
+
+	.service:nth-of-type(even) {
+
+		.service-gallery {
+
+			.background-container {
+
+			}
+
+			.image-container {
+				margin-left: calc(50% - 300px);
+				margin-right: 2rem;
+			}
+
+		}
+	}
 }
