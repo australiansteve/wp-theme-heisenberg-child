@@ -22,33 +22,40 @@
 <body <?php body_class(); ?>>
 
 	<div class="off-canvas position-right" id="offCanvas" data-off-canvas data-transition="overlap">
-		<div class="close text-right">
-			<button aria-label="Close menu" type="button" data-close>
-				<i class="fas fa-times"></i>
-			</button>&nbsp;
+		<div class="grid-y" style="min-height: 100vh">
+			<div class="cell small-1">
+				<div class="close text-right">
+					<button aria-label="Close menu" type="button" data-close>
+						<i class="fas fa-times"></i>
+					</button>&nbsp;
+				</div>
+			</div>
+			<div class="cell auto">
+				<!-- Your menu or Off-canvas content goes here -->
+				<ul id="primary-menu" class="vertical menu drilldown" data-drilldown>
+
+					<?php
+					wp_nav_menu( [
+						'theme_location' => 'primary',
+						'walker' => new OffCanvas_Foundation_Menu(),
+						'container'      => '',
+						'items_wrap'	=> '%3$s'
+					] ); 
+					?>
+				</ul>
+			</div>
+			<div class="cell small-1">
+				<ul id="social-menu" class="horizontal menu">
+					<?php
+					wp_nav_menu( [
+						'theme_location' => 'social-media',
+						'container'      => '',
+						'items_wrap'	=> '%3$s'
+					] ); 
+					?>
+				</ul>
+			</div>
 		</div>
-
-		<!-- Your menu or Off-canvas content goes here -->
-		<ul id="primary-menu" class="vertical menu drilldown" data-drilldown>
-
-			<?php
-			wp_nav_menu( [
-				'theme_location' => 'primary',
-				'walker' => new OffCanvas_Foundation_Menu(),
-				'container'      => '',
-				'items_wrap'	=> '%3$s'
-			] ); 
-			?>
-		</ul>
-		<ul id="social-menu" class="horizontal menu">
-			<?php
-			wp_nav_menu( [
-				'theme_location' => 'social-media',
-				'container'      => '',
-				'items_wrap'	=> '%3$s'
-			] ); 
-			?>
-		</ul>
 	</div>
 
 	<div class="off-canvas-content" data-off-canvas-content style="position: relative" data-sticky-container>

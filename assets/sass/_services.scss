@@ -178,16 +178,24 @@
 @media screen and (min-width: 75em) {
 	
 	.service {
+		margin-top: 6rem;
 
 		.service-gallery {
 
 			.background-container {
-				right: calc(50vw - 37.5rem + 300px)
+				right: calc(37.5rem - 2rem);
+				left: -6rem;
 			}
 		}
 	}
 
+	.service:nth-of-type(1) {
+		padding-top: 3rem;
+	}
+
 	.service:nth-of-type(even) {
+
+		margin-top: 6rem;
 
 		.service-gallery {
 

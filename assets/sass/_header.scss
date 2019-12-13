@@ -4,6 +4,12 @@
 	.top-bar-left, .top-bar-right {
 		width: unset;
 	}
+
+	.grid-container {
+		padding-top: 0;
+		padding-bottom: 0;
+
+	}
 }
 
 .header-background-image {
@@ -14,13 +20,15 @@
 
 .header-bg {
 	background-size: cover; 
+	background-position: 50% 0%;
 }
 
 header {
 
 	color: $white-color;
 	text-transform: uppercase;
-
+	padding-top: .625rem;
+	padding-bottom: .625rem;
 
 	#page-title {
 		padding-top: 30vh;
@@ -49,16 +57,14 @@ header {
 			padding-top: 30vh;
 		}
 		.custom-logo {
-			max-width: 110px;
+			max-width: 100px;
 		}
 	}
 }
 
 /* Medium only */
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-	.header-bg {
-		background-position-x: 10%;
-	}
+	
 }
 
 /* Large and up */
@@ -72,7 +78,7 @@ header {
 		}
 
 		.custom-logo {
-			max-width: 160px;
+			max-width: 130px;
 		}
 	}
 }
@@ -82,14 +88,79 @@ header {
 	
 }
 
-
 /* Larger and up */
-@media screen and (min-width: 72em) {
+@media screen and (min-width: 75em) {
 
 	header {
-		
 		.custom-logo {
-			max-width: 180px;
+			max-width: 150px;
+		}
+	}
+
+	.header-bg {
+		margin-bottom: 4rem;
+	}
+}
+
+/* > 1920px */
+@media screen and (min-width: 90rem) {
+
+	header {
+		.custom-logo {
+			max-width: 160px;
+		}
+	}
+
+}
+
+/* > 1920px */
+@media screen and (min-width: 120rem) {
+
+	header {
+		.custom-logo {
+			max-width: none;
+		}
+		#page-title {
+			padding-top: 60vh;
+		}
+	}
+
+}
+
+
+/* > 2560px */
+@media screen and (min-width: 160rem) {
+
+	header {
+		#page-title {
+			padding-top: 65vh;
+		}
+	}
+	
+}
+
+/* > 3840px */
+@media screen and (min-width: 240rem) {
+
+	header {
+		#page-title {
+			padding-top: 70vh;
+		}
+	}
+
+}
+
+/* Exact aspect ratio, put it at the bottom to avoid override*/
+@media (max-aspect-ratio: 1/1) {
+
+	.header-bg {
+		background-size: cover;
+	}
+	header {
+		min-height: 0;
+
+		#page-title {
+			padding-top: 50vw;
 		}
 	}
 }

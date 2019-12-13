@@ -48,9 +48,14 @@ button:focus, .button:focus, a.button:focus, input[type="submit"]:focus, input[t
 	width: 100%
 }
 
-main.grid-container {
+.grid-container {
 	padding-top: 2rem;
 	padding-bottom: 2rem;
+
+	.main-content {
+		padding-left: 1rem;
+		margin-bottom: 0;
+	}
 }
 
 .page-section-background-container {
@@ -122,6 +127,14 @@ p.has-medium-font-size::before {
 	padding-right: 0 !important;
 }
 
+.no-padding-y {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.red-background {
+	background-color: $red-color;
+}
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
@@ -130,6 +143,12 @@ p.has-medium-font-size::before {
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	
+	.grid-container {
+		.main-content {
+			padding-left: 8rem;
+		}
+	}
+
 	/* Font Sizes */
 	h1 {
 		font-size: 4.25rem;

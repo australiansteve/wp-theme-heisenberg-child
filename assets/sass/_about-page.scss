@@ -1,11 +1,11 @@
 .page-template-about-page {
 
 	.main-content {
-		padding-left: 2rem;
-		margin-bottom: 3rem;
 		position: relative;
 
 		#image-gallery {
+			margin-top: 3rem;
+
 			.background-container {
 				padding-top: 2rem;
 				padding-bottom: 2rem;
@@ -17,6 +17,11 @@
 				}
 			}
 		}
+	}
+
+	#mission-statement {
+		font-size: 1.4rem;
+		margin: 3rem 1rem 2rem 1rem;
 	}
 
 	#profiles {
@@ -101,9 +106,7 @@
 @media screen and (min-width: 40em) {
 	.page-template-about-page {
 
-
 		.main-content {
-			padding-left: 8rem;
 
 			.bling-1 {
 				left: 4rem;
@@ -115,44 +118,51 @@
 					background-position: 250px;
 
 					.orbit {
-						max-width: 80%;				}
+						max-width: 80%;				
 					}
 				}
-
 			}
 
-			#profiles {
+		}
 
-				.featured-profile, .profile {
+		#profiles {
 
-					.details {
-						padding: 2rem 2rem;
+			.featured-profile, .profile {
 
-						.name {
+				.details {
+					padding: 2rem 2rem;
 
-							font-size: 1.9rem;
-						}
-					}
-				}
-
-
-				.profile {
-
-					.details {
-
-						.bling {
-							left: 1rem;
-						}
-					}
 					.name {
 
-						font-size: 1.6rem;
+						font-size: 1.9rem;
 					}
 				}
-
 			}
+
+
+			.profile {
+
+				.details {
+
+					.bling {
+						left: 1rem;
+					}
+				}
+				.name {
+
+					font-size: 1.6rem;
+				}
+			}
+
 		}
+
+		#mission-statement {
+			margin: 5rem 2rem 4rem 2rem;
+		}
+
 	}
+
+}
 
 /* Medium only */
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {

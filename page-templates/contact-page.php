@@ -13,7 +13,7 @@ if ( have_posts() ) :
 
 		$contactBgImageUrl = get_field('contact_page_background_image', 'option');
 		?>
-		<div class="page-section-background-container" style="background-image: <?php echo get_template_part('page-templates/template-parts/background-color', 'white-top-down');?>, url(<?php echo $contactBgImageUrl; ?>)">
+		<div style="background-image: <?php echo get_template_part('page-templates/template-parts/background-color', 'white-top-down');?>, url(<?php echo $contactBgImageUrl; ?>)">
 
 			<main class="grid-container">
 

@@ -5,202 +5,209 @@ echo get_template_part('page-templates/template-parts/service', 'javascript');
 
 $servicesBgImageUrl = get_field('front_page_services_section_background_image', 'option');
 ?>
-<div id="services-section" style="background-image: <?php echo get_template_part('page-templates/template-parts/background-color', 'white-top-down');?>, url('<?php echo $servicesBgImageUrl; ?>')">
 
-	<main class="grid-container">
 
-		<div class="grid-x grid-margin-x">
+	<div id="services-section" style="background-image: <?php echo get_template_part('page-templates/template-parts/background-color', 'white-top-down');?>, url('<?php echo $servicesBgImageUrl; ?>')">
 
-			<div class="cell">
+		<main class="grid-container">
 
-				<div class="grid-x">
+			<div class="grid-x grid-margin-x">
 
-					<div class="small-12 cell title">
+				<div class="cell">
 
-						<h3><?php the_field('front_page_services_section_title', 'option'); ?></h3>
+					<div class="grid-x">
 
-					</div>
+						<div class="small-12 cell title">
 
-				</div>
-
-				<div class="grid-x grid-margin-x">
-
-					<div class="cell small-12 medium-6 medium-order-1">
-
-						<div class="services-text">
-
-							<?php the_field('front_page_services_section_text', 'option'); ?>
+							<h3><?php the_field('front_page_services_section_title', 'option'); ?></h3>
 
 						</div>
 
 					</div>
 
-					<div class="cell learn-more medium-6 medium-order-3">
+					<div class="grid-x grid-margin-x">
 
-						<a class="button" href="<?php the_field('front_page_services_section_button_link', 'option'); ?>"><?php the_field('front_page_services_section_button_text', 'option'); ?></a>
+						<div class="cell small-12 medium-6 medium-order-1">
+
+							<div class="services-text">
+
+								<?php the_field('front_page_services_section_text', 'option'); ?>
+
+							</div>
+
+						</div>
+
+						<div class="cell learn-more medium-6 medium-order-3">
+
+							<a class="button" href="<?php the_field('front_page_services_section_button_link', 'option'); ?>"><?php the_field('front_page_services_section_button_text', 'option'); ?></a>
+
+						</div>
+
+						<?php echo get_template_part('page-templates/template-parts/services-buttons');?>
 
 					</div>
 
-					<?php echo get_template_part('page-templates/template-parts/services-buttons');?>
+					<div class="grid-x">
+
+
+					</div>
 
 				</div>
 
-				<div class="grid-x">
-
-
-				</div>
-
 			</div>
 
-		</div>
-
-	</main>
-
-</div>
-
-<div id="projects-section">
-
-	<div class="content-container">
-
-		<div class="grid-x">
-
-			<div class="small-12 cell title">
-
-				<h3><?php the_field('front_page_projects_section_title', 'option'); ?></h3>
-
-			</div>
-
-			<div class="small-12 cell text">
-
-				<?php the_field('front_page_projects_section_text', 'option'); ?>
-
-			</div>
-
-			<div class="small-12 cell projects">
-				<script type="text/javascript">
-					function debounce(func, wait, immediate) {
-						var timeout;
-						return function() {
-							var context = this, args = arguments;
-							var later = function() {
-								timeout = null;
-								if (!immediate) func.apply(context, args);
-							};
-							var callNow = immediate && !timeout;
-							clearTimeout(timeout);
-							timeout = setTimeout(later, wait);
-							if (callNow) func.apply(context, args);
-						};
-					};
-
-					var resizeFeaturedProjects = debounce(function() {
-						var maxHeight = 0;
-						var maxDescriptionHeight = 0;
-
-						jQuery(".featured-project").each(function(){
-							if (jQuery(this).height() > maxHeight) { maxHeight = jQuery(this).height(); }
-							if (jQuery(this).find(".short-description").height() > maxDescriptionHeight) { maxDescriptionHeight = jQuery(this).find(".short-description").height(); }
-						});
-
-						jQuery(".featured-project").height(maxHeight);
-						jQuery(".featured-project .short-description").css({'min-height': maxDescriptionHeight});
-
-						var pscHeight = jQuery("#projects-section .content-container").height();
-						jQuery("#projects-section").css({'min-height': 'calc('+pscHeight+'px + 3rem)'})
-						
-					}, 250);
-
-					window.addEventListener('resize', resizeFeaturedProjects);
-
-					jQuery( document ).ready(function() {
-						resizeFeaturedProjects();
-						
-						if (jQuery(".scrolling-panel td.featured-project").length > 2)
-						{
-							(function scrollProjects() {
-								jQuery(".scrolling-panel td.featured-project:first").each(function(){
-									jQuery(this).animate({marginLeft:-jQuery(this).outerWidth(true)},3000,function(){
-										jQuery(this).insertAfter(".scrolling-panel td.featured-project:last");
-										jQuery(this).css({marginLeft:0});
-										setTimeout(function(){
-											scrollProjects();
-										},5000);
-									});
-								});
-							})();
-						}
-					});
-				</script>
-				<?php
-					// WP_Query arguments
-				$args = array(
-					'post_type'              => array( 'austeve-projects' ),
-					'post_status'            => array( 'publish' ),
-					'posts_per_page'         => '-1',
-					'tax_query'              => array(
-						array(
-							'taxonomy'         => 'project-category',
-							'terms'            => 'current',
-							'field'            => 'slug',
-							'operator'         => 'IN',
-						),
-					),
-				);
-
-					// The Query
-				$projectsquery = new WP_Query( $args );
-				?>
-				<div class="scrolling-panel" data-scroll="featured-project">
-					<table>
-						<tbody style="border:none">
-							<tr>
-								<?php
-								// The Loop
-								if ( $projectsquery->have_posts() ) {
-									while ( $projectsquery->have_posts() ) {
-										$projectsquery->the_post();
-										echo get_template_part('page-templates/template-parts/project', 'front-page');
-									}
-								} else {
-									// no posts found
-								}
-
-								// Restore original Post Data
-								wp_reset_postdata();
-								?>	
-							</tr>
-						</tbody>
-					</table>
-				</div> 
-			</div>
-
-		</div>
+		</main>
 
 	</div>
-</div>
 
-<?php echo get_template_part('page-templates/template-parts/our-clients'); ?>
+<div class="red-background">
+	
+	<div id="projects-section">
 
-<?php
-$contactBgImageUrl = get_field('front_page_contact_section_background_image', 'option');
-?>
-<div id="contact-section" style="background-image: url('<?php echo $contactBgImageUrl; ?>')">
+		<div class="content-container">
 
-	<div class="content-container">
+			<div class="grid-x">
 
-		<div class="grid-x text-center">
-			<div class="cell">
-				<h3><?php the_field('front_page_contact_section_title', 'option'); ?></h3>
+				<div class="small-12 cell title">
+
+					<h3><?php the_field('front_page_projects_section_title', 'option'); ?></h3>
+
+				</div>
+
+				<div class="small-12 cell text">
+
+					<?php the_field('front_page_projects_section_text', 'option'); ?>
+
+				</div>
+
+				<div class="small-12 cell projects">
+					<script type="text/javascript">
+						function debounce(func, wait, immediate) {
+							var timeout;
+							return function() {
+								var context = this, args = arguments;
+								var later = function() {
+									timeout = null;
+									if (!immediate) func.apply(context, args);
+								};
+								var callNow = immediate && !timeout;
+								clearTimeout(timeout);
+								timeout = setTimeout(later, wait);
+								if (callNow) func.apply(context, args);
+							};
+						};
+
+						var resizeFeaturedProjects = debounce(function() {
+							var maxHeight = 0;
+							var maxDescriptionHeight = 0;
+
+							jQuery(".featured-project").each(function(){
+								if (jQuery(this).height() > maxHeight) { maxHeight = jQuery(this).height(); }
+								if (jQuery(this).find(".short-description").height() > maxDescriptionHeight) { maxDescriptionHeight = jQuery(this).find(".short-description").height(); }
+							});
+
+							jQuery(".featured-project").height(maxHeight);
+							jQuery(".featured-project .short-description").css({'min-height': maxDescriptionHeight});
+
+							var pscHeight = jQuery("#projects-section .content-container").height();
+							jQuery("#projects-section").css({'min-height': 'calc('+pscHeight+'px + 3rem)'})
+
+						}, 250);
+
+						window.addEventListener('resize', resizeFeaturedProjects);
+
+						jQuery( document ).ready(function() {
+							resizeFeaturedProjects();
+
+							if (jQuery(".scrolling-panel td.featured-project").length > 2)
+							{
+								(function scrollProjects() {
+									jQuery(".scrolling-panel td.featured-project:first").each(function(){
+										jQuery(this).animate({marginLeft:-jQuery(this).outerWidth(true)},3000,function(){
+											jQuery(this).insertAfter(".scrolling-panel td.featured-project:last");
+											jQuery(this).css({marginLeft:0});
+											setTimeout(function(){
+												scrollProjects();
+											},5000);
+										});
+									});
+								})();
+							}
+						});
+					</script>
+					<?php
+					// WP_Query arguments
+					$args = array(
+						'post_type'              => array( 'austeve-projects' ),
+						'post_status'            => array( 'publish' ),
+						'posts_per_page'         => '-1',
+						'tax_query'              => array(
+							array(
+								'taxonomy'         => 'project-category',
+								'terms'            => 'current',
+								'field'            => 'slug',
+								'operator'         => 'IN',
+							),
+						),
+					);
+
+					// The Query
+					$projectsquery = new WP_Query( $args );
+					?>
+					<div class="scrolling-panel" data-scroll="featured-project">
+						<table>
+							<tbody style="border:none">
+								<tr>
+									<?php
+								// The Loop
+									if ( $projectsquery->have_posts() ) {
+										while ( $projectsquery->have_posts() ) {
+											$projectsquery->the_post();
+											echo get_template_part('page-templates/template-parts/project', 'front-page');
+										}
+									} else {
+									// no posts found
+									}
+
+								// Restore original Post Data
+									wp_reset_postdata();
+									?>	
+								</tr>
+							</tbody>
+						</table>
+					</div> 
+				</div>
+
 			</div>
 
-			<div class="cell">
-				<?php the_field('front_page_contact_section_text', 'option'); ?>
-			</div>
+		</div>
+	</div>
 
-			<div class="cell">
-				<a class="button" href="<?php the_field('front_page_contact_section_button_link', 'option'); ?>"><?php the_field('front_page_contact_section_button_text', 'option'); ?></a>
+	<?php echo get_template_part('page-templates/template-parts/our-clients'); ?>
+
+
+	<?php
+	$contactBgImageUrl = get_field('front_page_contact_section_background_image', 'option');
+	?>
+	<div id="contact-section" style="background-image: url('<?php echo $contactBgImageUrl; ?>')">
+
+		<div class="content-container">
+
+			<div class="grid-x text-center">
+				<div class="cell">
+					<h3><?php the_field('front_page_contact_section_title', 'option'); ?></h3>
+				</div>
+
+				<div class="cell">
+					<?php the_field('front_page_contact_section_text', 'option'); ?>
+				</div>
+
+				<div class="cell">
+					<a class="button" href="<?php the_field('front_page_contact_section_button_link', 'option'); ?>"><?php the_field('front_page_contact_section_button_text', 'option'); ?></a>
+				</div>
 			</div>
 		</div>
+
 	</div>
 
 </div>

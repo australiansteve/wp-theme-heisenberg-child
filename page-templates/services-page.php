@@ -11,7 +11,7 @@ error_log("servicesBgImageUrl: ".$servicesBgImageUrl);
 <?php echo get_template_part('page-templates/template-parts/service', 'javascript'); ?>
 
 
-<div id="services-section" class="page-section-background-container" style="background-image: <?php echo get_template_part('page-templates/template-parts/background-color', 'white-top-down');?>, url(<?php echo $servicesBgImageUrl; ?>)">
+<div id="services-section" style="background-image: <?php echo get_template_part('page-templates/template-parts/background-color', 'white-top-down');?>, url(<?php echo $servicesBgImageUrl; ?>)">
 
 	<main class="grid-container">
 
