@@ -194,8 +194,10 @@
 
 /* Specifically for social media menu positioning on screens > 540px tall */
 @media screen and (min-height: 540px) {
-	ul#social-menu {
-		position: fixed;
-		bottom: 0;
+	.off-canvas {
+			ul#social-menu {
+			position: fixed;
+			bottom: 0;
+		}
 	}
 }
