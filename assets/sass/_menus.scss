@@ -131,6 +131,7 @@
 
 }
 
+
 /* Medium and up */
 @media screen and (min-width: 40em) {
 
@@ -188,4 +189,13 @@
 /* Large only */
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {
 
+}
+
+
+/* Specifically for social media menu positioning on screens > 540px tall */
+@media screen and (min-height: 540px) {
+	ul#social-menu {
+		position: fixed;
+		bottom: 0;
+	}
 }
