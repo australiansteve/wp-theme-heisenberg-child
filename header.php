@@ -21,19 +21,115 @@
 
 <body <?php body_class(); ?>>
 
-<header class="grid-container">
-	<?php
-	printf( '<h1><a href="%s" rel="home">%s</a></h1>',
-		esc_url( home_url( '/' ) ),
-		esc_html( get_bloginfo( 'name' ) )
-	);
+	<div class="off-canvas-wrapper">
+		<div class="off-canvas position-top" id="offCanvasTop" data-off-canvas>
 
-	printf( '<p class="h4">%s</p>', esc_html( get_bloginfo( 'description' ) ) );
+			<div class="logo-container">
+				<div class="grid-container">
+					<div class="grid-x off-canvas-close">
+						<div class="cell small-1 small-offset-11 text-right">
+							<a class="" aria-label="Close menu" type="button" data-close>
+								<i class="fas fa-times"></i>
+							</a>
+						</div>
+					</div>
 
-	wp_nav_menu( [
-		'theme_location' => 'primary',
-		'container'      => '',
-	] ); ?>
-</header>
+					<div class="grid-x site-title">
+						<div class="cell small-12">
+							<?php
+							printf( '<h1><a href="%s" rel="home">%s</a></h1>',
+								esc_url( home_url( '/' ) ),
+								esc_html( get_bloginfo( 'name' ) )
+							);
+							?>
+						</div>
+					</div>
 
-<main class="grid-container">
+					<div class="grid-x main-menu">
+						<div class="cell small-12 medium-text-center">
+							<?php wp_nav_menu( [
+								'theme_location' => 'primary',
+								'container'      => '',
+							] ); ?>
+						</div>
+					</div>
+
+					<div class="grid-x hand-logo">
+						<div class="cell small-12 text-right">
+							<?php
+							$size = 'hand-logo';
+							if (get_field('off_canvas_logo')){
+								$image = get_field('off_canvas_logo');
+							}
+							else {
+								$theme_locations = get_nav_menu_locations();
+								$menu_obj = get_term( $theme_locations['primary'], 'nav_menu' );
+								$image = get_field('default_off_canvas_logo', 'nav_menu_'.$menu_obj->term_id);
+							}
+
+							if ($image) {
+								?>
+								<a href="<?php echo home_url('/');?>" rel="home"><?php echo wp_get_attachment_image( $image, $size )?></a>
+								<?php 
+							} 
+							?>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<header>
+		<?php
+
+		$size = 'header-background-image';
+		if ( get_field('background_image') ) {
+			$image = get_field('background_image');
+		}
+		else {
+			$image = get_field('default_background_image', 'option');
+		}
+
+		if( !$image ) {
+			die('No default background image set');
+		}
+		?>
+		<div class="background-image" style="background-image: url(<?php echo wp_get_attachment_image_src( $image, $size )[0];?>)">
+		</div>
+		<div class="grid-container">
+			<div class="grid-x off-canvas-opener">
+				<div class="cell small-1 small-offset-11 text-right">
+					<a href="#" data-toggle="offCanvasTop"><i class="fas fa-bars"></i></a>
+				</div>
+			</div>
+			<div class="grid-x site-title">
+				<div class="cell small-12">
+					<?php
+					printf( '<h1><a href="%s" rel="home">%s</a></h1>',
+						esc_url( home_url( '/' ) ),
+						esc_html( get_bloginfo( 'name' ) )
+					);
+
+					?>
+				</div>
+			</div>
+
+			<?php
+			if (is_front_page()) {
+				?>
+				<div class="grid-x tagline">
+					<div class="cell small-12">
+						<h4><?php echo esc_html( get_bloginfo( 'description' ) ); ?></h4>			
+					</div>
+				</div>
+				<?php
+			}
+			?>
+			
+		</div>
+	</header>
+
+	<main class="grid-container">

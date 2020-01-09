@@ -1,0 +1,116 @@
+.home {
+
+	.projects {
+		margin: 2rem 0;
+
+		table {
+			margin-bottom: 0;
+		}
+
+		#project-scroll {
+			overflow-x: hidden;
+			white-space: nowrap;
+		}
+
+		.project {
+			position: relative;
+			display: inline-block;
+			width: 50%;
+			padding: 0 1rem;
+			-webkit-transition: margin 2s;
+			transition: margin 2s;
+
+			.overlay, .overlay-bg {
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				white-space: pre-wrap;
+				color: white;
+
+				a {
+					color: white;
+				}
+			}
+
+			.overlay-bg {
+				margin: 0 1rem;
+				-webkit-transition: opacity 1s;
+				transition: opacity 1s;
+			}
+		}
+
+		.project:nth-of-type(4n+1) {
+			.overlay-bg {
+				background-color: $blue-navy-color;
+			}
+		}
+		.project:nth-of-type(4n+2) {
+			.overlay-bg {
+				background-color: $blue-medium-color
+			}
+		}
+		.project:nth-of-type(4n+3) {
+			.overlay-bg {
+				background-color: $blue-light-color;
+			}
+		}
+		.project:nth-of-type(4n) {
+			.overlay-bg {
+				background-color: $teal-color;
+			}
+		}
+
+		.project:hover {
+			.overlay-bg {
+				z-index: 5;
+				opacity: 70%;
+
+			}
+			.overlay {
+				z-index: 10;
+				opacity: 100%;
+
+			}
+		}
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.home {
+
+		.projects {
+
+			.project {
+				padding: 0 2rem;
+
+				.overlay-bg {
+					margin: 0 2rem;
+				}
+			}
+		}
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}

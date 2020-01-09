@@ -1,0 +1,101 @@
+body, div, p, a, span, h1, h2, h3, h4, h5, h6 {
+	font-family: 'ff-avance-pro', Brandon, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.italic {
+	font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	font-family: Brandon;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+h2 {
+	margin: 1.5rem 0;
+}
+
+a {
+	color: $black-color;
+}
+
+a:hover {
+	color: $black-color;
+	opacity: 0.8;
+}
+
+button, a.button, .button {
+	font-family: Brandon, sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	background-color: $blue-light-color;
+}
+
+button:hover, a.button:hover, .button:hover, button:focus, a.button:focus, .button:focus {
+	background-color: $blue-light-color;
+}
+
+.page-content {
+	margin-top: 2rem;
+	font-size: 1.3rem;
+}
+
+.navigation {
+	min-height: 150px;
+
+	.left, .right {
+		display: inline-block;
+		width: 50%;
+	}
+
+	.left {
+		float: left;
+		text-align: left;
+	}
+
+	.right {
+		float: right;
+		text-align: right;
+	}
+
+	.back {
+		padding-top: 150px;
+		width: 100%;
+		text-align: center;
+	}
+}
+
+.hide-overflow {
+	overflow: hidden;
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	
+	.page-content {
+		font-size: 1.6rem;
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}

@@ -1,4 +1,7 @@
 <?php
+/*
+ * Template Name: About Page
+ */
 get_header(); ?>
 
 <div class="grid-x grid-padding-x">
@@ -17,9 +20,21 @@ get_header(); ?>
 
 				?>
 				<div class="page-content">
+
+					<div class="headshot">
+						<?php 
+						$image = get_field('headshot');
+						$size = 'headshot-image';
+						if( $image ) {
+							echo wp_get_attachment_image( $image, $size );
+						}
+						?>
+					</div>
+					
 					<?php
 					the_content();
 					?>
+
 				</div>
 				<?php
 
@@ -29,13 +44,13 @@ get_header(); ?>
 
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
-			endif;
-
-		else :
-
-			echo esc_html( 'Sorry, no posts' );
-
 		endif;
+
+	else :
+
+		echo esc_html( 'Sorry, no posts' );
+
+	endif;
 	?>
 </div>
 

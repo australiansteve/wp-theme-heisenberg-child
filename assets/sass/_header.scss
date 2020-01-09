@@ -1,0 +1,175 @@
+.admin-bar .off-canvas {
+	padding-top: 46px; /* For WP nav bar */
+}
+
+.off-canvas.is-open {
+
+	text-transform: uppercase;
+	color: $blue-light-color;
+
+	.off-canvas-close {
+		padding-top: 8px;
+	}
+
+	.site-title {
+		padding-top: 10vh;
+
+		h1 {
+			text-align: left;
+		}
+	}
+
+	.main-menu {
+    	font-size: 1.5rem;
+
+		li {
+			display: block;
+
+			a {
+				font-family: Brandon, sans-serif;
+				font-weight: 700;
+				color: $black-color;
+			}
+		}
+	}
+
+	.logo-container {
+		position: relative;
+		max-width: 75rem;
+		height: 100%;
+		margin: auto;
+
+		.hand-logo { 
+			padding-top: 10vh;
+			position: absolute;
+			bottom: 1rem;
+			right: 1rem;
+		}
+	}
+
+	a {
+		color: $blue-medium-color;
+	}
+}
+
+header {
+	position: relative;
+	min-height: 66vh;
+
+	.background-image {
+		position: absolute;
+		background-size: cover; /* Maybe only want to do this if VW > 1600px wide ? */
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-position-y: 50%;
+		background-position-x: 50%;
+		z-index: -1;
+	}
+
+	.off-canvas-opener {
+		padding-top: 8px;
+	}
+
+	a, .tagline {
+		color: $white-color;
+		text-transform: uppercase;
+	}
+
+	a:hover, a:focus {
+		color: $white-color;
+		opacity: 0.8;
+	}
+
+	.site-title {
+		padding-top: 30vh;
+
+		h1 {
+			font-size: 2.25rem;
+			line-height: 0.5;
+			text-align: left;
+		}
+	}
+
+	h4 {
+		font-family: Brandon;
+		font-weight: 700;
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	
+	.off-canvas.is-open {
+
+		.off-canvas-close {
+			font-size: 2rem;
+		}
+
+		.main-menu {
+			padding-top: 10vh;
+
+			li {
+				display: inline-block;
+			}
+		}
+
+	}
+
+	header {
+
+		.off-canvas-opener {
+			font-size: 2rem;
+		}
+
+		.site-title {
+
+			h1 {
+				font-size: 4.375rem;
+				line-height: 1;
+			}
+		}
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+	.off-canvas.is-open {
+
+		.off-canvas-close {
+			padding-right: 2rem;
+		}
+
+		.logo-container {
+
+			.hand-logo { 
+				bottom: 2rem;
+				right: 2rem;
+			}
+		}
+	}
+
+	header {
+
+		.off-canvas-opener{
+			padding-right: 2rem;
+		}
+	}
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}

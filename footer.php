@@ -16,20 +16,44 @@
 
 	<div class="grid-x">
 
-		<div class="medium-4 cell" id="left-column">
-			Left
+		<div class="medium-4 cell text-center medium-text-left" id="left-column">
+			
 		</div>
 		
-		<div class="medium-4 cell" id="center-column">
+		<div class="medium-4 cell text-center" id="center-column">
+			<div class="hand-logo">
+				<?php
+				$size = 'hand-logo';
+				if (get_field('off_canvas_logo')){
+					$image = get_field('off_canvas_logo');
+				}
+				else {
+					$theme_locations = get_nav_menu_locations();
+					$menu_obj = get_term( $theme_locations['primary'], 'nav_menu' );
+					$image = get_field('default_off_canvas_logo', 'nav_menu_'.$menu_obj->term_id);
+				}
+
+				if ($image) {
+					?>
+					<a href="<?php echo home_url('/');?>" rel="home"><?php echo wp_get_attachment_image( $image, $size )?></a>
+					<?php 
+				} 
+				?>
+			</div>
+		</div>
+		
+		<div class="medium-4 cell text-center medium-text-right" id="right-column">
+			
+		</div>
+
+	</div>
+
+	<div class="grid-x site-credit">
+		<div class="cell text-center">
 			<a href="https://weavercrawford.com" target="blank">
 				<i class="far fa-copyright"></i> <?php echo date("Y");?> Weaver Crawford Creative
 			</a>
 		</div>
-		
-		<div class="medium-4 cell" id="right-column">
-			Right
-		</div>
-
 	</div>
 
 </footer>

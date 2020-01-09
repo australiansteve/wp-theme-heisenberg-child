@@ -1,16 +1,10 @@
-footer {
-	margin-top: 10vh;
-
-	.site-credit {		
-		margin-top: 1rem;
-		a {
-
-			font-size: 0.8rem;
-			color: rgba(0, 0, 0, 0.35);
-		}
+.page-template-about-page {
+	.headshot {
+		float: right;
+		margin-bottom: 2rem;
 	}
-
 }
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
@@ -18,7 +12,12 @@ footer {
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
-	
+	.page-template-about-page {
+		.headshot {
+			margin-left: 2rem;
+			max-width: 300px;
+		}
+	}
 }
 
 /* Medium only */
@@ -28,7 +27,11 @@ footer {
 
 /* Large and up */
 @media screen and (min-width: 64em) {
-	
+	.page-template-about-page {
+		.headshot {
+			max-width: none;
+		}
+	}
 }
 
 /* Large only */
