@@ -25,6 +25,11 @@ add_action( 'wp_enqueue_scripts', function() {
         HEISENBERG_VERSION
     );
 
+	wp_enqueue_script( 
+		'hammer-js',
+        get_stylesheet_directory_uri() . "/dist/hammer.min.js"
+    );
+
 	// CSS
 	wp_enqueue_style(
 		'heisenberg_css',

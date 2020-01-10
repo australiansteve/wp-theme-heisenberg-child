@@ -1,6 +1,5 @@
 .page-template-about-page {
 	.headshot {
-		float: right;
 		margin-bottom: 2rem;
 	}
 }
@@ -14,7 +13,7 @@
 @media screen and (min-width: 40em) {
 	.page-template-about-page {
 		.headshot {
-			margin-left: 2rem;
+			margin-right: 2rem;
 			max-width: 300px;
 		}
 	}

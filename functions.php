@@ -47,19 +47,19 @@ add_action( 'after_setup_theme', function() {
 });
 
 add_filter( 'get_the_archive_title', function( $title ) {
-    if ( is_category() ) {
-        $title = single_cat_title( '', false );
-    } elseif ( is_tag() ) {
-        $title = single_tag_title( '', false );
-    } elseif ( is_author() ) {
-        $title = '<span class="vcard">' . get_the_author() . '</span>';
-    } elseif ( is_post_type_archive() ) {
-        $title = post_type_archive_title( '', false );
-    } elseif ( is_tax() ) {
-        $title = single_term_title( '', false );
-    }
-  
-    return $title;
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_author() ) {
+		$title = '<span class="vcard">' . get_the_author() . '</span>';
+	} elseif ( is_post_type_archive() ) {
+		$title = post_type_archive_title( '', false );
+	} elseif ( is_tax() ) {
+		$title = single_term_title( '', false );
+	}
+	
+	return $title;
 } );
 
 add_action('pre_get_posts', function ( $query ) {
@@ -76,29 +76,31 @@ function get_ajax_projects() {
 
 		$page = intval($_REQUEST['page']);
 	    // Query Arguments
-	    $args = array(
-	        'post_type' => array('austeve-projects'),
-	        'post_status' => array('publish'),
-	        'nopaging' => false,
-	        'paged' => $page,
-	    );
+		$args = array(
+			'post_type' => array('austeve-projects'),
+			'post_status' => array('publish'),
+			'nopaging' => false,
+			'paged' => $page,
+			'order'                  => 'ASC',
+			'orderby'                => 'menu_order',
+		);
 
 	    // The Query
-	    $ajaxposts = new WP_Query( $args );
+		$ajaxposts = new WP_Query( $args );
 
-	    $response = '';
+		$response = '';
 
 	    // The Query
-	    if ( $ajaxposts->have_posts() ) {
-	        while ( $ajaxposts->have_posts() ) {
-	            $ajaxposts->the_post();
-	            $response .= get_template_part('page-templates/project', 'front-page');
-	        }
-	    } else {
-	        $response .= get_template_part('none');
-	    }
+		if ( $ajaxposts->have_posts() ) {
+			while ( $ajaxposts->have_posts() ) {
+				$ajaxposts->the_post();
+				$response .= get_template_part('page-templates/project', 'front-page');
+			}
+		} else {
+			$response .= get_template_part('none');
+		}
 
-	    echo $response;
+		echo $response;
 	}
 
     exit; // leave ajax call

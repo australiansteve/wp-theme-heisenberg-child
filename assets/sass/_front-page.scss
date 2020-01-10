@@ -15,7 +15,7 @@
 		.project {
 			position: relative;
 			display: inline-block;
-			width: 50%;
+			width: 100%;
 			padding: 0 1rem;
 			-webkit-transition: margin 2s;
 			transition: margin 2s;
@@ -91,11 +91,17 @@
 
 			.project {
 				padding: 0 2rem;
+				width: 50%;
 
 				.overlay-bg {
 					margin: 0 2rem;
 				}
 			}
+
+			.project:nth-of-type(1) {
+				margin-left: 25%;
+			}
+			
 		}
 	}
 }

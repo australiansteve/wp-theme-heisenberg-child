@@ -21,7 +21,9 @@ get_header(); ?>
 				?>
 				<div class="page-content">
 
-					<div class="headshot">
+					<div class="grid-x align-middle">
+
+						<div class="cell shrink headshot">
 						<?php 
 						$image = get_field('headshot');
 						$size = 'headshot-image';
@@ -30,10 +32,48 @@ get_header(); ?>
 						}
 						?>
 					</div>
-					
-					<?php
+
+						<div class="cell auto">
+							<?php
 					the_content();
 					?>
+						</div>
+
+					</div>
+
+
+					<div class="grid-x" id="section-1">
+						<div class="cell">
+							<h2><?php the_field('section_1_title'); ?></h2>
+
+							<div class="grid-x">
+								<div class="cell medium-6">
+									<?php the_field('section_1_text_left');?>
+								</div>
+								<div class="cell medium-6">
+									<?php the_field('section_1_text_right');?>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="grid-x" id="section-2">
+						<div class="cell">
+							<h2><?php the_field('section_2_title'); ?></h2>
+
+							<div class="grid-x">
+								<div class="cell">
+									<?php the_field('section_2_text');?>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="grid-x" id="signoff">
+						<div class="cell">
+							<?php the_field('signoff'); ?>
+						</div>
+					</div>
 
 				</div>
 				<?php

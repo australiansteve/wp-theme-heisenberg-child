@@ -57,11 +57,12 @@
 					<div class="grid-x hand-logo">
 						<div class="cell small-12 text-right">
 							<?php
-							$size = 'hand-logo';
+							$size = 'full'; /* Must be 'full to support animated gif */
 							if (get_field('off_canvas_logo')){
 								$image = get_field('off_canvas_logo');
 							}
 							else {
+								$size = 'hand-logo';
 								$theme_locations = get_nav_menu_locations();
 								$menu_obj = get_term( $theme_locations['primary'], 'nav_menu' );
 								$image = get_field('default_off_canvas_logo', 'nav_menu_'.$menu_obj->term_id);

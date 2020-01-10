@@ -18,8 +18,8 @@
             "return_format": "id",
             "preview_size": "hand-logo",
             "library": "all",
-            "min_width": 200,
-            "min_height": 200,
+            "min_width": 150,
+            "min_height": 150,
             "min_size": "",
             "max_width": "",
             "max_height": "",
@@ -44,5 +44,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1577981491
+    "modified": 1578593404
 }
