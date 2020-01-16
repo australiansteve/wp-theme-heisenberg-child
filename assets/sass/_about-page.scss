@@ -2,11 +2,19 @@
 	.headshot {
 		margin-bottom: 2rem;
 	}
+
+	#signoff {
+		margin: 2rem 0;
+	}
 }
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	
+	.page-template-about-page {
+		.headshot {
+			margin-top: 2rem;
+		}
+	}
 }
 
 /* Medium and up */

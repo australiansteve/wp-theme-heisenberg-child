@@ -21,22 +21,22 @@ get_header(); ?>
 				?>
 				<div class="page-content">
 
-					<div class="grid-x align-middle">
+					<div class="grid-x align-middle ">
 
-						<div class="cell shrink headshot">
-						<?php 
-						$image = get_field('headshot');
-						$size = 'headshot-image';
-						if( $image ) {
-							echo wp_get_attachment_image( $image, $size );
-						}
-						?>
-					</div>
-
-						<div class="cell auto">
+						<div class="cell medium-auto medium-order-2">
 							<?php
-					the_content();
-					?>
+							the_content();
+							?>
+						</div>
+
+						<div class="cell medium-shrink headshot medium-order-1">
+							<?php 
+							$image = get_field('headshot');
+							$size = 'headshot-image';
+							if( $image ) {
+								echo wp_get_attachment_image( $image, $size );
+							}
+							?>
 						</div>
 
 					</div>
@@ -54,6 +54,19 @@ get_header(); ?>
 									<?php the_field('section_1_text_right');?>
 								</div>
 							</div>
+						</div>
+					</div>
+
+					<div class="grid-x" id="section-1-post">
+						<div class="cell text-center">
+							<?php 
+							$image = get_field('section_1_image_after');
+							$size = 'large'; // (thumbnail, medium, large, full or custom size)
+							
+							if( $image ) {
+								echo wp_get_attachment_image( $image, $size );
+							}
+							?>
 						</div>
 					</div>
 
@@ -80,19 +93,13 @@ get_header(); ?>
 
 			endwhile;
 
-			echo get_template_part('page-templates/template-parts/navigation');
+		else :
 
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
+			echo esc_html( 'Sorry, no posts' );
+
 		endif;
-
-	else :
-
-		echo esc_html( 'Sorry, no posts' );
-
-	endif;
-	?>
-</div>
+		?>
+	</div>
 
 </div>
 

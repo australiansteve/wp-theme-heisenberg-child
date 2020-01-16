@@ -1,0 +1,129 @@
+
+html.is-reveal-open body {
+	position: unset;
+}
+
+.mc-signup-call {
+	position: fixed;
+	top: -100px;
+	right: 100px;
+	transition: top 2s linear;
+}
+
+.mc-signup-call.show {
+	top: 0;
+}
+
+.admin-bar .mc-signup-call.show {
+	top: 32px;
+}
+
+
+.reveal.modal {
+
+	background: $blue-medium-color;
+	border-color: $blue-medium-color;
+    outline-color: $blue-medium-color;
+    color: $white-color;
+    overflow-y: visible;
+
+	#mc_embed_signup {
+		background: $blue-medium-color;
+    	color: $white-color;
+
+    	.indicates-required {
+    		display: none;
+    	}
+
+    	h2, .clear {
+    		text-align: center;
+    	}
+
+    	.custom-message {
+		    padding-bottom: 1rem;
+		    text-align: center;
+		}
+
+    	label {
+    		display: none;
+    		color: $white-color;
+    	}
+
+    	input {    		
+    		border-radius: 0;
+    		color: $blue-medium-color;
+    	}
+
+    	input.button {
+    		background: $white-color;
+    		height: 2.4375rem;
+    	}
+
+    	#mc-embedded-subscribe-form {
+
+			div.mce_inline_error {
+				display: none !important;
+			}
+
+    		input.mce_inline_error {
+			    border: 2px solid $blue-light-color;
+			}
+		}
+
+		div#mce-responses { 
+			float: none;
+
+			a {
+				display: block;
+				margin-top: 0.5rem;
+				color: $blue-light-color;
+			}
+		}
+
+		div.response {
+			width: 100%;
+		}
+
+		 #mce-success-response {
+		 	color: $teal-color;
+		 }
+
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}
+
+
+
+/* Larger and up */
+@media screen and (min-width: 75em) {
+	
+
+
+.mc-signup-call {
+	right: calc((100vw / 2) - 37.5rem + 150px);
+}
+}

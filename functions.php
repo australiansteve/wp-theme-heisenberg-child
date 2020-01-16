@@ -58,7 +58,7 @@ add_filter( 'get_the_archive_title', function( $title ) {
 	} elseif ( is_tax() ) {
 		$title = single_term_title( '', false );
 	}
-	
+
 	return $title;
 } );
 
@@ -109,3 +109,44 @@ function get_ajax_projects() {
 // Fire AJAX action for both logged in and non-logged in users
 add_action('wp_ajax_get_ajax_projects', 'get_ajax_projects');
 add_action('wp_ajax_nopriv_get_ajax_projects', 'get_ajax_projects');
+
+
+function austeve_get_newsletter_signup() {
+
+	$nonce = $_REQUEST['security'];
+	error_log("Get signup!".$nonce);
+
+	if (wp_verify_nonce( $nonce, 'get_signup')) {
+		error_log('verified nonce');
+		$response = isset($_COOKIE['kw_newsletter_signup']) ? "SIGNED UP" : "NOT SIGNED UP";
+		echo $response;
+	}
+
+    exit; // leave ajax call
+}
+
+// Fire AJAX action for both logged in and non-logged in users
+add_action('wp_ajax_austeve_get_newsletter_signup', 'austeve_get_newsletter_signup');
+add_action('wp_ajax_nopriv_austeve_get_newsletter_signup', 'austeve_get_newsletter_signup');
+
+function austeve_set_newsletter_signup() {
+
+	$nonce = $_REQUEST['security'];
+	$domain = $_SERVER['HTTP_HOST'];
+	$domain = substr($domain, 0, strpos($domain, ':'));
+	$secure = isset($_SERVER["HTTPS"]);
+	error_log("Set signup!".$nonce." ".$domain." ".boolval($secure));
+
+	if (wp_verify_nonce( $nonce, 'set_signup')) {
+		error_log('verified nonce');
+		setcookie('kw_newsletter_signup', 'true', time()+31556926, '/', $domain, boolval($secure));
+		echo "Signed up!";
+	}
+
+    exit; // leave ajax call
+}
+
+// Fire AJAX action for both logged in and non-logged in users
+add_action('wp_ajax_austeve_set_newsletter_signup', 'austeve_set_newsletter_signup');
+add_action('wp_ajax_nopriv_austeve_set_newsletter_signup', 'austeve_set_newsletter_signup');
+
