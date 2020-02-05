@@ -42,7 +42,20 @@
 				
 				<div class="medium-4 large-3 cell" id="right-column">
 					<div class="grid-y" style="min-height: 100%">
-						<div class="cell shrink">
+						<div class="cell shrink medium-order-3">
+					<?php wp_nav_menu( 
+							array( 
+								'theme_location' => 'footer-menu', 
+								'menu_class' => 'menu vertical',
+								'container_class' => 'secondary-footer-menu text-left',
+								'menu_id' => 'secondary-footer-menu',
+								'items_wrap'      => '<ul id="%1$s" class="%2$s medium-text-right">%3$s</ul>',
+
+							) 
+						); 
+					?>
+						</div>
+						<div class="cell shrink medium-order-1">
 					<?php wp_nav_menu( 
 							array( 
 								'theme_location' => 'social-menu', 
@@ -53,19 +66,9 @@
 						); 
 					?>
 						</div>
-						<div class="cell auto filler show-for-medium">
+						<div class="cell auto filler medium-order-2 show-for-medium">
 						</div>
-						<div class="cell shrink">
-					<?php wp_nav_menu( 
-							array( 
-								'theme_location' => 'footer-menu', 
-								'menu_class' => 'menu vertical',
-								'container_class' => 'secondary-footer-menu text-left',
-								'menu_id' => 'secondary-footer-menu' 
-							) 
-						); 
-					?>
-						</div>
+						
 					</div>
 				</div>
 

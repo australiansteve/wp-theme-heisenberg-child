@@ -3,8 +3,6 @@
  * Kickoff theme setup and build
  */
 
-namespace Heisenberg;
-
 require_once __DIR__ . '/src/enqueue.php';
 
 add_action('after_setup_theme', function(){
@@ -95,29 +93,28 @@ add_action('pre_get_posts', function($query) {
 
 
 function austeve_move_yoast_below_acf() {
-    return 'low';
+	return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'austeve_move_yoast_below_acf');
 
 add_action( 'login_enqueue_scripts', function() { 
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-	error_log("login logo: " . $image[0]);
-?>
-    <style type="text/css">
-    	body {
-		    background: #2a2b2b !important;
+	?>
+	<style type="text/css">
+		body {
+			background: #2a2b2b !important;
 		}
 
-        #login h1 a, .login h1 a {
-            background-image: url(<?php echo $image[0]; ?>);
+		#login h1 a, .login h1 a {
+			background-image: url(<?php echo $image[0]; ?>);
 			height: 190px;
 			width: 320px;
 			background-size: 320px 190px;
 			background-repeat: no-repeat;
-        }
-    </style>
-<?php 
+		}
+	</style>
+	<?php 
 });
 
 add_filter( 'ninja_forms_render_default_value', function($default_value, $field_type, $field_settings ) {
@@ -135,7 +132,7 @@ add_filter( 'ninja_forms_render_options_listselect', function ( $options, $setti
 	$courseId = -1;
 
 	if (is_admin()) :
-		error_log("ADMIN! ".get_post_type()." ".get_the_ID());
+		//error_log("ADMIN! ".get_post_type()." ".get_the_ID());
 		$sub = Ninja_Forms()->form()->get_sub( get_the_ID() );
 		$courseId = $sub->get_field_value( 'course_id' );
 	elseif (get_field('course_offerings', get_the_ID())) :
@@ -144,7 +141,7 @@ add_filter( 'ninja_forms_render_options_listselect', function ( $options, $setti
 
 	if ($courseId >= 0)
 	{
-		error_log("Update course offerings!");
+		//error_log("Update course offerings!");
 		while ( have_rows('course_offerings', $courseId) ) : the_row();
 
 			$offering = array(
@@ -153,14 +150,40 @@ add_filter( 'ninja_forms_render_options_listselect', function ( $options, $setti
 				
 			);
 
-	    	array_push($options, $offering);
-	    endwhile;
+			array_push($options, $offering);
+		endwhile;
 	}
 	
-    error_log(print_r($options, true));
-  
-  return $options;
+	//error_log(print_r($options, true));
+
+	return $options;
 }, 10, 2 );
 
+add_filter( 'ninja_forms_render_default_value', function( $default_value, $field_type, $field_settings ) {
+	if (!is_admin()) :
+		$courseId = get_the_ID();
+
+		if ($courseId >= 0)
+		{
+			if( 'hidden' == $field_type && $field_settings['key'] == 'course_name') {
+				//error_log("field_settings".print_r($field_settings, true));
+				$default_value = get_the_title();
+			}
+			return $default_value;
+		}
+	endif;
+
+
+}, 10, 3 );
+
+
+
+function austeve_menu_classes($classes, $item, $args) {
+	if($args->theme_location == 'footer-menu') {
+		$classes[] = 'medium-text-right';
+	}
+	return $classes;
+}
+add_filter('nav_menu_css_class', 'austeve_menu_classes', 1, 3);
 
 

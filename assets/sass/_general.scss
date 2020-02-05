@@ -119,6 +119,10 @@ a.button:hover, a.button.active, a.button:focus  {
 	display: none;
 }
 
+main {
+	margin-bottom: 3rem;
+}
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
