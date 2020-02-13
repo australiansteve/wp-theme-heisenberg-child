@@ -67,12 +67,20 @@ add_filter('wp_nav_menu_objects', function( $items, $args ) {
 		
 		// vars
 		$icon = get_field('icon', $item);
+		$image = get_field('image', $item);
 		
 		// replace title with icon
 		if( $icon ) {
 			$title = $item->title;
 			$item->title = '<i class="fab fa-'.$icon.'" title="'.$title.'"></i>';
 			
+		}
+		if ( $image ) {
+			$title = $item->title;
+			$size = 'full'; // (thumbnail, medium, large, full or custom size)
+			
+			$image_attr = wp_get_attachment_image_src( $image, $size );
+			$item->title = '<img src="'.$image_attr[0].'" title="'.$title.'" width="'.$image_attr[1].'" height="'.$image_attr[2].'"/>';
 		}
 		
 	}

@@ -1,0 +1,74 @@
+{
+    "key": "group_5cf05bbd512b7",
+    "title": "Menu Icons & Images",
+    "fields": [
+        {
+            "key": "field_5cf05bc7c943b",
+            "label": "Icon",
+            "name": "icon",
+            "type": "text",
+            "instructions": "Font Awesome code snippet",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e453e4281f17",
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "instructions": "Image must be actual dimensions you want displayed",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "location\/social-menu"
+            }
+        ],
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "location\/footer-menu"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "field",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1581596684
+}
