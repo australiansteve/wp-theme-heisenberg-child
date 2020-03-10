@@ -9,9 +9,11 @@
 
 get_header(); ?>
 
+<main class="grid-container">
+
 	<div class="grid-x grid-padding-x">
 
-		<div class="small-12 cell">
+		<div class="small-12 cell page-content">
 
 			<h1>Oops! That page can't be found.</h1>
 
@@ -22,6 +24,8 @@ get_header(); ?>
 		</div>
 
 	</div>
+
+</main>
 
 <?php
 get_footer();

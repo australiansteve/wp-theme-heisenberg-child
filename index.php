@@ -1,45 +1,50 @@
 <?php
 get_header(); ?>
 
-<div class="grid-x grid-padding-x">
+<main class="grid-container">
 
-	<div class="small-12 cell">
-		<?php
-		if ( have_posts() ) :
+	<div class="grid-x grid-padding-x">
 
-			while ( have_posts() ) :
+		<div class="small-12 cell">
 
-				the_post();
-
-				the_title( '<h2>', '</h2>' );
-
-				the_post_thumbnail('post-featured-image');
-
-				?>
-				<div class="page-content">
-					<?php
-					the_content();
-					?>
-				</div>
+			<div class="page-content">
 				<?php
+				if ( have_posts() ) :
 
-			endwhile;
+					while ( have_posts() ) :
 
-			echo get_template_part('page-templates/template-parts/navigation');
+						the_post();
 
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+						the_post_thumbnail('post-featured-image');
+						?>
+						
+						<div class="page-content">
+							<?php
+							if( is_singular('austeve-projects')) :
+								the_title('<h2>', '</h2>');
+							endif;
+							
+							the_content();
+							?>
+						</div>
+						<?php
 
-		else :
+					endwhile;
 
-			echo esc_html( 'Sorry, no posts' );
+					echo get_template_part('page-templates/template-parts/navigation');
 
-		endif;
-	?>
-</div>
+				else :
 
-</div>
+					echo esc_html( 'Sorry, no posts' );
+
+				endif;
+				?>
+			</div>
+		</div>
+
+	</div>
+
+</main><!-- #content -->
 
 <?php
 get_footer();

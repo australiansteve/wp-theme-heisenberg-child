@@ -1,6 +1,6 @@
 <div class="cell navigation">
 	<?php
-	if (is_archive(['post', 'austeve-projects'])) {
+	if (is_home() || is_archive(['austeve-projects'])) {
 		?>
 		<div class="right">
 			<?php

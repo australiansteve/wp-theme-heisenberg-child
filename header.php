@@ -90,6 +90,14 @@
 		if ( get_field('background_image') ) {
 			$image = get_field('background_image');
 		}
+		else if (is_home() && get_field('background_image', get_option( 'page_for_posts' ))) {
+			//Specific image for Posts page
+			$image = get_field('background_image', get_option( 'page_for_posts' ));
+		}
+		else if ((is_archive('austeve-projects') || is_singular('austeve-projects') ) && get_field('projects_page_background_image', 'option')) { 
+			//Specific image for Projects pages
+			$image = get_field('projects_page_background_image', 'option');
+		}
 		else {
 			$image = get_field('default_background_image', 'option');
 		}
@@ -117,20 +125,41 @@
 					?>
 				</div>
 			</div>
+			<?php 
 
-			<?php
-			if (is_front_page()) {
-				?>
-				<div class="grid-x tagline">
-					<div class="cell small-12">
-						<h4><?php echo esc_html( get_bloginfo( 'description' ) ); ?></h4>			
-					</div>
-				</div>
-				<?php
+			if (is_404()) {
+				$pageTitle = "";
 			}
+			else {
+				$pageTitle = get_the_title($post->ID);
+				if (is_front_page()) {
+					$pageTitle = get_bloginfo( 'description' );
+				}
+				else if (is_home()) {
+					$pageTitle = get_the_title( get_option('page_for_posts', true) );
+				}
+				else if (is_archive()) {
+					$pageTitle = get_the_archive_title();
+				}
+				else if (is_single()) {
+					$pageTitle = "";
+				}
+			}
+			if (!empty($pageTitle)) :
+			?>
+			<div class="grid-x page-title">
+				<div class="cell small-12">
+					<?php
+					printf( '<h2>%s</h2>',
+						esc_html( $pageTitle )
+					);
+
+					?>
+				</div>
+			</div>
+			<?php
+			endif;
 			?>
 			
 		</div>
 	</header>
-
-	<main class="grid-container">

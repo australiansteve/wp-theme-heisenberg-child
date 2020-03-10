@@ -100,44 +100,6 @@
                     "maxlength": ""
                 }
             ]
-        },
-        {
-            "key": "field_5e1f43dcd72b0",
-            "label": "Newsletter Signup button text",
-            "name": "newsletter_signup_button_text",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Newsletter",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5e1f43fa63a0e",
-            "label": "Newsletter Signup button action",
-            "name": "newsletter_signup_button_action",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "data-open=\"mcModal\"",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         }
     ],
     "location": [
@@ -157,5 +119,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579107473
+    "modified": 1580311388
 }

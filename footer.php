@@ -12,8 +12,6 @@
 
 <?php echo get_template_part('page-templates/template-parts/mailchimp', 'modal'); ?>
 
-</main><!-- #content -->
-
 <footer class="grid-container">
 
 	<div class="grid-x">

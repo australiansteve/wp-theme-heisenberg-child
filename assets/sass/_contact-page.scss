@@ -14,24 +14,29 @@
 			font-family: Brandon, sans-serif;
 			font-weight: 700;
 			text-transform: uppercase;
-			background-color: $blue-medium-color;
-			background: $blue-medium-color !important;
+			background: $blue-medium-color;
 			height: unset !important;
 			font-size: 0.9rem;
 		}
 
 		.nf-form-content button:hover, .nf-form-content input[type=button]:hover, .nf-form-content input[type=submit]:hover, .nf-form-content button:focus, .nf-form-content input[type=button]:focus, .nf-form-content input[type=submit]:focus {
-			background-color: $blue-light-color;
+			background: $blue-light-color;
+			color: $white-color;
 		}
 
 	}
 
 
 	.social-links {
+		margin-top: 2rem;
 		margin-bottom: 2rem;
 
 		.social-link {
 			margin-right: 1rem;
+
+			i:hover {
+				color: $blue-light-color;
+			}
 		}
 	}
 

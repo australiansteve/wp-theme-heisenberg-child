@@ -1,13 +1,13 @@
 {
-    "key": "group_5e0e3b99ad206",
-    "title": "Custom Attributes",
+    "key": "group_5e21ed8698788",
+    "title": "Projects Page Customization",
     "fields": [
         {
-            "key": "field_5e0e4412b820f",
-            "label": "Archive Image",
-            "name": "archive_image",
+            "key": "field_5e21ed98f4c1b",
+            "label": "Background Image",
+            "name": "projects_page_background_image",
             "type": "image",
-            "instructions": "Displayed on the project archive (and home) page. This image should be square",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -18,8 +18,8 @@
             "return_format": "id",
             "preview_size": "medium",
             "library": "all",
-            "min_width": 500,
-            "min_height": 500,
+            "min_width": "",
+            "min_height": "",
             "min_size": "",
             "max_width": "",
             "max_height": "",
@@ -30,16 +30,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "options_page",
                 "operator": "==",
-                "value": "austeve-projects"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
+                "value": "theme-general-settings"
             }
         ]
     ],
@@ -51,5 +44,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1583844374
+    "modified": 1579281858
 }

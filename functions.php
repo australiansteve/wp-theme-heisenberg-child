@@ -41,7 +41,7 @@ add_action( 'after_setup_theme', function() {
 
 	add_image_size( 'hand-logo', 150, 150, true );
 	add_image_size( 'post-archive-image', 500, 500, true );
-	add_image_size( 'header-background-image', 1600, 900, true );
+	add_image_size( 'header-background-image', 3200, 1800, true );
 	add_image_size( 'post-featured-image', 1200, 600, true );
 	add_image_size( 'headshot-image', 410, 615, false );
 });
@@ -63,9 +63,11 @@ add_filter( 'get_the_archive_title', function( $title ) {
 } );
 
 add_action('pre_get_posts', function ( $query ) {
-	if( $query->is_archive('austeve-projects')) :
-		//$query->set('posts_per_page', 1);
-	endif;
+	// if( $query->is_archive('austeve-projects')) :
+	// 	$query->set('posts_per_page', 1);
+	// elseif( $query->is_main_query()) :
+	// 	$query->set('posts_per_page', 1);
+	// endif;
 });
 
 function get_ajax_projects() {
@@ -135,11 +137,13 @@ function austeve_set_newsletter_signup() {
 	$domain = $_SERVER['HTTP_HOST'];
 	$domain = substr($domain, 0, strpos($domain, ':'));
 	$secure = isset($_SERVER["HTTPS"]);
+	$expires = isset($_REQUEST['expires']) ? time() + intval($_REQUEST['expires']): time()+31556926;
+
 	error_log("Set signup!".$nonce." ".$domain." ".boolval($secure));
 
 	if (wp_verify_nonce( $nonce, 'set_signup')) {
 		error_log('verified nonce');
-		setcookie('kw_newsletter_signup', 'true', time()+31556926, '/', $domain, boolval($secure));
+		setcookie('kw_newsletter_signup', 'true', $expires, '/', $domain, boolval($secure));
 		echo "Signed up!";
 	}
 

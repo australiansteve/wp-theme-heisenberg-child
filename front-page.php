@@ -1,6 +1,8 @@
 <?php
 get_header(); ?>
 
+<main class="grid-container">
+
 <div class="grid-x grid-padding-x">
 
 	<div class="small-12 cell">
@@ -45,7 +47,7 @@ get_header(); ?>
 											if ( $projectsquery->have_posts() ) {
 												while ( $projectsquery->have_posts() ) {
 													$projectsquery->the_post();
-													echo get_template_part('page-templates/project', 'front-page');
+													echo get_template_part('page-templates/template-parts/project', 'front-page');
 												}
 											} else {
 												// no posts found
@@ -91,6 +93,8 @@ get_header(); ?>
 	</div>
 
 </div>
+
+</main>
 
 <?php echo get_template_part('page-templates/template-parts/javascript', 'front-page'); ?>
 

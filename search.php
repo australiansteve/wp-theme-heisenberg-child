@@ -8,7 +8,10 @@
  */
 
 get_header();
+?>
+<main class="grid-container">
 
+	<?php
 if ( have_posts() ) :
 
 	printf( '<h1>Search Results for: %s</h1>',
@@ -38,5 +41,8 @@ else :
 	);
 
 endif;
+?>
+</main>
+<?php
 
 get_footer();

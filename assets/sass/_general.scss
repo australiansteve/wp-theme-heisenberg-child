@@ -1,5 +1,5 @@
 body, div, p, a, span, h1, h2, h3, h4, h5, h6 {
-	font-family: 'ff-avance-pro', Brandon, sans-serif;
+	font-family: Lora, Brandon, sans-serif;
 	font-weight: 400;
 	font-style: normal;
 }
@@ -35,12 +35,43 @@ button, a.button, .button, input.button, a.wp-block-button__link {
 }
 
 button:hover, a.button:hover, .button:hover, button:focus, a.button:focus, .button:focus, a.wp-block-button__link:hover, a.wp-block-button__link:focus {
-	background-color: $blue-light-color;
+	background-color: $blue-light-color !important;
+	color: $white-color !important;
+}
+
+ul:not(.menu) {
+	list-style-type: none;
+
+	li {
+		font-size: 1.3rem;
+	}
+
+	li:before {
+		content: "-";
+		margin-right: 0.5rem;
+	}
+}
+
+figcaption {
+	font-style: italic;
+	font-size: 0.9rem;
+	text-align: center;
 }
 
 .page-content {
-	margin-top: 2rem;
 	font-size: 1.3rem;
+	margin-top: 2rem;
+
+	h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		font-family: Lora;
+		text-transform: initial;
+	}
+}
+
+#sidebar {
+	.cell {
+		margin-top: 2rem;
+	}
 }
 
 .navigation {
@@ -49,6 +80,10 @@ button:hover, a.button:hover, .button:hover, button:focus, a.button:focus, .butt
 	.left, .right {
 		display: inline-block;
 		width: 50%;
+
+		img {
+			max-width: 88px;
+		}
 	}
 
 	.left {
@@ -73,7 +108,7 @@ button:hover, a.button:hover, .button:hover, button:focus, a.button:focus, .butt
 }
 
 :focus {
-    outline: none;
+	outline: none;
 }
 
 /* Small only */
@@ -84,9 +119,6 @@ button:hover, a.button:hover, .button:hover, button:focus, a.button:focus, .butt
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	
-	.page-content {
-		font-size: 1.6rem;
-	}
 }
 
 /* Medium only */

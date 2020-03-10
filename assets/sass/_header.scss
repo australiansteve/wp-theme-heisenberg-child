@@ -72,7 +72,7 @@ header {
 		padding-top: 8px;
 	}
 
-	a, .tagline {
+	a {
 		color: $white-color;
 		text-transform: uppercase;
 	}
@@ -84,11 +84,22 @@ header {
 
 	.site-title {
 		padding-top: 30vh;
+		color: $white-color;
 
 		h1 {
 			font-size: 2.25rem;
 			line-height: 0.5;
 			text-align: left;
+			margin-bottom: 0;
+		}
+	}
+
+	.page-title {
+		color: $white-color;
+		text-transform: uppercase;
+		
+		h2 { 
+			margin-top: 0;
 		}
 	}
 

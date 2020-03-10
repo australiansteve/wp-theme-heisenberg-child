@@ -6,6 +6,18 @@
 	#signoff {
 		margin: 2rem 0;
 	}
+
+	.info-sections {
+		color: $white-color;
+
+		.container {
+			padding: 1rem;
+
+			.section-title {
+				text-align: center;
+			}
+		}
+	}
 }
 
 /* Small only */
@@ -24,6 +36,17 @@
 			margin-right: 2rem;
 			max-width: 300px;
 		}
+
+		.info-sections {
+
+			.container {
+				padding: 2rem 1rem;
+
+				.section-title { 
+					margin-bottom: 1rem;
+				}
+			}
+		}
 	}
 }
 
@@ -37,6 +60,17 @@
 	.page-template-about-page {
 		.headshot {
 			max-width: none;
+		}
+
+		.info-sections {
+
+			.container {
+				padding: 3rem 1rem;
+
+				.section-title { 
+					margin-bottom: 2rem;
+				}
+			}
 		}
 	}
 }
