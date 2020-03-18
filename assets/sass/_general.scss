@@ -31,8 +31,11 @@ body {
 			height: 100%;
 			border: $border-width solid $white-color;
 
-			.grid-x, .grid-y {
+			.grid-y {
 				height: 100%;
+			}
+
+			.grid-x, .grid-y {
 				position: relative;
 
 				.cell {
@@ -53,6 +56,39 @@ body {
 
 }
 
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	
+	body {
+		.section-content {
+			.border {
+				.grid-x {
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}
 
 /* Maximum aspect ratio - skinny screens */
 @media (max-aspect-ratio: 4/3) {

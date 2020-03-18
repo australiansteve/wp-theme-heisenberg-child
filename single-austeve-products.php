@@ -36,32 +36,16 @@ if ( have_posts() ) :
 		<section id="<?php echo $sectionId;?>" data-section="<?php global $sectionNumber; echo $sectionNumber++;?>">
 			<div class="section-content">
 				<div class="border">
-					<div class="grid-x" style="height: 100%">
-						<div class="cell medium-6 large-3">
-							<?php
-							$sectionId = "section_3_column_1";
-							include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
-							?>
-						</div>
-						<div class="cell medium-6 large-3">
-							<?php
-							$sectionId = "section_3_column_2";
-							include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
-							?>
-						</div>
-						<div class="cell medium-6 large-3">
-							<?php
-							$sectionId = "section_3_column_3";
-							include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
-							?>
-						</div>
-						<div class="cell medium-6 large-3">
-							<?php
-							$sectionId = "section_3_column_4";
-							include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
-							?>
-						</div>
-					</div>
+					<?php
+					$sectionId = 'section_3';
+					$sectionGroup = get_field($sectionId);
+					
+					$layout = $sectionGroup['layout'];
+					$layoutTemplate = 'page-templates/template-parts/section-product-testimonial-'.$layout.'.php';
+					error_log("Layout:".$layoutTemplate);
+					include( locate_template($layoutTemplate, false, false ) ); 
+					
+					?>
 				</div>
 			</div>
 		</section>
@@ -96,9 +80,9 @@ if ( have_posts() ) :
 			<div class="section-content">
 				<div class="border">
 					<?php
-							$sectionId = "section_5_column_1";
-							include( locate_template( 'page-templates/template-parts/section-detailed-features-with-background.php', false, false ) ); 
-							?>
+					$sectionId = "section_5_column_1";
+					include( locate_template( 'page-templates/template-parts/section-detailed-features-with-background.php', false, false ) ); 
+					?>
 				</div>
 			</div>
 		</section>
