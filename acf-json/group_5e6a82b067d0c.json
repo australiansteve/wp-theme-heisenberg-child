@@ -1,0 +1,209 @@
+{
+    "key": "group_5e6a82b067d0c",
+    "title": "Section: Background",
+    "fields": [
+        {
+            "key": "field_5e6a82c8e81ee",
+            "label": "Color",
+            "name": "color",
+            "type": "color_picker",
+            "instructions": "If the image choose has a transparent background this colour will shine through",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_5e6a82b8e81ed",
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5e6b88f06c352",
+            "label": "Image Size",
+            "name": "image_size",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e6a82b8e81ed",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "cover": "Cover",
+                "contain": "Contain",
+                "length": "Length in px",
+                "percentage": "Percentage of parent element"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5e6b8b186922a",
+            "label": "Image Size (px)",
+            "name": "image_size_px",
+            "type": "text",
+            "instructions": "Sets the width and height of the background image. The first value sets the width, the second value sets the height. If only one value is given, the second is set to \"auto\".",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e6b88f06c352",
+                        "operator": "==",
+                        "value": "length"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e6b8b6d6922c",
+            "label": "Image Size (%)",
+            "name": "image_size_pc",
+            "type": "text",
+            "instructions": "Sets the width and height of the background image in percent of the parent element. The first value sets the width, the second value sets the height. If only one value is given, the second is set to \"auto\"",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e6b88f06c352",
+                        "operator": "==",
+                        "value": "percentage"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e6b89286c353",
+            "label": "Image Position",
+            "name": "image_position",
+            "type": "text",
+            "instructions": "The first value is the horizontal position and the second value is the vertical. The top left corner is 0% 0%. The right bottom corner is 100% 100%. If you only specify one value, the other value will be 50%.\r\nDefault value is: 50% 50%",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e6a82b8e81ed",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "50% 50%",
+            "placeholder": "50% 50%",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e6b898b6c354",
+            "label": "Image Repetition",
+            "name": "image_repeat",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e6a82b8e81ed",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "no-repeat": "Do not repeat",
+                "repeat": "Repeat Vertically and Horizontally",
+                "repeat-y": "Repeat Vertically only",
+                "repeat-x": "Repeat Horizontally only"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "no-repeat",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1584110819
+}

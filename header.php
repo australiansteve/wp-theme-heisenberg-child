@@ -20,20 +20,19 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<?php 
+	global $sectionNumber;
+	$sectionNumber = 1;
+	?>
 
-<header class="grid-container">
-	<?php
-	printf( '<h1><a href="%s" rel="home">%s</a></h1>',
-		esc_url( home_url( '/' ) ),
-		esc_html( get_bloginfo( 'name' ) )
-	);
-
-	printf( '<p class="h4">%s</p>', esc_html( get_bloginfo( 'description' ) ) );
-
-	wp_nav_menu( [
-		'theme_location' => 'primary',
-		'container'      => '',
-	] ); ?>
-</header>
-
-<main class="grid-container">
+	<div class="grid-container">
+		<header>
+			<?php 
+			$custom_logo_id = get_theme_mod( 'custom_logo' );
+			$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+			?>
+			<img src="<?php echo $image[0]; ?>" width="150" height="56" alt="">
+		</header>
+	</div>
+	<main>
+		<div id="page-container">

@@ -1,0 +1,59 @@
+{
+    "key": "group_5e6938346ff62",
+    "title": "Section: Video with Tagline",
+    "fields": [
+        {
+            "key": "field_5e6938456daab",
+            "label": "Video",
+            "name": "video_url",
+            "type": "url",
+            "instructions": "URL of video to embed",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5e6938c76daac",
+            "label": "Tagline",
+            "name": "tagline",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "REIMAGINE AND REINFORCE \r\nCONVERSATIONS ACROSS THE \r\nCLIENT JOURNEY",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 50,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "modified": 1584013879
+}

@@ -1,37 +1,37 @@
 <?php
 get_header(); ?>
 
-	<div class="grid-x grid-padding-x">
+<section class="active"  data-section="<?php global $sectionNumber; echo $sectionNumber++;?>">
+	<div class="section-content grid-container">
 
-		<div class="small-12 cell">
-			<?php
-			if ( have_posts() ) :
+		<div class="grid-x grid-padding-x">
 
-				while ( have_posts() ) :
+			<div class="small-12 cell">
+				<?php
+				if ( have_posts() ) :
 
-					the_post();
+					while ( have_posts() ) :
 
-					the_title( '<h1>', '</h1>' );
+						the_post();
 
-					the_content();
+						the_title( '<h1>', '</h1>' );
 
-				endwhile;
+						the_content();
 
-				the_posts_navigation();
+					endwhile;
 
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
+					the_posts_navigation();
+
+				else :
+
+					echo esc_html( 'Sorry, no posts' );
+
 				endif;
+				?>
+			</div>
 
-			else :
-
-				echo esc_html( 'Sorry, no posts' );
-
-			endif;
-			?>
 		</div>
-
 	</div>
-
+</section>
 <?php
 get_footer();
