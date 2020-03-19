@@ -39,18 +39,6 @@ button:hover, a.button:hover, .button:hover, button:focus, a.button:focus, .butt
 	color: $white-color !important;
 }
 
-ul:not(.menu) {
-	list-style-type: none;
-
-	li {
-		font-size: 1.3rem;
-	}
-
-	li:before {
-		content: "-";
-		margin-right: 0.5rem;
-	}
-}
 
 figcaption {
 	font-style: italic;
@@ -66,11 +54,38 @@ figcaption {
 		font-family: Lora;
 		text-transform: initial;
 	}
+
+	ul:not(.menu) {
+		list-style-type: none;
+
+		li {
+			font-size: 1.3rem;
+		}
+
+		li:before {
+			content: "-";
+			margin-right: 0.5rem;
+		}
+	}
+
+	.sd-sharing ul li:before {
+		content: none;	
+	}
 }
 
 #sidebar {
 	.cell {
 		margin-top: 2rem;
+	}
+
+	ul {
+		list-style-type: none;
+		margin-left: 0;
+		
+		li:before {
+			content: "-";
+			margin-right: 0.5rem;
+		}
 	}
 }
 

@@ -43,12 +43,14 @@ $ajax_nonce = wp_create_nonce( "front-page-projects" );
 	}, 500, true);
 
 	function getMargin(projects) {
+		//return ((projects * -100) + 0) + "%";
 		var isSmall = window.innerWidth < 640;
-		return isSmall ? ((projects * -100) + 0) + "%": ((projects * -50) + 25) + "%";
+		return isSmall ? ((projects * -100) + 0) + "%": (projects * -50) + "%";
 	}
 
 	function scrollNextProject() {
-		if (jQuery("#project-scroll td.project:nth-of-type("+(projectInFocus)+")").next().length == 1) {
+		var scrollMore = window.innerWidth < 640 ? 1 : 2;
+		if (jQuery("#project-scroll td.project:nth-of-type("+(projectInFocus)+") ~ td.project").length >= scrollMore) {
 			projectInFocus++; //Update first project displayed
 			setNewMargin(getMargin((projectInFocus-1)));
 		}
@@ -65,6 +67,9 @@ $ajax_nonce = wp_create_nonce( "front-page-projects" );
 		        	security: '<?php echo $ajax_nonce; ?>', 
 		        	page: nextPage++,
 		        },
+		        error: function (xhr, status, error) {
+			        console.log("Error: " + error);
+			    },
 		        success: function( response ) {
 		        	if (response) {
 		        		jQuery( '#project-scroll' ).append( response ); 

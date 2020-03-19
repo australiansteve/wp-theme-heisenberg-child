@@ -63,11 +63,12 @@ add_filter( 'get_the_archive_title', function( $title ) {
 } );
 
 add_action('pre_get_posts', function ( $query ) {
-	// if( $query->is_archive('austeve-projects')) :
-	// 	$query->set('posts_per_page', 1);
-	// elseif( $query->is_main_query()) :
-	// 	$query->set('posts_per_page', 1);
-	// endif;
+	 // if( $query->is_archive('austeve-projects')) :
+	 // 	$query->set('posts_per_page', 1);
+
+	 // elseif( $query->is_main_query() || is_front_page()) :
+	 // 	$query->set('posts_per_page', 1);
+	 // endif;
 });
 
 function get_ajax_projects() {
@@ -77,6 +78,7 @@ function get_ajax_projects() {
 	if (wp_verify_nonce( $nonce, 'front-page-projects')) {
 
 		$page = intval($_REQUEST['page']);
+
 	    // Query Arguments
 		$args = array(
 			'post_type' => array('austeve-projects'),
@@ -85,6 +87,7 @@ function get_ajax_projects() {
 			'paged' => $page,
 			'order'                  => 'ASC',
 			'orderby'                => 'menu_order',
+			'posts_per_page'         => 10,
 		);
 
 	    // The Query
@@ -96,13 +99,15 @@ function get_ajax_projects() {
 		if ( $ajaxposts->have_posts() ) {
 			while ( $ajaxposts->have_posts() ) {
 				$ajaxposts->the_post();
-				$response .= get_template_part('page-templates/project', 'front-page');
+				$response .= get_template_part('page-templates/template-parts/project', 'front-page');
 			}
 		} else {
 			$response .= get_template_part('none');
 		}
 
 		echo $response;
+
+		wp_reset_query();
 	}
 
     exit; // leave ajax call
