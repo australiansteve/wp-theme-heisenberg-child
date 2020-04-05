@@ -1,8 +1,61 @@
-$white-color: white;
-$grey-color: #E4E4E4;
-$teal-color: #73C2BA;
+$white-color: #FFFFFF;
+$blue-color: #123C91;
+$sky-blue-color: #B4D0E5;
+$yellow-color: #FFE800;
+$cayenne-color: #C01717;
+$teal-color: #3DB4A9;
+$bone-color: #F6F5F1;
+$faded-tshirt-color: #3E3F45;
+$salmon-color: #F89886;
+$blush-color: #F8CFBE;
+$gold-color: #A18730;
+$emerald-green-color: #265A55;
+$light-grey-color: #E4E4E4;
+$mint-color: #BBF4EE;
+$butter-color: #FFFBCE;
 $black-color: #000000;
-$icon-color: #707070;
 
 $border-width: 1rem;
 $border-total: 2rem;
+
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+	$border-width: 2rem;
+	$border-total: 4rem;
+
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 99.9375em) {
+	
+}
+
+/* XLarge and up */
+@media screen and (min-width: 100em) {
+	
+	$border-width: 4rem;
+	$border-total: 8rem;
+
+}
+
+/* XLarge only */
+@media screen and (min-width: 100em) and (max-width: 149.9375em) {
+	
+}

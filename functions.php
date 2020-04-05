@@ -3,8 +3,6 @@
  * Kickoff theme setup and build
  */
 
-namespace Heisenberg;
-
 require_once __DIR__ . '/src/enqueue.php';
 require_once __DIR__ . '/src/menu-walker.php';
 
@@ -42,14 +40,41 @@ add_action( 'after_setup_theme', function() {
 	register_nav_menu( 'social-media', __( 'Social Media Menu', 'heisenberg' ) );
 
 	add_theme_support( 'custom-logo', array(
-		'height'      => 56,
-		'width'       => 150,
+		'height'      => 224,
+		'width'       => 600,
 		'flex-height' => false,
 		'flex-width'  => false,
 		'header-text' => array( 'site-title', 'site-description' ),
 	) );
+	add_image_size( 'header-image', 150, 56, true );
+	add_image_size( 'footer-logo', 432, 672, true );
+
 });
+
+function austeve_menu_classes($classes, $item, $args) {
+	if($args->theme_location == 'primary') {
+    //$classes[] = 'cell';
+    //$classes[] = 'auto';
+	}
+	return $classes;
+}
+add_filter('nav_menu_css_class', 'austeve_menu_classes', 1, 3);
 
 add_filter( 'wpseo_metabox_prio', function() {
 	return 'low';
 });
+
+function austeve_exclude_products_from_archive($query) {
+	if ( $query->is_archive('austeve-products') && $query->is_main_query() && !is_admin() ) {
+		$query->set( 'tax_query', array(
+			array(
+				'taxonomy'         => 'product-category',
+				'terms'            => 'exclude-from-archive',
+				'field'            => 'slug',
+				'operator'         => 'NOT IN',
+			),
+		));
+		error_log("Product ARCHIVE");
+	}
+}
+add_action( 'pre_get_posts', 'austeve_exclude_products_from_archive' );

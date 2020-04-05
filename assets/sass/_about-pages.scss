@@ -1,0 +1,142 @@
+.page-template-about-page {
+	#section_3, #section_4 {
+		font-size: 18px;
+		
+		.font-demi {
+			font-size: 16px;
+		}
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+	.page-template-about-page {
+		#section_3_column_2, #section_3_column_4, #section_4_column_2, #section_4_column_4 {
+			.cell {
+				max-width: 400px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+
+	@media screen and (min-height: 800px) {
+		.page-template-about-page {
+			#section_3_column_2, #section_3_column_4 {
+
+				padding-top: 100px;
+			}
+			#section_4_column_2, #section_4_column_4 {
+
+				padding-top: 155px;
+			}
+		}
+	}
+
+	@media screen and (min-height: 900px) {
+		.page-template-about-page {
+			#section_3_column_2, #section_3_column_4 {
+
+				padding-top: 200px;
+			}
+			#section_4_column_2, #section_4_column_4 {
+
+				padding-top: 255px;
+			}
+		}
+	}
+
+	@media screen and (min-height: 1000px) {
+		.page-template-about-page {
+			#section_3_column_2, #section_3_column_4 {
+
+				padding-top: 300px;
+			}
+			#section_4_column_2, #section_4_column_4 {
+
+				padding-top: 355px;
+			}
+		}
+	}
+
+	@media screen and (min-height: 1100px) {
+		.page-template-about-page {
+			#section_3_column_2, #section_3_column_4 {
+
+				padding-top: 400px;
+			}
+			#section_4_column_2, #section_4_column_4 {
+
+				padding-top: 455px;
+			}
+		}
+	}
+
+	@media screen and (min-height: 1200px) {
+		.page-template-about-page {
+
+			#section_3, #section_4 {
+				font-size: 24px;
+			}
+
+			#section_3_column_2, #section_3_column_4 {
+
+				padding-top: 40vh;
+			}
+			#section_4_column_2, #section_4_column_4 {
+
+				padding-top: 40vh;
+			}
+		}
+	}
+
+
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 99.9375em) {
+	
+}
+
+/* XLarge and up (>1600px) */
+@media screen and (min-width: 100em) {
+	.page-template-about-page {
+		#section_3, #section_4 {
+			h3 {
+				font-weight: 900;
+				font-size: 36;
+			}
+			font-size: 24px;
+
+			.font-demi {
+				font-size: 18px;
+			}
+		}
+	}
+}
+
+/* XLarge only */
+@media screen and (min-width: 100em) and (max-width: 149.9375em) {
+	
+}
+
+/* XXLarge and up (>2400px) */
+@media screen and (min-width: 150em) {
+	
+}

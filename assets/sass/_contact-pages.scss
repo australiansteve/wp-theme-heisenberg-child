@@ -1,37 +1,34 @@
-footer {
-	position: relative;
-	border: $border-width solid $white-color;
-	border-top-width: 0;
-	padding: $border-width;
-	font-size: 18px;
+.page-template-contact-page {
+	section {
+		.font-demi {
+			font-size: 16px;
+		}
 
-	.background-div {
-		position: absolute;
-		z-index: -1;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
+		p {
+			max-width: 565px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		#section_1_column_2 {
+			.cell {
+				padding: 1rem;
+			}
+		}
 	}
-
-	#footer-logo, #footer-content {
-		margin-bottom: 1rem;
-	}
-
-	#wcc-copyright {
-		font-size: 14px;
-		color: $light-grey-color;
-		opacity: 0.2;
-	}
-
-	img {
-		max-width: 108px;
-	}
-
 }
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	
+	.page-template-contact-page {
+		section {
+			#section_1_column_1 {
+				.cell {
+					//padding-top: 4rem;
+				}
+			}
+		}
+	}
 }
 
 /* Medium and up */
@@ -46,20 +43,27 @@ footer {
 
 /* Large and up */
 @media screen and (min-width: 64em) {
-	
-}
+	.page-template-contact-page {
+		section {
+			font-size: 36px;	
 
+
+			.font-demi {
+				font-size: 20px;
+			}
+		}
+	}
+
+}
 
 /* Large only */
 @media screen and (min-width: 64em) and (max-width: 99.9375em) {
 	
 }
 
-/* XLarge and up */
+/* XLarge and up (>1600px) */
 @media screen and (min-width: 100em) {
-	footer {
-		font-size: 22px;
-	}
+	
 }
 
 /* XLarge only */
@@ -67,7 +71,7 @@ footer {
 	
 }
 
-/* XXLarge and up */
+/* XXLarge and up (>2400px) */
 @media screen and (min-width: 150em) {
 	
 }

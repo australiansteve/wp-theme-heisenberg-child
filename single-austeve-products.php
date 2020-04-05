@@ -10,96 +10,98 @@ if ( have_posts() ) :
 		the_post();
 
 		$sectionId = 'section_1';
-		?>
-		<section class="active" id="<?php echo $sectionId;?>" data-section="<?php global $sectionNumber; echo $sectionNumber++;?>">
+		$sectionClasses= '';
+		$customLogo = get_field($sectionId.'_header_customization_header_logo');
+		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
+		include( locate_template( 'page-templates/template-parts/section-video-with-tagline.php', false, false ) ); 
+		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
 
-			<?php 
-			include( locate_template( 'page-templates/template-parts/section-video-with-tagline.php', false, false ) ); 
-			?>
-
-		</section>
-		<?php		
 		$sectionId = 'section_2';
+		$sectionClasses= 'single-block-section';
+		$customLogo = get_field($sectionId.'_header_customization_header_logo');
+		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
 		?>
-		<section id="<?php echo $sectionId;?>" data-section="<?php global $sectionNumber; echo $sectionNumber++;?>">
-			<div class="section-content text-center" id="<?php echo $sectionId;?>-content">
-				<div class="border">
-					<?php 
-					include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
-					?>
-				</div>
-			</div>
-		</section>
+		<div class="section-content text-center" id="<?php echo $sectionId;?>-content">
+			<?php 
+			include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
+			?>
+		</div>
 		<?php		
+		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
+
 		$sectionId = 'section_3';
+		$sectionClasses= '';
+		$customLogo = get_field($sectionId.'_header_customization_header_logo');
+		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
 		?>
-		<section id="<?php echo $sectionId;?>" data-section="<?php global $sectionNumber; echo $sectionNumber++;?>">
-			<div class="section-content">
-				<div class="border">
-					<?php
-					$sectionId = 'section_3';
-					$sectionGroup = get_field($sectionId);
-					
-					$layout = $sectionGroup['layout'];
-					$layoutTemplate = 'page-templates/template-parts/section-product-testimonial-'.$layout.'.php';
-					error_log("Layout:".$layoutTemplate);
-					include( locate_template($layoutTemplate, false, false ) ); 
-					
-					?>
-				</div>
-			</div>
-		</section>
+		<div class="section-content">
+			<?php
+			$sectionId = 'section_3';
+			$sectionGroup = get_field($sectionId);
+
+			$layoutTemplate = 'page-templates/template-parts/section-product-testimonial-layout-1.php';
+
+			include( locate_template($layoutTemplate, false, false ) ); 
+
+			?>
+		</div>
 		<?php	
+		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
+
 		$sectionId = 'section_4';
+		$sectionClasses= '';
+		$customLogo = get_field($sectionId.'_header_customization_header_logo');
+		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
 		?>
-		<section id="<?php echo $sectionId;?>" data-section="<?php global $sectionNumber; echo $sectionNumber++;?>">
-			<div class="section-content">
-				<div class="border">
-					<div class="grid-x" style="height: 100%">
-						<div class="cell medium-6">
-							<?php
-							$sectionId = "section_4_column_1";
-							include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
-							?>
-						</div>
-						<div class="cell medium-6">
-							<?php
-							$sectionId = "section_4_column_2";
-							include( locate_template( 'page-templates/template-parts/section-key-features-with-background.php', false, false ) ); 
-							?>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<?php	
-		$sectionId = 'section_5';
-		?>
-		<section id="<?php echo $sectionId;?>" data-section="<?php global $sectionNumber; echo $sectionNumber++;?>">
-			<div class="section-content">
-				<div class="border">
+		<div class="section-content">
+			<div class="grid-x" style="height: 100%">
+				<div class="cell medium-6">
 					<?php
-					$sectionId = "section_5_column_1";
-					include( locate_template( 'page-templates/template-parts/section-detailed-features-with-background.php', false, false ) ); 
-					?>
-				</div>
-			</div>
-		</section>
-
-		<?php	
-		$sectionId = 'section_6';
-		?>
-		<section id="<?php echo $sectionId;?>" data-section="<?php global $sectionNumber; echo $sectionNumber++;?>">
-			<div class="section-content">
-				<div class="border">
-					<?php 
+					$sectionId = "section_4_column_1";
 					include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
 					?>
 				</div>
+				<div class="cell medium-6">
+					<?php
+					$sectionId = "section_4_column_2";
+					include( locate_template( 'page-templates/template-parts/section-key-features-with-background.php', false, false ) ); 
+					?>
+				</div>
 			</div>
-		</section>
+		</div>
+		<?php	
+		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
+
+		$sectionId = 'section_5';
+		$sectionClasses= '';
+		$customLogo = get_field($sectionId.'_header_customization_header_logo');
+		if( have_rows('feature_categories') ):
+			include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
+			?>
+			<div class="section-content">
+				<?php
+				$sectionId = "section_5_column_1";
+				$sectionClasses= 'single-block-section';
+				include( locate_template( 'page-templates/template-parts/section-detailed-features-with-background.php', false, false ) ); 
+				?>
+			</div>
+			<?php	
+			include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
+		endif;
+
+		$sectionId = 'section_6';
+		$sectionClasses= 'single-block-section';
+		$customLogo = get_field($sectionId.'_header_customization_header_logo');
+		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
+		?>
+		<div class="section-content">
+			<?php 
+			include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
+			?>
+		</div>
 		<?php
+		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
+
 	endwhile;
 
 else :

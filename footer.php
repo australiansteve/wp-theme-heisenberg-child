@@ -9,31 +9,43 @@
  * @package Heisenberg
  */
 ?>
-	
-		<footer class="grid-container">
 
-			<div class="grid-x">
+<footer>
+	<?php
+	$footerSettings = get_field('footer_settings', 'option');
+	error_log("Footer Settings: ".print_r($footerSettings, true));
+	?>
+	<div class="grid-x">
 
-				<div class="medium-4 cell" id="left-column">
-					Left
-				</div>
-				
-				<div class="medium-4 cell" id="center-column">
-					<a href="https://weavercrawford.com" target="blank">
-						<i class="far fa-copyright"></i> <?php echo date("Y");?> Weaver Crawford Creative
-					</a>
-				</div>
-				
-				<div class="medium-4 cell" id="right-column">
-					Right
-				</div>
-
+		<div class="cell text-center">
+			<div class="background-div" style="height: 100%; background: <?php echo $footerSettings['background']['color'];?>">	
 			</div>
 
-		</footer>
+			<?php
+			if ($footerSettings['logo']) {
+				?>
+				<div id="footer-logo">
+					<?php echo wp_get_attachment_image( $footerSettings['logo'], 'footer-logo' ); ?>
+				</div>
+				<?php
+			}
 
-	</div> <!-- #page-container -->
-	
+			?>
+			<div id="footer-content" style="color: <?php echo $footerSettings['text']['text_color']; ?>">
+				<?php echo $footerSettings['text']['content']; ?>
+			</div>
+			<!--<a id="wcc-copyright" href="https://weavercrawford.com" target="blank">
+				Website by Weaver Crawford Creative
+			</a>-->
+		</div>
+
+	</div>
+
+</footer>
+
+</div> <!-- #page-container -->
+</div> <!-- .off-canvas-content -->
+
 </main><!-- #content -->
 
 <?php wp_footer(); ?>

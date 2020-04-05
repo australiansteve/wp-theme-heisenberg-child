@@ -1,0 +1,89 @@
+
+h2 { 
+	font-size: 32px;
+}
+
+section {
+	font-size: 20px;
+}
+
+
+.button.call-to-action {
+	margin-top: 1rem;
+}
+
+.quote-author {
+	font-weight: 700;
+	margin-top: 3rem;
+	text-transform: uppercase;
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up (>640px) */
+@media screen and (min-width: 40em) {
+	h2 { 
+		font-size: 48px;
+	}
+
+	section {
+		font-size: 32px;
+	}
+
+	.quote-author {
+		font-size: 20px;
+	}
+
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up (>1024px) */
+@media screen and (min-width: 64em) {
+
+	section {
+		font-size: 44px;
+	}		
+
+	.single-block-section {
+		padding-left: 10rem;
+		padding-right: 10rem;
+	}
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 99.9375em) {
+	
+}
+
+/* XLarge and up (>1600px) */
+@media screen and (min-width: 100em) {
+	h2 { 
+		font-size: 75px;
+	}
+
+	section {
+		font-size: 55px;
+	}
+
+	.quote-author {
+		font-size: 24px;
+	}
+}
+
+/* XLarge only */
+@media screen and (min-width: 100em) and (max-width: 149.9375em) {
+	
+}
+
+/* XXLarge and up (>2400px) */
+@media screen and (min-width: 150em) {
+	
+}

@@ -19,6 +19,27 @@
             "endpoint": 0
         },
         {
+            "key": "field_5e7e0b7674134",
+            "label": "Section 1 Header Customization",
+            "name": "section_1_header_customization",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5e7cdd4a97879"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
             "key": "field_5e6bd4f32627e",
             "label": "Section 1",
             "name": "section_1",
@@ -56,6 +77,27 @@
             "endpoint": 0
         },
         {
+            "key": "field_5e7e0ba274135",
+            "label": "Section 2 Header Customization",
+            "name": "section_2_header_customization",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5e7cdd4a97879"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
             "key": "field_5e6bd4f3262a2",
             "label": "Section 2",
             "name": "section_2",
@@ -79,7 +121,7 @@
         },
         {
             "key": "field_5e6bd4f3262b5",
-            "label": "Testimonial",
+            "label": "Case Study",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -92,6 +134,27 @@
             },
             "placement": "top",
             "endpoint": 0
+        },
+        {
+            "key": "field_5e7e0ba374136",
+            "label": "Section 3 Header Customization",
+            "name": "section_3_header_customization",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5e7cdd4a97879"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
         },
         {
             "key": "field_5e6bd4f3262c0",
@@ -109,36 +172,8 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5e725ad0e68d2",
-                    "label": "Layout",
-                    "name": "layout",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "layout-1": "Layout 1",
-                        "layout-2": "Layout 2",
-                        "layout-3": "Layout 3"
-                    },
-                    "default_value": [
-                        "layout-1"
-                    ],
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
-                },
-                {
                     "key": "field_5e6bd4f345575",
-                    "label": "Block 1",
+                    "label": "Column 1",
                     "name": "",
                     "type": "tab",
                     "instructions": "",
@@ -153,11 +188,11 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_5e6bd4f345593",
-                    "label": "Block 1",
-                    "name": "block_1",
+                    "key": "field_5e6bd4f3455a4",
+                    "label": "Column 1 Content",
+                    "name": "block_2",
                     "type": "clone",
-                    "instructions": "Block 1  should contain the title\/name of this product",
+                    "instructions": "This column should contain the name of the product & a short description",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -176,7 +211,7 @@
                 },
                 {
                     "key": "field_5e6bd4f34559d",
-                    "label": "Block 2",
+                    "label": "Column 2",
                     "name": "",
                     "type": "tab",
                     "instructions": "",
@@ -191,11 +226,11 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_5e6bd4f3455a4",
-                    "label": "Block 2",
-                    "name": "block_2",
+                    "key": "field_5e6bd4f3455cf",
+                    "label": "Column 2 Content",
+                    "name": "block_4",
                     "type": "clone",
-                    "instructions": "Block 2 should contain a short description",
+                    "instructions": "This column should contain an image with a quote",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -214,83 +249,7 @@
                 },
                 {
                     "key": "field_5e6bd4f3455ad",
-                    "label": "Block 3",
-                    "name": "",
-                    "type": "tab",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "placement": "left",
-                    "endpoint": 0
-                },
-                {
-                    "key": "field_5e6bd4f3455b6",
-                    "label": "Block 3",
-                    "name": "block_3",
-                    "type": "clone",
-                    "instructions": "Block 3 is for an image which will be displayed landscape",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "clone": [
-                        "group_5e693aa718250",
-                        "group_5e6a82b067d0c"
-                    ],
-                    "display": "group",
-                    "layout": "block",
-                    "prefix_label": 0,
-                    "prefix_name": 1
-                },
-                {
-                    "key": "field_5e6bd4f3455c5",
-                    "label": "Block 4",
-                    "name": "",
-                    "type": "tab",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "placement": "left",
-                    "endpoint": 0
-                },
-                {
-                    "key": "field_5e6bd4f3455cf",
-                    "label": "Block 4",
-                    "name": "block_4",
-                    "type": "clone",
-                    "instructions": "Block 4 should contain an image with a quote",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "clone": [
-                        "group_5e693aa718250",
-                        "group_5e6a82b067d0c"
-                    ],
-                    "display": "group",
-                    "layout": "block",
-                    "prefix_label": 0,
-                    "prefix_name": 1
-                },
-                {
-                    "key": "field_5e72569ce2974",
-                    "label": "Block 5",
+                    "label": "Column 3",
                     "name": "",
                     "type": "tab",
                     "instructions": "",
@@ -306,10 +265,10 @@
                 },
                 {
                     "key": "field_5e7257eea9d22",
-                    "label": "Block 5",
+                    "label": "Column 3 Content",
                     "name": "block_5",
                     "type": "clone",
-                    "instructions": "Block 5 should contain the call to action",
+                    "instructions": "This column should contain the call to action",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -330,7 +289,7 @@
         },
         {
             "key": "field_5e6bd4f36d475",
-            "label": "Feature Highlights",
+            "label": "Features Section",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -343,6 +302,27 @@
             },
             "placement": "top",
             "endpoint": 0
+        },
+        {
+            "key": "field_5e7e0ba574137",
+            "label": "Section 4 Header Customization",
+            "name": "section_4_header_customization",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5e7cdd4a97879"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
         },
         {
             "key": "field_5e6bd4f3709bc",
@@ -414,7 +394,7 @@
                 },
                 {
                     "key": "field_5e6bd4f374652",
-                    "label": "Background",
+                    "label": "Column 2",
                     "name": "column_2",
                     "type": "clone",
                     "instructions": "",
@@ -426,7 +406,8 @@
                         "id": ""
                     },
                     "clone": [
-                        "group_5e6a82b067d0c"
+                        "group_5e6a82b067d0c",
+                        "field_5e7b63b312be7"
                     ],
                     "display": "group",
                     "layout": "block",
@@ -437,7 +418,7 @@
         },
         {
             "key": "field_5e6bd5edeadff",
-            "label": "Detailed Features",
+            "label": "Attributes Section",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -450,6 +431,27 @@
             },
             "placement": "top",
             "endpoint": 0
+        },
+        {
+            "key": "field_5e7e0ba674138",
+            "label": "Section 5 Header Customization",
+            "name": "section_5_header_customization",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5e7cdd4a97879"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
         },
         {
             "key": "field_5e6bd5fdeae00",
@@ -506,6 +508,27 @@
             "endpoint": 0
         },
         {
+            "key": "field_5e7e0ba774139",
+            "label": "Section 6 Header Customization",
+            "name": "section_6_header_customization",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5e7cdd4a97879"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
             "key": "field_5e6bd6bdeae02",
             "label": "Section 6",
             "name": "section_6",
@@ -537,7 +560,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 10,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -545,5 +568,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1584553251
+    "modified": 1585531308
 }

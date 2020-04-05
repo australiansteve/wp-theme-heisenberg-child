@@ -25,11 +25,11 @@
 .ui-accordion {
 
     div, h3 {
-        font-family: Raleway, sans-serif;
+        font-family: Futura, sans-serif;
         font-weight: 400;
     }
     .ui-accordion-header {
-        background: $grey-color;
+        background: $light-grey-color;
         color: $black-color;
         text-align: left;
 
@@ -38,7 +38,7 @@
                 background-color: $white-color;
             }
             tr:nth-of-type(even) {
-                background-color: $grey-color;
+                background-color: $light-grey-color;
             }
         }
     }
@@ -48,7 +48,7 @@
 
         + .ui-accordion-content {
             tr {
-                background-color: $grey-color;
+                background-color: $light-grey-color;
             }
             tr:nth-of-type(even) {
                 background-color: $white-color;
@@ -60,7 +60,6 @@
         padding: 0;
 
         table {
-            font-size: 1rem;
             width: 100%;
 
             tr {
@@ -100,7 +99,7 @@
                     }
 
                     td:nth-of-type(2) {
-                        border-left: 1px $icon-color dotted;
+                        border-left: 1px $light-grey-color dotted;
                     }
                 }
             }

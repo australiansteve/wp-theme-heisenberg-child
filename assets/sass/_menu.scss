@@ -1,0 +1,123 @@
+.off-canvas {
+	background: $faded-tshirt-color;
+	border: $border-width solid $white-color;
+
+	.off-canvas-header {
+		position: absolute;
+		top: $border-width;
+		left: $border-width;
+		right: $border-width;
+
+		.close-button {
+			color: $white-color;
+			font-size: 41px;
+			margin-top: -1.4rem;
+			margin-right: -1rem;
+		}
+	}
+
+	.menu {
+		li {
+			display: block;
+
+			a {
+				font-size: 28px;
+				font-weight: 900;
+				text-transform: uppercase;
+				color: $white-color;
+				padding: 1.5rem 1rem;
+			}
+
+			a:hover {
+				color: $light-grey-color
+			}
+
+			a:visited {
+				color: $white-color
+			}
+		}
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.off-canvas {
+
+		.menu {
+			li {
+
+				a {
+					font-size: 36px;
+				}
+			}
+
+		}
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	.off-canvas {
+
+		.menu {
+			li {
+
+				a {
+					font-size: 45px;
+				}
+			}
+
+		}
+	}
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 99.9375em) {
+	
+}
+
+/* XLarge and up */
+@media screen and (min-width: 100em) {
+	.off-canvas {
+
+
+		.off-canvas-header {
+			position: absolute;
+			top: 3rem;
+			left: 3rem;
+			right: 3rem;
+		}
+
+
+		.menu {
+			li {
+
+				a {
+					font-size: 55px;
+					padding: 2rem 3rem;
+				}
+			}
+
+		}
+	}
+}
+
+/* XLarge only */
+@media screen and (min-width: 100em) and (max-width: 149.9375em) {
+	
+}
+
+/* XXLarge and up */
+@media screen and (min-width: 150em) {
+	
+}

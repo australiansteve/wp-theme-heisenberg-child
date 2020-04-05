@@ -1,34 +1,23 @@
-footer {
-	position: relative;
-	border: $border-width solid $white-color;
-	border-top-width: 0;
-	padding: $border-width;
-	font-size: 18px;
+.post-type-archive-austeve-products {
 
-	.background-div {
-		position: absolute;
-		z-index: -1;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
+	#section_1 {
+		h4 {
+			font-size: 24px;
+		}
+
+		.html-block {
+			padding-top: 50vh;
+		}
 	}
 
-	#footer-logo, #footer-content {
-		margin-bottom: 1rem;
+	#section_1 {
+		.button.call-to-action {
+			margin-top: 3rem;
+			font-size: 16px;
+		}
 	}
-
-	#wcc-copyright {
-		font-size: 14px;
-		color: $light-grey-color;
-		opacity: 0.2;
-	}
-
-	img {
-		max-width: 108px;
-	}
-
 }
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
@@ -36,7 +25,12 @@ footer {
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
-	
+	.post-type-archive-austeve-products {
+
+		#section_1 {
+			font-size: 20px;
+		}
+	}
 }
 
 /* Medium only */
@@ -44,22 +38,25 @@ footer {
 	
 }
 
-/* Large and up */
+/* Large and up (>1024px) */
 @media screen and (min-width: 64em) {
-	
-}
+	.post-type-archive-austeve-products {
 
+		#section_1 {
+			font-size: 24px;
+		
+		}
+	}
+}
 
 /* Large only */
 @media screen and (min-width: 64em) and (max-width: 99.9375em) {
 	
 }
 
-/* XLarge and up */
+/* XLarge and up (>1600px) */
 @media screen and (min-width: 100em) {
-	footer {
-		font-size: 22px;
-	}
+	
 }
 
 /* XLarge only */
@@ -67,7 +64,7 @@ footer {
 	
 }
 
-/* XXLarge and up */
+/* XXLarge and up (>2400px) */
 @media screen and (min-width: 150em) {
 	
 }

@@ -1,0 +1,233 @@
+.austeve-products-template-default.single {
+
+	section#section_3 {
+
+		font-size: 20px;
+
+		.html-block.align-left {
+			padding-top: 4rem;
+		}
+
+		h2 {
+			margin-bottom: 3rem;
+		}
+
+		#section_3_block_2 p {
+			text-transform: uppercase;
+			font-weight: 900;
+		}
+
+		#section_3_block_4 {
+			.font-heavy { 
+				font-size: 16px;
+			}
+			.font-demi { 
+				font-size: 14px;
+			}
+		}
+		
+		#section_3_block_5 {
+			text-transform: uppercase;
+
+			a {
+				margin-top: 1rem;
+
+			}
+		}
+	}
+
+	#section_4 {
+
+		h4 {
+			font-size: 18px;
+			font-weight: 900;
+			text-transform: uppercase;
+		}
+		p {
+			font-size: 16px;
+		}
+
+		.feature {
+			margin-bottom: 0.5rem;
+
+			.icon {
+				line-height: 0;
+
+				img {
+					margin-top: 6px;
+				}
+			}
+		}
+
+		.feature:hover {
+			cursor: pointer;
+		}
+	}
+
+	#section_5_column_1 {
+		.cell {
+			padding: $border-width;
+		}
+	}
+
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	.austeve-products-template-default.single {
+		#section_4 {
+			#section_4_column_1 {
+				min-height: 50vh;
+			}
+
+			#section_4_column_2 {
+				justify-content: start;
+
+				.icon {
+					img {
+						height: 2rem;
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Medium and up (>640px) */
+@media screen and (min-width: 40em) {
+	.austeve-products-template-default.single {
+
+		section#section_3 {
+			font-size: 18px;
+
+			.html-block.align-left {
+				padding-top: 6rem;
+			}
+
+			#section_3_block_2 h2 {
+				margin-bottom: 6rem;
+			}
+
+		}
+
+		#section_4 {
+			h4 {
+				font-size: 24px;
+				font-weight: 900;
+			}
+
+			#section_4_column_2 {
+
+				.feature-container {
+					padding-left: 5%;
+				}
+
+				.feature-detail {
+					padding-left: 1rem;
+				}
+			}
+
+		}
+
+		#section_5_column_1 {
+			font-size: 24px;
+		}
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up (>1024px) */
+@media screen and (min-width: 64em) {
+	.austeve-products-template-default.single {
+
+		section#section_3 {
+			font-size: 26px;
+
+			#section_3_block_4 {
+				.font-heavy { 
+					font-size: 24px;
+				}
+				.font-demi { 
+					font-size: 18px;
+				}
+			}
+		}
+
+		#section_4 {
+
+			#section_4_column_2 {
+
+				.feature-container {
+					max-width: 80%;
+				}
+			}
+		}
+
+		#section_5_column_1 {
+			padding-left: 10rem;
+			padding-right: 10rem;
+		}
+
+		#section_6 div#section_6 {
+			
+		}
+
+		
+	}
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 99.9375em) {
+	
+}
+
+/* XLarge and up (>1600px) */
+@media screen and (min-width: 100em) {
+	.austeve-products-template-default.single {
+
+		#section_2 div#section_2 {
+
+			.font-heavy {
+				font-size: 44px;
+				line-height: 1.5;
+			}
+		}
+
+		section#section_3 {
+			font-size: 36px;
+
+			.html-block {
+				padding-left: 4rem;
+				padding-right: 4rem;
+			}
+
+			#section_3_block_4 {
+				.font-heavy { 
+					font-size: 30px;
+				}
+				.font-demi { 
+					font-size: 24px;
+				}
+			}
+
+		}
+
+	}
+}
+
+/* XLarge only */
+@media screen and (min-width: 100em) and (max-width: 149.9375em) {
+	
+}
+
+/* XXLarge and up (>2400px) */
+@media screen and (min-width: 150em) {
+	.austeve-products-template-default.single {
+		
+	}
+}

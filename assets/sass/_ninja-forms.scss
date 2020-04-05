@@ -1,0 +1,81 @@
+.nf-form-cont {
+	max-width: 565px;
+	margin: 5rem auto;
+
+	.nf-field-container {
+		margin-bottom: 0.5rem;
+	}
+
+	.nf-input-limit {
+		margin-top: 0;
+	}
+
+	.nf-error-msg.nf-error-required-error {
+		display: none;
+	}
+
+	h3 {
+		font-size: 32px;
+	}
+
+	input[type=button] {
+		height: auto !important;
+		margin-top: 1rem;
+	}
+
+	input[type=button].white {
+		background-color: $bone-color;
+		color: $faded-tshirt-color;
+	}
+}
+
+/* Small only (up to 640px) */
+@media screen and (min-width: 39.975em) {
+	
+}
+
+/* Medium and up (>640px) */
+@media screen and (min-width: 40em) {
+	.nf-form-cont {
+		h3 { 
+			font-size: 48px;
+		}
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.nf-form-cont {
+
+		nf-field {
+			display: inline-block;
+			width: 100%;
+			margin-bottom: -6px;
+		}
+
+		nf-field:nth-of-type(1), nf-field:nth-of-type(2) {
+			width: 50%;
+		}
+
+		nf-field:nth-of-type(1), nf-field:nth-of-type(2), nf-field:nth-of-type(3) {
+			.nf-field-container {
+				margin-bottom: 0;
+			}
+		}
+
+		input[type=button] {
+			margin-top: 3rem;
+		}
+	}
+}
+
+/* XLarge and up (>1600px) */
+@media screen and (min-width: 100em) {
+	.nf-form-cont {
+		max-width: 700px;
+
+		h3 { 
+			font-size: 58px;
+			margin-bottom: 3rem;
+		}
+	}
+}

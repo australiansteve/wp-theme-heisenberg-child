@@ -19,6 +19,75 @@
             "placeholder": ""
         },
         {
+            "key": "field_5e7e1f21147f7",
+            "label": "Placeholder Image",
+            "name": "placeholder_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5e7e2990689b7",
+            "label": "Video Autoplay",
+            "name": "video_autoplay",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e7e1f21147f7",
+                        "operator": "==empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5e7e29af689b8",
+            "label": "Video Starts Muted",
+            "name": "video_starts_muted",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5e6938c76daac",
             "label": "Tagline",
             "name": "tagline",
@@ -55,5 +124,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1584013879
+    "modified": 1585326558
 }

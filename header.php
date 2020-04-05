@@ -24,15 +24,41 @@
 	global $sectionNumber;
 	$sectionNumber = 1;
 	?>
+	<header>
+		<?php 
+		$custom_logo_id = get_theme_mod( 'custom_logo' );
+		$headerImage = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 
-	<div class="grid-container">
-		<header>
-			<?php 
-			$custom_logo_id = get_theme_mod( 'custom_logo' );
-			$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-			?>
-			<img src="<?php echo $image[0]; ?>" width="150" height="56" alt="">
-		</header>
-	</div>
+		//include( locate_template( 'page-templates/template-parts/header.php', false, false ) ); 
+		?>
+	</header>
 	<main>
-		<div id="page-container">
+
+		<div class="off-canvas position-left" id="offCanvas" data-off-canvas data-transition="push">
+			<div class="off-canvas-header">
+				<div class="grid-x" style="height: 10vh">
+					<div class="small-6 text-left">
+						<a href="/" title="<?php echo get_bloginfo('name');?>"><img src="<?php echo $headerImage[0]; ?>" width="150" height="56" alt=""></a>
+					</div>
+					<div class="small-6 text-right">
+						<button class="close-button" aria-label="Close menu" type="button" data-close>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="grid-y align-center" style="height: 90vh">
+				<div class="cell shrink">
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'primary',
+						'container' => false,
+					) );
+					?>
+				</div>
+			</div>
+			
+		</div>
+		<div class="off-canvas-content" data-off-canvas-content>
+			<div class="click-to-scroll-down"><a title="Scroll down" href="#"><i class="fas fa-chevron-down"></i></a></div>
+			<div id="page-container">	
