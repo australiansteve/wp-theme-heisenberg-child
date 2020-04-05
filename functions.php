@@ -39,14 +39,7 @@ endif; /* End ACF related options & filters */
 add_action( 'after_setup_theme', function() {
 	register_nav_menu( 'social-media', __( 'Social Media Menu', 'heisenberg' ) );
 
-	add_theme_support( 'custom-logo', array(
-		'height'      => 224,
-		'width'       => 600,
-		'flex-height' => false,
-		'flex-width'  => false,
-		'header-text' => array( 'site-title', 'site-description' ),
-	) );
-	add_image_size( 'header-image', 150, 56, true );
+	add_image_size( 'header-image', 600, 224, true );
 	add_image_size( 'footer-logo', 432, 672, true );
 
 });

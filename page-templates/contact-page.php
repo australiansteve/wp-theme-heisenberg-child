@@ -11,7 +11,6 @@ if ( have_posts() ) :
 
 		$sectionId = 'section_1';
 		$sectionClasses = '';
-		$customLogo = get_field($sectionId.'_header_customization_header_logo');
 		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
 		?>
 

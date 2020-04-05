@@ -18,6 +18,54 @@ $black-color: #000000;
 $border-width: 1rem;
 $border-total: 2rem;
 
+.white {
+	color: $white-color;
+}
+.blue {
+	color: $blue-color;
+}
+.sky-blue {
+	color: $sky-blue-color;
+}
+.yellow {
+	color: $yellow-color;
+}
+.cayenne {
+	color: $cayenne-color;
+}
+.teal {
+	color: $teal-color;
+}
+.bone {
+	color: $bone-color;
+}
+.faded-tshirt {
+	color: $faded-tshirt-color;
+}
+.salmon {
+	color: $salmon-color;
+}
+.blush {
+	color: $blush-color;
+}
+.gold {
+	color: $gold-color;
+}
+.emerald-green {
+	color: $emerald-green-color;
+}
+.light-grey {
+	color: $light-grey-color;
+}
+.mint {
+	color: $mint-color;
+}
+.butter {
+	color: $butter-color;
+}
+.black {
+	color: $black-color;
+}
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
@@ -36,9 +84,6 @@ $border-total: 2rem;
 
 /* Large and up */
 @media screen and (min-width: 64em) {
-	
-	$border-width: 2rem;
-	$border-total: 4rem;
 
 }
 
@@ -49,9 +94,6 @@ $border-total: 2rem;
 
 /* XLarge and up */
 @media screen and (min-width: 100em) {
-	
-	$border-width: 4rem;
-	$border-total: 8rem;
 
 }
 

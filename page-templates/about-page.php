@@ -11,14 +11,12 @@ if ( have_posts() ) :
 
 		$sectionId = 'section_1';
 		$sectionClasses = '';
-		$customLogo = get_field($sectionId.'_header_customization_header_logo');
 		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
 		include( locate_template( 'page-templates/template-parts/section-video-with-tagline.php', false, false ) );	
 		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
 
 		$sectionId = 'section_2';
 		$sectionClasses = 'single-block-section';
-		$customLogo = get_field($sectionId.'_header_customization_header_logo');
 		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
 		?>
 		<div class="section-content text-center" id="<?php echo $sectionId;?>-content">
@@ -31,7 +29,6 @@ if ( have_posts() ) :
 		
 		$sectionId = 'section_3';
 		$sectionClasses = '';
-		$customLogo = get_field($sectionId.'_header_customization_header_logo');
 		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
 		?>
 		<div class="section-content">
@@ -66,7 +63,6 @@ if ( have_posts() ) :
 		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
 
 		$sectionId = 'section_4';
-		$customLogo = get_field($sectionId.'_header_customization_header_logo');
 		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
 		?>
 		<div class="section-content">

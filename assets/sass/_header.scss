@@ -9,6 +9,10 @@ header, .section-header {
 
 	.left {
 		float: left;
+
+		.header-logo {
+			max-width: 150px;
+		}
 	}
 
 	.right { 

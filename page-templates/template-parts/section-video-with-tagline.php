@@ -15,10 +15,10 @@
 					<a class="placeholder-go <?php echo $videoUrl ? '': 'no-video';?>"><i class="fas fa-play"></i></a>
 				</div>
 			</div>
-		<?php
+			<?php
 		} 
 		if ($videoUrl) {
-		?>
+			?>
 
 			<div class="video-wrapper">
 				<video id="headerVideo" <?php echo $startMuted ? "muted" : ""; echo (!$placeholderImage && $autoplay) ? "autoplay" : ""; ?>>
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 
-		<?php
+			<?php
 		}
 		?>
 	</div>
@@ -88,11 +88,11 @@
 
 	var video = document.querySelector('video');
 	if (video) {
-	video.addEventListener('ended',endOfVideoHandler,false);
-}
-    function endOfVideoHandler(e) {
-        jQuery(".placeholder-image").css("opacity", "1");
-        jQuery(".placeholder-image").show();
+		video.addEventListener('ended',endOfVideoHandler,false);
+	}
+	function endOfVideoHandler(e) {
+		jQuery(".placeholder-image").css("opacity", "1");
+		jQuery(".placeholder-image").show();
 		jQuery(".placeholder-go").show();
-    }
+	}
 </script>

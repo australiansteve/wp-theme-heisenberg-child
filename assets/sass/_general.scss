@@ -1,23 +1,23 @@
 body {
 	position: relative;
 
-.click-to-scroll-down {
-			bottom: 1rem;
-			width: 100%;
-			text-align: center;
-			font-size: 16px;
-			position: fixed;
-			z-index: 100;
-			transition: opacity 2s linear;
+	.click-to-scroll-down {
+		bottom: 1rem;
+		width: 100%;
+		text-align: center;
+		font-size: 16px;
+		position: fixed;
+		z-index: 100;
+		transition: opacity 2s linear;
 
-			a {
-				color: black;
-				display: block;
-			}
-			a:hover {
+		a {
+			color: black;
+			display: block;
+		}
+		a:hover {
 			cursor: pointer;
 		}
-		}
+	}
 
 	#page-container {
 		transition: transform 1s ease;
@@ -154,19 +154,11 @@ body {
 			font-weight: 900;
 		}
 
-		.emerald-green {
-			color: $emerald-green-color;
-		}
-
-		.yellow {
-			color: $yellow-color;
-		}
-
 	}		
 
 	.video-container {
 		position: relative;
-		font-size: 20px;
+		font-size: 35px;
 
 		a, a:hover, a:active, a:focus, a:visited {
 			color:$white-color;

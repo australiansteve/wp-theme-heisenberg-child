@@ -56,11 +56,43 @@
 				img {
 					margin-top: 6px;
 				}
+
+				.normal {
+					display: block;
+				}
+				.highlight {
+					display: none;
+				}
 			}
+			
 		}
 
 		.feature:hover {
 			cursor: pointer;
+
+			h4 {
+				text-decoration: underline;
+			}
+			
+			.icon {
+				.normal {
+					display: none;
+				}
+				.highlight {
+					display: block;
+				}
+			}
+		}
+
+		.feature.active {
+			.icon {
+				.normal {
+					display: none;
+				}
+				.highlight {
+					display: block;
+				}
+			}
 		}
 	}
 
