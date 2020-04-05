@@ -1,6 +1,6 @@
 {
     "key": "group_5e6a2a700a32d",
-    "title": "Section Image with Text adjacent",
+    "title": "Section Image with Text adjacent - OBSOLETE",
     "fields": [
         {
             "key": "field_5e6a2a82e442b",
@@ -99,7 +99,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 999,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -107,5 +107,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1584039104
+    "modified": 1586097916
 }

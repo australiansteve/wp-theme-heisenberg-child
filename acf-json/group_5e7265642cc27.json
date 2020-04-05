@@ -1,6 +1,6 @@
 {
     "key": "group_5e7265642cc27",
-    "title": "Contact Form",
+    "title": "Component: Contact Form",
     "fields": [
         {
             "key": "field_5e72656f6f2c6",
@@ -33,7 +33,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 75,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -41,5 +41,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1584555410
+    "modified": 1586097759
 }

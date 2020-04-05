@@ -1,6 +1,6 @@
 {
     "key": "group_5e2085c34a6db",
-    "title": "Product Feature Customization",
+    "title": "Product Feature Customization - OBSOLETE",
     "fields": [
         {
             "key": "field_5e2085d9dc0e5",
@@ -445,7 +445,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 999,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -453,5 +453,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1583954397
+    "modified": 1586097675
 }

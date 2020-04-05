@@ -1,6 +1,6 @@
 {
     "key": "group_5e29a4aecb5b9",
-    "title": "Section: Image with text overlay",
+    "title": "Section: Image with text overlay - OBSOLETE",
     "fields": [
         {
             "key": "field_5e29a4c2cb78a",
@@ -197,11 +197,11 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "page-templates\/product-pricing-page.php"
+                "value": "default"
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 999,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -209,5 +209,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1579793396
+    "modified": 1586097726
 }

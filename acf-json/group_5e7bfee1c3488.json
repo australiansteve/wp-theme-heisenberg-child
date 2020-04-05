@@ -1,6 +1,6 @@
 {
     "key": "group_5e7bfee1c3488",
-    "title": "Element Position",
+    "title": "Setting: Element Position",
     "fields": [
         {
             "key": "field_5e7bfee1d8469",
@@ -62,7 +62,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 80,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -70,5 +70,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1585187260
+    "modified": 1586097809
 }

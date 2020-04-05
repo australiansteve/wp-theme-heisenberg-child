@@ -1,6 +1,6 @@
 {
     "key": "group_5e7cdd41997c4",
-    "title": "Header Customization",
+    "title": "Component: Header Customization",
     "fields": [
         {
             "key": "field_5e7cdd4a97879",
@@ -57,7 +57,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 70,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -65,5 +65,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1585579459
+    "modified": 1586097884
 }
