@@ -71,3 +71,23 @@ function austeve_exclude_products_from_archive($query) {
 	}
 }
 add_action( 'pre_get_posts', 'austeve_exclude_products_from_archive' );
+
+function austeve_load_image_size_field_choices( $field ) {
+    
+    if ($field['type'] == 'select') {
+
+	    $field['choices'] = array(); /* reset choices */
+	    $imageSizes = get_intermediate_image_sizes();
+	    $field['choices'][ 'full' ] = 'full';
+
+	    if( is_array($imageSizes) ) {
+	        foreach( $imageSizes as $imageSize ) {
+	            $field['choices'][ $imageSize ] = $imageSize;
+	        }
+	    }     
+    }
+    return $field;
+    
+}
+
+add_filter('acf/load_field/name=image_size', 'austeve_load_image_size_field_choices');

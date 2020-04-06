@@ -55,7 +55,7 @@ if ( have_posts() ) :
 				<div class="cell medium-6">
 					<?php
 					$sectionId = "section_4_column_1";
-					include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
+					include( locate_template( 'page-templates/template-parts/section-img-with-background.php', false, false ) ); 
 					?>
 				</div>
 				<div class="cell medium-6">

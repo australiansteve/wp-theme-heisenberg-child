@@ -14,24 +14,21 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 				while ( have_posts() ) :
 
 					the_post();
-					$sectionId="section_1";
-					$htmlContent = get_field($sectionId.'_content');
-					$textColor =  get_field($sectionId.'_text_color');
-					$textColor = is_array($textColor) ? $textColor[0] : $textColor; /* Default value comes back in an array */
-					$textPosition =  get_field($sectionId.'_text_position');	
-					error_log($sectionId);
-					error_log("Text position: ".print_r($textPosition, true));
-					$textPosition = is_array($textPosition) ? $textPosition['vertical'] : 'center';
-
 					?>
-					<div class="cell medium-4 small-full-height" id="<?php echo $sectionId;?>">
-						
-						<div class="grid-y align-<?php echo $textPosition;?> html-block <?php echo $sectionClasses;?>" >
-							<?php
-							include( locate_template( 'page-templates/template-parts/section-background.php', false, false ) ); 
-							?>
-							<div class="cell" style="<?php if ($textColor) { echo 'color: '.$textColor; } ?>">
-								<?php echo $htmlContent; ?>
+					<div class="cell medium-4 small-full-height">
+
+						<div class="grid-y align-center" style="height: 100%">
+							<div class="cell small-6 medium-7">
+								<?php
+								$sectionId="section_2_archive";
+								include( locate_template( 'page-templates/template-parts/section-img-with-background.php', false, false ) ); 
+								?>
+							</div>
+							<div class="cell small-6 medium-5">
+								<?php
+								$sectionId="section_1_archive";
+								include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
+								?>
 							</div>
 						</div>
 

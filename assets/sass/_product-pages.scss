@@ -38,6 +38,10 @@
 
 	#section_4 {
 
+		.cell {
+			transition: opacity 0.5s linear;
+		}
+
 		h4 {
 			font-size: 16px;
 			font-weight: 900;
@@ -47,10 +51,16 @@
 			font-size: 16px;
 		}
 
+		.img-block {
+			padding: 1rem;
+		}
+
 		.feature {
 			margin-bottom: 0.5rem;
 
 			.icon {
+				padding-right: 1rem;
+
 				div {
 					line-height: 0;
 				}
@@ -150,6 +160,15 @@
 
 				.feature-container {
 					padding: 75px 5%;
+
+					.feature {
+						.icon {
+							img {
+								margin-top: 3px;
+							}
+						}
+					}
+
 				}
 
 				.feature-detail {
@@ -259,13 +278,27 @@
 				font-size: 24px;
 			}
 			.description {
-			font-size: 20px;
-		}
-		.icon {
-			img {
-				max-width: 50px;
+				font-size: 20px;
 			}
-		}
+			.icon {
+				img {
+					max-width: 50px;
+				}
+			}
+
+
+			#section_4_column_2 {
+
+				.feature-container {
+					.feature {
+						.icon {
+							img {
+								margin-top: 6px;
+							}
+						}
+					}
+				}
+			}
 		}
 
 	}
