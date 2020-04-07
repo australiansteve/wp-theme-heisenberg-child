@@ -22,6 +22,10 @@ add_action( 'wp_enqueue_scripts', function() {
 	wp_enqueue_style('jquery-ui-css',
 		'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css'
 	);
+
+	wp_enqueue_script('lodash-js',
+		'https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js'
+	);
 	
 	// JS
 	wp_enqueue_script(

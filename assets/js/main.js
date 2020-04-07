@@ -43,14 +43,14 @@ jQuery( document ).ready(function() {
 		return false;
 	});
 
-	myElement.onwheel = debounce(function(ev) {
+	myElement.onwheel = function(ev) {
 		console.log("On wheel");
 		if (ev.deltaY > 0) {
 			goDown(ev);  	
 		} else {
 			goUp();
 		}
-	}, 250, true);
+	}
 
 	document.onkeydown = function(ev) {
 		ev = ev || window.event;
@@ -69,23 +69,28 @@ jQuery( document ).ready(function() {
 	insertClickToScrollDownButtons();
 });
 
-function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this,
-		args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-}
+// function debounce(func, wait, immediate) {
+// 	var timeout;
+// 	console.log("debounce function");
+// 	return function() {
+// 		var context = this,
+// 		args = arguments;
+// 		var later = function() {
+// 			console.log("later");
+// 			timeout = null;
+// 			if (!immediate) func.apply(context, args);
+// 		};
+// 		var callNow = immediate && !timeout;
+// 		console.log("callNow: " + callNow);
+// 		clearTimeout(timeout);
+// 		console.log("timeout cleared: " + timeout);
+// 		timeout = setTimeout(later, wait);
+// 		console.log("setTimeout: " + timeout);
+// 		if (callNow) func.apply(context, args);
+// 	};
+// }
 
-var goDown = debounce(function(event) {
+const goDown = _.throttle(function(event) {
 	console.log("scroll down " + event.type);
 	console.log(event);
 	var activeSection = jQuery("section.active");
@@ -167,6 +172,8 @@ var goDown = debounce(function(event) {
 		jQuery(".click-to-scroll-down").css('opacity', '0');
 	}	
 
+	jQuery("body").addClass('disable-overscroll');
+
 	//pause video if there is one playing
 	var video = document.querySelector('video');
 	if (video) {
@@ -174,9 +181,9 @@ var goDown = debounce(function(event) {
 		jQuery(".toggle-play").addClass("paused");
 	}
 
-}, 50,	true);
+}, 1500, { 'leading': true, 'trailing': false } );
 
-var goUp = debounce(function() {
+var goUp = _.throttle(function() {
 	console.log("scroll up");
 	var activeSection = jQuery("section.active");
 	var activeFooter = jQuery("footer.active");
@@ -197,6 +204,9 @@ var goUp = debounce(function() {
 				prevSection.addClass("active");
 				prevSection.css("transform", "scale(1, 1)");
 			}
+			if (prevSection.attr("data-section") == 1) {
+				jQuery("body").removeClass('disable-overscroll');
+			}
 		}
 	}
 	else if (activeFooter.length > 0) {
@@ -211,9 +221,9 @@ var goUp = debounce(function() {
 		jQuery(".click-to-scroll-down").css('opacity', '1');
 	}
 
-}, 50, true );
+}, 1500, {'leading': true, 'trailing': false });
 
-var repositionAfterResize = debounce(function() {
+var repositionAfterResize = _.debounce(function() {
 	console.log("Window resize. " + currentYPos);
 	console.log("WIH1 " + window.innerHeight);
 	jQuery("main").height(window.innerHeight);

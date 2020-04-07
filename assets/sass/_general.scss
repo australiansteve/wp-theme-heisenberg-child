@@ -250,6 +250,10 @@ body {
 
 }
 
+body.disable-overscroll {
+	overscroll-behavior: none;
+}
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	.small-half-height {
