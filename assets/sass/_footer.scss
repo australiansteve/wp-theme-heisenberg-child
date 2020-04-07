@@ -14,7 +14,15 @@ footer {
 		right: 0;
 	}
 
-	#footer-logo, #footer-content {
+	a {
+		color: inherit;
+	}
+
+	a:hover {
+		color: inherit;
+	}
+
+	#footer-logo, #footer-content, #back-to-top {
 		margin-bottom: 1rem;
 	}
 

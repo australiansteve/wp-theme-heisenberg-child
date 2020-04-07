@@ -119,6 +119,25 @@
                     "prefix_name": 0
                 },
                 {
+                    "key": "field_5e8d0455877e9",
+                    "label": "'Back To Top' Link Text",
+                    "name": "back_to_top_text",
+                    "type": "text",
+                    "instructions": "Displayed on small screens only",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_5e80f2bc6243c",
                     "label": "Background",
                     "name": "background",
@@ -218,5 +237,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1586280772
+    "modified": 1586300053
 }

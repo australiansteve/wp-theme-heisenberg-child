@@ -260,11 +260,18 @@ var resetPagePosition = function() {
 	currentYPos = 0;
 	jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
 	var activeSection = jQuery("section.active");
+	var activeFooter = jQuery("footer.active");
 	var firstSection = jQuery("section:nth-of-type(1)");
 	activeSection.removeClass("active");
 	activeSection.css("transform", "scale(0.75, 0.75)");
 	firstSection.addClass("active");
 	firstSection.css("transform", "scale(1, 1)");
+	activeFooter.removeClass("active");
+
+	/* reset all section content to the top */
+	jQuery("section .section-content").each(function(){
+	    this.scrollTop = 0;
+	})
 }
 
 var insertClickToScrollDownButtons = function() {
