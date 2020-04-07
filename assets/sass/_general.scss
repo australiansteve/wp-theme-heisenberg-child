@@ -204,12 +204,12 @@ body {
 			}
 
 			.toggle-mute.sound-on {
-				.fa-volume-up {
+				.fa-volume-mute {
 					display: none;
 				}
 			}
 			.toggle-mute:not(.sound-on) {
-				.fa-volume-mute {
+				.fa-volume-up {
 					display: none;
 				}
 			}
