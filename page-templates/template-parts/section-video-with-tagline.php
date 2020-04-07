@@ -57,7 +57,7 @@
 	function hidePlaceholder() {
 		jQuery(".placeholder-image").hide();
 	}
-	jQuery(".placeholder-go").on('click', function() {
+	jQuery(".placeholder-image").on('click', function() {
 		const media = document.querySelector('video');
 		jQuery(".placeholder-image").css("opacity", "0");
 		jQuery(this).hide();
