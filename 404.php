@@ -7,21 +7,40 @@
  * @package Heisenberg
  */
 
-get_header(); ?>
+get_header(); 
 
-	<div class="grid-x grid-padding-x">
+$sectionId = '404_page';
+$sectionClasses = 'single-block-section';
+$customLogo = get_field($sectionId.'_header_customization_header_logo', 'option');
+$customTextColor = get_field($sectionId.'_header_customization_text_color', 'option');
 
-		<div class="small-12 cell">
+?>
+<section id="<?php echo $sectionId;?>"  data-section="<?php global $sectionNumber; echo $sectionNumber;?>" class="<?php echo ($sectionNumber == 1) ? 'active' : '';?>">
 
-			<h1>Oops! That page can't be found.</h1>
-
-			<p>It looks like nothing was found at this location.</p>
-
-			<p><a href="<?php echo esc_url( home_url( '/' ));?>">Return to homepage</a></p>
-			
-		</div>
-
+	<div class="section-header <?php echo ($sectionNumber != 1) ? 'show-for-medium' : '';?>" style="color: <?php echo $customTextColor['text_color'];?>">
+		<?php 
+		$sectionNumber++;
+		$defaultLogoId = get_field('default_logo', 'option');
+		if ($customLogo) {
+			$headerImage = wp_get_attachment_image_src( $customLogo , 'header-image' );
+		}
+		else {
+			$headerImage = wp_get_attachment_image_src( $defaultLogoId , 'header-image' );
+		}
+		include( locate_template( 'page-templates/template-parts/header.php', false, false ) ); 
+		?>
 	</div>
+	<?php
+	$htmlContent = get_field($sectionId.'_content', 'option');
+	?>
+	<div class="grid-y align-center html-block <?php echo $sectionClasses;?>" id="<?php echo $sectionId;?>" style="height: 100%">
+		<div class="cell" style="<?php if ($textColor) { echo 'color: '.$textColor; } ?>">
+			<?php echo $htmlContent; ?>
+		</div>
+	</div>
+
+</section>
+
 
 <?php
 get_footer();
