@@ -6,11 +6,13 @@
 		}
 
 		.html-block {
-			padding-top: 50vh;
-		}
-	}
 
-	#section_3 {
+		}
+
+		.img-block {
+			padding: 1rem;
+		}
+
 		.button.call-to-action {
 			font-size: 16px;
 		}
@@ -59,6 +61,23 @@
 
 		#section_3 {
 			font-size: 20px;
+
+			.img-block {
+				padding-top: 100px;
+
+				.cell {
+					max-height: 100%;
+
+					img { 
+						display: block;
+						width: auto;
+						height: auto;
+						max-height: 100%;
+						margin: auto;
+					}
+				}
+			}
+
 		}
 
 		#section_5, #section_6, #section_7, #section_8 {

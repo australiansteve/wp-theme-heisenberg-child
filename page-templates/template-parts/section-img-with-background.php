@@ -6,7 +6,7 @@ error_log("Image position: ".print_r($position, true));
 $positionV = is_array($position) ? $position['vertical'] : 'center';
 $positionH = is_array($position) ? $position['horizontal'] : 'center';
 ?>
-<div class="grid-y align-<?php echo $positionV;?> img-block <?php echo $sectionClasses;?>" id="<?php echo $sectionId;?>">
+<div class="grid-y align-<?php echo $positionV;?> img-block <?php echo $sectionClasses;?>" id="<?php echo $sectionId;?>" style="height: 100%">
 	<?php
 	include( locate_template( 'page-templates/template-parts/section-background.php', false, false ) ); 
 	?>

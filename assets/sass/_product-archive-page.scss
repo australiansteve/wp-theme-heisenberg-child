@@ -8,7 +8,7 @@
 		.html-block {
 			
 		}
-		
+
 		.img-block {
 			padding: 1rem;
 		}
@@ -33,6 +33,22 @@
 
 		#section_1 {
 			font-size: 20px;
+
+			.img-block {
+				padding-top: 100px;
+
+				.cell {
+					max-height: 100%;
+
+					img { 
+						display: block;
+						width: auto;
+						height: auto;
+						max-height: 100%;
+						margin: auto;
+					}
+				}
+			}
 		}
 	}
 }

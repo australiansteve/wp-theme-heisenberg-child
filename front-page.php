@@ -36,22 +36,52 @@ if ( have_posts() ) :
 				<div data-equalizer="product-title-equalizer" data-equalize-on="medium" style="height: 100%">
 					<div class="grid-x" data-equalizer="product-description-equalizer" data-equalize-on="medium">
 						<div class="cell medium-4 small-full-height">
-							<?php
-							$sectionId = "section_3_column_1";
-							include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
-							?>
+							<div class="grid-y align-center" style="height: 100%">
+								<div class="cell small-6 medium-7">
+									<?php
+									$sectionId="section_3_column_1_image";
+									include( locate_template( 'page-templates/template-parts/section-img-with-background.php', false, false ) ); 
+									?>
+								</div>
+								<div class="cell small-6 medium-5">
+									<?php
+									$sectionId="section_3_column_1";
+									include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
+									?>
+								</div>
+							</div>
 						</div>
 						<div class="cell medium-4 small-full-height">
-							<?php
-							$sectionId = "section_3_column_2";
-							include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
-							?>
+							<div class="grid-y align-center" style="height: 100%">
+								<div class="cell small-6 medium-7">
+									<?php
+									$sectionId="section_3_column_2_image";
+									include( locate_template( 'page-templates/template-parts/section-img-with-background.php', false, false ) ); 
+									?>
+								</div>
+								<div class="cell small-6 medium-5">
+									<?php
+									$sectionId="section_3_column_2";
+									include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
+									?>
+								</div>
+							</div>
 						</div>
 						<div class="cell medium-4 small-full-height">
-							<?php
-							$sectionId = "section_3_column_3";
-							include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
-							?>
+							<div class="grid-y align-center" style="height: 100%">
+								<div class="cell small-6 medium-7">
+									<?php
+									$sectionId="section_3_column_3_image";
+									include( locate_template( 'page-templates/template-parts/section-img-with-background.php', false, false ) ); 
+									?>
+								</div>
+								<div class="cell small-6 medium-5">
+									<?php
+									$sectionId="section_3_column_3";
+									include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
+									?>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
