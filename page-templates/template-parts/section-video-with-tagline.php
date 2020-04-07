@@ -21,7 +21,7 @@
 			?>
 
 			<div class="video-wrapper">
-				<video id="headerVideo" <?php echo $startMuted ? "muted" : ""; echo (!$placeholderImage && $autoplay) ? "autoplay" : ""; ?>>
+				<video id="headerVideo" <?php echo $startMuted ? "muted" : ""; echo (!$placeholderImage && $autoplay) ? "autoplay" : ""; ?> playsInline>
 					<source src="<?php echo $videoUrl?>" type="video/mp4"></source>
 					Your browser does not support HTML5 video.
 				</video>
@@ -51,18 +51,18 @@
 
 <script type="text/javascript">
 
+	function playMedia(media) {
+		media.play();
+	}
+	function hidePlaceholder() {
+		jQuery(".placeholder-image").hide();
+	}
 	jQuery(".placeholder-go").on('click', function() {
 		const media = document.querySelector('video');
 		jQuery(".placeholder-image").css("opacity", "0");
-		console.log("PLAY VIDEO");
 		jQuery(this).hide();
-		setTimeout(function() {
-			media.play();
-		}, 1000);
-		setTimeout(function() {
-			jQuery(".placeholder-image").hide();
-		}, 2000);
-
+		setTimeout(playMedia(media), 1000);
+		setTimeout(hidePlaceholder, 2000);
 	});
 
 
