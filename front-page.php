@@ -17,17 +17,7 @@ if ( have_posts() ) :
 		<?php		
 		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
 
-		$sectionId = 'section_2';
-		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
-		?>
-		
-			<div class="section-content text-center" id="<?php echo $sectionId;?>-content">
-				<?php 
-				include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
-				?>
-			</div>
-		<?php		
-		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
+		/* section_2 - CTA removed */
 
 		$sectionId = 'section_3';
 		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
