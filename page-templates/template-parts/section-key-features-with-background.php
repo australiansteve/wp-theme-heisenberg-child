@@ -56,7 +56,7 @@ error_log("Text color for ".get_the_title().": ".$textColor);
 						}, 500)
 						setTimeout(function() {
 							$("#section_4_column_1.img-block .cell").css('opacity', '1');	
-						}, 1000)
+						}, 500)
 						
 						/* reset previous active feature text color */
 						$('.feature.active h4').css('color', '');
@@ -70,6 +70,12 @@ error_log("Text color for ".get_the_title().": ".$textColor);
 						$(this).addClass("active " + colorClass);
 						$(this).find("h4").css('color', color);
 						$(this).find(".description").css('color', color);
+
+						/* gently scroll to top of section - useful for mobile */
+						jQuery("section.active .section-content").animate({
+							scrollTop: 0
+						}, 1500);
+
 					}
 				});
 
