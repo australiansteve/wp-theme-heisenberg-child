@@ -102,6 +102,16 @@
 	
 }
 
+/* Medium width and pretty narrow height */
+@media screen and (min-width: 40em) and (max-height: 700px)  {
+	.home {
+
+		#section_3 .img-block, #section_5_block_1.html-block, #section_6 .html-block, #section_7_block_1.html-block, #section_8 .html-block, #section_9 .html-block {
+			padding-top: 75px;
+		}
+	}
+}
+
 /* Large and up (>1024px) */
 @media screen and (min-width: 64em) {
 	.home {

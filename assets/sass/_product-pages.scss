@@ -189,6 +189,16 @@
 	
 }
 
+/* Medium width and pretty narrow height */
+@media screen and (min-width: 40em) and (max-height: 700px)  {
+	.austeve-products-template-default.single {
+
+		#section_2 .html-block, #section_5_column_1 , #section_6 .html-block {
+			padding-top: 75px;
+		}
+	}
+}
+
 /* Large and up (>1024px) */
 @media screen and (min-width: 64em) {
 	.austeve-products-template-default.single {

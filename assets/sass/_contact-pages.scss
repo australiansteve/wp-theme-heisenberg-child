@@ -41,6 +41,16 @@
 	
 }
 
+/* Medium width and pretty narrow height */
+@media screen and (min-width: 40em) and (max-height: 700px)  {
+	.page-template-contact-page {
+
+		#section_1 .html-block{
+			padding-top: 75px;
+		}
+	}
+}
+
 /* Large and up */
 @media screen and (min-width: 64em) {
 	.page-template-contact-page {

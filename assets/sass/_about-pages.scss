@@ -23,6 +23,22 @@
 	
 }
 
+/* Medium width and pretty narrow height */
+@media screen and (min-width: 40em) and (max-height: 700px)  {
+	.page-template-about-page {
+
+		#section_2 .html-block{
+			padding-top: 75px;
+		}
+
+		#section_3_column_1, #section_3_column_3, #section_4_column_1, #section_4_column_3 {
+			.background-div {
+				background-size: auto 80% !important;
+			}
+		}
+	}
+}
+
 /* Large and up */
 @media screen and (min-width: 64em) {
 	
@@ -35,77 +51,6 @@
 			}
 		}
 	}
-
-	@media screen and (min-height: 800px) {
-		.page-template-about-page {
-			#section_3_column_2, #section_3_column_4 {
-
-				padding-top: 100px;
-			}
-			#section_4_column_2, #section_4_column_4 {
-
-				padding-top: 155px;
-			}
-		}
-	}
-
-	@media screen and (min-height: 900px) {
-		.page-template-about-page {
-			#section_3_column_2, #section_3_column_4 {
-
-				padding-top: 200px;
-			}
-			#section_4_column_2, #section_4_column_4 {
-
-				padding-top: 255px;
-			}
-		}
-	}
-
-	@media screen and (min-height: 1000px) {
-		.page-template-about-page {
-			#section_3_column_2, #section_3_column_4 {
-
-				padding-top: 300px;
-			}
-			#section_4_column_2, #section_4_column_4 {
-
-				padding-top: 355px;
-			}
-		}
-	}
-
-	@media screen and (min-height: 1100px) {
-		.page-template-about-page {
-			#section_3_column_2, #section_3_column_4 {
-
-				padding-top: 400px;
-			}
-			#section_4_column_2, #section_4_column_4 {
-
-				padding-top: 455px;
-			}
-		}
-	}
-
-	@media screen and (min-height: 1200px) {
-		.page-template-about-page {
-
-			#section_3, #section_4 {
-				font-size: 24px;
-			}
-
-			#section_3_column_2, #section_3_column_4 {
-
-				padding-top: 40vh;
-			}
-			#section_4_column_2, #section_4_column_4 {
-
-				padding-top: 40vh;
-			}
-		}
-	}
-
 
 }
 

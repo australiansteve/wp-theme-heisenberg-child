@@ -33,25 +33,25 @@ if ( have_posts() ) :
 		?>
 		<div class="section-content">
 			<div class="grid-x" style="height: 100%">
-				<div class="cell medium-6 large-3 small-half-height">
+				<div class="cell medium-6 large-3 small-half-height medium-full-height">
 					<?php
 					$sectionId = "section_3_column_1";
 					include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
 					?>
 				</div>
-				<div class="cell medium-6 large-3 small-half-height">
+				<div class="cell medium-6 large-3 small-half-height medium-full-height">
 					<?php
 					$sectionId = "section_3_column_2";
 					include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
 					?>
 				</div>
-				<div class="cell medium-6 large-3 small-half-height">
+				<div class="cell medium-6 large-3 small-half-height medium-full-height">
 					<?php
 					$sectionId = "section_3_column_3";
 					include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
 					?>
 				</div>
-				<div class="cell medium-6 large-3 small-half-height">
+				<div class="cell medium-6 large-3 small-half-height medium-full-height">
 					<?php
 					$sectionId = "section_3_column_4";
 					include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
@@ -67,25 +67,25 @@ if ( have_posts() ) :
 		?>
 		<div class="section-content">
 			<div class="grid-x" style="height: 100%">
-				<div class="cell medium-6 large-3">
+				<div class="cell medium-6 large-3 small-half-height medium-full-height">
 					<?php
 					$sectionId = "section_4_column_1";
 					include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
 					?>
 				</div>
-				<div class="cell medium-4 large-3">
+				<div class="cell medium-6 large-3 small-half-height medium-full-height">
 					<?php
 					$sectionId = "section_4_column_2";
 					include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
 					?>
 				</div>
-				<div class="cell medium-4 large-3">
+				<div class="cell medium-6 large-3 small-half-height medium-full-height">
 					<?php
 					$sectionId = "section_4_column_3";
 					include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
 					?>
 				</div>
-				<div class="cell medium-4 large-3">
+				<div class="cell medium-6 large-3 small-half-height medium-full-height">
 					<?php
 					$sectionId = "section_4_column_4";
 					include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
@@ -95,7 +95,26 @@ if ( have_posts() ) :
 		</div>
 		<?php		
 		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
+		?>
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
 
+				jQuery("#section_3, #section_4").each(function() {
+					var maxHeight = 0;
+					var htmlBlocks = jQuery(this).find(".html-block .cell")
+					htmlBlocks.each(function() {
+						if (jQuery(this).innerHeight() > maxHeight){
+							maxHeight = jQuery(this).innerHeight();
+						}
+					});
+					htmlBlocks.each(function() {
+						jQuery(this).innerHeight(maxHeight);
+					});
+					console.log("Max Height: " + maxHeight);
+				});
+			});
+		</script>
+		<?php
 	endwhile;
 
 	the_posts_navigation();

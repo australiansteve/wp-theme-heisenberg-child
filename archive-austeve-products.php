@@ -18,13 +18,13 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 					<div class="cell medium-4 small-full-height">
 
 						<div class="grid-y align-center" style="height: 100%">
-							<div class="cell small-6 medium-7">
+							<div class="cell small-6 xlarge-7">
 								<?php
 								$sectionId="section_2_archive";
 								include( locate_template( 'page-templates/template-parts/section-img-with-background.php', false, false ) ); 
 								?>
 							</div>
-							<div class="cell small-6 medium-5">
+							<div class="cell small-6 xlarge-5">
 								<?php
 								$sectionId="section_1_archive";
 								include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 

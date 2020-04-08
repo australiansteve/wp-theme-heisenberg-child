@@ -270,6 +270,11 @@ body.disable-overscroll {
 	
 	body {
 		.section-content {
+
+			> div.content-wrapper {
+				padding-top: 100px;
+			}
+
 			.grid-x {
 				height: 100%;
 			}
@@ -280,7 +285,9 @@ body.disable-overscroll {
 
 /* Medium only */
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-	
+	.medium-full-height {
+		min-height: calc(100vh - 32px);
+	}
 }
 
 /* Large and up */
