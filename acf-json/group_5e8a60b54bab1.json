@@ -78,6 +78,25 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 1
+        },
+        {
+            "key": "field_5e8e1a8452cbd",
+            "label": "Link",
+            "name": "image_link",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -97,5 +116,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1586132353
+    "modified": 1586371229
 }
