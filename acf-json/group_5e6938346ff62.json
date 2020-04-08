@@ -88,6 +88,25 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_5e8ddbe1c4739",
+            "label": "Caption",
+            "name": "video_caption",
+            "type": "textarea",
+            "instructions": "Displayed at the bottom right of the video",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": "br"
+        },
+        {
             "key": "field_5e6938c76daac",
             "label": "Tagline",
             "name": "tagline",
@@ -100,7 +119,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "REIMAGINE AND REINFORCE \r\nCONVERSATIONS ACROSS THE \r\nCLIENT JOURNEY",
+            "default_value": "FOUR EYES FINANCIAL",
             "placeholder": "",
             "maxlength": "",
             "rows": 3,
@@ -124,5 +143,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1585326558
+    "modified": 1586355385
 }

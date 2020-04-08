@@ -1,42 +1,47 @@
 <div class="section-content">
-	<div class="video-container" id="<?php echo $sectionId;?>-video">
-		<?php 
-		$placeholderImage = get_field($sectionId.'_placeholder_image');
-		$autoplay = get_field($sectionId.'_video_autoplay');
-		$startMuted = get_field($sectionId.'_video_starts_muted');
-		$videoUrl = get_field($sectionId.'_video_url');
-		?>
-		<?php
-		if ($placeholderImage){
-			$imageUrl = wp_get_attachment_image_src( $placeholderImage, 'full' )[0];
+	<div class="caption-wrapper">
+		<div class="video-container" id="<?php echo $sectionId;?>-video">
+			<?php 
+			$placeholderImage = get_field($sectionId.'_placeholder_image');
+			$autoplay = get_field($sectionId.'_video_autoplay');
+			$startMuted = get_field($sectionId.'_video_starts_muted');
+			$videoUrl = get_field($sectionId.'_video_url');
+			$videoCaption = get_field($sectionId.'_video_caption');
 			?>
-			<div class="grid-y align-center placeholder-image" style="background-image: url(<?php echo $imageUrl;?>)">
-				<div class="cell text-center">
-					<a class="placeholder-go <?php echo $videoUrl ? '': 'no-video';?>"><i class="fas fa-play"></i></a>
-				</div>
-			</div>
 			<?php
-		} 
-		if ($videoUrl) {
+			if ($placeholderImage){
+				$imageUrl = wp_get_attachment_image_src( $placeholderImage, 'full' )[0];
+				?>
+				<div class="grid-y align-center placeholder-image" style="background-image: url(<?php echo $imageUrl;?>)">
+					<div class="cell text-center">
+						<a class="placeholder-go <?php echo $videoUrl ? '': 'no-video';?>"><i class="fas fa-play"></i></a>
+					</div>
+				</div>
+				<?php
+			} 
+			if ($videoUrl) {
+				?>
+
+				<div class="video-wrapper">
+					<video id="headerVideo" <?php echo $startMuted ? "muted" : ""; echo (!$placeholderImage && $autoplay) ? "autoplay" : ""; ?> playsInline>
+						<source src="<?php echo $videoUrl?>" type="video/mp4"></source>
+						Your browser does not support HTML5 video.
+					</video>
+					<div class="control-overlay">
+						<a class="toggle-play pause"><i class="fas fa-pause"></i><i class="fas fa-play"></i></a>
+						<a class="toggle-mute <?php echo $startMuted ? "" : "sound-on";?>"><i class="fas fa-volume-mute"></i> <i class="fas fa-volume-up"></i></a>
+					</div>
+				</div>
+
+				<?php
+			}
 			?>
-
-			<div class="video-wrapper">
-				<video id="headerVideo" <?php echo $startMuted ? "muted" : ""; echo (!$placeholderImage && $autoplay) ? "autoplay" : ""; ?> playsInline>
-					<source src="<?php echo $videoUrl?>" type="video/mp4"></source>
-					Your browser does not support HTML5 video.
-				</video>
-				<div class="control-overlay">
-					<a class="toggle-play pause"><i class="fas fa-pause"></i><i class="fas fa-play"></i></a>
-					<a class="toggle-mute <?php echo $startMuted ? "" : "sound-on";?>"><i class="fas fa-volume-mute"></i> <i class="fas fa-volume-up"></i></a>
-				</div>
-			</div>
-
-			<?php
-		}
-		?>
+		</div>
+		<div class="video-caption">
+			<?php echo $videoCaption;?>
+		</div>
 	</div>
-
-	<div class="text-center" id="<?php echo $sectionId;?>-tagline">
+	<div class="text-center video-tagline" id="<?php echo $sectionId;?>-tagline">
 		<div class="grid-y align-center" style="height: 100%">
 			<div class="cell">
 				<h2><?php 
