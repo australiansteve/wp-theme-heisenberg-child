@@ -6,11 +6,21 @@
 			font-size: 16px;
 		}
 	}
+
+	.profile-resizer {
+		display: table;
+	}
 }
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	
+	.page-template-about-page {
+		#section_3_column_2, #section_3_column_4, #section_4_column_2, #section_4_column_4 {
+			
+				justify-content: center;
+			
+		}
+	}
 }
 
 /* Medium and up */

@@ -97,22 +97,35 @@ if ( have_posts() ) :
 		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
 		?>
 		<script type="text/javascript">
-			jQuery(document).ready(function() {
-
+			function resizeProfiles() {
+				var resize = window.innerWidth > 640;
 				jQuery("#section_3, #section_4").each(function() {
 					var maxHeight = 0;
-					var htmlBlocks = jQuery(this).find(".html-block .cell")
+					var htmlBlocks = jQuery(this).find(".html-block .profile-resizer")
 					htmlBlocks.each(function() {
+						jQuery(this).css("height", "unset"); /* clear previous resizes */
+						
 						if (jQuery(this).innerHeight() > maxHeight){
 							maxHeight = jQuery(this).innerHeight();
 						}
+						
 					});
-					htmlBlocks.each(function() {
-						jQuery(this).innerHeight(maxHeight);
-					});
-					console.log("Max Height: " + maxHeight);
+					if (resize) {
+						htmlBlocks.each(function() {
+							jQuery(this).innerHeight(maxHeight);
+						});
+						console.log("Max Height: " + maxHeight);
+					}
 				});
+			}
+			jQuery(document).ready(function() {
+				setTimeout(resizeProfiles, 1000);
+				
 			});
+			window.addEventListener("resize", function() {
+				setTimeout(resizeProfiles, 1000);
+			});
+
 		</script>
 		<?php
 	endwhile;
