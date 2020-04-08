@@ -104,10 +104,11 @@ var goDown = function(event) {
 	//jQuery(".scroll-debug").html(debugMessage);
 
 	if (longSection && !atBottomOfSection) {
-		console.log("do nothing - let the browser scroll");
+		console.log("do nothing - let the browser scroll - hide the logo");
 		if (event.type == "click" || event.type == "keydown") {
 			activeSectionContent.scrollTop(activeSectionContent.scrollTop() + 40);
 		}
+		jQuery("section.active .section-header img").css("opacity", "0");
 	}
 	else if (longSection && atBottomOfSection && nextSection.length > 0) {
 		console.log("at bottom of long section, and the next section is not the footer");
