@@ -64,10 +64,12 @@
 	}
 	jQuery(".placeholder-image").on('click', function() {
 		const media = document.querySelector('video');
-		jQuery(".placeholder-image").css("opacity", "0");
-		jQuery(this).hide();
-		setTimeout(playMedia(media), 1000);
-		setTimeout(hidePlaceholder, 2000);
+		if (media) {
+			jQuery(".placeholder-image").css("opacity", "0");
+			jQuery(this).hide();
+			setTimeout(playMedia(media), 1000);
+			setTimeout(hidePlaceholder, 2000);
+		}
 	});
 
 
