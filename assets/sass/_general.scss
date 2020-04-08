@@ -376,6 +376,18 @@ body.disable-overscroll {
 			margin-left: calc((60vh - 100px) * 1.77 * -0.5); /* Negative half the actual width of the 16:9 video */
 		}
 	}  
+
+}
+
+/* Maximum aspect ratio - skinny screens but medium width */
+@media screen and (min-width: 40em) and (max-aspect-ratio: 4/3) {
+
+	.video-wrapper {
+		video {
+			margin-left: calc(75vh * 1.77 * -0.5); /* Negative half the actual width of the 16:9 video */
+		}
+	}  
+
 }
 
 /* Minimum aspect ratio - wide screens */
@@ -400,24 +412,3 @@ body.disable-overscroll {
 	}  
 }
 
-/* Maximum aspect ratio - wider screens */
-@media (max-aspect-ratio: 4/3 and (min-width: 40em)) {
-
-	.video-wrapper {
-		position: relative;
-		min-width: 100%;
-		height: 100%;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-
-		video {
-			position: absolute;
-			min-width: 100%;
-			height: 100%;
-			left: 50%;
-			margin-left: calc(75vh * 1.77 * -0.5); /* Negative half the actual width of the 16:9 video */
-		}
-	}  
-}
