@@ -18,12 +18,12 @@ jQuery( document ).ready(function() {
 		var direction = "";
 		switch (ev.direction) {
 			case Hammer.DIRECTION_UP:
-			console.log("Swipe UP");
-			goDown(ev);
+			console.log("Swipe UP - that means go down!");
+			scrollThrottle(ev, true);
 			break;
 			case Hammer.DIRECTION_DOWN:
-			console.log("Swipe DOWN");
-			goUp();
+			console.log("Swipe DOWN - that means go up!");
+			scrollThrottle(ev, false);
 			break;
 		}
 		return false;
@@ -32,12 +32,12 @@ jQuery( document ).ready(function() {
 		var direction = "";
 		switch (ev.direction) {
 			case Hammer.DIRECTION_UP:
-			console.log("Pan UP");
-			goDown(ev);
+			console.log("Pan UP - that means go down!");
+			scrollThrottle(ev, true);
 			break;
 			case Hammer.DIRECTION_DOWN:
-			console.log("Pan DOWN");
-			goUp();
+			console.log("Pan DOWN - that means go up!");
+			scrollThrottle(ev, false);
 			break;
 		}
 		return false;
@@ -46,16 +46,16 @@ jQuery( document ).ready(function() {
 	myElement.onwheel = function(ev) {
 		console.log("On wheel");
 		if (ev.deltaY > 0) {
-			goDown(ev);  	
+			scrollThrottle(ev, true); /* go down */	
 		} else {
-			goUp();
+			scrollThrottle(ev, false); /* go up */
 		}
 	}
 
 	document.onkeydown = function(ev) {
 		ev = ev || window.event;
 		if (ev.keyCode == "38") {
-			goUp();
+			goUp(ev);
 		} else if (ev.keyCode == "40") {
 			goDown(ev);
 		}
@@ -65,33 +65,12 @@ jQuery( document ).ready(function() {
 
 	jQuery(".home-reset-scroll").on("click", resetPagePosition);
 
-	repositionAfterResize(); // called to initially set the height.
+	repositionAfterResize(); /* called to initially set the height. */
 	insertClickToScrollDownButtons();
 });
 
-// function debounce(func, wait, immediate) {
-// 	var timeout;
-// 	console.log("debounce function");
-// 	return function() {
-// 		var context = this,
-// 		args = arguments;
-// 		var later = function() {
-// 			console.log("later");
-// 			timeout = null;
-// 			if (!immediate) func.apply(context, args);
-// 		};
-// 		var callNow = immediate && !timeout;
-// 		console.log("callNow: " + callNow);
-// 		clearTimeout(timeout);
-// 		console.log("timeout cleared: " + timeout);
-// 		timeout = setTimeout(later, wait);
-// 		console.log("setTimeout: " + timeout);
-// 		if (callNow) func.apply(context, args);
-// 	};
-// }
-
-const goDown = _.throttle(function(event) {
-	console.log("scroll down " + event.type);
+var goDown = function(event) {
+	console.log("go down " + event.type);
 	console.log(event);
 	var activeSection = jQuery("section.active");
 	var nextSection = jQuery("section.active + section");
@@ -164,7 +143,7 @@ const goDown = _.throttle(function(event) {
 		//change classes first so that footer height is accurate
 		activeSection.removeClass("active");
 		footer.addClass("active");
-	
+
 		var footerHeight = footer.outerHeight();
 		currentYPos -= footerHeight;
 		jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
@@ -181,9 +160,9 @@ const goDown = _.throttle(function(event) {
 		jQuery(".toggle-play").addClass("paused");
 	}
 
-}, 1500, { 'leading': true, 'trailing': false } );
+}
 
-var goUp = _.throttle(function() {
+var goUp = function(event) {
 	console.log("scroll up");
 	var activeSection = jQuery("section.active");
 	var activeFooter = jQuery("footer.active");
@@ -204,6 +183,12 @@ var goUp = _.throttle(function() {
 				prevSection.addClass("active");
 				prevSection.css("transform", "scale(1, 1)");
 			}
+			else if (longSection && !atTopOfSection){
+				console.log("do nothing - let the browser scroll");
+				if (event.type == "click" || event.type == "keydown") {
+					activeSectionContent.scrollTop(activeSectionContent.scrollTop() - 40);
+				}
+			}
 			if (prevSection.attr("data-section") == 1) {
 				jQuery("body").removeClass('disable-overscroll');
 			}
@@ -220,19 +205,29 @@ var goUp = _.throttle(function() {
 		prevSection.css("transform", "scale(1, 1)");
 		jQuery(".click-to-scroll-down").css('opacity', '1');
 	}
+}
 
-}, 1500, {'leading': true, 'trailing': false });
+const scrollThrottle = _.throttle(function(event, directionDown = true) {
+	if (directionDown) {
+		goDown(event);
+	}
+	else {
+		goUp(event);
+	}
+	repositionAfterResize(); /* called to reset in case anything goes weird. */
+
+}, 1750, {'leading': true, 'trailing': false });
 
 var repositionAfterResize = _.debounce(function() {
 	console.log("Window resize. " + currentYPos);
-	console.log("WIH1 " + window.innerHeight);
-	jQuery("main").height(window.innerHeight);
-	console.log("WIH2 " + window.innerHeight);
-	jQuery("section").height(window.innerHeight - 32);
-	console.log("WIH3 " + window.innerHeight);
-	var newYpos = 0;
 	var activeSection = jQuery("section.active");
 	var activeFooter = jQuery("footer.active");
+	var borderTop = parseInt(activeSection.css("border-top-width"), 10);
+	var borderBottom = parseInt(activeSection.css("border-bottom-width"), 10);
+	/* Reset window height first */
+	jQuery("main").height(window.innerHeight);
+	jQuery("section").height(window.innerHeight - borderTop - borderBottom);
+	var newYpos = 0;
 	if (activeSection.length > 0) {
 		for (var s = 0; s < activeSection.attr("data-section"); s++) {
 			var prevSection = jQuery("section[data-section=" + s + "]");
@@ -253,6 +248,7 @@ var repositionAfterResize = _.debounce(function() {
 	}
 	currentYPos = newYpos * -1;
 	jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
+	window.focus();
 }, 250);
 
 var resetPagePosition = function() {
@@ -270,8 +266,9 @@ var resetPagePosition = function() {
 
 	/* reset all section content to the top */
 	jQuery("section .section-content").each(function(){
-	    this.scrollTop = 0;
-	})
+		this.scrollTop = 0;
+	});
+	window.focus();
 }
 
 var insertClickToScrollDownButtons = function() {
