@@ -16,6 +16,10 @@
 		}
 	}
 
+	.grid-y {
+		height: 90%;
+	}
+	
 	.menu {
 		li {
 			display: block;
@@ -56,6 +60,14 @@
 				}
 			}
 
+		}
+	}
+
+	@media screen and (max-height: 640px) {
+		.off-canvas {
+			.grid-y {
+				height: 640px;
+			}
 		}
 	}
 }

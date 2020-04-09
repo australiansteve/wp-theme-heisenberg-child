@@ -11,6 +11,7 @@
 
 		.img-block {
 			padding: 1rem;
+
 		}
 	}
 
@@ -24,7 +25,11 @@
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	
+	.post-type-archive-austeve-products {
+		.header-logo {
+			display: none;
+		}
+	}
 }
 
 /* Medium and up */
@@ -36,18 +41,6 @@
 
 			.img-block {
 				padding-top: 100px;
-
-				.cell {
-					max-height: 100%;
-
-					img { 
-						display: block;
-						width: auto;
-						height: auto;
-						max-height: 100%;
-						margin: auto;
-					}
-				}
 			}
 		}
 	}
@@ -64,7 +57,7 @@
 
 		#section_1 {
 			font-size: 24px;
-		
+
 		}
 	}
 }

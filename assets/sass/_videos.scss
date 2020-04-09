@@ -1,0 +1,150 @@
+body {
+	.video-section {
+		.placeholder-image {
+			background-size: cover;
+			background-position: 50% 50%;
+			z-index: 1;
+			transition: opacity 1s linear;
+		}
+	}
+	.video-section-content-overlay {
+		background: white;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: 0;
+		z-index: -1;
+
+		.video-wrapper {
+
+			video { 
+				width: 100%;
+			}
+
+			.video-controls {
+				position: absolute;
+				bottom: 1rem;
+				left: 1rem;
+				right: 1rem;
+				height: auto;
+				
+				a {
+					color: white;
+				}
+
+				.toggle-mute {
+					float: right;
+				}
+
+				.toggle-play, .forward-5, .back-5 {
+					float: left;
+					margin-right: 1rem;
+				}
+
+			.toggle-mute.sound-on {
+				.fa-volume-mute {
+					display: none;
+				}
+			}
+			.toggle-mute:not(.sound-on) {
+				.fa-volume-up {
+					display: none;
+				}
+			}
+
+			.toggle-play.paused {
+				.fa-pause {
+					display: none;
+				}
+			}
+			.toggle-play:not(.paused) {
+				.fa-play {
+					display: none;
+				}
+			}
+
+
+			}
+		}
+	}
+
+	.video-caption {
+		// 	position: absolute;
+		// 	bottom: -0.25rem;
+		// 	right: 0;
+		text-align: right;
+		font-size: 16px;
+		color: $faded-tshirt-color;
+		font-weight: 200;
+		// 	transform:translateY(100%);
+		opacity: 0.6;
+	}
+
+}
+
+/* Maximum aspect ratio - skinny screens */
+@media (max-aspect-ratio: 7/10) {
+	body {		
+
+	}
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	body {
+		.video-section-content-overlay {
+			.video-wrapper {
+
+				height: 80%;
+				overflow: hidden;
+				position: relative;
+
+				video {
+					position: absolute;
+					width: auto;
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+
+/* Maximum aspect ratio - skinny screens but medium width */
+@media screen and (min-width: 40em) and (max-aspect-ratio: 4/3) {
+	body {
+		.video-section-content-overlay {
+			.video-wrapper {
+				video {
+					left: 50%;
+					margin-left: calc((80vh - 32px) * 1.77 * -0.5);
+				}
+			}  
+		}
+	}
+}
+
+/* Minimum aspect ratio - wide screens */
+@media (min-aspect-ratio: 4/3) {
+
+	body {
+		.video-section-content-overlay {
+			.video-wrapper {
+				position: relative;
+
+				video {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					height: auto;
+					width: 100%;
+				}
+			}  
+		}
+	}
+}
+
+
+

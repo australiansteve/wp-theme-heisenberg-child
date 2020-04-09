@@ -11,7 +11,7 @@ $link = get_field($sectionId.'_image_link');
 	<?php
 	include( locate_template( 'page-templates/template-parts/section-background.php', false, false ) ); 
 	?>
-	<div class="cell small-12 text-<?php echo $positionH;?>">
+	<div class="cell shrink text-<?php echo $positionH;?>">
 
 		<?php		 
 		 if( $link ) {
@@ -23,9 +23,8 @@ $link = get_field($sectionId.'_image_link');
 		 	echo wp_get_attachment_image( $image, $size );
 		 }
 		 ?>
-
 		<?php		 
-		 if( $image ) {
+		 if( $link ) {
 		 	echo "</a>";
 		 }
 		 ?>

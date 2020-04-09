@@ -182,6 +182,21 @@
 			font-size: 24px;
 		}
 	}
+
+	@media screen and (max-height: 640px) {
+		#section_3_block_4 {
+			.background-div {
+				background-image: none;
+			}
+		}
+		#section_4 {
+			.img-block {
+				padding-top: 75px;
+				justify-content: start;
+			}
+		}
+	}
+
 }
 
 /* Medium only */

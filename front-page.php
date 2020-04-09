@@ -25,7 +25,7 @@ if ( have_posts() ) :
 		<div class="section-content">
 			<div data-equalizer="product-title-equalizer" data-equalize-on="medium" style="height: 100%">
 				<div class="grid-x" data-equalizer="product-description-equalizer" data-equalize-on="medium">
-					<div class="cell medium-4 small-full-height">
+					<div class="cell medium-4 small-full-height" style="height: 100%">
 						<div class="grid-y align-center" style="height: 100%">
 							<div class="cell small-6 xlarge-7">
 								<?php
@@ -41,7 +41,7 @@ if ( have_posts() ) :
 							</div>
 						</div>
 					</div>
-					<div class="cell medium-4 small-full-height">
+					<div class="cell medium-4 small-full-height" style="height: 100%">
 						<div class="grid-y align-center" style="height: 100%">
 							<div class="cell small-6 xlarge-7">
 								<?php
@@ -57,7 +57,7 @@ if ( have_posts() ) :
 							</div>
 						</div>
 					</div>
-					<div class="cell medium-4 small-full-height">
+					<div class="cell medium-4 small-full-height" style="height: 100%">
 						<div class="grid-y align-center" style="height: 100%">
 							<div class="cell small-6 xlarge-7">
 								<?php

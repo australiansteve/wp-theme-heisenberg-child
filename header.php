@@ -36,7 +36,7 @@
 
 		<div class="off-canvas position-left" id="offCanvas" data-off-canvas data-transition="push">
 			<div class="off-canvas-header">
-				<div class="grid-x" style="height: 10vh">
+				<div class="grid-x">
 					<div class="small-6 text-left">
 						<a href="/" title="<?php echo get_bloginfo('name');?>"><img src="<?php echo $headerImage[0]; ?>" width="150" height="56" alt=""></a>
 					</div>
@@ -47,7 +47,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="grid-y align-center" style="height: 90vh">
+			<div class="grid-y align-center">
 				<div class="cell shrink">
 					<?php
 					wp_nav_menu( array(

@@ -82,7 +82,7 @@ body {
 		}
 
 		.grid-y.html-block {
-			height: 100%;
+			min-height: 100%;
 		}
 
 		.grid-x, .grid-y {
@@ -154,108 +154,13 @@ body {
 			font-weight: 900;
 		}
 
-	}		
-
-	.caption-wrapper {
-		position: relative;
-		height: 60%;
-		width: 100%;
-		z-index: 1;
-
-		
-		.video-container {
-			position: absolute;
-			top: 100px;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			overflow: hidden;
-			font-size: 35px;
-
-			a, a:hover, a:active, a:focus, a:visited {
-				color:$white-color;
-			}
-
-			.placeholder-image {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				z-index: 2;
-				transition: opacity 2s linear;
-				background-position: 50% 50%;
-				background-size: cover;
-				background-repeat: no-repeat;
-				cursor: pointer;
-
-				.no-video {
-					display: none;
-				}
-
-				.placeholder-go {
-					opacity: 0.7
-				}
-				.placeholder-go:hover {
-					opacity: 1;
-				}
-			}
-
-			.control-overlay {
-				position: absolute;
-				right: 2rem;
-				bottom: 1rem;
-				z-index: 1;
-
-				i {
-					opacity: 0.7;
-					margin-left: 1rem;
-				}
-
-				i:hover {
-					opacity: 1;
-				}
-
-				.toggle-mute.sound-on {
-					.fa-volume-mute {
-						display: none;
-					}
-				}
-				.toggle-mute:not(.sound-on) {
-					.fa-volume-up {
-						display: none;
-					}
-				}
-
-				.toggle-play.paused {
-					.fa-pause {
-						display: none;
-					}
-				}
-				.toggle-play:not(.paused) {
-					.fa-play {
-						display: none;
-					}
-				}
-
-			}
-		}
-
-		.video-caption {
-			position: absolute;
-			bottom: -0.25rem;
-			right: 0;
-			text-align: right;
-			font-size: 16px;
-			color: $faded-tshirt-color;
-			font-weight: 200;
-			transform:translateY(100%);
-			opacity: 0.6;
-		}
 	}
 
-	.video-tagline {
-		height: 40%;
+	.img-block {
+		img {
+			max-height: 100%;
+			width: auto;
+		}
 	}
 
 	.uppercase {
@@ -354,61 +259,5 @@ body.disable-overscroll {
 /* XXLarge and up (>2400px) */
 @media screen and (min-width: 150em) {
 	
-}
-
-/* Maximum aspect ratio - skinny screens */
-@media (max-aspect-ratio: 4/3) {
-
-	.video-wrapper {
-		position: relative;
-		min-width: 100%;
-		height: 100%;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-
-		video {
-			position: absolute;
-			min-width: 100%;
-			height: 100%;
-			left: 50%;
-			margin-left: calc((60vh - 100px) * 1.77 * -0.5); /* Negative half the actual width of the 16:9 video */
-		}
-	}  
-
-}
-
-/* Maximum aspect ratio - skinny screens but medium width */
-@media screen and (min-width: 40em) and (max-aspect-ratio: 4/3) {
-
-	.video-wrapper {
-		video {
-			margin-left: calc(75vh * 1.77 * -0.5); /* Negative half the actual width of the 16:9 video */
-		}
-	}  
-
-}
-
-/* Minimum aspect ratio - wide screens */
-@media (min-aspect-ratio: 4/3) {
-
-	.video-wrapper {
-		position: relative;
-		width: 100%;
-		min-height: 100%;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-
-		video {
-			position: absolute;
-			width: 100%;
-			min-height: 100%;
-			top: 50%;
-			margin-top: calc(100vw * 0.5625 * -0.5); /* Negative half the actual height of the 16:9 video */
-		}
-	}  
 }
 
