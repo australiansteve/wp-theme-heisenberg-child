@@ -4,6 +4,7 @@ import './off-canvas.js'
 var currentYPos = 0;
 var myElement = null;
 var downLock = false;
+var allowCancelableEvent = false;
 
 jQuery( document ).ready(function() {
 
@@ -43,15 +44,6 @@ jQuery( document ).ready(function() {
 		return false;
 	});
 
-	myElement.onwheel = function(ev) {
-		console.log("On wheel");
-		if (ev.deltaY > 0) {
-			scrollThrottle(ev, true); /* go down */	
-		} else {
-			scrollThrottle(ev, false); /* go up */
-		}
-	}
-
 	document.onkeydown = function(ev) {
 		ev = ev || window.event;
 		if (ev.keyCode == "38") {
@@ -63,14 +55,31 @@ jQuery( document ).ready(function() {
 
 	window.addEventListener("resize", repositionAfterResize);
 
+	myElement.addEventListener("wheel", wheelEvent);
+
 	jQuery(".home-reset-scroll").on("click", resetPagePosition);
 
 	repositionAfterResize(); /* called to initially set the height. */
 	insertClickToScrollDownButtons();
+	console.log("allowCancelableEvent: " + allowCancelableEvent);
+
+	preventPullToRefresh('body');
 });
 
+var wheelEvent = function(event) {
+	//console.log("wheelEvent " + event.cancelable + " " + event.timeStamp);
+	//console.log(event);
+	if (event.cancelable || allowCancelableEvent) {
+		if (event.deltaY > 0) {
+			scrollThrottle(event, true); /* go down */	
+		} else {
+			scrollThrottle(event, false); /* go up */
+		}
+	}
+}
+
 var goDown = function(event) {
-	console.log("go down " + event.type);
+	console.log("GO DOWN " + event.type);
 	console.log(event);
 	var activeSection = jQuery("section.active");
 	var nextSection = jQuery("section.active + section");
@@ -104,11 +113,12 @@ var goDown = function(event) {
 	//jQuery(".scroll-debug").html(debugMessage);
 
 	if (longSection && !atBottomOfSection) {
-		console.log("do nothing - let the browser scroll - hide the logo");
+		console.log("do nothing - let the browser scroll - hide the logo and reset throttle");
 		if (event.type == "click" || event.type == "keydown") {
 			activeSectionContent.scrollTop(activeSectionContent.scrollTop() + 40);
 		}
 		jQuery("section.active .section-header img").css("opacity", "0");
+		scrollThrottle.cancel();
 	}
 	else if (longSection && atBottomOfSection && nextSection.length > 0) {
 		console.log("at bottom of long section, and the next section is not the footer");
@@ -177,6 +187,7 @@ var goUp = function(event) {
 			var atTopOfSection = 0 == activeSectionContent.prop("scrollTop");
 			console.log(atTopOfSection + " " + activeSectionContent.prop("scrollTop"));
 			if (!longSection || atTopOfSection) {
+				console.log("Not a long section ("+!longSection+") - or we are already at the top ("+atTopOfSection+")");
 				currentYPos += prevSection.outerHeight();
 				jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
 				activeSection.removeClass("active");
@@ -185,10 +196,11 @@ var goUp = function(event) {
 				prevSection.css("transform", "scale(1, 1)");
 			}
 			else if (longSection && !atTopOfSection){
-				console.log("do nothing - let the browser scroll");
+				console.log("do nothing - let the browser scroll - reset throttle at end");
 				if (event.type == "click" || event.type == "keydown") {
 					activeSectionContent.scrollTop(activeSectionContent.scrollTop() - 40);
 				}
+				scrollThrottle.cancel();
 			}
 			if (prevSection.attr("data-section") == 1) {
 				jQuery("body").removeClass('disable-overscroll');
@@ -209,6 +221,7 @@ var goUp = function(event) {
 }
 
 const scrollThrottle = _.throttle(function(event, directionDown = true) {
+	console.log("scrollThrottle");
 	if (directionDown) {
 		goDown(event);
 	}
@@ -220,7 +233,7 @@ const scrollThrottle = _.throttle(function(event, directionDown = true) {
 }, 1750, {'leading': true, 'trailing': false });
 
 var repositionAfterResize = _.debounce(function() {
-	console.log("Window resize. " + currentYPos);
+	//console.log("Window resize. " + currentYPos);
 	var activeSection = jQuery("section.active");
 	var activeFooter = jQuery("footer.active");
 	var borderTop = parseInt(activeSection.css("border-top-width"), 10);
@@ -281,5 +294,24 @@ var insertClickToScrollDownButtons = function() {
 	jQuery(".click-to-scroll-down a").on("click", function(event) {
 		console.log(event);
 		goDown(event);
+	});
+}
+
+function preventPullToRefresh(element) {
+	var prevent = false;
+
+	document.querySelector(element).addEventListener('touchstart', function(e){
+		if (e.touches.length !== 1) { return; }
+
+		var scrollY = jQuery("#section_1.active").length != 1 || window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+		prevent = (scrollY === 0);
+
+	});
+
+	document.querySelector(element).addEventListener('touchmove', function(e){
+		if (prevent) {
+			prevent = false;
+			e.preventDefault();
+		}
 	});
 }

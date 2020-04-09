@@ -1,4 +1,10 @@
 .page-template-about-page {
+	.video-section {
+		.placeholder-image {
+			background-position: 43% 0%;
+		}
+	}
+
 	#section_3, #section_4 {
 		font-size: 18px;
 		
@@ -17,7 +23,7 @@
 	.page-template-about-page {
 		#section_3_column_2, #section_3_column_4, #section_4_column_2, #section_4_column_4 {
 			
-				justify-content: center;
+			justify-content: center;
 			
 		}
 	}

@@ -5,6 +5,11 @@ body {
 			background-position: 50% 50%;
 			z-index: 1;
 			transition: opacity 1s linear;
+
+
+		a, a:hover, a:active, a:focus, a:visited {
+			color:$white-color;
+		}
 		}
 	}
 	.video-section-content-overlay {
@@ -19,6 +24,8 @@ body {
 
 		.video-wrapper {
 
+			position: relative;
+
 			video { 
 				width: 100%;
 			}
@@ -30,8 +37,8 @@ body {
 				right: 1rem;
 				height: auto;
 				
-				a {
-					color: white;
+				a, a:hover, a:active, a:focus, a:visited {
+					color:$white-color;
 				}
 
 				.toggle-mute {
@@ -43,27 +50,27 @@ body {
 					margin-right: 1rem;
 				}
 
-			.toggle-mute.sound-on {
-				.fa-volume-mute {
-					display: none;
+				.toggle-mute.sound-on {
+					.fa-volume-mute {
+						display: none;
+					}
 				}
-			}
-			.toggle-mute:not(.sound-on) {
-				.fa-volume-up {
-					display: none;
+				.toggle-mute:not(.sound-on) {
+					.fa-volume-up {
+						display: none;
+					}
 				}
-			}
 
-			.toggle-play.paused {
-				.fa-pause {
-					display: none;
+				.toggle-play.paused {
+					.fa-pause {
+						display: none;
+					}
 				}
-			}
-			.toggle-play:not(.paused) {
-				.fa-play {
-					display: none;
+				.toggle-play:not(.paused) {
+					.fa-play {
+						display: none;
+					}
 				}
-			}
 
 
 			}
@@ -71,7 +78,7 @@ body {
 	}
 
 	.video-caption {
-		// 	position: absolute;
+		 	position: relative;
 		// 	bottom: -0.25rem;
 		// 	right: 0;
 		text-align: right;
@@ -80,14 +87,29 @@ body {
 		font-weight: 200;
 		// 	transform:translateY(100%);
 		opacity: 0.6;
+
+		.close-video-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: inline-block;
+		}
 	}
 
 }
 
-/* Maximum aspect ratio - skinny screens */
-@media (max-aspect-ratio: 7/10) {
-	body {		
-
+/* Small only */
+@media screen and (max-width: 40em) {
+	/* SMALL AND Minimum aspect ratio - short & wide screens - most likely landscape phones */
+	@media (min-aspect-ratio: 1584/1000) {
+		body {
+			.video-section-content-overlay {
+				.video-wrapper {
+					max-height: 80%;
+					overflow: hidden;
+				}
+			}
+		}
 	}
 }
 
@@ -96,10 +118,9 @@ body {
 	body {
 		.video-section-content-overlay {
 			.video-wrapper {
-
-				height: 80%;
+				height: 90%;
+				max-height: calc((100vw -32px) * 0.5625); /* Keeps the wrapper from extending below the bottom of 16:9 video */
 				overflow: hidden;
-				position: relative;
 
 				video {
 					position: absolute;
@@ -111,40 +132,33 @@ body {
 	}
 }
 
-/* Maximum aspect ratio - skinny screens but medium width */
-@media screen and (min-width: 40em) and (max-aspect-ratio: 4/3) {
-	body {
+/* Maximum aspect ratio - tall & skinny screens */
+@media (max-aspect-ratio: 1584/1000) {
+	body {	
 		.video-section-content-overlay {
 			.video-wrapper {
-				video {
-					left: 50%;
-					margin-left: calc((80vh - 32px) * 1.77 * -0.5);
-				}
-			}  
-		}
+			}
+		}	
 	}
 }
 
-/* Minimum aspect ratio - wide screens */
-@media (min-aspect-ratio: 4/3) {
 
-	body {
+/* Minimum aspect ratio - short & wide screens */
+@media (min-aspect-ratio: 1584/1000) {
+	body {	
 		.video-section-content-overlay {
 			.video-wrapper {
-				position: relative;
-
 				video {
-					position: absolute;
-					top: 0;
-					left: 0;
-					right: 0;
-					height: auto;
 					width: 100%;
+					height: auto;
 				}
-			}  
-		}
+			}
+		}	
 	}
 }
+
+
+
 
 
 

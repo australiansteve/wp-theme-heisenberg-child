@@ -157,6 +157,11 @@ body {
 	}
 
 	.img-block {
+
+		.cell {
+			max-height: 100%;
+		}
+
 		img {
 			max-height: 100%;
 			width: auto;
@@ -177,7 +182,7 @@ body {
 
 }
 
-body.disable-overscroll {
+.disable-overscroll {
 	overscroll-behavior: none;
 }
 
