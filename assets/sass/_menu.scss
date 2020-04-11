@@ -16,10 +16,6 @@
 		}
 	}
 
-	.grid-y {
-		height: 90%;
-	}
-	
 	.menu {
 		li {
 			display: block;
@@ -45,12 +41,24 @@
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	
+	.off-canvas {
+
+		.grid-y {
+			margin-top: 100px;
+		}
+
+	}
 }
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	.off-canvas {
+
+		.grid-y.medium-align-center {
+			margin-top: 0;
+			justify-content : center;
+			height: 100%;
+		}
 
 		.menu {
 			li {
@@ -62,15 +70,21 @@
 
 		}
 	}
+}
 
-	@media screen and (max-height: 640px) {
-		.off-canvas {
-			.grid-y {
-				height: 640px;
-			}
+/* Medium AND Minimum aspect ratio - short & wide screens - most likely landscape phones */
+@media (min-aspect-ratio: 1/1) {
+	.off-canvas {
+
+		.grid-y.medium-align-center {
+			justify-content : start;
+			height: 640px;
+			padding-top: 100px;
 		}
 	}
+
 }
+
 
 /* Medium only */
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {

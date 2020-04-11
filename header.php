@@ -47,7 +47,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="grid-y align-center">
+			<div class="grid-y align-top medium-align-center">
 				<div class="cell shrink">
 					<?php
 					wp_nav_menu( array(
