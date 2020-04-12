@@ -8,7 +8,7 @@
 
 		.placeholder-image .fa-play {
 			margin-top: 20%;
-    		color: black;
+			color: black;
 		}
 	}
 
@@ -40,6 +40,19 @@
 			h2 {
 				margin-bottom: 3rem;
 			}
+		}
+	}
+
+	#section_5_block_1  {
+		padding-bottom: 60vw;
+	}
+
+	#section_5_block_3  {
+		padding-bottom: 175vw;
+		img {
+			max-width: 90%;
+			left: auto;
+			right: auto;
 		}
 	}
 
@@ -90,8 +103,22 @@
 				}
 			}
 
-			#section_7_block_4 {
-				padding-bottom: 10rem;
+		}
+
+		#section_5_block_1  {
+			padding-bottom: 30vw;
+		}
+
+		#section_5_block_3  {
+			padding-bottom: 35vw;
+		}
+
+	}
+
+	@media screen and (min-height: 725px) {
+		#section_3 {
+			.product-brief-container {
+				height: calc(100vh - 32px);
 			}
 		}
 	}

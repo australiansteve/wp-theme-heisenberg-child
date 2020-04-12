@@ -78,19 +78,31 @@ body {
 		position: relative;
 
 		.grid-y {
+			height: 100%;
 			min-height: 100%;
+		}
+
+		.grid-y:not(.align-center):not(.align-right) {
+
+			> .cell {
+				min-height: 100%;
+			}
 		}
 
 		.grid-y.html-block {
 			min-height: 100%;
+
+			img.bottom-aligned {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
 		}
 
 		.grid-x, .grid-y {
 			position: relative;
-
-			.cell {
-				position: relative;
-			}
 		}
 
 		.background-div {
@@ -192,8 +204,17 @@ body {
 		min-height: calc(100% / 2);
 	}
 	.small-full-height {
-		height: calc(100vh - 32px);
+		min-height: calc(100vh - 32px);
 	}
+
+	@media screen and (min-height: 39.9375em) {
+		.small-full-height {
+			>.grid-y {
+				height: calc(100vh - 32px) !important;
+			}
+		}
+	}
+
 }
 
 /* Medium and up */
@@ -207,7 +228,7 @@ body {
 			}
 
 			.grid-x {
-				height: 100%;
+				min-height: 100%;
 			}
 
 		}
