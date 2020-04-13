@@ -53,17 +53,19 @@ jQuery( document ).ready(function() {
 		}
 	};
 
-	window.addEventListener("resize", repositionAfterResize);
-
 	myElement.addEventListener("wheel", wheelEvent);
 
 	jQuery(".home-reset-scroll").on("click", resetPagePosition);
 
+	window.addEventListener("resize", repositionAfterResize);
 	repositionAfterResize(); /* called to initially set the height. */
-	insertClickToScrollDownButtons();
-	console.log("allowCancelableEvent: " + allowCancelableEvent);
 
+	window.addEventListener("resize", setQuoteImageWidth);
+	setQuoteImageWidth();
+
+	insertClickToScrollDownButtons();
 	preventPullToRefresh('body');
+
 });
 
 var wheelEvent = function(event) {
@@ -315,3 +317,22 @@ function preventPullToRefresh(element) {
 		}
 	});
 }
+
+var setQuoteImageWidth = _.debounce(function() {
+	jQuery(".has-quote img").each(function() {
+		console.log("Adjust max-width of quote image");
+		if (window.innerWidth >= 1600) {
+			jQuery(this).css("max-width", "min(calc((100vh - 370px) * 0.6), calc(33vw * 0.9))");
+		}
+		else if (window.innerWidth >= 1024) {
+			jQuery(this).css("max-width", "min(calc((100vh - 330px) * 0.6), calc(33vw * 0.9))");
+		}
+		else if (window.innerWidth >= 640) {
+			jQuery(this).css("max-width", "min(calc((100vh - 300px) * 0.6), calc(33vw * 0.9))");
+		}
+		else {
+			jQuery(this).css("max-width", "");
+
+		}
+	});
+}, 250);
