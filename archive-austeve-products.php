@@ -17,7 +17,7 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 					?>
 					<div class="cell medium-4 small-full-height">
 
-						<div class="grid-y align-center" style="height: 100%">
+						<div class="grid-y align-center">
 							<div class="cell small-6 xlarge-7">
 								<?php
 								$sectionId="section_2_archive";

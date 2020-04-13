@@ -201,7 +201,7 @@ body {
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	.small-half-height {
-		min-height: calc(100% / 2);
+		min-height: calc((100vh -32px)/ 2);
 	}
 	.small-full-height {
 		min-height: calc(100vh - 32px);

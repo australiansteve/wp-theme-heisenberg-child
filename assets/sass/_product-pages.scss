@@ -35,6 +35,15 @@
 			}
 		}
 	}
+	
+	#section_3_block_4  {
+		padding-bottom: 135vw;
+		img {
+			max-width: 80%;
+			left: 10%;
+			right: 10%;
+		}
+	}
 
 	#section_4 {
 
@@ -117,6 +126,10 @@
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	.austeve-products-template-default.single {
+		#section_3_block_2 {
+			padding-bottom: 75px;
+		}
+
 		#section_4 {
 			#section_4_column_1 {
 				min-height: 50vh;
@@ -149,6 +162,20 @@
 				margin-bottom: 6rem;
 			}
 
+			#section_3_block_5 {
+				padding-top: 245px;
+			}
+
+		}
+
+		#section_3_block_4  {
+			padding-bottom: 40vw;
+
+			img {
+				max-width: 90%;
+				left: 5%;
+				right: 5%;
+			}
 		}
 
 		#section_4 {
@@ -301,6 +328,10 @@
 				}
 			}
 
+			#section_3_block_5 {
+				padding-top: 275px;
+			}
+
 		}
 
 		#section_4 {
@@ -342,6 +373,11 @@
 /* XXLarge and up (>2400px) */
 @media screen and (min-width: 150em) {
 	.austeve-products-template-default.single {
-		
+		#section_3_block_4 {
+			img {
+				max-width: 700px;
+				left: calc(33vw - 700px - (33vw - 700px) /2);
+			}
+		}
 	}
 }

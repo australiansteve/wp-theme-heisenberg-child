@@ -51,7 +51,7 @@ if ( have_posts() ) :
 		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
 		?>
 		<div class="section-content">
-			<div class="grid-x" style="height: 100%">
+			<div class="grid-x">
 				<div class="cell medium-6">
 					<?php
 					$sectionId = "section_4_column_1";

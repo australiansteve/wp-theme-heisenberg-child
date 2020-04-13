@@ -7,7 +7,7 @@ $positionV = is_array($position) ? $position['vertical'] : 'center';
 $positionH = is_array($position) ? $position['horizontal'] : 'center';
 $link = get_field($sectionId.'_image_link');
 ?>
-<div class="grid-y align-<?php echo $positionV;?> img-block <?php echo $sectionClasses;?>" id="<?php echo $sectionId;?>" style="height: 100%">
+<div class="grid-y align-<?php echo $positionV;?> img-block <?php echo $sectionClasses;?>" id="<?php echo $sectionId;?>">
 	<?php
 	include( locate_template( 'page-templates/template-parts/section-background.php', false, false ) ); 
 	?>

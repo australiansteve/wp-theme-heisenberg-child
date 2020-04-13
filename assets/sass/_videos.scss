@@ -137,6 +137,9 @@ body {
 	body {	
 		.video-section-content-overlay {
 			.video-wrapper {
+				video {
+
+				}
 			}
 		}	
 	}
@@ -157,6 +160,20 @@ body {
 	}
 }
 
+
+/* NOT HOME SCREEN - Minimum aspect ratio - short & wide screens */
+@media (min-aspect-ratio: 1584/1000) {
+	body:not(.home) {	
+		.video-section-content-overlay {
+			.video-wrapper {
+				video {
+					top: 50%;
+    				margin-top: -50vh;
+				}
+			}
+		}	
+	}
+}
 
 
 
