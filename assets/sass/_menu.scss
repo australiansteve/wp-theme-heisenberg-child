@@ -70,21 +70,20 @@
 
 		}
 	}
-}
 
-/* Medium AND Minimum aspect ratio - short & wide screens - most likely landscape phones */
-@media (min-aspect-ratio: 1/1) {
-	.off-canvas {
+	/* Medium AND Minimum aspect ratio - short & wide screens - most likely landscape phones */
+	@media (min-aspect-ratio: 1/1) {
+		.off-canvas {
 
-		.grid-y.medium-align-center {
-			justify-content : start;
-			height: 640px;
-			padding-top: 100px;
+			.grid-y.medium-align-center {
+				justify-content : start;
+				height: 640px;
+				padding-top: 100px;
+			}
 		}
+
 	}
-
 }
-
 
 /* Medium only */
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {

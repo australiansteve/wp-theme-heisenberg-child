@@ -60,6 +60,7 @@
 		}
 		.description {
 			font-size: 16px;
+			padding-right: 0.75rem;
 		}
 
 		.img-block {
@@ -194,13 +195,13 @@
 
 			#section_4_column_1 {
 				padding-top: 75px;
-				padding-bottom: 75px;
+				padding-bottom: 0px;
 			}
 
 			#section_4_column_2 {
 
 				.feature-container {
-					padding: 75px 5%;
+					padding: 75px 5% 0 5%;
 
 					.feature {
 						.icon {

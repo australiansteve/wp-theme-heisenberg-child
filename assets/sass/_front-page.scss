@@ -6,8 +6,14 @@
 			opacity: 1;
 		}
 
+		.placeholder-overlay {
+			font-weight: 900;
+			font-size: 32px;
+			line-height: 1;
+		}
+
 		.placeholder-image .fa-play {
-			margin-top: 20%;
+			margin-top: 6rem;
 			color: black;
 		}
 	}
@@ -85,6 +91,14 @@
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	.home {
+
+		#section_1 {
+
+			.placeholder-overlay {
+				font-size: 54px
+			}
+
+		}
 
 		#section_3 {
 			font-size: 20px;
@@ -195,6 +209,15 @@
 /* XLarge and up (>1600px) */
 @media screen and (min-width: 100em) {
 	.home {
+
+
+		#section_1 {
+
+			.placeholder-overlay {
+				font-size: 66px
+			}
+
+		}
 
 		#section_3 {
 			.html-block {

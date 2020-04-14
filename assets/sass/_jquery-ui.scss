@@ -27,6 +27,7 @@
         text-align: left;
         text-transform: uppercase;
         font-weight: 900;
+        margin-top: 0;
 
         span {
             vertical-align: super;
@@ -34,6 +35,11 @@
         }
 
         + .ui-accordion-content {
+
+            tbody {
+                border: none;
+            }
+
             tr {
                 background-color: $white-color;
             }

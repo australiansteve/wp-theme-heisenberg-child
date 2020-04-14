@@ -4,6 +4,7 @@ $startMuted = get_field($sectionId.'_video_starts_muted');
 $videoUrl = get_field($sectionId.'_video_url');
 $videoCaption = get_field($sectionId.'_video_caption');
 $placeholderImage = get_field($sectionId.'_placeholder_image');
+$placeholderOverlayText = get_field($sectionId.'_overlay_text');
 ?>
 <div class="section-content">
 	<div class="grid-y align-center video-section" style="height: 100%">
@@ -14,6 +15,9 @@ $placeholderImage = get_field($sectionId.'_placeholder_image');
 				?>
 				<div class="grid-y align-center placeholder-image" style="background-image: url(<?php echo $imageUrl;?>)">
 					<div class="cell text-center">
+						<?php if ($placeholderOverlayText) { ?>
+							<div class="placeholder-overlay"><?php echo $placeholderOverlayText;?></div>
+						<?php } ?>
 						<?php if ($videoUrl) { ?>
 						<a class="placeholder-go <?php echo $videoUrl ? '': 'no-video';?>"><i class="fas fa-play"></i></a>
 						<?php } ?>

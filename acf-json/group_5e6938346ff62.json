@@ -124,6 +124,25 @@
             "maxlength": "",
             "rows": 3,
             "new_lines": "br"
+        },
+        {
+            "key": "field_5e950d64399da",
+            "label": "Placeholder Overlay Text",
+            "name": "overlay_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -143,5 +162,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1586355385
+    "modified": 1586827097
 }
