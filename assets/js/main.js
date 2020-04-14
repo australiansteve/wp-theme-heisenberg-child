@@ -320,7 +320,6 @@ function preventPullToRefresh(element) {
 
 var setQuoteImageWidth = _.debounce(function() {
 	jQuery(".has-quote img").each(function() {
-		console.log("Adjust max-width of quote image");
 		if (window.innerWidth >= 1600) {
 			jQuery(this).css("max-width", "min(calc((100vh - 370px) * 0.6), calc(33vw * 0.9))");
 		}
@@ -331,7 +330,22 @@ var setQuoteImageWidth = _.debounce(function() {
 			jQuery(this).css("max-width", "min(calc((100vh - 300px) * 0.6), calc(33vw * 0.9))");
 		}
 		else {
-			jQuery(this).css("max-width", "");
+			jQuery(this).css("max-width", "min(calc((100vh - 245px) * 0.6), calc(100vw * 0.9))");
+
+		}
+	});
+	jQuery(".home #section_5_block_3 img").each(function() {
+		if (window.innerWidth >= 1600) {
+			jQuery(this).css("max-width", "min(calc((100vh - 340px) * 0.6), calc(25vw * 0.9))");
+		}
+		else if (window.innerWidth >= 1024) {
+			jQuery(this).css("max-width", "min(calc((100vh - 330px) * 0.6), calc(25vw * 0.9))");
+		}
+		else if (window.innerWidth >= 640) {
+			jQuery(this).css("max-width", "min(calc((100vh - 375px) * 0.6), calc(25vw * 0.9))");
+		}
+		else {
+			jQuery(this).css("max-width", "min(calc((100vh - 255px) * 0.6), calc(100vw * 0.9))");
 
 		}
 	});

@@ -7,13 +7,6 @@
     border: none;
 }
 
-.ui-icon, .ui-widget-content .ui-icon {
-    background-image: url(https://download.jqueryui.com/themeroller/images/ui-icons_707070_256x240.png) !important;
-}
-.ui-state-active .ui-icon, .ui-button:active .ui-icon {
-    background-image: url(https://download.jqueryui.com/themeroller/images/ui-icons_707070_256x240.png) !important;
-}
-
 .ui-widget-content {
     border: none;
 }
@@ -29,16 +22,20 @@
         font-weight: 400;
     }
     .ui-accordion-header {
-        background: $light-grey-color;
-        color: $black-color;
+        background: $white-color;
+        color: $blue-color;
         text-align: left;
+        text-transform: uppercase;
+        font-weight: 900;
+
+        span {
+            vertical-align: super;
+            font-size: 14px;
+        }
 
         + .ui-accordion-content {
             tr {
                 background-color: $white-color;
-            }
-            tr:nth-of-type(even) {
-                background-color: $light-grey-color;
             }
         }
     }
@@ -48,9 +45,6 @@
 
         + .ui-accordion-content {
             tr {
-                background-color: $light-grey-color;
-            }
-            tr:nth-of-type(even) {
                 background-color: $white-color;
             }
         }
@@ -69,6 +63,8 @@
                     text-align: left;
                     padding-top: 1rem;
                     padding-bottom: 1rem;
+                    padding-left: 2rem;
+                    font-size: 16px;
                 }
             }
         }
@@ -88,6 +84,10 @@
 
     .ui-accordion {
 
+        .ui-accordion-header {
+            padding-left: 15%;
+        }
+
         .ui-accordion-content {
 
             table {
@@ -95,11 +95,12 @@
                 tr {
 
                     td {
-                        width: 50%;
+                        width: 15%;
                     }
 
                     td:nth-of-type(2) {
-                        border-left: 1px $light-grey-color dotted;
+                        width: 85%;
+                        font-size: 20px;
                     }
                 }
             }

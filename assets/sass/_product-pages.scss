@@ -124,6 +124,11 @@
 		.cell {
 			padding: $border-width;
 		}
+
+		h2 {
+			margin-bottom: 3rem;
+			color: $blue-color;
+		}
 	}
 
 }
@@ -181,7 +186,6 @@
 				right: 0;
 			}
 		}
-
 
 		#section_4 {
 			h4 {

@@ -47,12 +47,14 @@
 		padding-bottom: 60vw;
 	}
 
-	#section_5_block_3  {
-		padding-bottom: 175vw;
+	#section_5_block_3 {
+		padding-bottom: none;
+
 		img {
-			max-width: 90%;
-			left: 5%;
-			right: 5%;
+			max-width: 250px;
+			left: calc((100vw - 2rem - 250px) / 2);
+			right: calc((100vw - 2rem - 250px) / 2);
+			margin: auto;
 		}
 	}
 
@@ -110,7 +112,11 @@
 		}
 
 		#section_5_block_3  {
-			padding-bottom: 35vw;
+			padding-bottom: 0;
+			img { /* max-width: min(calc((100vh - 300px) * 0.6), calc(33vw * 0.9)); */
+				left: 0;
+				right: 0;
+			}
 		}
 
 	}

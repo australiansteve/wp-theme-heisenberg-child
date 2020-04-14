@@ -3,6 +3,10 @@ Sometimes when there are two cells in a Y-grid there appears a faint white line 
 .grid-y > .cell:not(:nth-last-of-type(1)) {
 	margin-bottom: -3px;
 }
+
+.austeve-products-template-default.single #section_4 .section-content>.grid-x>.cell {
+	margin-bottom: -3px;
+}
 /* END: Y-Gris white lines under images */
 
 /* START: Product page case study paragragh alignment

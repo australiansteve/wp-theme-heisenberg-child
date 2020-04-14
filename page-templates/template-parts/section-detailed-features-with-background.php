@@ -1,12 +1,12 @@
 <?php
 $deatiledFeatures = get_field('feature_categories');
 ?>
-<div class="grid-y align-left" id="<?php echo $sectionId;?>">
+<div class="grid-y align-left <?php echo $sectionClasses;?>" id="<?php echo $sectionId;?>">
 	<?php
 	include( locate_template( 'page-templates/template-parts/section-background.php', false, false ) ); 
 	?>
 	<div class="cell">
-		<h2><?php the_title(); ?></h2>
+		<h2><?php the_field('feature_categories_section_title'); ?></h2>
 
 		<?php
 		if( have_rows('feature_categories') ):
@@ -14,23 +14,21 @@ $deatiledFeatures = get_field('feature_categories');
 			?>
 			<script>
 				jQuery( function() {
-					var icons = {
-						header: "ui-icon-caret-1-e",
-						activeHeader: "ui-icon-caret-1-s"
-					};
+					
 					jQuery( "#expandable-sections-<?php echo $sectionRandomNumber;?>" ).accordion({
 						heightStyle: "content",
 						collapsible: true,
-						icons: icons
+						icons: false
 					});
 				} );
 			</script>
 			<div id="expandable-sections-<?php echo $sectionRandomNumber;?>" class="expandable-sections">
 				<?php
+				$categoryCounter = 1;
 				while ( have_rows('feature_categories') ) : the_row();
 
 					?>
-					<h3><span><?php the_sub_field('category'); ?></span></h3>
+					<h3><span><?php echo str_pad($categoryCounter++, 2, '0', STR_PAD_LEFT);?>.</span> <?php the_sub_field('category'); ?></h3>
 					<div>
 						<table>
 							<?php

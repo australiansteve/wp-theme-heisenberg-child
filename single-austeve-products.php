@@ -77,7 +77,7 @@ if ( have_posts() ) :
 			<div class="section-content">
 				<?php
 				$sectionId = "section_5_column_1";
-				$sectionClasses= 'single-block-section';
+				$sectionClasses= 'sinlge-block-section flexible-height';
 				include( locate_template( 'page-templates/template-parts/section-detailed-features-with-background.php', false, false ) ); 
 				?>
 			</div>

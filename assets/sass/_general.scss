@@ -194,6 +194,10 @@ body {
 
 }
 
+.flexible-height {
+	height: auto !important;
+}
+
 .disable-overscroll {
 	overscroll-behavior: none;
 }
