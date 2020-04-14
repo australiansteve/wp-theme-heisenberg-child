@@ -190,7 +190,7 @@
 
 		#section_4 {
 			h4 {
-				font-size: 20px;
+				font-size: 18px;
 			}
 
 			#section_4_column_1 {
@@ -199,9 +199,10 @@
 			}
 
 			#section_4_column_2 {
+				padding-top: 75px;
 
 				.feature-container {
-					padding: 75px 5% 0 5%;
+					padding: 0 5%;
 
 					.feature {
 						.icon {
@@ -276,17 +277,15 @@
 		#section_4 {
 
 			h4 {
-				font-size: 20px;
 			}
 
 			.description {
-				font-size: 18px;
 			}
 
 			#section_4_column_2 {
 
 				.feature-container {
-					max-width: 80%;
+					max-width: calc(100% - 1rem);
 				}
 			}
 		}
@@ -367,6 +366,9 @@
 			#section_4_column_2 {
 
 				.feature-container {
+
+					max-width: 90%;
+
 					.feature {
 						.icon {
 							img {

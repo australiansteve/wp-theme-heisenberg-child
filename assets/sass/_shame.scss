@@ -1,11 +1,19 @@
 /* START: Y-Grid white lines under images 
 Sometimes when there are two cells in a Y-grid there appears a faint white line between them. This covers it up */
-.grid-y > .cell:not(:nth-last-of-type(1)) {
-	margin-bottom: -3px;
+.home #section_3,
+.post-type-archive-austeve-products #section_1 {
+
+	.grid-y > .cell:not(:nth-last-of-type(1)) {
+		margin-bottom: -3px;
+		margin-top: -3px;
+	}
 }
 
-.austeve-products-template-default.single #section_4 .section-content>.grid-x>.cell {
-	margin-bottom: -3px;
+@media screen and (max-width: 40em) {
+	.austeve-products-template-default.single #section_4 .section-content>.grid-x>.cell {
+		margin-bottom: -3px;
+		margin-top: -3px;
+	}
 }
 /* END: Y-Gris white lines under images */
 
@@ -14,28 +22,28 @@ Alignment of paragraphs on product pages where the product title is split into 2
 /* Medium and up (>640px) */
 @media screen and (min-width: 40em) {
 
-.austeve-products-template-default.single.postid-854,
-.austeve-products-template-default.single.postid-25,
-.austeve-products-template-default.single.postid-27,
- {
-	section#section_3 #section_3_block_5 {
-    padding-top: 293px;
-}
-} 
+	.austeve-products-template-default.single.postid-854,
+	.austeve-products-template-default.single.postid-25,
+	.austeve-products-template-default.single.postid-27,
+	{
+		section#section_3 #section_3_block_5 {
+			padding-top: 293px;
+		}
+	} 
 
 }
 
 /* XLarge and up (>1600px) */
 @media screen and (min-width: 100em) {
 
-.austeve-products-template-default.single.postid-854,
-.austeve-products-template-default.single.postid-25,
-.austeve-products-template-default.single.postid-27,
- {
-	section#section_3 #section_3_block_5 {
-    padding-top: 355px;
-}
-} 
+	.austeve-products-template-default.single.postid-854,
+	.austeve-products-template-default.single.postid-25,
+	.austeve-products-template-default.single.postid-27,
+	{
+		section#section_3 #section_3_block_5 {
+			padding-top: 355px;
+		}
+	} 
 }
 
 /* END: Product page case study paragragh alignment */

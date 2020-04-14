@@ -71,8 +71,8 @@
 		}
 	}
 
-	/* Medium AND Minimum aspect ratio - short & wide screens - most likely landscape phones */
-	@media (min-aspect-ratio: 1/1) {
+	/* Medium AND short */
+	@media screen and (max-height: 640px) {
 		.off-canvas {
 
 			.grid-y.medium-align-center {
@@ -134,6 +134,19 @@
 			}
 
 		}
+	}
+
+	/* XLarge AND short */
+	@media screen and (max-height: 800px) {
+		.off-canvas {
+
+			.grid-y.medium-align-center {
+				justify-content : start;
+				height: 800px;
+				padding-top: 100px;
+			}
+		}
+
 	}
 }
 

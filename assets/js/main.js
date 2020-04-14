@@ -330,7 +330,7 @@ var setQuoteImageWidth = _.debounce(function() {
 			jQuery(this).css("max-width", "min(calc((100vh - 300px) * 0.6), calc(33vw * 0.9))");
 		}
 		else {
-			jQuery(this).css("max-width", "min(calc((100vh - 245px) * 0.6), calc(100vw * 0.9))");
+			jQuery(this).css("max-width", "min(calc((90vh - 345px) * 0.6), calc(100vw * 0.8))");
 
 		}
 	});
@@ -345,7 +345,7 @@ var setQuoteImageWidth = _.debounce(function() {
 			jQuery(this).css("max-width", "min(calc((100vh - 375px) * 0.6), calc(25vw * 0.9))");
 		}
 		else {
-			jQuery(this).css("max-width", "min(calc((100vh - 255px) * 0.6), calc(100vw * 0.9))");
+			jQuery(this).css("max-width", "min(calc((90vh - 300px) * 0.6), calc(100vw * 0.8))");
 
 		}
 	});
