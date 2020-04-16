@@ -248,11 +248,15 @@ var repositionAfterResize = _.debounce(function() {
 	//console.log("Window resize. " + currentYPos);
 	var activeSection = jQuery("section.active");
 	var activeFooter = jQuery("footer.active");
-	var borderTop = parseInt(activeSection.css("border-top-width"), 10);
-	var borderBottom = parseInt(activeSection.css("border-bottom-width"), 10);
+	
 	/* Reset window height first */
 	jQuery("main").height(window.innerHeight);
-	jQuery("section").height(window.innerHeight - borderTop - borderBottom);
+	jQuery("section").each(function() {
+		var borderTop = parseInt(jQuery(this).css("border-top-width"), 10);
+		var borderBottom = parseInt(jQuery(this).css("border-bottom-width"), 10);
+		jQuery(this).height(window.innerHeight - borderTop - borderBottom);
+	});
+
 	var newYpos = 0;
 	if (activeSection.length > 0) {
 		for (var s = 0; s < activeSection.attr("data-section"); s++) {
