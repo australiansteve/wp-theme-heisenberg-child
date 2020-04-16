@@ -3,7 +3,6 @@ import './off-canvas.js'
 
 var currentYPos = 0;
 var myElement = null;
-var downLock = false;
 var allowCancelableEvent = false;
 
 jQuery( document ).ready(function() {
@@ -19,11 +18,11 @@ jQuery( document ).ready(function() {
 		var direction = "";
 		switch (ev.direction) {
 			case Hammer.DIRECTION_UP:
-			console.log("Swipe UP - that means go down!");
+			//console.log("Swipe UP - that means go down!");
 			scrollThrottle(ev, true);
 			break;
 			case Hammer.DIRECTION_DOWN:
-			console.log("Swipe DOWN - that means go up!");
+			//console.log("Swipe DOWN - that means go up!");
 			scrollThrottle(ev, false);
 			break;
 		}
@@ -33,11 +32,11 @@ jQuery( document ).ready(function() {
 		var direction = "";
 		switch (ev.direction) {
 			case Hammer.DIRECTION_UP:
-			console.log("Pan UP - that means go down!");
+			//console.log("Pan UP - that means go down!");
 			scrollThrottle(ev, true);
 			break;
 			case Hammer.DIRECTION_DOWN:
-			console.log("Pan DOWN - that means go up!");
+			//console.log("Pan DOWN - that means go up!");
 			scrollThrottle(ev, false);
 			break;
 		}
@@ -63,7 +62,10 @@ jQuery( document ).ready(function() {
 	window.addEventListener("resize", setQuoteImageWidth);
 	setQuoteImageWidth();
 
-	insertClickToScrollDownButtons();
+	jQuery(".click-to-scroll-down a").on("click", function(event) {
+		//console.log(event);
+		goDown(event);
+	});
 	preventPullToRefresh('body');
 
 });
@@ -81,8 +83,8 @@ var wheelEvent = function(event) {
 }
 
 var goDown = function(event) {
-	console.log("GO DOWN " + event.type);
-	console.log(event);
+	//console.log("GO DOWN " + event.type);
+	//console.log(event);
 	var activeSection = jQuery("section.active");
 	var nextSection = jQuery("section.active + section");
 	var activeFooter = jQuery("footer.active");
@@ -115,7 +117,7 @@ var goDown = function(event) {
 	//jQuery(".scroll-debug").html(debugMessage);
 
 	if (longSection && !atBottomOfSection) {
-		console.log("do nothing - let the browser scroll - hide the logo and reset throttle");
+		//console.log("do nothing - let the browser scroll - hide the logo and reset throttle");
 		if (event.type == "click" || event.type == "keydown") {
 			activeSectionContent.scrollTop(activeSectionContent.scrollTop() + 40);
 		}
@@ -123,7 +125,7 @@ var goDown = function(event) {
 		scrollThrottle.cancel();
 	}
 	else if (longSection && atBottomOfSection && nextSection.length > 0) {
-		console.log("at bottom of long section, and the next section is not the footer");
+		//console.log("at bottom of long section, and the next section is not the footer");
 		currentYPos -= activeSection.outerHeight();
 		jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
 		activeSection.removeClass("active");
@@ -132,17 +134,22 @@ var goDown = function(event) {
 		nextSection.css("transform", "scale(1, 1)");
 	}
 	else if (longSection && atBottomOfSection && nextSection.length == 0 && activeFooter.length == 0) {
-		console.log("at bottom of long section, and the next section is the footer");
+		//console.log("at bottom of long section, and the next section is the footer");
 		var footer = jQuery("footer");
-		var footerHeight = footer.outerHeight();
-		currentYPos -= footerHeight;
-		jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
-		activeSection.removeClass("active");
-		footer.addClass("active");
-		jQuery(".click-to-scroll-down").css('opacity', '0');
+		if (footer.length > 0) {
+			var footerHeight = footer.outerHeight();
+			currentYPos -= footerHeight;
+			jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
+			activeSection.removeClass("active");
+			footer.addClass("active");
+			jQuery(".click-to-scroll-down").css('opacity', '0');
+		}
+		else {
+			//console.log("No footer to go to");
+		}
 	}
 	else if (nextSection.length > 0) {
-		console.log("not a long section, an there is another section afterwards");
+		//console.log("not a long section, and there is another section afterwards");
 		currentYPos -= activeSection.outerHeight();
 		jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
 		activeSection.removeClass("active");
@@ -151,17 +158,22 @@ var goDown = function(event) {
 		nextSection.css("transform", "scale(1, 1)");
 	}
 	else if (activeFooter.length == 0) {
-		console.log("not a long section and the next section is the footer");
+		//console.log("not a long section and the next section is the footer");
 		var footer = jQuery("footer");
-		//change classes first so that footer height is accurate
-		activeSection.removeClass("active");
-		footer.addClass("active");
+		if (footer.length > 0) {
+			//change classes first so that footer height is accurate
+			activeSection.removeClass("active");
+			footer.addClass("active");
 
-		var footerHeight = footer.outerHeight();
-		currentYPos -= footerHeight;
-		jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
+			var footerHeight = footer.outerHeight();
+			currentYPos -= footerHeight;
+			jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
 
-		jQuery(".click-to-scroll-down").css('opacity', '0');
+			jQuery(".click-to-scroll-down").css('opacity', '0');
+		}
+		else {
+			//console.log("No footer to go to");
+		}
 	}	
 
 	jQuery("body").addClass('disable-overscroll');
@@ -176,7 +188,7 @@ var goDown = function(event) {
 }
 
 var goUp = function(event) {
-	console.log("scroll up");
+	//console.log("scroll up");
 	var activeSection = jQuery("section.active");
 	var activeFooter = jQuery("footer.active");
 	if (activeSection.length > 0) {
@@ -187,9 +199,9 @@ var goUp = function(event) {
 		if (prevSection.length > 0) {
 			var longSection = activeSectionContent.prop("scrollHeight") > window.innerHeight;
 			var atTopOfSection = 0 == activeSectionContent.prop("scrollTop");
-			console.log(atTopOfSection + " " + activeSectionContent.prop("scrollTop"));
+			//console.log(atTopOfSection + " " + activeSectionContent.prop("scrollTop"));
 			if (!longSection || atTopOfSection) {
-				console.log("Not a long section ("+!longSection+") - or we are already at the top ("+atTopOfSection+")");
+				//console.log("Not a long section ("+!longSection+") - or we are already at the top ("+atTopOfSection+")");
 				currentYPos += prevSection.outerHeight();
 				jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
 				activeSection.removeClass("active");
@@ -198,7 +210,7 @@ var goUp = function(event) {
 				prevSection.css("transform", "scale(1, 1)");
 			}
 			else if (longSection && !atTopOfSection){
-				console.log("do nothing - let the browser scroll - reset throttle at end");
+				//console.log("do nothing - let the browser scroll - reset throttle at end");
 				if (event.type == "click" || event.type == "keydown") {
 					activeSectionContent.scrollTop(activeSectionContent.scrollTop() - 40);
 				}
@@ -210,7 +222,6 @@ var goUp = function(event) {
 		}
 	}
 	else if (activeFooter.length > 0) {
-		console.log(activeFooter.outerHeight());
 		var footerHeight = activeFooter.outerHeight();
 		var prevSection = jQuery("section:nth-last-of-type(1)");
 		currentYPos += footerHeight;
@@ -223,7 +234,6 @@ var goUp = function(event) {
 }
 
 const scrollThrottle = _.throttle(function(event, directionDown = true) {
-	console.log("scrollThrottle");
 	if (directionDown) {
 		goDown(event);
 	}
@@ -257,7 +267,7 @@ var repositionAfterResize = _.debounce(function() {
 		var sections = jQuery("section");
 		
 		for (var s = 0; s < sections.length - 1; s++) {
-			console.log(jQuery(sections[s]).outerHeight());
+			//console.log(jQuery(sections[s]).outerHeight());
 			newYpos += jQuery(sections[s]).outerHeight();
 		}
 		newYpos += activeFooter.outerHeight();
@@ -268,7 +278,7 @@ var repositionAfterResize = _.debounce(function() {
 }, 250);
 
 var resetPagePosition = function() {
-	console.log("Reset scroll to top of page");
+	//console.log("Reset scroll to top of page");
 	currentYPos = 0;
 	jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
 	var activeSection = jQuery("section.active");
@@ -285,18 +295,6 @@ var resetPagePosition = function() {
 		this.scrollTop = 0;
 	});
 	window.focus();
-}
-
-var insertClickToScrollDownButtons = function() {
-	jQuery(".section-content").each(function() {
-
-		//var string = "<div class="click-to-scroll-down"><a title=\"Scroll down\" href=\"#\"><i class=\"fas fa-chevron-down\"></i></a></div>";
-		//jQuery(this).append(string);
-	});
-	jQuery(".click-to-scroll-down a").on("click", function(event) {
-		console.log(event);
-		goDown(event);
-	});
 }
 
 function preventPullToRefresh(element) {
