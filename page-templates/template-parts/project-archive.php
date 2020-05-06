@@ -55,23 +55,25 @@
 				} 
 			}
 			else {
+				?>
+				<img src="https://via.placeholder.com/1200x800"/>
+				<?php 
+			} 
 			?>
-			<img src="https://via.placeholder.com/1200x800"/>
-			<?php 
-		} 
-		?>
-	</div>
-
-	<div class="project-detail-container grid-y">
-		<div class="cell meta">
-			<h2><?php echo the_title(); ?></h2>
-			<div class="type"><?php the_field('project_type'); ?></div>
-			<div class="location"><?php the_field('location'); ?></div>
 		</div>
-		<div class="cell large-auto description">
-			<div class="description"><?php the_field('short_description'); ?></div>
-		</div>
-	</div>
 
-</div>
+		<div class="project-detail-container grid-y">
+			<div class="cell meta">
+				<h2><?php echo the_title(); ?></h2>
+				<div class="type"><?php the_field('project_type'); ?></div>
+			</div>
+			<div class="cell large-auto description">
+				<div class="description"><?php the_field('short_description'); ?></div>
+			</div>
+			<div class="cell read-more">
+				<a href="<?php echo the_permalink();?>" class="button">Read More</a>
+			</div>
+		</div>
+
+	</div>
 </div>

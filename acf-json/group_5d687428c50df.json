@@ -22,9 +22,47 @@
             "maxlength": ""
         },
         {
+            "key": "field_5eaac0dbbb62d",
+            "label": "Consultants",
+            "name": "consultants",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5d68748534197",
             "label": "Location",
             "name": "location",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5eaac11bbb62e",
+            "label": "Completion",
+            "name": "completion",
             "type": "text",
             "instructions": "",
             "required": 0,
