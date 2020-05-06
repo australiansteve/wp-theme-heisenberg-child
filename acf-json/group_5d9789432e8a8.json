@@ -3,10 +3,29 @@
     "title": "About Page Attributes",
     "fields": [
         {
+            "key": "field_5dfa3561a0ef8",
+            "label": "Mission Statement Section Title",
+            "name": "mission_statement_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "OUR MISSION",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5df3aab2f38f7",
             "label": "Mission Statement",
             "name": "mission_statement",
-            "type": "wysiwyg",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,10 +35,10 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": ""
         },
         {
             "key": "field_5d97894a62c7d",
@@ -249,5 +268,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576250077
+    "modified": 1576678860
 }

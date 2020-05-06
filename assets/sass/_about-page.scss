@@ -20,15 +20,11 @@
 	}
 
 	#mission-statement {
-		font-size: 1.4rem;
-		margin: 3rem 1rem 2rem 1rem;
-		background: $red-color;
-		color: $white-color;
-		padding: 2rem 1rem;
 
-		p {
-			font-family: Gotham-Black;
-			font-size: 1.7rem;
+		margin-top: 3rem;
+
+		h2 {
+			text-transform: uppercase;
 		}
 	}
 
@@ -135,7 +131,8 @@
 
 
 		#mission-statement {
-			padding: 2rem 5rem;
+			padding: 2rem 5rem 2rem 0;
+			margin-top: 3rem;
 		}
 
 		#profiles {
@@ -170,7 +167,7 @@
 		}
 
 		#mission-statement {
-			margin: 5rem 2rem 4rem 2rem;
+		
 		}
 
 	}

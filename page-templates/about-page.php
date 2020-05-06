@@ -91,11 +91,15 @@ get_header(); ?>
 							<div class="bling-2">
 							</div>
 
+
+							<div id="mission-statement">
+								<h2><?php the_field('mission_statement_title'); ?></h2>
+
+								<p class="has-medium-font-size"><?php the_field('mission_statement'); ?></p>
+							</div>
+							
 						</div>
 
-						<div id="mission-statement">
-							<?php the_field('mission_statement'); ?>
-						</div>
 
 						<?php
 

@@ -51,7 +51,7 @@
 					] ); 
 					?>
 				</ul>
-				
+
 	</div>
 
 	<div class="off-canvas-content" data-off-canvas-content style="position: relative" data-sticky-container>
@@ -80,15 +80,7 @@
 			</div>
 		</div>
 
-		<div class="off-canvas-opener show-for-medium">
-			<?php if ( has_custom_logo() ) :
-						$custom_logo_id = get_theme_mod( 'custom_logo' );
-						$logo = wp_get_attachment_image_src( $custom_logo_id , 'tiny-logo' );
-						?>
-						<img class="<?php echo $custom_logo_id;?>" src="<?php echo $logo[0];?>" height="<?php echo $logo[1];?>" width="<?php echo $logo[2];?>"/>
-						<?php
-					endif;
-						?>		
+		<div class="off-canvas-opener show-for-medium">	
 			<button type="button" class="button" data-open="offCanvas"><i class="fas fa-bars fa-3x"></i><br/><?php the_field('menu_button_text', 'option');?></button>
 		</div>
 
