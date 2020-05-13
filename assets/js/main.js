@@ -196,10 +196,11 @@ var goUp = function(event) {
 		var prevSection = jQuery(
 			"section[data-section=" + (activeSection.attr("data-section") - 1) + "]"
 			);
+		var longSection = activeSectionContent.prop("scrollHeight") > window.innerHeight;
+		var atTopOfSection = 0 == activeSectionContent.prop("scrollTop");
+		//console.log(atTopOfSection + " " + activeSectionContent.prop("scrollTop"));
+
 		if (prevSection.length > 0) {
-			var longSection = activeSectionContent.prop("scrollHeight") > window.innerHeight;
-			var atTopOfSection = 0 == activeSectionContent.prop("scrollTop");
-			//console.log(atTopOfSection + " " + activeSectionContent.prop("scrollTop"));
 			if (!longSection || atTopOfSection) {
 				//console.log("Not a long section ("+!longSection+") - or we are already at the top ("+atTopOfSection+")");
 				currentYPos += prevSection.outerHeight();
@@ -220,6 +221,8 @@ var goUp = function(event) {
 				jQuery("body").removeClass('disable-overscroll');
 			}
 		}
+		setTimeout(showLogoIfAtTop, 500);
+
 	}
 	else if (activeFooter.length > 0) {
 		var footerHeight = activeFooter.outerHeight();
@@ -230,6 +233,16 @@ var goUp = function(event) {
 		prevSection.addClass("active");
 		prevSection.css("transform", "scale(1, 1)");
 		jQuery(".click-to-scroll-down").css('opacity', '1');
+	}
+}
+
+var showLogoIfAtTop = function() {
+	//console.log("Check if at top");
+	var activeSectionContent = jQuery("section.active .section-content");
+	var atTopOfSection = 0 == activeSectionContent.prop("scrollTop");
+	if (atTopOfSection) {
+		jQuery("section.active .section-header img").css("opacity", "1");
+
 	}
 }
 

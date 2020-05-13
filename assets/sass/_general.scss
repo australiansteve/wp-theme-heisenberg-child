@@ -192,6 +192,25 @@ body {
 		outline: none;
 	}
 
+	.searchform {
+
+		.search-container {
+
+			position: relative;
+
+			input {
+				padding-right: 15%;
+			}
+
+			button {
+				position: absolute;
+				width: 15%;
+				right: 0.5rem;
+				bottom: 0.5rem;
+				height: calc(100% - 1rem);
+			}
+		}
+	}
 }
 
 .flexible-height {
