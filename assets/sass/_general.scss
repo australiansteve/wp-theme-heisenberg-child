@@ -211,6 +211,15 @@ body {
 			}
 		}
 	}
+
+	.button.load-more:not(.fetching) i {
+		display: none;
+	}
+
+	.button.load-more.fetching i {
+		display: inline-block;
+		margin-left: 0.5rem;
+	}
 }
 
 .flexible-height {
