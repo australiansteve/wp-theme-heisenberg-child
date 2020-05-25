@@ -178,6 +178,11 @@ var goDown = function(event) {
 
 	jQuery("body").addClass('disable-overscroll');
 
+	if (jQuery("body.blog, body.archive.category, body.search").length)
+	{
+		console.log("Trigger loading of more posts!");
+		jQuery(document).trigger('loadmoreposts');
+	}
 	//pause video if there is one playing
 	var video = document.querySelector('video');
 	if (video) {

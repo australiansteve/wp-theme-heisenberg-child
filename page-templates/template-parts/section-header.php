@@ -1,9 +1,8 @@
-<?php		
-		$customLogo = get_field($sectionId.'_header_customization_header_logo');
-		$customTextColor = get_field($sectionId.'_header_customization_text_color');
-		error_log("Section text color: ". print_r($customTextColor, true));
-
-		?>
+<?php
+$pageId = is_home() || is_search() || is_post_type_archive('category') ? get_option( 'page_for_posts' ) : get_the_id();
+$customLogo = get_field($sectionId.'_header_customization_header_logo', $pageId);
+$customTextColor = get_field($sectionId.'_header_customization_text_color', $pageId);
+?>
 <section id="<?php echo $sectionId;?>"  data-section="<?php global $sectionNumber; echo $sectionNumber;?>" class="<?php echo ($sectionNumber == 1) ? 'active' : '';?>">
 
 	<div class="section-header" style="color: <?php echo $customTextColor['text_color'];?>">

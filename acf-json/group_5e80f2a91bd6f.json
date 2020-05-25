@@ -161,6 +161,60 @@
             ]
         },
         {
+            "key": "field_5ecbf26cd0d90",
+            "label": "Blog Archive Settings",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5ecbf2990bca0",
+            "label": "Clear Filters Button Text",
+            "name": "clear_filters_button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Clear Filters",
+            "placeholder": "Clear Filters",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ecbf2d50bca1",
+            "label": "No Search Results Message",
+            "name": "no_search_results_message",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_5e8cb78e141e5",
             "label": "404 Page",
             "name": "",
@@ -237,5 +291,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1586300053
+    "modified": 1590424316
 }

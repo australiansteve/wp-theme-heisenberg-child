@@ -35,11 +35,9 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 						endwhile;
 
 					else :
-						?>
-						<div class="grid-y align-center text-center" id="no-posts">
-							<?php the_field('no_search_results_message', 'option');?>
-						</div>
-						<?php
+
+						echo esc_html( 'Sorry, no posts' );
+
 					endif;
 
 					?>
@@ -67,7 +65,7 @@ include( locate_template( 'page-templates/template-parts/section-footer.php', fa
 					action : 'austeve_get_posts', 
 					security: '<?php echo $ajax_nonce; ?>', 
 					page: pageToLoad,
-					search: '<?php echo get_search_query();?>',
+					category: '<?php echo get_queried_object()->term_id; ?>',
 					nextSection: <?php global $sectionNUmber; echo $sectionNumber++?>,
 				},
 				error: function (xhr, status, error) {

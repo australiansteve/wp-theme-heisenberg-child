@@ -1,10 +1,11 @@
 <?php
-$autoplay = get_field($sectionId.'_video_autoplay');
-$startMuted = get_field($sectionId.'_video_starts_muted');
-$videoUrl = get_field($sectionId.'_video_url');
-$videoCaption = get_field($sectionId.'_video_caption');
-$placeholderImage = get_field($sectionId.'_placeholder_image');
-$placeholderOverlayText = get_field($sectionId.'_overlay_text');
+$pageId = is_home() || is_search() || is_category() ? get_option( 'page_for_posts' ) : get_the_id();
+$autoplay = get_field($sectionId.'_video_autoplay', $pageId);
+$startMuted = get_field($sectionId.'_video_starts_muted', $pageId);
+$videoUrl = get_field($sectionId.'_video_url', $pageId);
+$videoCaption = get_field($sectionId.'_video_caption', $pageId);
+$placeholderImage = get_field($sectionId.'_placeholder_image', $pageId);
+$placeholderOverlayText = get_field($sectionId.'_overlay_text', $pageId);
 ?>
 <div class="section-content">
 	<div class="grid-y align-center video-section" style="height: 100%">
@@ -31,7 +32,7 @@ $placeholderOverlayText = get_field($sectionId.'_overlay_text');
 			<div class="grid-y align-center" style="height: 100%">
 				<div class="cell text-center">
 					<h2><?php 
-					$tagline = get_field($sectionId.'_tagline'); 
+					$tagline = is_search() ? "Search Results: ".get_search_query() : get_field($sectionId.'_tagline', $pageId); 
 					echo ($tagline == 'Risk4' || $tagline == 'Risk7') ? $tagline : strtoupper($tagline);
 					?></h2>
 				</div>

@@ -1,0 +1,154 @@
+.blog, .archive.category, .search {
+
+	.blog-grid {
+
+		height: 100%;
+
+		> .cell {
+			float: left;
+			min-height: 300px;
+			padding-top: 0.5rem;
+		}
+
+		a {
+			.background {
+				opacity: 0.85;
+				background-position: 50% 50%;
+
+				.archive-content {
+					position: relative;
+					margin-bottom: 2rem;
+
+					.grey-background {
+						position: absolute;
+						z-index: 1;
+						top: 0;
+						bottom: 0;
+						background: $light-grey-color;
+						opacity: 0.7;
+						width: 100%;
+					}
+
+					.title {
+						position: relative;
+						z-index: 2;
+						padding: 0.5rem 1rem;
+					}
+				}
+			}
+		}
+
+		a:hover {
+			.background {
+				opacity: 1;
+			}
+		}
+
+	}
+	
+	.background {
+		background-size: cover;
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.blog, .archive.category, .search {
+
+		.blog-grid {
+
+			> .cell {
+				min-height: 50%;
+				height: 50%;
+				padding-top: 0
+			}
+
+			>.cell:nth-of-type(1), >.cell:nth-of-type(2), >.cell:nth-of-type(3) {
+				padding-bottom: 0.5rem;
+			}
+			>.cell:nth-of-type(4), >.cell:nth-of-type(5), >.cell:nth-of-type(6) {
+				padding-top: 0.5rem;
+			}
+			>.cell:nth-of-type(1), >.cell:nth-of-type(4) {
+				padding-right: 0.5rem;
+			}
+			>.cell:nth-of-type(2), >.cell:nth-of-type(5) {
+				padding-left: 0.5rem;
+				padding-right: 0.5rem;
+			}
+			>.cell:nth-of-type(3), >.cell:nth-of-type(6) {
+				padding-left: 0.5rem;
+			}
+
+			a {
+				.background {
+					.archive-content {
+						.title {
+							font-size: 24px;
+						}
+					}
+				}
+			}
+		}
+
+		.sidebar {
+			padding-top: 105px;
+		}
+
+		#section_2 {
+
+			.sidebar {
+				margin-right: 0.5rem;
+			}
+
+			.blog-grid {
+
+				>.cell:nth-of-type(1) {
+					padding-top: 0;
+					padding-left: 0.5rem;
+					padding-right: 0.5rem;
+					padding-bottom: 0.5rem;
+				}
+				>.cell:nth-of-type(2) {
+					padding-top: 0;
+					padding-left: 0.5rem;
+					padding-right: 0;
+					padding-bottom: 0.5rem;
+				}
+				>.cell:nth-of-type(3){ 
+					padding-bottom: 0;
+					padding-left: 0.5rem;
+					padding-right: 0.5rem;
+					padding-top: 0.5rem;
+				}
+				>.cell:nth-of-type(4){ 
+					padding-left: 0.5rem;
+					padding-top: 0.5rem;
+					padding-right: 0;
+					padding-bottom: 0;
+				}
+			}
+
+		}
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	
+}

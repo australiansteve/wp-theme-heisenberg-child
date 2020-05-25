@@ -40,7 +40,7 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 				</div>
 
 				<div class="small-12 medium-4 large-3 cell">
-					<div class="post-sidebar">
+					<div class="sidebar">
 						<?php get_template_part('page-templates/template-parts/sidebar'); ?>
 					</div>
 				</div>

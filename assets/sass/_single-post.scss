@@ -1,29 +1,4 @@
 .single-post {
-	
-	.post-sidebar {
-		background-color: $light-grey-color;
-		padding: 1rem;
-
-		form {
-			margin-bottom: 2rem;
-		}
-
-		ul {
-			list-style: none; 
-			position: relative;
-
-			li::before {
-				color: $gold-color;  
-				content: '■'; 
-				display: inline-block;
-				font-size: 1em; 
-				left: -1.1225em; 
-				position: absolute;
-				top: 0em; 
-				padding-left: 4px;
-			}
-		}
-	}
 
 	.container {
 
@@ -78,23 +53,6 @@
 				}
 			}
 		}
-
-		.post-sidebar {
-			height: 100%;
-			padding: 75px 1rem;
-
-			h2 {
-				font-size: 28px;
-			}
-
-			button {
-				font-size: 20px;
-			}
-
-			ul {
-				font-size: 20px;
-			}
-		}
 	}
 }
 
@@ -124,17 +82,6 @@
 				}
 			}
 		}
-
-		.post-sidebar {
-
-			h2 {
-				font-size: 36px;
-			}
-
-			ul {
-				font-size: 24px;
-			}
-		}
 	}
 }
 
@@ -162,28 +109,6 @@
 				.post-meta {
 					font-size: 1.5rem;
 				}
-			}
-		}
-
-		.post-sidebar {
-
-			h2 {
-				font-size: 40px;
-			}
-
-			ul {
-				font-size: 28px;
-				max-width: calc(400px - 2rem);
-    			margin-left: 2rem;
-			}
-
-			.search-container {
-				max-width: 400px;
-			}
-
-			input[type='text'] {
-				font-size: 28px;
-				height: 3.6rem;
 			}
 		}
 	}

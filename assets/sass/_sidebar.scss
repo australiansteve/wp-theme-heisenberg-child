@@ -1,0 +1,99 @@
+.sidebar {
+	background-color: $light-grey-color;
+	padding: 1rem;
+
+	form {
+		margin-bottom: 2rem;
+	}
+
+	ul {
+		list-style: none; 
+		position: relative;
+
+		li::before {
+			color: $gold-color;  
+			content: '■'; 
+			display: inline-block;
+			font-size: 1em; 
+			left: -1.1225em; 
+			position: absolute;
+			padding-left: 4px;
+		}
+
+		a[aria-current] {
+			font-weight: 900;
+		}
+	}
+
+	.clear-filters {
+		margin-top: 2rem;
+		display: block;
+
+		a {
+			display: block;
+		}
+	}
+}
+
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.sidebar {
+		height: 100%;
+		padding: 75px 1rem;
+
+		h2 {
+			font-size: 28px;
+		}
+
+		button {
+			font-size: 20px;
+		}
+
+		ul {
+			font-size: 20px;
+		}
+	}
+}
+
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	
+	.sidebar {
+
+		h2 {
+			font-size: 36px;
+		}
+
+		ul {
+			font-size: 24px;
+		}
+	}
+}
+
+
+/* XLarge and up (>1600px) */
+@media screen and (min-width: 100em) {
+	.sidebar {
+
+		h2 {
+			font-size: 40px;
+		}
+
+		ul {
+			font-size: 28px;
+			max-width: calc(400px - 2rem);
+			margin-left: 2rem;
+		}
+
+		.search-container {
+			max-width: 400px;
+		}
+
+		input[type='text'] {
+			font-size: 28px;
+			height: 3.6rem;
+		}
+	}
+}

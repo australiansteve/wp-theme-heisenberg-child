@@ -277,6 +277,11 @@ body {
 		.video-tagline {
 			height: 25%;
 		}
+
+		.medium-half-height {
+			max-height: calc((100% - 32px)/ 2);
+			min-height: calc((100% - 32px)/ 2);
+		}
 	}
 }
 
