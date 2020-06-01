@@ -95,6 +95,19 @@ if ( have_posts() ) :
 		</div>
 		<?php		
 		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
+		
+		$sectionId = 'section_5';
+		$sectionClasses = 'single-block-section';
+		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
+		?>
+		<div class="section-content text-center" id="<?php echo $sectionId;?>-content">
+			<?php 
+			include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
+			?>
+		</div>
+		<?php		
+		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
+
 		?>
 		<script type="text/javascript">
 			function resizeProfiles() {
