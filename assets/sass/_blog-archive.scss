@@ -14,10 +14,11 @@
 			.background {
 				opacity: 0.85;
 				background-position: 50% 50%;
+				position: relative;
 
 				.archive-content {
 					position: relative;
-					margin-bottom: 2rem;
+					margin: 0 1rem 1rem 1rem;
 
 					.grey-background {
 						position: absolute;
@@ -25,7 +26,7 @@
 						top: 0;
 						bottom: 0;
 						background: $light-grey-color;
-						opacity: 0.7;
+						opacity: 0.8;
 						width: 100%;
 					}
 
@@ -34,6 +35,17 @@
 						z-index: 2;
 						padding: 0.5rem 1rem;
 					}
+
+				}
+
+				i {
+					position: absolute;
+					z-index: 3;
+					top: calc(50% - 20px);
+					left: calc(50% - 20px);
+					color: white;
+					opacity: 0;
+					transition: opacity	linear 1s;
 				}
 			}
 		}
@@ -41,6 +53,16 @@
 		a:hover {
 			.background {
 				opacity: 1;
+
+				i {
+					opacity: 1;
+				}
+			}
+		}
+
+		a:not(.has-video) {
+			i {
+				display: none;
 			}
 		}
 

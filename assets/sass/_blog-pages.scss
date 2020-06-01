@@ -1,0 +1,199 @@
+.page-template-blog-page {
+	.latest-thought {
+		.thoughts {
+			color: $mint-color;
+
+			.title {
+				text-transform: uppercase;
+				font-weight: 900;
+				margin-top: 2rem;
+			}
+
+			.author {
+				text-transform: uppercase;
+				margin-top: 2rem;
+				font-size: 16px;
+			}
+
+			.button {
+				margin-top: 3rem;
+			}
+		}
+	}
+
+	.latest-video {
+		.videos {
+			color: $cayenne-color;
+
+			.title {
+				text-transform: uppercase;
+				font-weight: 900;
+			}
+
+			.excerpt {
+				text-transform: uppercase;
+				margin-top: 2rem;
+				font-size: 16px;
+			}
+
+			.button {
+				margin-top: 3rem;
+			}
+		}
+	}
+
+	#section_2 {
+
+		.img-block {
+			padding: 1rem;
+
+		}
+
+		.button.call-to-action {
+			margin-top: 3rem;
+			font-size: 16px;
+		}
+	}
+
+
+	#section_3 {
+		#section_3_block_1 {
+			padding-top: 2rem;
+		}
+
+
+		.video-link.has-video {
+			height: 100%;
+		    width: 100%;
+		    position: relative;
+		    z-index: 1;
+		    display: block;
+		    
+			i {
+				position: absolute;
+				color: white;
+				opacity: 0.8;
+				top: calc(50% - 20px);
+				left: calc(50% - 20px);
+			}
+		}
+
+		.video-link.has-video:hover {
+			cursor: pointer;
+
+			i {
+				opacity: 1;
+			}
+		}
+	}
+
+	#section_4 {
+		#section_4_column_1 {
+			padding-top: 2rem;
+		}
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.page-template-blog-page {
+
+
+		#section_2 {
+			font-size: 20px;
+
+			.img-block {
+				padding-top: 100px;
+			}
+		}
+
+		#section_3 {
+			#section_3_block_1 {
+				padding-top: 6rem;
+			}
+		}
+
+		#section_4 {
+			#section_4_column_1 {
+				padding-top: 6rem;
+			}
+		}
+	}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	.page-template-blog-page {
+		.latest-thought {
+			.thoughts {
+
+				.title {
+					font-size: 36px;
+					max-width: 715px;
+				}
+
+				.author {
+					font-size: 20px;
+				}
+			}
+		}
+
+		.latest-video {
+			.videos {
+
+				.title {
+					font-size: 28px;
+					max-width: 715px;
+				}
+
+				.excerpt {
+					font-size: 20px;
+					max-width: 715px;
+				}
+			}
+		}
+
+		#section_2	 {
+			font-size: 24px;
+
+		}
+	}
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 99.9375em) {
+	
+}
+
+/* XLarge and up (>1600px) */
+@media screen and (min-width: 100em) {
+	.page-template-blog-page {
+		.latest-video {
+			.videos {
+				.title {
+					font-size: 36px;
+				}
+			}
+		}
+	}
+}
+
+/* XLarge only */
+@media screen and (min-width: 100em) and (max-width: 149.9375em) {
+	
+}
+
+/* XXLarge and up (>2400px) */
+@media screen and (min-width: 150em) {
+	
+}

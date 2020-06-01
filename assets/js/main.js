@@ -184,8 +184,8 @@ var goDown = function(event) {
 		jQuery(document).trigger('loadmoreposts');
 	}
 	//pause video if there is one playing
-	var video = document.querySelector('video');
-	if (video) {
+	var video = document.querySelector('video:not(.self-controlled)');
+	if (video && !video.paused) {
 		video.pause();
 		jQuery(".toggle-play").addClass("paused");
 	}

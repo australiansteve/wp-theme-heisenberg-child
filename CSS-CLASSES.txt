@@ -1,0 +1,15 @@
+CSS CLASSES
+
+Buttons:
+.button -> Dark grey with white text
+.button.white -> White with dark grey text
+.call-to-action -> Adds margin-top
+
+General Text:
+.uppercase -> All uppercase
+.keep-case -> Resets uppercase - Useful for when 'Risk7' or 'Risk4' appears inside an uppercase block - wrap it with a span.keep-case 
+.font-book
+.font-demi
+.font-heavy
+
+.quote-author -> Margin-top, uppercase, font size and weight

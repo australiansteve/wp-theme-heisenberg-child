@@ -1,0 +1,68 @@
+{
+    "key": "group_5e81388495ea4",
+    "title": "Product\/Service Archive Customization",
+    "fields": [
+        {
+            "key": "field_5e8a81fb6ae85",
+            "label": "Archive Image Customization",
+            "name": "section_2_archive",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_5e8a60b54bab1",
+                "group_5e6a82b067d0c"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_5e8a81f46ae84",
+            "label": "Archive HTML Customization",
+            "name": "section_1_archive",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_5e693aa718250",
+                "group_5e6a82b067d0c"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "austeve-products"
+            }
+        ]
+    ],
+    "menu_order": 17,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1586136287
+}
