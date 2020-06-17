@@ -27,7 +27,9 @@ if( class_exists('acf') ) :
 		// replace title with icon
 			if( $icon ) {
 				$title = $item->title;
-				$item->title = '<i class="fab fa-'.$icon.'" title="'.$title.'"></i>';	
+				$item->title = '<i class="fab fa-'.$icon.'" title="'.$title.'"></i>';
+				$item->classes[] = 'has-icon';
+				error_log(print_r($item, true));
 			}
 		}
 
@@ -39,5 +41,9 @@ endif; /* End ACF related options & filters */
 
 /* Navigation menus */
 add_action( 'after_setup_theme', function() {
-	register_nav_menu( 'social-media', __( 'Social Media Menu', 'heisenberg' ) );
+	register_nav_menu( 'footer-menu-1', __( 'Footer Menu 1', 'heisenberg' ) );
+	register_nav_menu( 'footer-menu-2', __( 'Footer Menu 2', 'heisenberg' ) );
+
+	add_image_size( 'footer-logo', 267, 100, true );
+
 });

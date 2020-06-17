@@ -27,11 +27,11 @@
             {
                 "param": "nav_menu_item",
                 "operator": "==",
-                "value": "location\/social-media"
+                "value": "location\/footer-menu-2"
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 99,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -39,5 +39,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570018030
+    "modified": 1592418470
 }

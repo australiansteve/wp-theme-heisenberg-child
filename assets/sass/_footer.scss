@@ -1,17 +1,87 @@
+footer {
+	background-color: $pink-color;
+	padding: 2rem 1rem;
+	text-align: center;
+	font-size: 16px;
+
+	.button {
+		display: block;
+		font-size: 16px;
+		border: none;
+	}
+
+	#menu-container {
+		a {
+			font-weight: 700;
+		}
+
+		#menu-footer-2 {			
+			a {
+				color: $dark-pink-color;
+			}
+		}
+	}
+
+}
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	
+	footer {
+
+		#menu-footer-1 {
+			li {
+				display: block;
+			}
+		}
+
+		#menu-footer-2 {
+			li:not(.has-icon) {
+				display: block;
+			}
+		}
+
+	}
 }
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
-	#center-column {
-		text-align: center;
-	}
 
-	#right-column {
-		text-align: right;
+	footer {
+		text-align: left;
+		font-size: 18px;
+
+		.button {
+			font-size: 18px;
+		}
+
+		#center-column {
+			text-align: right;
+
+			#menu-container {
+				display: inline-block;
+				text-transform: uppercase;
+
+				#menu-footer-1, #menu-footer-2 {
+					li {
+						a {
+							padding: 0.85em 1em 0.85em 0; 
+						}
+					}
+				}
+
+				#menu-footer-2 {
+					li.has-icon {
+						a {
+							padding-right: 0.5em; 
+						}
+					}
+				}
+			}
+		}
+
+		#right-column {
+			text-align: right;
+		}
 	}
 }
 
@@ -23,6 +93,15 @@
 /* Large and up */
 @media screen and (min-width: 64em) {
 	
+	footer.grid-container {
+		font-size: 26px;
+		padding-left: 2rem;
+		padding-right: 2rem;
+
+		.button {
+			font-size: 26px;
+		}
+	}
 }
 
 /* Large only */

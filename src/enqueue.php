@@ -7,7 +7,7 @@ namespace Heisenberg;
  */
 add_action( 'wp_enqueue_scripts', function() {
 
-	$min_ext = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	$min_ext = ( defined( 'WP_DEBUG_SCRIPT' ) && WP_DEBUG_SCRIPT ) ? '' : '.min';
 
 	// JS
 	wp_enqueue_script(
@@ -29,7 +29,7 @@ add_action( 'wp_enqueue_scripts', function() {
 	wp_enqueue_style(
 		'heisenberg_css',
 		HEISENBERG_URL . '/dist/main.css',
-		[ 'google_fonts' ],
+		[ 'google_fonts', 'adobe_fonts' ],
 		HEISENBERG_VERSION,
 		''
 	);
@@ -45,6 +45,20 @@ add_action( 'wp_enqueue_scripts', function() {
 		'google_fonts',
 		'https://fonts.googleapis.com/css?family=Noto+Serif:400,700|Roboto:400,700'
 	);
+
+	// Adobe Fonts
+	wp_enqueue_style(
+		'adobe_fonts',
+		'https://use.typekit.net/njl2gqz.css'
+	);
+
+	//FontAwesome
+
+	wp_enqueue_script( 
+		'font-awesome',
+        'https://kit.fontawesome.com/30900d1525.js'
+    );
+	
 
 	// Add comment script on single posts with comments
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
