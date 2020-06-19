@@ -10,6 +10,10 @@
 				margin-bottom: 1rem;
 			}
 
+			p {
+				font-weight: 200;
+			}
+
 			.post-meta {
 				font-size: 0.9rem;
 				font-weight: 200;
@@ -50,7 +54,7 @@
 	.single-post {
 
 		section {
-			font-size: 20px;
+			font-size: 18px;
 		}
 
 		.container {
@@ -83,10 +87,6 @@
 @media screen and (min-width: 64em) {
 	.single-post {
 
-		section {
-			font-size: 28px;
-		}
-
 		.container {
 
 			.post-content {
@@ -96,7 +96,7 @@
 				}
 
 				.post-meta {
-					font-size: 1.3rem;
+					font-size: 1.1rem;
 				}
 			}
 
@@ -125,7 +125,7 @@
 	.single-post {
 
 		section {
-			font-size: 32px;
+			font-size: 24px;
 		}
 
 		.container {
@@ -137,7 +137,7 @@
 				}
 
 				.post-meta {
-					font-size: 1.5rem;
+					font-size: 1.3rem;
 				}
 			}
 		}

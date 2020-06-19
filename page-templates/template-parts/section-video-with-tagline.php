@@ -33,7 +33,7 @@ $placeholderOverlayText = get_field($sectionId.'_overlay_text', $pageId);
 				<div class="cell text-center">
 					<h2><?php 
 					$tagline = is_search() ? "Search Results: ".get_search_query() : get_field($sectionId.'_tagline', $pageId); 
-					echo ($tagline == 'Risk4' || $tagline == 'Risk7') ? $tagline : strtoupper($tagline);
+					echo ($tagline == 'Risk4' || $tagline == 'Risk7' || $tagline == 'Channel4') ? $tagline : strtoupper($tagline);
 					?></h2>
 				</div>
 			</div>

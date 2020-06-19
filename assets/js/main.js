@@ -54,7 +54,7 @@ jQuery( document ).ready(function() {
 
 	myElement.addEventListener("wheel", wheelEvent);
 
-	jQuery(".home-reset-scroll").on("click", resetPagePosition);
+	jQuery(document).on("click", ".home-reset-scroll", resetPagePosition);
 
 	window.addEventListener("resize", repositionAfterResize);
 	repositionAfterResize(); /* called to initially set the height. */
@@ -301,15 +301,23 @@ var repositionAfterResize = _.debounce(function() {
 
 var resetPagePosition = function() {
 	//console.log("Reset scroll to top of page");
-	currentYPos = 0;
-	jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
+	var nthSectionNumber = jQuery(this).attr("data-section") !== undefined ? jQuery(this).attr("data-section") : 1;
+	console.log("Reset to section: " + nthSectionNumber);
 	var activeSection = jQuery("section.active");
 	var activeFooter = jQuery("footer.active");
-	var firstSection = jQuery("section:nth-of-type(1)");
+	var nthSection = jQuery("section:nth-of-type("+nthSectionNumber+")");
+	var firstNSections = jQuery("section").slice(0, nthSectionNumber);
+	console.log(firstNSections);
+	currentYPos = 0;
+	for(var s = 1; s < nthSectionNumber; s++) {
+		currentYPos -= jQuery(firstNSections[s]).outerHeight();
+	}
+	console.log("ypos: " + currentYPos);
+	jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
 	activeSection.removeClass("active");
 	activeSection.css("transform", "scale(0.75, 0.75)");
-	firstSection.addClass("active");
-	firstSection.css("transform", "scale(1, 1)");
+	nthSection.addClass("active");
+	nthSection.css("transform", "scale(1, 1)");
 	activeFooter.removeClass("active");
 
 	/* reset all section content to the top */

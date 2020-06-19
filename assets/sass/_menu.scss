@@ -16,6 +16,10 @@
 		}
 	}
 
+	.grid-y {
+		margin-top: 100px;
+	}
+	
 	.menu {
 		li {
 			display: block;
@@ -41,13 +45,7 @@
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-	.off-canvas {
 
-		.grid-y {
-			margin-top: 100px;
-		}
-
-	}
 }
 
 /* Medium and up */
@@ -60,6 +58,10 @@
 			height: 100%;
 		}
 
+		.grid-y {
+			margin-top: 120px;
+		}
+
 		.menu {
 			li {
 
@@ -69,19 +71,6 @@
 			}
 
 		}
-	}
-
-	/* Medium AND short */
-	@media screen and (max-height: 640px) {
-		.off-canvas {
-
-			.grid-y.medium-align-center {
-				justify-content : start;
-				height: 640px;
-				padding-top: 100px;
-			}
-		}
-
 	}
 }
 
@@ -103,6 +92,8 @@
 			}
 
 		}
+
+
 	}
 }
 
@@ -122,7 +113,6 @@
 			left: 3rem;
 			right: 3rem;
 		}
-
 
 		.menu {
 			li {

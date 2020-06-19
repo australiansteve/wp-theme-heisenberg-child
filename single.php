@@ -20,7 +20,7 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 
 				<div class="small-12 medium-8 large-9 cell">
 					<div class="container">
-						<?php if( in_category('videos')): ?>
+						<?php if( has_tag('video')): ?>
 							<div class="image-stretcher">
 								<?php
 								$videoDetails = get_field('video_details');

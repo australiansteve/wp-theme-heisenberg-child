@@ -107,7 +107,6 @@ if ( have_posts() ) :
 		</div>
 		<?php		
 		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
-
 		?>
 		<script type="text/javascript">
 			function resizeProfiles() {

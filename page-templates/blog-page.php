@@ -241,7 +241,20 @@ if ( have_posts() ) :
                 <div class="cell medium-6 small-half-height" style="position: relative">
                     <?php 
                     $sectionId = 'section_4_column_2';
-                    include( locate_template( 'page-templates/template-parts/section-background.php', false, false ) ); 
+
+                    if ( $thoughtsquery->have_posts() ) {
+                        while ( $thoughtsquery->have_posts() ) {
+                            $thoughtsquery->the_post();
+
+                            $backgroundImageUrl = get_the_post_thumbnail_url($post, 'full');
+                            ?>
+                                <div class="background-div background-image-size-cover background-image-no-repeat background-image-small-size-cover background-image-small-no-repeat" style="background-image: url(<?php echo $backgroundImageUrl; ?>); background-position: 50%;">
+                                </div>
+                            <?php
+                        }
+                    }
+
+                    wp_reset_postdata();
                     ?>
                 </div>
             </div>

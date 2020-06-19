@@ -28,6 +28,19 @@ if ( have_posts() ) :
 		<?php		
 		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
 
+		$sectionId = 'section_2b';
+		$sectionClasses= 'single-block-section';
+		$customLogo = get_field($sectionId.'_header_customization_header_logo');
+		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
+		?>
+		<div class="section-content text-center" id="<?php echo $sectionId;?>-content">
+			<?php 
+			include( locate_template( 'page-templates/template-parts/section-html-with-background.php', false, false ) ); 
+			?>
+		</div>
+		<?php		
+		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
+
 		$sectionId = 'section_3';
 		$sectionClasses= '';
 		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
@@ -123,21 +136,30 @@ if ( have_posts() ) :
 
 							<div class="article-list">
 								<?php
-								$ajax_nonce = wp_create_nonce( "press-page-articles" );
+								$catsToInclude = get_field('section_4')['categories_to_include'];
+								$ajax_nonce = wp_create_nonce( "press-page-posts" );
 								$args = array(
-									'post_type'              => array( 'austeve-articles' ),
+									'post_type'              => array( 'post' ),
 									'post_status'            => array( 'publish' ),
 									'posts_per_page'         => '5',
 									'order'                  => 'ASC',
 									'orderby'                => 'menu_order',
+									'tax_query' => array(
+										array(
+											'taxonomy'         => 'category',
+											'terms'            => $catsToInclude,
+											'field'            => 'term_id',
+											'operator'         => 'IN',
+										),
+									),
 								);
 
 								$articlesquery = new WP_Query( $args );
-
+								error_log("Articles query: ".print_r($articlesquery, true));
 								if ( $articlesquery->have_posts() ) {
 									while ( $articlesquery->have_posts() ) {
 										$articlesquery->the_post();
-										include( locate_template( 'page-templates/template-parts/article.php', false, false ) ); 
+										include( locate_template( 'page-templates/template-parts/post-press-release.php', false, false ) ); 
 
 									}
 								}
@@ -145,7 +167,7 @@ if ( have_posts() ) :
 								wp_reset_postdata();
 								?>
 							</div>
-							<a class="button load-more load-more-articles" data-page="2">Load more articles <span><i class="fas fa-spinner fa-spin"></i></span></a>
+							<a class="button load-more load-more-articles" data-page="2">Load more <span><i class="fas fa-spinner fa-spin"></i></span></a>
 
 							<script type="text/javascript">
 								jQuery(".load-more-articles").on('click', function(e) {
@@ -161,9 +183,10 @@ if ( have_posts() ) :
 											url: '<?php echo admin_url('admin-ajax.php');?>',
 											dataType: "html",  
 											data: { 
-												action : 'austeve_get_articles', 
+												action : 'austeve_get_press_releases', 
 												security: '<?php echo $ajax_nonce; ?>', 
 												page: page,
+												pageId: <?php echo get_the_ID(); ?>,
 											},
 											error: function (xhr, status, error) {
 												console.log("Error: " + error);

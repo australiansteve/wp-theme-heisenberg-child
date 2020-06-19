@@ -30,7 +30,7 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 						while ( have_posts() ) :
 							the_post();
 							
-							if (has_category('videos')) {
+							if (has_tag('video')) {
 								include(locate_template( 'page-templates/template-parts/post-archive-videos.php', false, false ));
 							}
 							else {
@@ -56,11 +56,12 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 <?php
 include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
 ?>
-<div class="next-section-placeholder" data-next-page="2"></div>
+<div class="next-section-placeholder" data-next-page="2" data-next-section="3"></div>
 <script type="text/javascript">
 	var ajaxLock = false;
 	jQuery(document).on('loadmoreposts', function() {
 		var pageToLoad = jQuery(".next-section-placeholder").attr('data-next-page');
+		var nextSection = jQuery(".next-section-placeholder").attr('data-next-section');
 		if (pageToLoad > 0 && !ajaxLock) {
 			ajaxLock = true;
 			jQuery.ajax({
@@ -71,7 +72,7 @@ include( locate_template( 'page-templates/template-parts/section-footer.php', fa
 					action : 'austeve_get_posts', 
 					security: '<?php echo $ajax_nonce; ?>', 
 					page: pageToLoad,
-					nextSection: <?php global $sectionNUmber; echo $sectionNumber++?>,
+					nextSection: nextSection,
 				},
 				error: function (xhr, status, error) {
 					console.log("Error: " + error);
@@ -81,6 +82,7 @@ include( locate_template( 'page-templates/template-parts/section-footer.php', fa
 					if (response) {
 						jQuery( '.next-section-placeholder' ).before( response ); 
 						jQuery(".next-section-placeholder").attr('data-next-page', ++pageToLoad);
+						jQuery(".next-section-placeholder").attr('data-next-section', ++nextSection);
 						ajaxLock = false;
 					}
 					else {

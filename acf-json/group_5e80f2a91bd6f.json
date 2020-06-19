@@ -177,6 +177,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_5eeb61285efc7",
+            "label": "Blog Description",
+            "name": "blog_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "br"
+        },
+        {
             "key": "field_5ecbf2990bca0",
             "label": "Clear Filters Button Text",
             "name": "clear_filters_button_text",
@@ -213,6 +232,27 @@
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 0
+        },
+        {
+            "key": "field_5eeb6eb017a28",
+            "label": "Exclude Categories from archive",
+            "name": "exclude_categories_from_archive",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": [],
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 0,
+            "return_format": "value",
+            "save_custom": 0
         },
         {
             "key": "field_5e8cb78e141e5",
@@ -291,5 +331,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1590424316
+    "modified": 1592487649
 }

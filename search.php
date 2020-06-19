@@ -30,7 +30,12 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 						while ( have_posts() ) :
 							the_post();
 							
-							include(locate_template( 'page-templates/template-parts/post-archive.php', false, false ));
+							if (has_tag('video')) {
+								include(locate_template( 'page-templates/template-parts/post-archive-videos.php', false, false ));
+							}
+							else {
+								include(locate_template( 'page-templates/template-parts/post-archive.php', false, false ));
+							}
 
 						endwhile;
 

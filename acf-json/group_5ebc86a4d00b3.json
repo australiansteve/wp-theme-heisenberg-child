@@ -62,7 +62,7 @@
         },
         {
             "key": "field_5ebc86a4dc7f7",
-            "label": "Introduction",
+            "label": "Introduction A",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -101,6 +101,65 @@
             "key": "field_5ebc86a4dc80a",
             "label": "Section 2",
             "name": "section_2",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_5e693aa718250",
+                "group_5e6a82b067d0c"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 1,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_5eeb905048dea",
+            "label": "Introduction B",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5eeb905b48deb",
+            "label": "Section 2B Header Customization",
+            "name": "section_2b_header_customization",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_5e7cdd41997c4"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_5eeb906b48dec",
+            "label": "Section 2B",
+            "name": "section_2b",
             "type": "clone",
             "instructions": "",
             "required": 0,
@@ -355,7 +414,7 @@
         },
         {
             "key": "field_5ebc86a5176b3",
-            "label": "In The News",
+            "label": "Press Releases",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -444,6 +503,31 @@
                     "prefix_name": 1
                 },
                 {
+                    "key": "field_5eeb7761246a9",
+                    "label": "Post categories To Include",
+                    "name": "categories_to_include",
+                    "type": "checkbox",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "6": "Thoughts",
+                        "4": "Videos",
+                        "5": "White Paper"
+                    },
+                    "allow_custom": 0,
+                    "default_value": [],
+                    "layout": "vertical",
+                    "toggle": 0,
+                    "return_format": "value",
+                    "save_custom": 0
+                },
+                {
                     "key": "field_5ebc86a520b9d",
                     "label": "Column 2",
                     "name": "",
@@ -500,5 +584,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1589414933
+    "modified": 1592496261
 }

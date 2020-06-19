@@ -14,6 +14,7 @@ body {
 			color: black;
 			display: block;
 		}
+
 		a:hover {
 			cursor: pointer;
 		}
@@ -118,7 +119,8 @@ body {
 			color: inherit;
 		}
 		
-		a:hover {
+		a:hover, a:focus {
+			color: inherit;
 			opacity: 0.8;
 		}
 

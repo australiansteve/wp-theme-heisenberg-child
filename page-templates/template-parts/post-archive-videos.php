@@ -1,4 +1,5 @@
 <?php
+global $post;
 $videoDetails = get_field('video_details');
 $backgroundImageUrl = isset($videoDetails['placeholder_image']) ? wp_get_attachment_image_src($videoDetails['placeholder_image'], 'full')[0] : get_the_post_thumbnail_url($post, 'full');
 $hasVideo = isset($videoDetails['video_url']) && $videoDetails['video_url'] != "";

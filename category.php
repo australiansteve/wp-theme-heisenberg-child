@@ -30,7 +30,7 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 						while ( have_posts() ) :
 							the_post();
 							
-							if (has_category('videos')) {
+							if (has_tag('video')) {
 								include(locate_template( 'page-templates/template-parts/post-archive-videos.php', false, false ));
 							}
 							else {
@@ -71,7 +71,7 @@ include( locate_template( 'page-templates/template-parts/section-footer.php', fa
 					security: '<?php echo $ajax_nonce; ?>', 
 					page: pageToLoad,
 					category: '<?php echo get_queried_object()->term_id; ?>',
-					nextSection: <?php global $sectionNUmber; echo $sectionNumber++?>,
+					nextSection: <?php global $sectionNumber; echo $sectionNumber++?>,
 				},
 				error: function (xhr, status, error) {
 					console.log("Error: " + error);
