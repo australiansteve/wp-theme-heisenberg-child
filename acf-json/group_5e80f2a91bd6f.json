@@ -180,7 +180,7 @@
             "key": "field_5eeb61285efc7",
             "label": "Blog Description",
             "name": "blog_description",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -190,10 +190,31 @@
                 "id": ""
             },
             "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5eecaea2b529d",
+            "label": "Subscription Form ID",
+            "name": "subscription_form_id",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
             "placeholder": "",
-            "maxlength": "",
-            "rows": 4,
-            "new_lines": "br"
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
         },
         {
             "key": "field_5ecbf2990bca0",
@@ -246,7 +267,12 @@
                 "class": "",
                 "id": ""
             },
-            "choices": [],
+            "choices": {
+                "9": "Press Release",
+                "6": "Thoughts",
+                "4": "Videos",
+                "5": "White Paper"
+            },
             "allow_custom": 0,
             "default_value": [],
             "layout": "vertical",
@@ -331,5 +357,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1592487649
+    "modified": 1592569548
 }

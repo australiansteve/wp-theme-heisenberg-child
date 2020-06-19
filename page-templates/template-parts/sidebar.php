@@ -3,6 +3,13 @@
 		<div class="blog-description">
 			<?php the_field('blog_description', 'option'); ?>
 		</div>
+		<div class="subscription-form">
+			<?php 
+			$formId = get_field('subscription_form_id', 'option');
+			if ($formId):
+				echo do_shortcode("[ninja_form id=".$formId."]");
+			endif; ?>
+		</div>
 		<?php get_search_form(); ?>
 		<!--
 		<h2>Channels</h2>

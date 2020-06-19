@@ -100,14 +100,24 @@ function austeve_exclude_products_from_archive($query) {
 
 		//exclude some categories from the archive page
 		$excludeCatsFromArchive = get_field('exclude_categories_from_archive', 'option');
+		$excludeQuery = array(
+			'taxonomy'         => 'category',
+			'terms'            => $excludeCatsFromArchive,
+			'field'            => 'term_id',
+			'operator'         => 'NOT IN',
+		);
 		if ($excludeCatsFromArchive && is_array(($excludeCatsFromArchive))) {
 			$newTaxQuery = $query->get( 'tax_query');
-			$newTaxQuery[] = array(
-					'taxonomy'         => 'category',
-					'terms'            => $excludeCatsFromArchive,
-					'field'            => 'term_id',
-					'operator'         => 'NOT IN',
+			if (is_array($newTaxQuery)) {
+				//add to existing array
+				$newTaxQuery[] = $excludeQuery;
+			}
+			else {
+				//needs new array
+				$newTaxQuery = array(
+					$excludeQuery
 				);
+			}
 			$query->set( 'tax_query', $newTaxQuery);
 		}
 
@@ -186,8 +196,8 @@ function austeve_get_press_releases() {
 
 		$catsToInclude = get_field('section_4', $pageId)['categories_to_include'];
 		$args = array(
-									'post_type'              => array( 'post' ),
-									'post_status'            => array( 'publish' ),
+			'post_type'              => array( 'post' ),
+			'post_status'            => array( 'publish' ),
 			'nopaging' => false,
 			'paged' => $page,
 			'order'                  => 'ASC',
@@ -195,13 +205,13 @@ function austeve_get_press_releases() {
 			'posts_per_page'         => 5,
 			'offset'         => -1,
 			'tax_query' => array(
-										array(
-											'taxonomy'         => 'category',
-											'terms'            => $catsToInclude,
-											'field'            => 'term_id',
-											'operator'         => 'IN',
-										),
-									),
+				array(
+					'taxonomy'         => 'category',
+					'terms'            => $catsToInclude,
+					'field'            => 'term_id',
+					'operator'         => 'IN',
+				),
+			),
 		);
 
 		$ajaxposts = new WP_Query( $args );
@@ -300,3 +310,54 @@ function austeve_get_posts() {
 
 add_action('wp_ajax_austeve_get_posts', 'austeve_get_posts');
 add_action('wp_ajax_nopriv_austeve_get_posts', 'austeve_get_posts');
+
+function austeve_channel_4_subscription( $form_data ){
+	/* error_log("Ninja form submission: ".print_r($form_data, true)); */
+
+	$formKey = isset($form_data['settings']['key']) ? $form_data['settings']['key'] : null;
+	if ($formKey && $formKey == 'channel_4_subscription') {
+		error_log("Channel 4 subscription");
+		$subscriberName = $form_data['fields_by_key']['ch4_full_name']['value'];
+		$subscriberEmail = $form_data['fields_by_key']['ch4_email']['value'];
+		error_log("Name: ".$subscriberName);
+		error_log("Email: ".$subscriberEmail);
+
+		$user_id = username_exists( $subscriberEmail );
+
+		if ( ! $user_id && false == email_exists( $subscriberEmail ) ) {
+			$random_password = wp_generate_password(20);
+			$user_id = wp_create_user( $subscriberEmail, $random_password, $subscriberEmail );
+		}
+
+		if ($user_id) {
+			//set full name
+			$splitSubscriberName = explode(" ", $subscriberName);
+			$user_data = array( 'ID' => $user_id, 
+				'display_name' => $subscriberName,
+				'first_name' => $splitSubscriberName[0]
+			);
+			if (count($splitSubscriberName) > 2) {
+				array_shift($splitSubscriberName);
+				$user_data['last_name'] = implode(" ", $splitSubscriberName);
+			}
+			else if(count($splitSubscriberName) == 2) {
+				$user_data['last_name'] = $splitSubscriberName[1];
+			}
+
+			$user_data = wp_update_user( $user_data );
+
+			if ( is_wp_error( $user_data ) ) {
+    			// There was an error; possibly this user doesn't exist.
+				error_log('Updating user failed.');
+			} else {
+    			// Success!
+				error_log('User profile updated.');
+			}
+
+			update_user_meta( $user_id, 'show_admin_bar_front', 'false' );
+		}
+
+	}
+}
+add_action( 'ninja_forms_after_submission', 'austeve_channel_4_subscription' );
+
