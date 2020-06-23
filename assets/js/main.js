@@ -66,6 +66,7 @@ jQuery( document ).ready(function() {
 		//console.log(event);
 		goDown(event);
 	});
+
 	preventPullToRefresh('body');
 
 });
@@ -189,7 +190,6 @@ var goDown = function(event) {
 		video.pause();
 		jQuery(".toggle-play").addClass("paused");
 	}
-
 }
 
 var goUp = function(event) {

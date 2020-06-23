@@ -54,6 +54,15 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 								the_content();
 								?>
 							</div>
+							<?php if (is_singular('post') && has_category('press-release')) : ?>
+							<div class="back-to-button text-center">
+								<a class="button" href="<?php the_field('single_post_press_release_back_button_link', 'option');?>"><?php the_field('single_post_press_release_back_button_text', 'option');?></a>
+							</div>
+							<?php else : ?>
+								<div class="back-to-button text-center">
+									<a class="button" href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"><?php the_field('single_post_back_button_text', 'option');?></a>
+								</div>
+							<?php endif;?>
 						</div>
 					</div>
 

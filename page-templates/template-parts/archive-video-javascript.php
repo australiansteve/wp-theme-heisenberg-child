@@ -10,8 +10,8 @@
 		try {
 			await media.play();
 		} catch(err) {
-		    window.location.assign(backupUrl);
-	  	}
+			window.location.assign(backupUrl);
+		}
 	}
 
 	function togglePlay() {
@@ -34,7 +34,7 @@
 		const media = document.querySelector('section.active video');
 		if (media) {
 			media.src = videoUrl;
-			jQuery(".video-section-content-overlay").css({'opacity': '1', "height": "100%", "z-index": "1"});
+			jQuery("section.active .video-section-content-overlay").css({'opacity': '1', "height": "100%", "z-index": "1"});
 			var captionAndLink = videoCaption;
 			captionAndLink += "<br/><a href='" + videoBackupUrl + "'>" + videoMoreText + "</a>";
 			jQuery("section.active .video-section-content-overlay .video-caption .text").html(captionAndLink);
@@ -43,10 +43,19 @@
 	}
 
 	function closeVideoOverlay() {
-		const media = document.querySelector('section.active video');
-		if (!media.paused)
-			media.pause();
+		if (document.querySelector('footer.active')) {
+			console.log("Move up first");
+		}
+
+		const mediaItems = document.querySelectorAll('video');
+		mediaItems.forEach(function(media) {
+			console.log("media: ". media);
+			if (media && !media.paused)
+				media.pause();
+		});
+
 		endOfVideoHandler();
+		
 	}
 
 	function skipAhead() {

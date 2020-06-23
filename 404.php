@@ -32,10 +32,19 @@ $customTextColor = get_field($sectionId.'_header_customization_text_color', 'opt
 	</div>
 	<?php
 	$htmlContent = get_field($sectionId.'_content', 'option');
+	$backgroundColor = get_field($sectionId.'_color', 'option');
+
+	$textColor =  get_field($sectionId.'_text_color', 'option');
+	$textColor = is_array($textColor) ? $textColor[0] : $textColor; /* Default value comes back in an array */
 	?>
-	<div class="grid-y align-center html-block <?php echo $sectionClasses;?>" id="<?php echo $sectionId;?>" style="height: 100%">
-		<div class="cell" style="<?php if ($textColor) { echo 'color: '.$textColor; } ?>">
-			<?php echo $htmlContent; ?>
+	<div class="section-content text-center" id="<?php echo $sectionId;?>-content">
+
+		<div class="grid-y align-center html-block <?php echo $sectionClasses;?>" id="<?php echo $sectionId;?>" style="height: 100%">
+			<div class="background-div" style="height: 100%; background: <?php echo $backgroundColor;?>;">	
+			</div>
+			<div class="cell" style="<?php if ($textColor) { echo 'color: '.$textColor; } ?>">
+				<?php echo $htmlContent; ?>
+			</div>
 		</div>
 	</div>
 

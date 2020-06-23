@@ -1,6 +1,6 @@
 .page-template-press-page {
 	
-	#section_2 {
+	#section_2, #section_2b {
 		h2, p {
 			line-height: 1.5;
 		}
@@ -68,9 +68,9 @@
 @media screen and (min-width: 40em) {
 	.page-template-press-page {
 
-		#section_2 {
+		#section_2, #section_2b {
 			h2, p {
-				line-height: 2;
+				
 			}
 		}
 
@@ -99,7 +99,7 @@
 @media screen and (min-width: 64em) {
 	.page-template-press-page {
 
-		#section_2 {
+		#section_2, #section_2b {
 			font-size: 36px;
 		}
 

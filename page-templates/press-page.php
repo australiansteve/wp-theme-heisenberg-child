@@ -160,55 +160,57 @@ if ( have_posts() ) :
 									while ( $articlesquery->have_posts() ) {
 										$articlesquery->the_post();
 										include( locate_template( 'page-templates/template-parts/post-press-release.php', false, false ) ); 
-
 									}
 								}
 
 								wp_reset_postdata();
 								?>
 							</div>
-							<a class="button load-more load-more-articles" data-page="2">Load more <span><i class="fas fa-spinner fa-spin"></i></span></a>
+							<?php if ($articlesquery->post_count >= 5):?>
+								<a class="button load-more load-more-articles" data-page="2">Load more <span><i class="fas fa-spinner fa-spin"></i></span></a>
 
-							<script type="text/javascript">
-								jQuery(".load-more-articles").on('click', function(e) {
-									e.preventDefault();
-									var link = jQuery(this);
-									link.addClass('fetching');
-									var page = link.attr('data-page');
-									console.log("Load page " + page);
+								<script type="text/javascript">
+									jQuery(".load-more-articles").on('click', function(e) {
+										e.preventDefault();
+										var link = jQuery(this);
+										link.addClass('fetching');
+										var page = link.attr('data-page');
+										console.log("Load page " + page);
 
-									if (page > 0) {
-										jQuery.ajax({
-											type: 'POST',
-											url: '<?php echo admin_url('admin-ajax.php');?>',
-											dataType: "html",  
-											data: { 
-												action : 'austeve_get_press_releases', 
-												security: '<?php echo $ajax_nonce; ?>', 
-												page: page,
-												pageId: <?php echo get_the_ID(); ?>,
-											},
-											error: function (xhr, status, error) {
-												console.log("Error: " + error);
-												link.attr('data-page', '-1');
-												link.removeClass('fetching');
-											},
-											success: function( response ) {
-												if (response) {
-													jQuery( '.article-list' ).append( response ); 
+										if (page > 0) {
+											jQuery.ajax({
+												type: 'POST',
+												url: '<?php echo admin_url('admin-ajax.php');?>',
+												dataType: "html",  
+												data: { 
+													action : 'austeve_get_press_releases', 
+													security: '<?php echo $ajax_nonce; ?>', 
+													page: page,
+													pageId: <?php echo get_the_ID(); ?>,
+												},
+												error: function (xhr, status, error) {
+													console.log("Error: " + error);
+													link.attr('data-page', '-1');
+													link.removeClass('fetching');
+												},
+												success: function( response ) {
+													if (response) {
+														jQuery( '.article-list' ).append( response ); 
+													}
+													else {
+														console.log("Empty response");
+														link.css('display', 'none');
+														page = -1;
+													}
+													link.attr('data-page', ++page);
+													link.removeClass('fetching');
 												}
-												else {
-													console.log("Empty response");
-													link.css('display', 'none');
-													page = -1;
-												}
-												link.attr('data-page', ++page);
-												link.removeClass('fetching');
-											}
-										});
-									}
-								})
-							</script>
+											});
+										}
+									})
+								</script>
+							<?php endif; ?>
+							
 						</div>
 					</div>
 				</div>
