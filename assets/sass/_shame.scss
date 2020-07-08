@@ -1,7 +1,8 @@
 /* START: Y-Grid white lines under images 
 Sometimes when there are two cells in a Y-grid there appears a faint white line between them. This covers it up */
 .home #section_3,
-.post-type-archive-austeve-products #section_1 {
+.post-type-archive-austeve-products #section_1,
+.page-template-press-page #section_3 {
 
 	.grid-y > .cell:not(:nth-last-of-type(1)) {
 		margin-bottom: -3px;
@@ -15,7 +16,7 @@ Sometimes when there are two cells in a Y-grid there appears a faint white line 
 		margin-top: -3px;
 	}
 }
-/* END: Y-Gris white lines under images */
+/* END: Y-Grid white lines under images */
 
 /* START: Product page case study paragragh alignment
 Alignment of paragraphs on product pages where the product title is split into 2 lines means we need to directly target specific pages */

@@ -6,7 +6,7 @@
 					Your browser does not support HTML5 video.
 				</video>
 				<div class="video-controls">
-					<a class="toggle-play pause"><i class="fas fa-pause"></i><i class="fas fa-play"></i></a>
+					<a class="toggle-play pause" data-section="<?php echo $sectionId;?>"><i class="fas fa-pause"></i><i class="fas fa-play"></i></a>
 					<a class="back-5"><i class="fas fa-backward"></i></a>
 					<a class="forward-5"><i class="fas fa-forward"></i></a>
 					<a class="toggle-mute sound-on"><i class="fas fa-volume-mute"></i> <i class="fas fa-volume-up"></i></a>
@@ -15,7 +15,7 @@
 
 			<div class="video-caption">
 				<span class="text"></span>
-				<div class="close-video-overlay">
+				<div class="close-video-overlay" data-section="<?php echo $sectionId;?>">
 					<a href="#" title="Close video"><i class="fas fa-times"></i> Close</a>
 				</div>
 			</div>

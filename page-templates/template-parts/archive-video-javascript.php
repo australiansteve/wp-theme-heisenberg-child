@@ -4,7 +4,34 @@
 		media.currentTime += value;
 	} 
 
+	function playVideo(sectionId) {
+		var sectionSelector = 'section#'+sectionId;
+		var video = document.querySelector(sectionSelector + " video");
+		var playButton = document.querySelector(sectionSelector + " .toggle-play");
+		video.play();
+		jQuery(playButton).removeClass("paused");
+	}
+
+	function pauseVideo(sectionId) {
+		
+		var sectionSelector = 'section#'+sectionId;
+		var video = document.querySelector(sectionSelector + " video");
+		var playButton = document.querySelector(sectionSelector + " .toggle-play");
+		if (video != null) {
+			video.pause();
+			jQuery(playButton).addClass("paused");
+		}
+	}
+
+	function stopNonActiveSectionVideos() {
+		const sections = document.querySelectorAll('section:not(.active)');
+		sections.forEach(function(section) {
+			pauseVideo(jQuery(section).attr("id"));
+		});
+	}
+
 	async function loadAndPlayMedia(media, backupUrl) {
+		stopNonActiveSectionVideos();
 		media.load();
 
 		try {
@@ -12,18 +39,18 @@
 		} catch(err) {
 			window.location.assign(backupUrl);
 		}
+		var playButton = document.querySelector("section.active .toggle-play");
+		jQuery(playButton).removeClass("paused");
 	}
 
 	function togglePlay() {
-		const media = document.querySelector('section.active video');
 		if (jQuery(this).hasClass("paused")) {
-			media.play();
+			stopNonActiveSectionVideos();
+			playVideo(jQuery(this).attr('data-section'));
 		}
 		else {
-			media.pause();
+			pauseVideo(jQuery(this).attr('data-section'));
 		}
-
-		jQuery(this).toggleClass('paused');
 	}
 
 	function playVideoOnArchivePage() {
@@ -34,27 +61,20 @@
 		const media = document.querySelector('section.active video');
 		if (media) {
 			media.src = videoUrl;
-			jQuery("section.active .video-section-content-overlay").css({'opacity': '1', "height": "100%", "z-index": "1"});
+			jQuery("section.active .video-section-content-overlay").css({'opacity': '1', "height": "100%", "z-index": "5"});
 			var captionAndLink = videoCaption;
 			captionAndLink += "<br/><a href='" + videoBackupUrl + "'>" + videoMoreText + "</a>";
 			jQuery("section.active .video-section-content-overlay .video-caption .text").html(captionAndLink);
 			loadAndPlayMedia(media, videoBackupUrl);
+
+			media.addEventListener('ended', endOfVideoHandler, false);
 		}
 	}
 
 	function closeVideoOverlay() {
-		if (document.querySelector('footer.active')) {
-			console.log("Move up first");
-		}
-
-		const mediaItems = document.querySelectorAll('video');
-		mediaItems.forEach(function(media) {
-			console.log("media: ". media);
-			if (media && !media.paused)
-				media.pause();
-		});
-
-		endOfVideoHandler();
+		sectionId = jQuery(this).attr("data-section");
+		pauseVideo(sectionId);
+		jQuery("#"+sectionId+" .video-section-content-overlay").css({'opacity': '0', "z-index": "-1"});
 		
 	}
 
@@ -83,10 +103,5 @@
 	jQuery(document).on("click", ".back-5", skipBack);
 	jQuery(document).on("click", ".toggle-mute", toggleMute);
 	jQuery(document).on("click", ".toggle-play", togglePlay);
-
-	var video = document.querySelector('section.active video');
-	if (video) {
-		video.addEventListener('ended',endOfVideoHandler, false);
-	}
 
 </script>
