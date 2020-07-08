@@ -47,17 +47,49 @@
 					</div>
 				</div>
 			</div>
-			<div class="grid-y align-top">
-				<div class="cell shrink">
-					<?php
-					wp_nav_menu( array(
+			<div class="grid-y align-top" id="menu-container">
+				<div class="cell">
+					<?php wp_nav_menu( array(
 						'theme_location' => 'primary',
 						'container' => false,
 					) );
+					?> 
+				</div>
+				<div id="menu-footer-container">
+					<?php 
+					$secondaryMenuId = get_term(get_nav_menu_locations()['secondary-menu'], 'nav_menu')->term_id;
+					$secondaryMenu = wp_get_nav_menu_object($secondaryMenuId);				
 					?>
+					<div class="" id="secondary-menu-container">
+						<div class="grid-y align-center">
+							<div class="cell">
+								<?php
+								wp_nav_menu( array(
+									'theme_location' => 'secondary-menu',
+									'container' => false,
+									'menu_class' => 'menu medium-text-center'
+								) );
+								?>
+							</div>
+						</div>
+					</div>
+					<div class="" id="copyright-menu-container">
+						<div class="grid-x">
+							<div class="cell text-center">
+								<?php 
+								$image = get_field('secondary_menu_logo', $secondaryMenu);
+								$size = 'secondary-menu-footer-logo'; 
+								
+								if( $image ) {
+									echo wp_get_attachment_image( $image, $size );
+								}
+								?>
+								<?php the_field('secondary_menu_text', $secondaryMenu);?>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			
 		</div>
 		<div class="off-canvas-content" data-off-canvas-content>
 			<div class="click-to-scroll-down"><a title="Scroll down" href="#"><i class="fas fa-chevron-down"></i></a></div>

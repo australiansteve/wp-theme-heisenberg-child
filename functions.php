@@ -38,9 +38,11 @@ endif; /* End ACF related options & filters */
 /* Navigation menus */
 add_action( 'after_setup_theme', function() {
 	register_nav_menu( 'social-media', __( 'Social Media Menu', 'heisenberg' ) );
+	register_nav_menu( 'secondary-menu', __( 'Secondary Menu', 'heisenberg' ) );
 
 	add_image_size( 'header-image', 600, 224, true );
 	add_image_size( 'footer-logo', 432, 672, true );
+	add_image_size( 'secondary-menu-footer-logo', 58, 58, true );
 
 });
 
