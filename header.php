@@ -22,26 +22,18 @@
 <body <?php body_class(); ?>>
 
 <header class="grid-container">
-	<div class="grid-x">
-		<?php if (!is_home()) : ?>
-		<div class="cell small-12 medium-4 text-center">
-			<?php 
-			$image = get_field('header_logo', 'option');
-			$size = 'header-logo'; // (thumbnail, medium, large, full or custom size)
-			
-			if( $image ) {
-				echo wp_get_attachment_image( $image, $size );
-			}
-			?>
-		</div>
-	<?php endif; ?>
-		<div class="cell small-12 medium-auto text-center" id="primary-menu">
-			<?php
-			wp_nav_menu( [
-				'theme_location' => 'primary',
-				'container'      => '',
-			] ); ?>
-		</div>
+	<?php
+	printf( '<h1><a href="%s" rel="home">%s</a></h1>',
+		esc_url( home_url( '/' ) ),
+		esc_html( get_bloginfo( 'name' ) )
+	);
+
+	printf( '<p class="h4">%s</p>', esc_html( get_bloginfo( 'description' ) ) );
+
+	wp_nav_menu( [
+		'theme_location' => 'primary',
+		'container'      => '',
+	] ); ?>
 </header>
 
 <main class="grid-container">
