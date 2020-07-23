@@ -40,4 +40,6 @@ endif; /* End ACF related options & filters */
 /* Navigation menus */
 add_action( 'after_setup_theme', function() {
 	register_nav_menu( 'social-media', __( 'Social Media Menu', 'heisenberg' ) );
+
+	add_image_size( 'header-logo', 200, 100, true );
 });
