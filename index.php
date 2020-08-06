@@ -1,37 +1,37 @@
 <?php
-get_header(); ?>
+get_header();
 
-<section class="active"  data-section="<?php global $sectionNumber; echo $sectionNumber++;?>">
-	<div class="section-content grid-container">
+if ( have_posts() ) :
 
-		<div class="grid-x grid-padding-x">
+	while ( have_posts() ) :
 
-			<div class="small-12 cell">
-				<?php
-				if ( have_posts() ) :
+		the_post();
 
-					while ( have_posts() ) :
+		$sectionId = 'section_1';
+		$sectionClasses= '';
+		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
+		include( locate_template( 'page-templates/template-parts/section-video-with-tagline.php', false, false ) ); 
+		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
 
-						the_post();
 
-						the_title( '<h1>', '</h1>' );
-
-						the_content();
-
-					endwhile;
-
-					the_posts_navigation();
-
-				else :
-
-					echo esc_html( 'Sorry, no posts' );
-
-				endif;
-				?>
-			</div>
-
+		$sectionId = 'section_2';
+		$sectionClasses= '';
+		$customLogo = get_field($sectionId.'_header_customization_header_logo');
+		include( locate_template( 'page-templates/template-parts/section-header.php', false, false ) ); 
+		?>
+		<div class="section-content text-center" id="<?php echo $sectionId;?>-content">
+			<?php 
+				include( locate_template( 'page-templates/template-parts/section-the_content-with-background.php', false, false ) ); 
+			?>
 		</div>
-	</div>
-</section>
-<?php
+		<?php		
+		include( locate_template( 'page-templates/template-parts/section-footer.php', false, false ) ); 
+
+	endwhile;
+
+else :
+
+	echo esc_html( 'Sorry, no posts' );
+
+endif;
 get_footer();
