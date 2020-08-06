@@ -354,6 +354,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5f11b773ea764",
+            "label": "Back Button Text (Search Results)",
+            "name": "single_post_search_results_back_button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Back to search results",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5e8cb78e141e5",
             "label": "404 Page",
             "name": "",
@@ -430,5 +449,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1592915444
+    "modified": 1594996786
 }

@@ -16,7 +16,7 @@
 			<div class="video-caption">
 				<span class="text"></span>
 				<div class="close-video-overlay" data-section="<?php echo $sectionId;?>">
-					<a href="#" title="Close video"><i class="fas fa-times"></i> Close</a>
+					<a href="" title="Close video"><i class="fas fa-times"></i> Close</a>
 				</div>
 			</div>
 

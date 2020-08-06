@@ -6,7 +6,7 @@ $hasVideo = isset($videoDetails['video_url']) && $videoDetails['video_url'] != "
 
 ?>
 <div class="cell text-center medium-half-height">
-	<a class="video-link <?php echo $hasVideo ? 'has-video' : ''?>" href="<?php echo $hasVideo ? '#' : the_permalink();?>" data-video-url="<?php echo $videoDetails['video_url'];?>" data-video-caption="<?php echo $videoDetails['video_caption'];?>" data-video-more-text="<?php echo get_field('read_more_button_text');?>" data-backup-url="<?php the_permalink();?>">
+	<a class="archive-link video-link <?php echo $hasVideo ? 'has-video' : ''?>" href="<?php echo $hasVideo ? '' : the_permalink();?>" data-video-url="<?php echo $videoDetails['video_url'];?>" data-video-caption="<?php echo $videoDetails['video_caption'];?>" data-video-more-text="<?php echo get_field('read_more_button_text');?>" data-backup-url="<?php the_permalink();?>">
 		<div class="grid-y align-right background" style="background-image: url(<?php echo $backgroundImageUrl;?>); height: 100%; min-height: 300px">
 			<div class="cell archive-content">
 				<div class="grey-background">					

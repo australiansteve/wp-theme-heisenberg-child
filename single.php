@@ -54,15 +54,45 @@ include( locate_template( 'page-templates/template-parts/section-header.php', fa
 								the_content();
 								?>
 							</div>
-							<?php if (is_singular('post') && has_category('press-release')) : ?>
+							<?php 
+							$returnParams = "";
+							$searchTerm = "";
+							$cookie_name = 'returninfo';
+							if(isset($_COOKIE[$cookie_name])) {
+								error_log($_COOKIE[$cookie_name]);
+								$returnInfo = json_decode(stripslashes($_COOKIE[$cookie_name]));
+								foreach($returnInfo as $key => $value) {
+									if ($key == 's') {
+										$searchTerm = $value;
+										if ($value != "") {
+											$returnParams .= $key."=".$value."&";
+										}
+									}
+									else {
+										$returnParams .= $key."=".$value."&";
+									}
+								}
+								$returnParams =  rtrim($returnParams, "&");  
+							}
+							$returnLink = "";
+							$returnText = "";
+							if (is_singular('post') && $searchTerm != "") {
+								$returnLink = site_url();
+								$returnText = "Return to search results";
+							}
+							elseif (is_singular('post') && has_category('press-release')) {
+								$returnLink = get_field('single_post_press_release_back_button_link', 'option');
+								$returnText = get_field('single_post_press_release_back_button_text', 'option');
+							}
+							elseif (is_singular('post')) {
+								$returnLink = get_permalink( get_option( 'page_for_posts' ) );
+								$returnText = get_field('single_post_back_button_text', 'option');
+							}
+							?>
 							<div class="back-to-button text-center">
-								<a class="button" href="<?php the_field('single_post_press_release_back_button_link', 'option');?>"><?php the_field('single_post_press_release_back_button_text', 'option');?></a>
+								<a class="button" href="<?php echo $returnLink;?>?<?php echo $returnParams;?>"><?php echo $returnText;?></a>
 							</div>
-							<?php else : ?>
-								<div class="back-to-button text-center">
-									<a class="button" href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"><?php the_field('single_post_back_button_text', 'option');?></a>
-								</div>
-							<?php endif;?>
+
 						</div>
 					</div>
 

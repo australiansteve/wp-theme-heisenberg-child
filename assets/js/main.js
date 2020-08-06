@@ -5,6 +5,35 @@ var currentYPos = 0;
 var myElement = null;
 var allowCancelableEvent = false;
 
+const params = new URLSearchParams(window.location.search);
+var target = params.get('scrollto');
+
+/* delete hash so the page won't scroll to it */
+window.location.hash = "";
+
+function setCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+	var expires = "expires="+d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+	var name = cname + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	for(var i = 0; i <ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+
 jQuery( document ).ready(function() {
 
 	jQuery(document).foundation();
@@ -64,12 +93,58 @@ jQuery( document ).ready(function() {
 
 	jQuery(".click-to-scroll-down a").on("click", function(event) {
 		//console.log(event);
+		event.preventDefault();
 		goDown(event);
 	});
 
 	preventPullToRefresh('body');
 
+	/* Scroll to section on load */
+	var loadInfo = getCookie("loadinfo");
+	var returnInfo = getCookie("returninfo");
+	if (loadInfo != "") {
+		//console.log("Read loadinfo from cookie: " + JSON.parse(loadInfo));
+
+		for (const [key, value] of Object.entries(JSON.parse(loadInfo))) {
+			if (key == 'scrollto') {
+				//console.log("Read this scrolltovalue from cookie: " + value);
+				target = value;
+			}
+		}
+	}
+
+	//reset loadinfo
+	var loadInfo = {"scrollto": "", "loadposts": "-1"};
+	setCookie("loadinfo", encodeURIComponent(JSON.stringify(loadInfo)), -1);
+
+	if (target) {
+		scrollToSection(target);
+		//console.log("Remove QS from browser");
+		var newHistoryLocation = window.location.toString().substr(0, window.location.toString().indexOf("?")) + (params.get("s") != null ? "?s=" + params.get("s") : "");
+		history.replaceState({page: 1}, "", newHistoryLocation);
+	}
+
 });
+
+var scrollToSection = function(id) {
+	if (jQuery("section#" + id).length) {
+		jQuery("section").each(function() {
+			if (jQuery(this).attr("id") == id) {
+				return false;
+			}
+
+			//scroll section to bottom
+			var activeSectionContent = jQuery(this).find(".section-content");
+			console.log(activeSectionContent.prop("scrollHeight"));
+			activeSectionContent.scrollTop(activeSectionContent.prop("scrollHeight"));
+
+			//trigger key down
+			var e = jQuery.Event("keydown");
+			e.keyCode = 40;                     
+			jQuery("body").trigger(e);
+		});
+	}
+}; 
 
 var wheelEvent = function(event) {
 	//console.log("wheelEvent " + event.cancelable + " " + event.timeStamp);
@@ -181,15 +256,17 @@ var goDown = function(event) {
 
 	if (jQuery("body.blog, body.archive.category, body.search").length)
 	{
-		console.log("Trigger loading of more posts!");
+		//console.log("Trigger loading of more posts!");
 		jQuery(document).trigger('loadmoreposts');
 	}
+
 	//pause video if there is one playing
 	var video = document.querySelector('video:not(.self-controlled)');
 	if (video && !video.paused) {
 		video.pause();
 		jQuery(".toggle-play").addClass("paused");
 	}
+
 }
 
 var goUp = function(event) {
@@ -239,6 +316,7 @@ var goUp = function(event) {
 		prevSection.css("transform", "scale(1, 1)");
 		jQuery(".click-to-scroll-down").css('opacity', '1');
 	}
+
 }
 
 var showLogoIfAtTop = function() {
@@ -299,20 +377,18 @@ var repositionAfterResize = _.debounce(function() {
 	window.focus();
 }, 250);
 
-var resetPagePosition = function() {
-	//console.log("Reset scroll to top of page");
+var resetPagePosition = function(e) {
+	e.preventDefault();
+
 	var nthSectionNumber = jQuery(this).attr("data-section") !== undefined ? jQuery(this).attr("data-section") : 1;
-	console.log("Reset to section: " + nthSectionNumber);
 	var activeSection = jQuery("section.active");
 	var activeFooter = jQuery("footer.active");
 	var nthSection = jQuery("section:nth-of-type("+nthSectionNumber+")");
 	var firstNSections = jQuery("section").slice(0, nthSectionNumber);
-	console.log(firstNSections);
 	currentYPos = 0;
 	for(var s = 1; s < nthSectionNumber; s++) {
 		currentYPos -= jQuery(firstNSections[s]).outerHeight();
 	}
-	console.log("ypos: " + currentYPos);
 	jQuery(myElement).css("transform", "translateY(" + currentYPos + "px)");
 	activeSection.removeClass("active");
 	activeSection.css("transform", "scale(0.75, 0.75)");
@@ -378,3 +454,44 @@ var setQuoteImageWidth = _.debounce(function() {
 		}
 	});
 }, 250);
+
+jQuery(document).on("click", "a:not(.video-link)", function(e) {
+	//console.log("Link clicked! " + this.host + " vs " + window.location.host);
+	if (this.host == window.location.host) {
+		//default loadInfo
+		var loadInfo = {"scrollto": "", "loadposts": "-1"};
+
+		if (this.href.indexOf("?") >= 0) {
+			//console.log("Internal link clicked " + this.href.substring(this.href.indexOf("?") + 1));
+			var urlParams = new URLSearchParams(this.href.substring(this.href.indexOf("?") + 1));
+
+			if(urlParams.has("scrollto")) {
+				//console.log("Setting scrollto in loadinfo cookie");
+				loadInfo['scrollto'] = urlParams.get("scrollto");
+				urlParams.delete('scrollto');
+			}
+			if(urlParams.has("loadposts")) {
+				//console.log("Setting loadposts in loadinfo cookie");
+				loadInfo['loadposts'] = urlParams.get("loadposts");
+				urlParams.delete('loadposts');
+			}
+			this.href=this.href.substring(0, this.href.indexOf("?") + 1) + urlParams.toString(); 
+		}
+
+		setCookie("loadinfo", encodeURIComponent(JSON.stringify(loadInfo)), 1);
+		
+	}
+});
+
+jQuery(document).on("click", "a.archive-link-to-single, a.archive-link:not(.has-video)", function(e) {
+	
+	var sectionId = jQuery("section.active").length ? jQuery("section.active").attr("id") : (jQuery("footer.active").length ? jQuery("section:nth-last-of-type(1)").attr("id") : "no_active_section");
+	var returnInfo = {scrollto:sectionId, loadposts:jQuery(".blog-grid>.cell").length};
+	if (params.get("s") != null) {
+		returnInfo['s'] = params.get("s");
+	}
+	//console.log("Adding info to cookie: " + encodeURIComponent(JSON.stringify(returnInfo)));
+	setCookie("returninfo", encodeURIComponent(JSON.stringify(returnInfo)) + ";path=/;");
+	history.replaceState({page: 1}, "", ("?loadposts=" + jQuery(".blog-grid>.cell").length + "&scrollto=" + sectionId + (params.get("s") != null ? "&s=" + params.get("s") : "")));
+
+});

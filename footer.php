@@ -22,7 +22,7 @@
 			</div>
 
 			<div id="back-to-top" class="" style="color: <?php echo $footerSettings['text']['text_color']; ?>">
-				<a href="#" class="home-reset-scroll"><?php echo $footerSettings['back_to_top_text']; ?></a>
+				<a href="" class="home-reset-scroll"><?php echo $footerSettings['back_to_top_text']; ?></a>
 			</div>
 
 			<?php

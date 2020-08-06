@@ -1,50 +1,55 @@
-	.nf-form-cont {
-		max-width: 565px;
-		margin: 50px auto;
+.nf-form-cont {
+	max-width: 565px;
+	margin: 50px auto;
 
+	.nf-field-container {
+		margin-bottom: 0.5rem;
+	}
+
+	.nf-input-limit {
+		margin-top: 0;
+	}
+
+	.nf-error-msg.nf-error-required-error {
+		display: none;
+	}
+
+	h3 {
+		font-size: 32px;
+	}
+
+	input[type=button] {
+		height: auto !important;
+		margin-top: 1rem;
+	}
+
+	input[type=button].white {
+		background-color: $bone-color;
+		color: $faded-tshirt-color;
+	}
+
+}
+
+.sidebar {
+	.nf-form-cont {
+
+		.nf-form-content {
+			padding: 0;
+		}
+		
 		.nf-field-container {
-			margin-bottom: 0.5rem;
+			margin-bottom: 1rem;
 		}
 
-		.nf-input-limit {
+		.submit-container {
+			text-align: center;
+		}
+		
+		.nf-element[type="button"] {
 			margin-top: 0;
 		}
-
-		.nf-error-msg.nf-error-required-error {
-			display: none;
-		}
-
-		h3 {
-			font-size: 32px;
-		}
-
-		input[type=button] {
-			height: auto !important;
-			margin-top: 1rem;
-		}
-
-		input[type=button].white {
-			background-color: $bone-color;
-			color: $faded-tshirt-color;
-		}
-
 	}
-
-	.sidebar {
-		.nf-form-cont {
-			.nf-field-container {
-				margin-bottom: 1rem;
-			}
-
-			.submit-container {
-				text-align: center;
-			}
-			
-			.nf-element[type="button"] {
-				margin-top: 0;
-			}
-		}
-	}
+}
 
 /* Small only (up to 640px) */
 @media screen and (min-width: 39.975em) {

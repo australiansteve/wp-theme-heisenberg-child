@@ -26,7 +26,7 @@
 	function stopNonActiveSectionVideos() {
 		const sections = document.querySelectorAll('section:not(.active)');
 		sections.forEach(function(section) {
-			pauseVideo(jQuery(section).attr("id"));
+			stopAndCloseVideoOverlay(jQuery(section).attr("id"));
 		});
 	}
 
@@ -53,7 +53,8 @@
 		}
 	}
 
-	function playVideoOnArchivePage() {
+	function playVideoOnArchivePage(e) {
+		e.preventDefault();
 		var videoUrl = jQuery(this).attr('data-video-url');
 		var videoCaption = jQuery(this).attr('data-video-caption');
 		var videoMoreText = jQuery(this).attr('data-video-more-text');
@@ -63,7 +64,7 @@
 			media.src = videoUrl;
 			jQuery("section.active .video-section-content-overlay").css({'opacity': '1', "height": "100%", "z-index": "5"});
 			var captionAndLink = videoCaption;
-			captionAndLink += "<br/><a href='" + videoBackupUrl + "'>" + videoMoreText + "</a>";
+			captionAndLink += "<br/><a class='archive-link-to-single' href='" + videoBackupUrl + "'>" + videoMoreText + "</a>";
 			jQuery("section.active .video-section-content-overlay .video-caption .text").html(captionAndLink);
 			loadAndPlayMedia(media, videoBackupUrl);
 
@@ -71,8 +72,13 @@
 		}
 	}
 
-	function closeVideoOverlay() {
-		sectionId = jQuery(this).attr("data-section");
+
+	function closeVideoOverlay(e) {
+		e.preventDefault();
+		stopAndCloseVideoOverlay(jQuery(this).attr("data-section"));
+	}
+
+	function stopAndCloseVideoOverlay(sectionId) {
 		pauseVideo(sectionId);
 		jQuery("#"+sectionId+" .video-section-content-overlay").css({'opacity': '0', "z-index": "-1"});
 		
@@ -93,7 +99,10 @@
 	}
 
 	function endOfVideoHandler(e) {
-		jQuery(".video-section-content-overlay").css({'opacity': '0', "z-index": "-1"});
+		const sections = document.querySelectorAll('section');
+		sections.forEach(function(section) {
+			stopAndCloseVideoOverlay(jQuery(section).attr("id"));
+		});
 	}
 
 	/* Listeners that work for dynamically added content */

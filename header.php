@@ -92,5 +92,5 @@
 			</div>
 		</div>
 		<div class="off-canvas-content" data-off-canvas-content>
-			<div class="click-to-scroll-down"><a title="Scroll down" href="#"><i class="fas fa-chevron-down"></i></a></div>
+			<div class="click-to-scroll-down"><a title="Scroll down" href=""><i class="fas fa-chevron-down"></i></a></div>
 			<div id="page-container">	

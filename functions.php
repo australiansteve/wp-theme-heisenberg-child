@@ -74,26 +74,46 @@ function austeve_exclude_products_from_archive($query) {
 
 	if ((($query->is_home() || $query->is_archive('category') || $query->is_search()) && $query->is_main_query() && !is_admin()) || (wp_doing_ajax() && in_array('post', $query->get('post_type')))) {
 
-		if (wp_doing_ajax())
-		{
-			//error_log("DOING AJAX: ".print_r($query, true));
+		error_log("Posts per page: ".$query->get('posts_per_page'));
+		$loadInfo = null;
+		$cookie_name = 'loadinfo';
+		$queries = null;
+		if(!wp_doing_ajax() && isset($_COOKIE[$cookie_name])) {
+			$loadInfo = json_decode(stripslashes($_COOKIE[$cookie_name]));
+			if(array_key_exists('loadposts', $loadInfo)) {
+				error_log("Read loadposts from cookie: " . $loadInfo->loadposts);
+			}
 		}
+		else {
+			parse_str($_SERVER['QUERY_STRING'], $queries);
 
+		}
 
 		if ($query->get('offset') < 0) {
 			//getting more press releases via ajax sets offset to be -1
 			$query->set('offset', null);
 		}
 		else {
-			$query->set( 'posts_per_page', '6');
-
-			if ($query->get( 'paged') > 0) {
-				$offset = (intval($query->get( 'paged'))-1) * 6 -2;
-				error_log("offset $offset");
-				$query->set( 'offset', $offset); 
+			if ($loadInfo != null && $loadInfo->loadposts > 0) {
+				$query->set( 'posts_per_page', $loadInfo->loadposts);
+				$query->set( 'offset', null);
 			}
-			else  {
-				$query->set( 'posts_per_page', '4');
+			else if (is_array($queries) && array_key_exists('loadposts', $queries)) {
+				error_log("Setting loadposts from querystring");
+				$query->set( 'posts_per_page', $queries['loadposts']);
+				$query->set( 'offset', null);
+			}
+			else {
+				$query->set( 'posts_per_page', '6');
+
+				if ($query->get( 'paged') > 0) {
+					$offset = (intval($query->get( 'paged'))-1) * 6 -2;
+					error_log("offset $offset");
+					$query->set( 'offset', $offset); 
+				}
+				else  {
+					$query->set( 'posts_per_page', '4');
+				}
 			}
 		}
 
@@ -123,7 +143,7 @@ function austeve_exclude_products_from_archive($query) {
 			$query->set( 'tax_query', $newTaxQuery);
 		}
 
-		error_log("post query: ". print_r($query, true));
+		//error_log("post query: ". print_r($query, true));
 	}
 
 	if ($query->is_search && !is_admin()) {
@@ -188,11 +208,8 @@ add_filter('acf/load_field/name=categories_to_include', 'austeve_load_categories
 function austeve_get_press_releases() {
 
 	$nonce = $_REQUEST['security'];
-	error_log("Get page: ".$_REQUEST['page']);
-	error_log("nonce: ".$nonce);
 	if (wp_verify_nonce( $nonce, 'press-page-posts')) {
 
-		error_log("nonce verified");
 		$page = intval($_REQUEST['page']);
 		$pageId = intval($_REQUEST['pageId']);
 
@@ -242,16 +259,12 @@ add_action('wp_ajax_nopriv_austeve_get_press_releases', 'austeve_get_press_relea
 function austeve_get_posts() {
 
 	$nonce = $_REQUEST['security'];
-	error_log("Get page: ".$_REQUEST['page']);
-	error_log("nonce: ".$nonce);
 	if (wp_verify_nonce( $nonce, 'blog-page-posts')) {
 		global $nextSectionId;
-		error_log("nonce verified");
 		$page = intval($_REQUEST['page']);
 		$category = isset($_REQUEST['category']) ? $_REQUEST['category'] : null;
 		$search = isset($_REQUEST['search']) ? $_REQUEST['search']: null;
 		$nextSectionId = intval($_REQUEST['nextSection']);
-		error_log("Next section: ".$nextSectionId);
 
 		$args = array(
 			'post_type' => array('post'),
@@ -274,7 +287,6 @@ function austeve_get_posts() {
 		}
 
 		if ($search) {
-			error_log("SEARCH");
 			$args['s'] = $search;
 		}
 
@@ -283,8 +295,7 @@ function austeve_get_posts() {
 		$response = '';
 
 		if ( $ajaxposts->have_posts()) {
-			error_log("Post count: ".count($ajaxposts->posts));
-			error_log(print_r($ajaxposts, true));
+			
 			include(locate_template( 'page-templates/template-parts/blog-section-header.php', false, false )); 
 			while ( $ajaxposts->have_posts() ) {
 				$ajaxposts->the_post();
@@ -295,7 +306,6 @@ function austeve_get_posts() {
 					include(locate_template( 'page-templates/template-parts/post-archive.php', false, false ));
 				}
 			}
-
 			if (count($ajaxposts->posts) > 0 && count($ajaxposts->posts) < 6) {
 				include(locate_template( 'page-templates/template-parts/post-archive-return.php', false, false ));
 
@@ -314,7 +324,6 @@ add_action('wp_ajax_austeve_get_posts', 'austeve_get_posts');
 add_action('wp_ajax_nopriv_austeve_get_posts', 'austeve_get_posts');
 
 function austeve_channel_4_subscription( $form_data ){
-	/* error_log("Ninja form submission: ".print_r($form_data, true)); */
 
 	$formKey = isset($form_data['settings']['key']) ? $form_data['settings']['key'] : null;
 	if ($formKey && $formKey == 'channel_4_subscription') {
