@@ -1,27 +1,34 @@
-body.page-template-default {
+body.page-template-default:not(.home) {
 
-	p {
-		font-weight: 200;
-	}
+	.off-canvas-content {
 
-	h2 {
-		margin-top: 3rem;
-		margin-bottom: 1rem;
-	}
+		p, li {
+			font-weight: 200;
+		}
 
-	h3 {
-		margin-top: 2rem;
-		margin-bottom: 1rem;
-	}
+		h2 {
+			margin-top: 3rem;
+			margin-bottom: 1rem;
+		}
 
-	.the-content.align-left {
+		h3 {
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+		}
 
-		padding-top: 100px;
-		padding-bottom: 100px;
+		ol, ul {
+			text-align: left;
+		}
 
-		.cell {
-			max-width: 90%;
-			margin: auto;
+		li {
+			margin-bottom: 1rem;
+		}
+
+		.the-content.align-left {
+
+			padding-top: 100px;
+			padding-bottom: 100px;
+
 		}
 	}
 }
@@ -33,7 +40,28 @@ body.page-template-default {
 
 /* Medium and up (640px) */
 @media screen and (min-width: 40em) {
-	
+	body.page-template-default:not(.home) {
+
+		.off-canvas-content {
+
+			.the-content.align-left {
+
+				.cell {
+					max-width: 90%;
+					margin: auto;
+				}
+			}
+
+			ol, ul {
+				margin-left: 1.75rem;
+			}
+
+			li {
+				margin-bottom: 2rem;
+			}
+
+		}
+	}
 }
 
 /* Medium only */
@@ -43,15 +71,18 @@ body.page-template-default {
 
 /* Large and up (>1024px) */
 @media screen and (min-width: 64em) {
-	body.page-template-default {
+	body.page-template-default:not(.home) {
 
-		h2 {
-			font-size: 55px;
+		.off-canvas-content {
+
+			h2 {
+				font-size: 55px;
+			}
+
+			section {
+				font-size: 32px;
+			}		
 		}
-
-		section {
-			font-size: 32px;
-		}		
 	}
 }
 
