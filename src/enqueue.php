@@ -25,6 +25,12 @@ add_action( 'wp_enqueue_scripts', function() {
         HEISENBERG_VERSION
     );
 
+	//Font Awesome
+	wp_enqueue_script(
+		'font_awesome',
+		'https://kit.fontawesome.com/30900d1525.js'
+	);
+
 	// CSS
 	wp_enqueue_style(
 		'heisenberg_css',
@@ -45,6 +51,7 @@ add_action( 'wp_enqueue_scripts', function() {
 		'google_fonts',
 		'https://fonts.googleapis.com/css?family=Noto+Serif:400,700|Roboto:400,700'
 	);
+
 
 	// Add comment script on single posts with comments
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

@@ -14,7 +14,7 @@ class OffCanvas_Foundation_Menu extends Walker {
      * Note: Menu objects include url and title properties, so we will use those.
      */
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-    	error_log(sprintf("$depth %s", $depth));
+    	//error_log(sprintf("$depth %s", $depth));
         $output .= sprintf( "\n<li><a class='menu-depth-%s' href='%s'%s>%s</a>\n",
             $depth,
             $item->url,
@@ -36,7 +36,7 @@ class OffCanvas_Foundation_Menu extends Walker {
     }
 
     function start_lvl( &$output, $depth = 0, $args = array() ) {
-        error_log(sprintf("LVL Depth: %s - output %s", $depth, $output));
+        //error_log(sprintf("LVL Depth: %s - output %s", $depth, $output));
         $output .= sprintf( "\n<ul class='menu vertical nested'>\n");
 
     }
@@ -61,7 +61,7 @@ class Dropdown_Foundation_Menu extends Walker {
      * Note: Menu objects include url and title properties, so we will use those.
      */
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-        error_log(sprintf("EL Depth: %s", $depth));
+        //error_log(sprintf("EL Depth: %s", $depth));
         $output .= sprintf( "\n<li class='%s'><a class='menu-depth-%s' href='%s'%s>%s</a>\n",
             implode($item->classes, " "),
             $depth,
@@ -84,7 +84,7 @@ class Dropdown_Foundation_Menu extends Walker {
     }
 
     function start_lvl( &$output, $depth = 0, $args = array() ) {
-        error_log(sprintf("LVL Depth: %s - output %s", $depth, $output));
+        //error_log(sprintf("LVL Depth: %s - output %s", $depth, $output));
         $output .= sprintf( "\n<ul class='menu'>\n");
 
     }

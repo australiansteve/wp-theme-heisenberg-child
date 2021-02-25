@@ -39,6 +39,25 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_5dcba4612f2bf",
+            "label": "Account Login Link",
+            "name": "account_login_link",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -58,5 +77,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1573064475
+    "modified": 1573626996
 }

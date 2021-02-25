@@ -15,8 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-	<script src="https://kit.fontawesome.com/30900d1525.js"></script>
-
+	
 	<!-- Mailchimp embed styles -->
 	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 	<style type="text/css">
@@ -29,12 +28,27 @@
 
 <body <?php body_class(); ?>>
 
+	<?php
+		$langs = icl_get_languages('skip_missing=1');
+		error_log(print_r($langs, true));
+
+		if (is_array($langs) && count($langs) == 2 && array_key_exists('fr', $langs) && array_key_exists('en', $langs)) :
+			$frLink = $langs['fr']['url'];
+			$enLink = $langs['en']['url'];
+		elseif (count($langs) == 1 && ICL_LANGUAGE_CODE=='fr' && array_key_exists('fr', $langs)) :
+			$frLink = $enLink =$langs['fr']['url'];
+		elseif (count($langs) == 1 && ICL_LANGUAGE_CODE=='en' &&  array_key_exists('en', $langs)) :
+			$frLink = $enLink =$langs['en']['url'];
+		else :
+			$frLink = $enLink = site_url();
+		endif;
+	?>
 	<div class="off-canvas-wrapper">
 
 		<div class="off-canvas-absolute position-left" id="offCanvasLeft" data-off-canvas data-auto-focus="false">
 			<ul class="vertical menu accordion-menu" data-accordion-menu>
 				<li class="language-selector">
-					<a href="?lang=fr">FR</a> | <a href="?lang=en">EN</a>
+					<a href="<?php echo $frLink;?>">FR</a> | <a href="<?php echo $enLink;?>">EN</a>
 				</li>
 				<li class="home">
 					<a href="<?php echo site_url();?>"><?php the_field('home_link_text', 'option')?></a>
@@ -64,8 +78,8 @@
 						<?php echo get_template_part('template-parts/search-bar'); ?>
 					</div>
 					<div class="cell small-11 medium-1 small-text-left medium-text-right">
-						<span class="language-fr"><a href="?lang=fr">FR</a></span> | 
-						<span class="language-en"><a href="?lang=en">EN</a></span>
+						<span class="language-fr"><a href="<?php echo $frLink; ?>">FR</a></span> | 
+						<span class="language-en"><a href="<?php echo $enLink; ?>">EN</a></span>
 					</div>
 					<div class="cell small-1 off-canvas-content hide-for-medium small-text-right" id="hamburger-menu" data-off-canvas-content>
 						<a href="#" data-toggle="offCanvasLeft"><i class="fas fa-bars"></i></a>

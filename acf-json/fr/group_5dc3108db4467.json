@@ -16,7 +16,7 @@
                 "id": ""
             },
             "return_format": "id",
-            "preview_size": "full",
+            "preview_size": "site_logo",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -42,7 +42,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": 1,
     "description": "",
-    "modified": 1573064845
+    "modified": 1574344581
 }

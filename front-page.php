@@ -90,6 +90,7 @@ get_header(); ?>
 				<div class="cell">
 					<h3><?php the_field('front_page_column_title_2', 'option');?></h3>
 					<?php
+					$featuredPostId = 0;
 			// WP_Query arguments
 					$args = array(
 						'post_type'              => array( 'post' ),
@@ -112,6 +113,7 @@ get_header(); ?>
 					if ( $postsquery->have_posts() ) {
 						while ( $postsquery->have_posts() ) {
 							$postsquery->the_post();
+							$featuredPostId = get_the_ID();
 							echo get_template_part('template-parts/post', 'front-page-featured');
 						}
 					} else {
@@ -126,7 +128,7 @@ get_header(); ?>
 					<div class="grid-x post-front-page read-all">
 
 						<div class="cell read-more">
-							<a class="button" href="<?php the_permalink();?>"><?php the_field('front_page_post_button_text', 'option');?></a>
+							<a class="button" href="<?php the_permalink($featuredPostId);?>"><?php the_field('front_page_post_button_text', 'option');?></a>
 						</div>
 
 						<div class="cell read-more">
@@ -148,6 +150,8 @@ get_header(); ?>
 				<?php
 				//add meta query to only get deadlines AFTER the 'timeout' period'
 				$days = get_field('remove_deadlines_after', 'option');
+				if (!$days)
+					$days = 3; //default to 3 days - 
 				$startDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('-'.$days.' days');
 				$endDate = (new DateTime(null, new DateTimeZone('America/Halifax')))->modify('+1 years');
 
@@ -187,11 +191,20 @@ get_header(); ?>
 					}
 				} else {
 					// no posts found
+					error_log("No deadlines found: ".print_r($postsquery, true));
 				}
 
 				// Restore original Post Data
 				wp_reset_postdata();
 				?>	
+			</div>
+
+			<div class="full-calendar">
+				<?php 
+				$fullCalendarButtonText = get_field('front_page_full_calendar_text', 'option');
+				if ($fullCalendarButtonText): ?>
+					<a class="button" href="<?php the_field('front_page_full_calendar_link', 'option');?>"><?php echo $fullCalendarButtonText; ?></a>
+				<?php endif; ?>
 			</div>
 		</div>
 

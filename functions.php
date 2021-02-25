@@ -3,8 +3,6 @@
  * Kickoff theme setup and build
  */
 
-namespace Heisenberg;
-
 require_once __DIR__ . '/src/enqueue.php';
 require_once __DIR__ . '/src/menu-walker.php';
 
@@ -83,22 +81,22 @@ if (!function_exists('endsWith'))
 {
 	function endsWith($haystack, $needle)
 	{
-	    $length = strlen($needle);
-	    if ($length == 0) {
-	        return true;
-	    }
+		$length = strlen($needle);
+		if ($length == 0) {
+			return true;
+		}
 
-	    return (substr($haystack, -$length) === $needle);
+		return (substr($haystack, -$length) === $needle);
 	}
 }
 
 add_filter( 'get_the_excerpt', function( $excerpt ) {
- 	if (endsWith($excerpt, ' [&hellip;]'))
- 	{
+	if (endsWith($excerpt, ' [&hellip;]'))
+	{
  		//error_log("Trim the excerpt!");
- 		return substr($excerpt, 0, -11);
- 	}
- 	return $excerpt;
+		return substr($excerpt, 0, -11);
+	}
+	return $excerpt;
 } );
 
 // filter
@@ -116,22 +114,22 @@ add_filter( 'get_the_archive_title', function ( $title ) {
 	if( is_home() || is_single() ) {
 		$title = the_field('post_archive_page_title', 'option');
 	}
-    return $title;
+	return $title;
 
 });
 
 //Move Yoast metaboxes to bottom
 add_filter( 'wpseo_metabox_prio', function() {
-    return 'low';
+	return 'low';
 });
 
 /* Alter search query so CPTs are displayed before posts (thanks to menu_order being set), and posts are otherwise returned in date order (newest first) */
- add_action( 'pre_get_posts', function ($query) {
- 	if ( $query->is_search	) {
- 		error_log("Searching: ".print_r($query->get('s'), true));
-        $query->set('orderby', array('menu_order' => 'DESC', 'date' => 'DESC'));
-     }
- }); 
+add_action( 'pre_get_posts', function ($query) {
+	if ( $query->is_search	) {
+		error_log("Searching: ".print_r($query->get('s'), true));
+		$query->set('orderby', array('menu_order' => 'DESC', 'date' => 'DESC'));
+	}
+}); 
 
 add_filter('wp_nav_menu_objects', function( $items, $args ) {
 	
@@ -155,5 +153,45 @@ add_filter('wp_nav_menu_objects', function( $items, $args ) {
 	
 }, 10, 2);
 
+
+add_action('admin_init', 'austeve_theme_updates');
+
+function austeve_theme_updates() {
+
+	if ( get_option('austeve_grant_options_20200909_'.ICL_LANGUAGE_CODE) != '2' ) {
+		error_log("Do the update for each Grant");
+
+		$args = array(
+			'post_type' => 'austeve-programs', 
+			'posts_per_page' => -1
+		);
+
+		$programs = new WP_Query( $args );
+
+		// check if products exists
+		if( $programs->have_posts() ) {
+
+  			// loop products
+			while( $programs->have_posts() ): $programs->the_post();
+				error_log("Updating ".get_the_title());
+  				
+				if( !get_field( 'show_apply_online_button' ) ) {
+					update_field( 'show_apply_online_button', '1' ); /* update field - default to true */
+				}
+
+				if( !get_field( 'show_deadlines' ) ) {
+					update_field( 'show_deadlines', '1' ); /* update field - default to true*/
+				}
+
+			endwhile; 
+
+  			// reset query to default query
+			wp_reset_postdata();
+
+		}
+
+		add_option('austeve_grant_options_20200909_'.ICL_LANGUAGE_CODE, '2');
+	}
+}
 
 

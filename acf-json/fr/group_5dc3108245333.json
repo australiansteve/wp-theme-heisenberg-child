@@ -27,7 +27,7 @@
             {
                 "param": "nav_menu_item",
                 "operator": "==",
-                "value": "25"
+                "value": "location\/social-media-menu"
             }
         ]
     ],
@@ -37,7 +37,7 @@
     "label_placement": "top",
     "instruction_placement": "field",
     "hide_on_screen": "",
-    "active": true,
+    "active": 1,
     "description": "",
-    "modified": 1573064834
+    "modified": 1573153953
 }

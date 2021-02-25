@@ -18,11 +18,17 @@ if (!function_exists('startsWith'))
 ?>
 <script type="text/javascript">
   window.addEventListener('message', event => {
-    if (event.origin.startsWith('https://artsnb.ca') || event.origin.startsWith('http://local.artsnb:8888')) { 
+    if (event.origin.startsWith('https://artsnb.ca') || event.origin.startsWith('http://local.artsnb')) { 
         // Message sent from a trusted site. Data is stored in event.data:
-        //console.log(event.data); 
+        //console.log(event.data.setHeight); 
         iframe = document.getElementById("embeddedFrame");
-        iframe.height = event.data.setHeight + "px";
+        if (event.data.setHeight !== undefined)
+        {
+	        iframe.height = event.data.setHeight + "px";
+	    }
+	    else {
+	    	//console.log('No height given - ignoring');
+	    }
     } else {
         // Ignore - untrusted origin
         return; 
@@ -55,7 +61,7 @@ if (!function_exists('startsWith'))
 
 						//Ensure url to embed is of an allowed domain
 						$isOk = false;
-						$allowedDomains = array("https://artsnb.ca", "https://staging-artsnb.weavercrawford.com", "http://local.artsnb:8888");
+						$allowedDomains = array("https://artsnb.ca", "https://staging-artsnb.weavercrawford.com", "http://local.artsnb");
 						foreach($allowedDomains as $domain)
 						{
 							if (startsWith($urlToEmbed, $domain))

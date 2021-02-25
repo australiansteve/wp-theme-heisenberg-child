@@ -69,31 +69,6 @@ get_header(); ?>
 			endwhile;
 		endif;
 		?>
-		<!-- Apply now will always be the last thing -->
-		<div class="small-12 medium-4 cell">
-			<div class="container austeve-program">
-				<div class="grid-x">
-					<div class="cell small-12 featured-image">
-						<a href="<?php the_field('oa_system_link', 'option');?>">
-							<?php 
-							$image = get_field('grants_page_apply_now_link_image', 'option');
-							$size = 'full'; // (thumbnail, medium, large, full or custom size)
-
-							if( $image ) {
-
-								echo wp_get_attachment_image( $image, $size );
-
-							}
-							?>
-
-						</a>
-					</div>
-					<div class="cell small-12">
-						<h3><a href="<?php the_field('oa_system_link', 'option');?>"><?php the_field('grants_page_apply_button_text', 'option');?></a></h3>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
 <?php

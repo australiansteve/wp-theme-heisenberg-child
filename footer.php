@@ -13,6 +13,24 @@
 				</div><!-- #content -->
 			</main><!-- .grid-container -->
 
+
+			<?php 
+			$footerAnnounccement = get_field('footer_announcement', 'option');
+			
+			if ($footerAnnounccement) :
+			?>
+				<div class="grid-container" id="footer-annnouncement-container" style="background-color: <?php the_field('footer_announcement_background_color', 'option')?>">
+
+						<div class="grid-x" id="announcement" >
+
+							<div class="cell" style="color: <?php the_field('footer_announcement_text_color', 'option')?>">
+								<?php echo $footerAnnounccement;?>
+							</div>
+
+						</div>
+				</div>
+			<?php endif; ?>
+
 			<footer class="grid-container">
 
 				<div class="content-container">

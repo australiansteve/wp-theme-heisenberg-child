@@ -45,16 +45,33 @@ get_header(); ?>
 
 								<?php the_content();?>
 
+								<?php 
+								$showApplyButton = get_field('show_apply_online_button');
+								error_log("showApplyButton: ".print_r($showApplyButton, true));
+								if (get_field('show_apply_online_button')) : ?>
 								<a href="<?php the_field('oa_system_link', 'option');?>" class="button"><?php the_field('grants_page_apply_button_text', 'option');?></a>
+								<?php endif;?>
 							</div>
 							<div class="cell small-12 medium-4 right-column">
 								<div class="grid-x">
-									<div class="cell small-12 small-order-1 medium-order-2 deadlines">
-										<?php echo get_template_part('template-parts/austeve-programs', 'deadlines');?>
-									</div>
+									<?php if (get_field('show_deadlines')) : ?>
+										<div class="cell small-12 small-order-1 medium-order-2 deadlines">
+											<?php echo get_template_part('template-parts/austeve-programs', 'deadlines');?>
+										</div>
+									<?php endif; ?>
 									<div class="cell small-12 small-order-2 medium-order-1 featured-image">
 										<?php echo get_template_part('template-parts/austeve-programs', 'thumbnail');?>
 									</div>
+									<?php 
+									$sidebarContent = get_field('sidebar_content');
+
+									if ($sidebarContent) : ?>
+										<div class="cell small-12 small-order-1 medium-order-2 sidebar-content">
+											<div style="padding: <?php the_field('sidebar_content_padding');?>px; background-color: <?php the_field('sidebar_content_background');?>">
+											<?php echo $sidebarContent; ?>
+											</div>
+										</div>
+									<?php endif; ?>
 								</div>
 							</div>
 

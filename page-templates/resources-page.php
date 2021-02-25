@@ -27,6 +27,12 @@ get_header(); ?>
 				?>
 				<div class="small-12 cell" id="the-content">
 
+					<?php 
+					//Show menu for Toolkit (FR and EN) pages because these aren't linked to from the menus, and might be hard to understand where you're at otherwise
+					if(strpos($_SERVER['REQUEST_URI'], '/toolkit/') !== false || strpos($_SERVER['REQUEST_URI'], '/trousse/') !== false) :
+						the_title('<h1>', '</h1>');
+					endif;
+					?>
 					<?php the_content(); ?>
 
 				</div>
