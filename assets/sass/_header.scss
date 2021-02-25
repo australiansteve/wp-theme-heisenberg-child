@@ -106,13 +106,18 @@ header.grid-container {
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	header.grid-container {
-		margin-top: 1em;
 
 		#header-language-switch {
 			margin-bottom: 1em;
 		}
 
+		img.custom-logo {    
+			margin-bottom: 1em;
+		}
+
 		#header-menu {
+			margin-bottom: 1em;
+
 			.menu {
 
 				li a {
