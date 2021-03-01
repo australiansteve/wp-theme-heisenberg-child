@@ -10,11 +10,21 @@
 		.featured-image {
 			margin-bottom: 0.5rem;
 		}
+
 	}
 }
 
 main .content-container .deadline-front-page a {
 	text-decoration: none;
+}
+
+.single-austeve-programs {
+	.austeve-program {
+
+		.sidebar-content>div {
+			margin: 0 0 1rem 0;
+		}
+	}
 }
 
 
@@ -40,6 +50,12 @@ main .content-container .deadline-front-page a {
 			.left-column {
 				padding-right: 1.5rem;
 			}
+
+
+			.sidebar-content>div {
+				margin: 1rem 0 0 0;
+			}
+
 		}
 	}
 }
