@@ -41,30 +41,6 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5dc30fb11048d",
-                    "label": "Image",
-                    "name": "image",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 237,
-                    "min_height": 135,
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "png,jpg,jpeg"
-                },
-                {
                     "key": "field_5dc30fb110497",
                     "label": "File",
                     "name": "file",
@@ -82,6 +58,30 @@
                     "min_size": "",
                     "max_size": "",
                     "mime_types": "pdf"
+                },
+                {
+                    "key": "field_5dc30fb11048d",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "Featured Report Image should be size: 979 x 563px\r\nOther images should be 237 x 135px",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 237,
+                    "min_height": 135,
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "png,jpg,jpeg"
                 }
             ]
         }
@@ -101,7 +101,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": 1,
     "description": "",
-    "modified": 1573064625
+    "modified": 1614709456
 }

@@ -12,6 +12,7 @@ add_action( 'after_setup_theme', function() {
 	add_image_size( 'homepage_cta', 1024, 580, true);
 	add_image_size( 'program_featured_image', 400, 267, true);
 	add_image_size( 'report_thumbnail', 237, 135, true);
+	add_image_size( 'report_featured', 979, 563, true);
 	add_image_size( 'award_recipient', 700, 300, true);
 	add_image_size( 'medium_cropped', 300, 300, true);
 
