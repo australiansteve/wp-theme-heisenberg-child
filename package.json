@@ -20,7 +20,6 @@
 		"url": "https://github.com/australiansteve/heisenberg-child/issues"
 	},
 	"homepage": "https://github.com/australiansteve/heisenberg-child",
-	"dependencies": {},
 	"devDependencies": {
 		"@babel/core": "^7.3.4",
 		"@babel/polyfill": "^7.0.0",
