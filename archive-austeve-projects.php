@@ -27,11 +27,6 @@ get_header(); ?>
 
 				endwhile;
 
-				the_posts_navigation();
-
-				if( comments_open() || get_comments_number() ) {
-					comments_template();
-				}
 			}
 			else {
 
