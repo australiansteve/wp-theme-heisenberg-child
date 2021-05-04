@@ -1,0 +1,57 @@
+{
+    "key": "group_6087073f55594",
+    "title": "Video Background",
+    "fields": [
+        {
+            "key": "field_608707470a14c",
+            "label": "Video Background Vimeo Id",
+            "name": "video_background_vimeo_id",
+            "type": "text",
+            "instructions": "This should be the 9-digit id that can be seen at the end of the Vimeo video URL",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "austeve-projects"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1620151081
+}

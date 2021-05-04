@@ -21,6 +21,7 @@
 .header-bg {
 	background-size: cover; 
 	background-position: 50% 0%;
+	overflow: hidden;
 }
 
 header {
@@ -29,15 +30,35 @@ header {
 	text-transform: uppercase;
 	padding-top: .625rem;
 	padding-bottom: .625rem;
+	height: 360px;
+	position: relative;
 
-	#page-title {
-		padding-top: 30vh;
+	.text-container {
+		height: 100%;
 	}
 
 	a.custom-logo-link:hover, a.custom-logo-link.focus {
 		opacity: 1;
 	}
 }
+
+.header-bg.video {
+	overflow: hidden;
+
+	iframe {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		height: 360px;
+		width: 640px;
+		-ms-transform: translateX(-50%) translateY(-50%);
+		-moz-transform: translateX(-50%) translateY(-50%);
+		-webkit-transform: translateX(-50%) translateY(-50%);
+		transform: translateX(-50%) translateY(-50%);
+		z-index: -100;
+	}
+}
+
 
 
 /* Small only */
@@ -53,11 +74,22 @@ header {
 @media screen and (min-width: 40em) {
 	
 	header {
-		#page-title {
-			padding-top: 30vh;
-		}
+		height: 650px;
+
 		.custom-logo {
 			max-width: 100px;
+		}
+
+		.text-container {
+			height: calc(100% - 100px);
+    		padding-bottom: 2rem;
+		}
+	}
+
+	.header-bg.video {
+		iframe {
+			height: 720px;
+			width: 1280px;
 		}
 	}
 }
@@ -71,17 +103,50 @@ header {
 @media screen and (min-width: 64em) {
 
 	header {
-		min-height: 100vh;
-		
-		#page-title {
-			padding-top: 50vh;
-		}
+		height: 100vh;
 
 		.custom-logo {
 			max-width: 130px;
 		}
+
+		.text-container {
+			height: calc(100% - 130px);
+    		padding-bottom: 4rem;
+		}
+	}
+
+	.header-bg.video {
+		iframe {
+			height: 1080px;
+			width: 1920px;
+		}
 	}
 }
+
+
+/* Large and up - narrower than 16:9 */
+@media screen and (min-width: 64em) and (max-aspect-ratio: 16/9) {
+
+	.header-bg.video {
+		iframe {
+			height: 100vh;
+		    width: calc(100vh * (16 / 9) );
+		}
+	}
+}
+
+/* Large and up - wider than 16:9 */
+@media screen and (min-width: 64em) and (min-aspect-ratio: 16/9) {
+
+	.header-bg.video {
+		iframe {
+			height: calc(100vw / (16 / 9) );
+		    width: 100vw;
+		}
+	}
+}
+
+
 
 /* Large only */
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {
@@ -95,11 +160,12 @@ header {
 		.custom-logo {
 			max-width: 150px;
 		}
+
+		.text-container {
+			height: calc(100% - 150px);
+		}
 	}
 
-	.header-bg {
-		margin-bottom: 4rem;
-	}
 }
 
 /* > 1920px */
@@ -108,6 +174,10 @@ header {
 	header {
 		.custom-logo {
 			max-width: 160px;
+		}
+
+		.text-container {
+			height: calc(100% - 160px);
 		}
 	}
 
@@ -118,10 +188,11 @@ header {
 
 	header {
 		.custom-logo {
-			max-width: none;
+			max-width: 250px;
 		}
-		#page-title {
-			padding-top: 60vh;
+
+		.text-container {
+			height: calc(100% - 250px);
 		}
 	}
 
@@ -132,9 +203,6 @@ header {
 @media screen and (min-width: 160rem) {
 
 	header {
-		#page-title {
-			padding-top: 65vh;
-		}
 	}
 	
 }
@@ -143,9 +211,6 @@ header {
 @media screen and (min-width: 240rem) {
 
 	header {
-		#page-title {
-			padding-top: 70vh;
-		}
 	}
 
 }
@@ -158,9 +223,6 @@ header {
 	}
 	header {
 		min-height: 0;
-
-		#page-title {
-			padding-top: 50vw;
-		}
 	}
 }
+

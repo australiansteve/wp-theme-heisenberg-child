@@ -83,31 +83,10 @@
 		<div class="off-canvas-opener show-for-medium">	
 			<button type="button" class="button" data-open="offCanvas"><i class="fas fa-bars fa-3x"></i><br/><?php the_field('menu_button_text', 'option');?></button>
 		</div>
+			
+		<?php	
+		echo get_template_part('page-templates/template-parts/header'); 
 
-		<?php
-		/* grab the url for the full size featured image */
-		if (is_tax('project-category')) {
-			//echo get_queried_object()->taxonomy."_".get_queried_object()->term_id;
-			$featured_img_url = get_field('projects_page_background_image', get_queried_object()->taxonomy."_".get_queried_object()->term_id);
-		}
-		elseif (is_archive('austeve-projects')) {
-			$featured_img_url = get_field('projects_page_background_image', 'option');	
-		}
-		elseif (has_post_thumbnail()) {
-			$featured_img_url = get_the_post_thumbnail_url($post->ID, 'full'); 
-		}
-		elseif (is_singular('austeve-projects') && !has_post_thumbnail()) {
-			$featured_img_url = get_field('projects_page_background_image', 'option');	
-		}
-		else {
-			$featured_img_url = get_field('front_page_background_image', 'option');
-		}
-
-		?>
-		<div class="header-bg" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url(<?php echo $featured_img_url; ?>);">
-			<?php echo get_template_part('page-templates/template-parts/header'); ?>
-		</div>
-		<?php
 		if (is_front_page()):
 			?>
 			<?php echo get_template_part('page-templates/template-parts/home-page', 'cta');?>

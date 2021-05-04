@@ -8,7 +8,7 @@
 		if( $image ):
 
 			if ($link):
-				echo "<a href='".$link."'>";
+				echo "<a href='".$link."' target='_blank'>";
 			endif;
 			echo wp_get_attachment_image( $image, $size );
 
