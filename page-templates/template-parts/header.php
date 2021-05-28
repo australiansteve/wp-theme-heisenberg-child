@@ -64,7 +64,7 @@
 		?>
 
 		<div class="text-container">
-			<div class="grid-y align-right" style="height: 100%;">
+			<div class="grid-x">
 				<div class="cell">
 				<?php
 					if (is_tax('project-category')):

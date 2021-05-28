@@ -135,6 +135,11 @@ p.has-medium-font-size::before {
 .red-background {
 	background-color: $red-color;
 }
+
+.hidden { 
+	display: none;
+}
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	
