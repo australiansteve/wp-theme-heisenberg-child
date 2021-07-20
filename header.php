@@ -30,15 +30,14 @@
 
 	<?php
 		$langs = icl_get_languages('skip_missing=1');
-		error_log(print_r($langs, true));
 
 		if (is_array($langs) && count($langs) == 2 && array_key_exists('fr', $langs) && array_key_exists('en', $langs)) :
 			$frLink = $langs['fr']['url'];
 			$enLink = $langs['en']['url'];
-		elseif (count($langs) == 1 && ICL_LANGUAGE_CODE=='fr' && array_key_exists('fr', $langs)) :
-			$frLink = $enLink =$langs['fr']['url'];
-		elseif (count($langs) == 1 && ICL_LANGUAGE_CODE=='en' &&  array_key_exists('en', $langs)) :
-			$frLink = $enLink =$langs['en']['url'];
+		elseif (is_array($langs) && count($langs) == 1 && ICL_LANGUAGE_CODE=='fr' && array_key_exists('fr', $langs)) :
+			$frLink = $enLink = $langs['fr']['url'];
+		elseif (is_array($langs) && count($langs) == 1 && ICL_LANGUAGE_CODE=='en' &&  array_key_exists('en', $langs)) :
+			$frLink = $enLink = $langs['en']['url'];
 		else :
 			$frLink = $enLink = site_url();
 		endif;
