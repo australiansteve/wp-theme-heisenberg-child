@@ -34,7 +34,25 @@ footer {
 	#social-media-menu li:nth-last-of-type(1) {
 		margin-right: 0rem;
 	}
+}
 
+#footer-annnouncement-container {
+
+	#announcement {
+		padding-top: 1rem;
+
+		p, span, a, div {
+			color: inherit;
+		}
+
+		a {
+			text-decoration: underline;
+		}
+
+		a:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 /* Small only */
