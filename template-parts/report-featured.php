@@ -1,7 +1,7 @@
-<div class ="cell small-6 medium-4 report">
+<div class ="cell small-12 report featured">
 		<?php 
 		$image = get_sub_field('image');
-		$size = 'report_thumbnail'; // (thumbnail, medium, large, full or custom size)
+		$size = 'report_featured';
 		
 		?>
 		<h4 class="name">

@@ -31,12 +31,12 @@ get_header(); ?>
 					// check if the repeater field has rows of data
 					if( have_rows('reports') ):
 						?>
-						<div class="grid-x grid-padding-x small-up-2 medium-up-3">
+						<div class="grid-x grid-padding-x">
 							<?php
 		 					// loop through the rows of data
 							while ( have_rows('reports') ) : the_row();
 
-								get_template_part( 'template-parts/report' ); 
+								get_template_part( 'template-parts/report', (get_row_index() == 1 ? 'featured' : '') ); 
 
 							endwhile;
 							?>
