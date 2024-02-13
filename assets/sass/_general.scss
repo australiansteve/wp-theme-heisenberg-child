@@ -48,7 +48,7 @@ main {
 		}
 
 
-		a.button, button, .button-container a {
+		a.button, button, .button-container a, a.wp-block-button__link {
 			background: $black-color;
 			color: $white-color;
 			text-decoration: none;
@@ -58,9 +58,13 @@ main {
 			font-family: 'Cooper-Hewitt-Bold';
 		}
 
-		a.button:hover, button:hover, .button-container a:hover {
+		a.button:hover, button:hover, .button-container a:hover, a.wp-block-button__link:hover {
 			background: $black-color;
 			color: $yellow-color;
+		}
+
+		a.button.narrow, button.narrow, .button-container.narrow a, a.wp-block-button__link.narrow {
+			display: inline-block;
 		}
 
 		#sub-menu {
@@ -161,6 +165,23 @@ p.no-margin-bottom {
 
 html.is-reveal-open body {
     display: contents;
+}
+
+.reveal {
+	input[type="submit"], input[type="button"] {
+			background: $black-color;
+			color: $white-color;
+			text-decoration: none;
+			text-transform: uppercase;
+				font-size: 1.1rem;
+			font-family: 'Cooper-Hewitt-Bold';
+		}
+
+		input[type="submit"]:hover, input[type="button"]:hover {
+			background: $black-color;
+			color: $yellow-color;
+		}
+
 }
 
 .responsive-embed {
