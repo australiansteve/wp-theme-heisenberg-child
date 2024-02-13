@@ -63,7 +63,7 @@ class Dropdown_Foundation_Menu extends Walker {
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         //error_log(sprintf("EL Depth: %s", $depth));
         $output .= sprintf( "\n<li class='%s'><a class='menu-depth-%s' href='%s'%s>%s</a>\n",
-            implode($item->classes, " "),
+            implode(" ", $item->classes),
             $depth,
             $item->url,
             ( $item->object_id === get_the_ID() ) ? ' class="current"' : '',
