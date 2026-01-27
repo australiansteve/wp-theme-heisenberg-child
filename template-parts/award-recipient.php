@@ -31,7 +31,7 @@
 			<div class="cell medium-5 right-column">
 
 				<div class="bio">
-					<?php the_sub_field('bio'); ?>
+					<?php echo get_sub_field('bio'); ?>
 				</div>
 			</div>
 		</div>

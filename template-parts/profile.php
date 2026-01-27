@@ -18,7 +18,7 @@
 			?>
 		</h4>
 		<div class="bio">
-			<?php the_sub_field('bio'); ?>
+			<?php echo get_sub_field('bio'); ?>
 		</div>
 	</div>
 </div>
