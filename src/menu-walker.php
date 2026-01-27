@@ -129,7 +129,7 @@ class EqualSpaceSubMenu extends Walker {
         #endregion 
         
         $output .= sprintf( "\n<li class='cell auto %s'><a href='%s' %s>%s</a></li>\n",
-            implode($item->classes, " "),
+            implode(" ", $item->classes),
             $item->url,
             ( $item->object_id === get_the_ID() ) ? ' class="current"' : '',
             $item->title
