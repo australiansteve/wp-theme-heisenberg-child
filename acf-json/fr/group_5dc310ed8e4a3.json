@@ -20,6 +20,46 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_6544479b8f858",
+            "label": "OA Authentication Endpoint",
+            "name": "vsid_oa_auth_endpoint",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "OA Auth Endpoint",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/artsnb.ca\/oa\/login\/auth.php",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6544479b8f87b",
+            "label": "OA Authentication Verification Endpoint",
+            "name": "vsid_oa_auth_verification",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "OA JWT Auth Verification Endpoint",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/artsnb.ca\/oa\/login\/jwt-auth.php",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
