@@ -11,10 +11,7 @@
 	$trans_id = icl_object_id( $program, get_post_type( $program ), true, ICL_LANGUAGE_CODE );
 
 	if(ICL_LANGUAGE_CODE=='fr'):
-		setlocale(LC_TIME, 'fr_FR.UTF-8');
-		$ordinal = new NumberFormatter('fr_FR', NumberFormatter::ORDINAL);
-		$ordinal = $ordinal->format(date_format($dateobj, "j"));
-		$dateDisplay = strftime("{$ordinal} %B", $dateobj->getTimestamp());
+		$dateDisplay = austeve_french_date($dateobj);
 	else :
 		$dateDisplay = $dateobj->format('F d');
 	endif;

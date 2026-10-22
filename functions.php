@@ -91,6 +91,25 @@ if (!function_exists('endsWith'))
 	}
 }
 
+if (!function_exists('austeve_french_date'))
+{
+	// Formats a date as "1er mars" / "15 mars" without relying on the intl extension or strftime().
+	// Only the 1st gets an ordinal - artsnb do not want "15e".
+	function austeve_french_date($dateobj, $withYear = false)
+	{
+		$months = array('janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre');
+
+		$day = (int) $dateobj->format('j');
+		$display = ($day == 1 ? '1er' : $day) . ' ' . $months[(int) $dateobj->format('n') - 1];
+
+		if ($withYear) {
+			$display .= ' ' . $dateobj->format('Y');
+		}
+
+		return $display;
+	}
+}
+
 add_filter( 'get_the_excerpt', function( $excerpt ) {
 	if (endsWith($excerpt, ' [&hellip;]'))
 	{
