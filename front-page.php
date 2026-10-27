@@ -23,6 +23,13 @@ get_header(); ?>
 
 </div>
 
+<?php
+// Resolve the 'featured' category to its term in the current language, since
+// WPML does not translate slug-based tax_query terms (e.g. FR uses 'en-vedette')
+$featuredCategory = get_category_by_slug('featured');
+$featuredCategoryId = $featuredCategory ? apply_filters('wpml_object_id', $featuredCategory->term_id, 'category', true) : 0;
+?>
+
 <div class="grid-x grid-margin-x" id="feeds" data-equalizer="feeds">
 
 	<div class="small-12 medium-4 cell" id="news">
@@ -42,8 +49,8 @@ get_header(); ?>
 							'tax_query'              => array(
 								array(
 									'taxonomy'         => 'category',
-									'terms'            => 'featured',
-									'field'            => 'slug',
+									'terms'            => $featuredCategoryId,
+									'field'            => 'term_id',
 									'operator'         => 'NOT IN',
 								),
 							),
@@ -99,8 +106,8 @@ get_header(); ?>
 						'tax_query'              => array(
 							array(
 								'taxonomy'         => 'category',
-								'terms'            => 'featured',
-								'field'            => 'slug',
+								'terms'            => $featuredCategoryId,
+								'field'            => 'term_id',
 								'operator'         => 'IN',
 							),
 						),
